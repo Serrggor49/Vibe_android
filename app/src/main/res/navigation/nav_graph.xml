@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splachFragment">
+    <fragment
+        android:id="@+id/sleepFragment"
+        android:name="com.gsu.vibe.presentation.SleepFragment"
+        android:label="fragment_sleep"
+        tools:layout="@layout/fragment_sleep" >
+        <action
+            android:id="@+id/action_sleepFragment_to_tracksListFragment"
+            app:destination="@id/tracksListFragment" />
+        <action
+            android:id="@+id/action_sleepFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tracksListFragment"
+        android:name="com.gsu.vibe.presentation.TracksListFragment"
+        android:label="fragment_tracks_list"
+        tools:layout="@layout/fragment_tracks_list" />
+    <fragment
+        android:id="@+id/playerFragment"
+        android:name="com.gsu.vibe.presentation.PlayerFragment"
+        android:label="fragment_player"
+        tools:layout="@layout/fragment_player" />
+    <fragment
+        android:id="@+id/focusFragment"
+        android:name="com.gsu.vibe.presentation.FocusFragment"
+        android:label="fragment_focus"
+        tools:layout="@layout/fragment_focus" >
+        <action
+            android:id="@+id/action_focusFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/meditationFragment"
+        android:name="com.gsu.vibe.presentation.MeditationFragment"
+        android:label="fragment_meditation"
+        tools:layout="@layout/fragment_meditation" >
+        <action
+            android:id="@+id/action_meditationFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/natureFragment"
+        android:name="com.gsu.vibe.presentation.NatureFragment"
+        android:label="fragment_nature"
+        tools:layout="@layout/fragment_nature" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.gsu.vibe.presentation.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/splachFragment"
+        android:name="com.gsu.vibe.presentation.SplashFragment"
+        android:label="fragment_splach"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splachFragment_to_sleepFragment"
+            app:destination="@id/sleepFragment" />
+    </fragment>
+</navigation>
