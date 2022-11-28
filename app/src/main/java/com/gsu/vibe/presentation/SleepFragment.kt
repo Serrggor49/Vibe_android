@@ -1,5 +1,7 @@
 package com.gsu.vibe.presentation
 
+import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import com.gsu.vibe.R
 import com.gsu.vibe.databinding.FragmentSleepBinding
 
 class SleepFragment : Fragment() {
@@ -32,6 +35,11 @@ class SleepFragment : Fragment() {
 
         init()
         mainViewmodel.visibilityBottomBarLivaData.postValue(true)
+
+
+        val mediaPlayer = MediaPlayer.create(requireActivity(),  Uri.parse("/data/data/com.gsu.vibe/files/audio.mp3"))
+        //val mediaPlayer = MediaPlayer.create(requireActivity(), R.raw.ariya)
+        mediaPlayer.start()
 
     }
 
