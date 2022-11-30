@@ -37,9 +37,8 @@ class SleepFragment : Fragment() {
         mainViewmodel.visibilityBottomBarLivaData.postValue(true)
 
 
-        val mediaPlayer = MediaPlayer.create(requireActivity(),  Uri.parse("/data/data/com.gsu.vibe/files/audio.mp3"))
-        //val mediaPlayer = MediaPlayer.create(requireActivity(), R.raw.ariya)
-        mediaPlayer.start()
+        //val mediaPlayer = MediaPlayer.create(requireActivity(),  Uri.parse("/data/data/com.gsu.vibe/files/audio.mp3"))
+        //mediaPlayer.start()
 
     }
 

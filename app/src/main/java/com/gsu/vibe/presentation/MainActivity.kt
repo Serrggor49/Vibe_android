@@ -42,16 +42,16 @@ class MainActivity : AppCompatActivity(),Playable {
 
     fun testDownload(){
 
-        val urlString = "https://firebasestorage.googleapis.com/v0/b/vibe-3bd24.appspot.com/o/Ария%20-%20Беспечный%20Ангел%20(2).mp3?alt=media&token=e9ae6b4c-bcb7-4625-a963-3cee7e0151ab"
-        DownloadAudioFromUrl(this).execute(urlString)
+//        val urlString = "https://firebasestorage.googleapis.com/v0/b/vibe-3bd24.appspot.com/o/Ария%20-%20Беспечный%20Ангел%20(2).mp3?alt=media&token=e9ae6b4c-bcb7-4625-a963-3cee7e0151ab"
+//        DownloadAudioFromUrl(this).execute(urlString)
 
-        val file = File("/data/data/com.gsu.vibe/files/audio.mp3")
-        val res = file.exists()
-
-
+//        val file = File("/data/data/com.gsu.vibe/files/audio.mp3")
+//        val res = file.exists()
 
 
-        Log.d("MyLogs991", res.toString())
+
+
+//        Log.d("MyLogs991", res.toString())
     }
 
 
