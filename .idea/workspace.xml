@@ -13,12 +13,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09e7f78b-8ef6-4998-ab62-72d2ee931319" name="Changes" comment="добавил возможность скачивания (сохранения во внутренней памяти) и открытия mp3 файла">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/services/DownloadAudioFromUrlNew.kt" afterDir="false" />
+    <list default="true" id="09e7f78b-8ef6-4998-ab62-72d2ee931319" name="Changes" comment="- сделал более плавным завершение трека">
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_play_button_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/data/database/DataBase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/data/database/DataBase.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/PlayerFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/PlayerFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/SleepFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/SleepFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/a1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/b1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/b2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_player.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_player.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_sleep.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_sleep.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +257,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669642322461</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="- сделал более плавным завершение трека">
+      <created>1669805082095</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1669805082095</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -285,6 +298,7 @@
     <MESSAGE value="пофиксил работу таймера в плеере" />
     <MESSAGE value="initial" />
     <MESSAGE value="добавил возможность скачивания (сохранения во внутренней памяти) и открытия mp3 файла" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавил возможность скачивания (сохранения во внутренней памяти) и открытия mp3 файла" />
+    <MESSAGE value="- сделал более плавным завершение трека" />
+    <option name="LAST_COMMIT_MESSAGE" value="- сделал более плавным завершение трека" />
   </component>
 </project>

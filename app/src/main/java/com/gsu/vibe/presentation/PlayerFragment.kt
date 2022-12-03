@@ -56,9 +56,9 @@ class PlayerFragment : Fragment() {
     private val binding
         get() = _binding
 
-    lateinit var mp: MediaPlayer
+    var mp: MediaPlayer? = null
     var mpIsReady = false // если песня загружена, то true. Чтобы при отключении интернета, загруженная песня не слетала
-    var currentSong = mutableListOf(R.raw.ariya)
+   // var currentSong = mutableListOf(R.raw.ariya)
 
 
     override fun onCreateView(
@@ -78,6 +78,10 @@ class PlayerFragment : Fragment() {
         initFields()
         initBackPress()
         initInternetDetector()
+
+
+
+
 //        initBackPress()
 //        initPlayer(currentSong[0])
 //        initFields()
@@ -96,7 +100,9 @@ class PlayerFragment : Fragment() {
             binding.progressBar.visibility = View.VISIBLE
             initSeekBar()
 
-            initPlayer(currentSong[0])
+            //initPlayer()
+            downloadTrack()
+
         }
 
     }
@@ -110,18 +116,41 @@ class PlayerFragment : Fragment() {
         binding.foreground.setImageResource(mainViewModel.currentSound.foreground)
     }
 
+
+    fun downloadTrack() {
+
+        val file = File("$mediaPath${mainViewModel.currentSound.name}")
+        val fileExist = file.exists()
+        if (!fileExist) {
+            CoroutineScope(Dispatchers.IO).launch {
+                //DownloadAudioFromUrlNew.download( fileName = mainViewModel.currentSound.title, urlString = "https://firebasestorage.googleapis.com/v0/b/vibe-3bd24.appspot.com/o/Ария%20-%20Беспечный%20Ангел%20(2).mp3?alt=media&token=e9ae6b4c-bcb7-4625-a963-3cee7e0151ab", context = requireContext())
+                DownloadAudioFromUrlNew.download(
+                    fileName = mainViewModel.currentSound.name,
+                    urlString = mainViewModel.currentSound.url,
+                    context = requireContext()
+                )
+
+                CoroutineScope(Dispatchers.Main).launch {
+                    initPlayer()
+                }
+            }
+        }
+
+        else{
+            initPlayer()
+        }
+
+    }
+
     @SuppressLint("SetTextI18n")
-    fun initPlayer(id: Int) {
-
-        CoroutineScope(Dispatchers.IO).launch {
-            //DownloadAudioFromUrlNew.download( fileName = mainViewModel.currentSound.title, urlString = "https://firebasestorage.googleapis.com/v0/b/vibe-3bd24.appspot.com/o/Ария%20-%20Беспечный%20Ангел%20(2).mp3?alt=media&token=e9ae6b4c-bcb7-4625-a963-3cee7e0151ab", context = requireContext())
-            DownloadAudioFromUrlNew.download( fileName = mainViewModel.currentSound.name, urlString = mainViewModel.currentSound.url, context = requireContext())
-
-//        val file = File("$mediaPath${mainViewModel.currentSound.name}")
-//        val res = file.exists()
+    fun initPlayer() {
 
 
-            CoroutineScope(Dispatchers.Main).launch {
+//        CoroutineScope(Dispatchers.IO).launch {
+//            //DownloadAudioFromUrlNew.download( fileName = mainViewModel.currentSound.title, urlString = "https://firebasestorage.googleapis.com/v0/b/vibe-3bd24.appspot.com/o/Ария%20-%20Беспечный%20Ангел%20(2).mp3?alt=media&token=e9ae6b4c-bcb7-4625-a963-3cee7e0151ab", context = requireContext())
+//            DownloadAudioFromUrlNew.download( fileName = mainViewModel.currentSound.name, urlString = mainViewModel.currentSound.url, context = requireContext())
+//
+//            CoroutineScope(Dispatchers.Main).launch {
                 initTimer(trackTime)
 
                 binding.playerGroup.visibility = View.VISIBLE
@@ -130,65 +159,42 @@ class PlayerFragment : Fragment() {
                             binding.percentage.visibility = View.GONE
 
                 mp = MediaPlayer.create(requireActivity(),  Uri.parse("$mediaPath${mainViewModel.currentSound.name}"))
-                mp.apply {
-                    isLooping = true
+        mp?.apply {
+            isLooping = true
 
-//                    binding.percentage.visibility = View.VISIBLE
+    //                    binding.percentage.visibility = View.VISIBLE
 
-                    mutableLiveData.observe(requireActivity()) {
-                        if (it) {
-                            binding.playButton.setImageResource(R.drawable.ic_pause_button)
-                            timer.start()
-                        } else {
-                            binding.playButton.setImageResource(R.drawable.ic_play_button)
-                            timer.cancel()
-                        }
-                    }
-//
-                    binding.playButton.setOnClickListener {
-                    //    mp?.start()
-                        Log.d("MyLogs991", "playButton")
-
-                        if (mutableLiveData.value == false) {
-                            mp.start()
-                            mutableLiveData.postValue(true)
-                            initSeekBar()
-                        } else {
-                                mp.pause()
-                            mutableLiveData.postValue(false)
-                        }
-
-                        mp.setOnCompletionListener {
-                            mutableLiveData.postValue(false)
-                        }
-
-                        createChannel()
-
-                    }
-////                    mp?.setOnBufferingUpdateListener { mp, percent ->
-////
-////                        binding.percentage.text = "${percent}%"
-////                        if (percent == 100){
-////                            binding.playerGroup.visibility = View.VISIBLE
-////                            binding.progressBar.visibility = View.GONE
-////                            mpIsReady = true
-////                            binding.percentage.visibility = View.GONE
-////                        }
-////
-////                    }
+            mutableLiveData.observe(requireActivity()) {
+                if (it) {
+                    binding.playButton.setImageResource(R.drawable.ic_pause_button_2)
+                    timer.start()
+                } else {
+                    binding.playButton.setImageResource(R.drawable.ic_play_button_2)
+                    timer.cancel()
                 }
             }
+    //
+            binding.playButton.setOnClickListener {
+                //    mp?.start()
+                Log.d("MyLogs991", "playButton")
+
+                if (mutableLiveData.value == false) {
+                    mp?.start()
+                    mutableLiveData.postValue(true)
+                    initSeekBar()
+                } else {
+                    mp?.pause()
+                    mutableLiveData.postValue(false)
+                }
+
+                mp?.setOnCompletionListener {
+                    mutableLiveData.postValue(false)
+                }
+
+                createChannel()
+
+            }
         }
-
-
-
-
-
-//        mp?.setDataSource("https://firebasestorage.googleapis.com/v0/b/vibe-3bd24.appspot.com/o/Ария%20-%20Беспечный%20Ангел%20(2).mp3?alt=media&token=e9ae6b4c-bcb7-4625-a963-3cee7e0151ab")
-//       // mp?.setDataSource("https://drive.google.com/file/d/19oj0uCkvnVxV_JSYm_vRpDWfOosiiJj5/view?usp=sharing")
-//       // mp?.setDataSource("https://cdn.mp3xa.cc/1Utbmu06ADtt2p7-ZzRNOg/1665302993/L21wMy8yMDIwLzA0L9CQ0YDQuNGPIC0g0JHQtdGB0L_QtdGH0L3Ri9C5INCQ0L3Qs9C10LsubXAz")
-
-
 
     }
 
@@ -240,11 +246,11 @@ class PlayerFragment : Fragment() {
                 currentTime = progress
 
                 if (fromUser) {
-                    if (mp.duration != 0){
-                        mp.seekTo(currentTime % (mp.duration))
+                    if (mp?.duration != 0){
+                        mp?.seekTo(currentTime % (mp?.duration!!))
                     }
                     else {
-                        mp.seekTo(0)
+                        mp?.seekTo(0)
                     }
                 }
 
@@ -335,7 +341,7 @@ class PlayerFragment : Fragment() {
                     Log.d("MyLogs3337", "$currentVolume")
 
                     currentVolume -= 0.065f
-                    mp.setVolume(currentVolume, currentVolume)
+                    mp?.setVolume(currentVolume, currentVolume)
                 }
                 //mTextField.setText("seconds remaining: " + millisUntilFinished / 1000)
             }
@@ -360,6 +366,7 @@ class PlayerFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
+
         mp?.pause()
     }
 

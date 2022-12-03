@@ -9,7 +9,7 @@ object DataBase {
         name = "m1",
         title = "Сквозь время",
         subtitle = "Для сна",
-        url = "https://firebasestorage.googleapis.com/v0/b/vibe-3bd24.appspot.com/o/Ария%20-%20Беспечный%20Ангел%20(2).mp3?alt=media&token=e9ae6b4c-bcb7-4625-a963-3cee7e0151ab",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/mn42P1AcLBFG2w",
       //  url = "https://chakris.app/audio/meditation_1.mp3",
         background = R.drawable.sleep_01_1b_quiet_harbor,
         foreground = R.drawable.sleep_01_1f_quiet_harbor,
@@ -20,8 +20,7 @@ object DataBase {
         name = "m2",
         title = "Шопот космоса",
         subtitle = "Для сна",
-      //  url = "https://firebasestorage.googleapis.com/v0/b/vibe-3bd24.appspot.com/o/Ария%20-%20Беспечный%20Ангел%20(2).mp3?alt=media&token=e9ae6b4c-bcb7-4625-a963-3cee7e0151ab",
-        url = "https://chakris.app/audio/meditation_2.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/r4QjsrgnStqI2Q",
         background = R.drawable.sleep_01_2b_endless_space,
         foreground = R.drawable.sleep_01_2f_endless_space,
         sound = R.raw.ariya
@@ -29,19 +28,19 @@ object DataBase {
 
     val meditation3 = SoundModel(
         name = "m3",
-        title = "Гармония",
+        title = "В объятиях близкого",
         subtitle = "Для сна",
-        url = "https://chakris.app/audio/meditation_4.mp3",
-        background = R.drawable.sleep_02_1b_summer_evening,
-        foreground = R.drawable.sleep_02_1f_summer_evening,
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/NlbnvNOIaVTnuw",
+        background = R.drawable.meditation_04_2b,
+        foreground = R.drawable.meditation_04_2f,
         sound = R.raw.ariya
     )
 
     val meditation4 = SoundModel(
         name = "m4",
-        title = "Ночь в пустыне",
+        title = "Пустынная мелодия",
         subtitle = "Для сна",
-        url = "https://chakris.app/audio/meditation_5.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/pjZrHy-WCxWrdg",
         background = R.drawable.sleep_02_2b_calm,
         foreground = R.drawable.sleep_02_2f_calm,
         sound = R.raw.ariya
@@ -50,9 +49,9 @@ object DataBase {
 
     val meditation5 = SoundModel(
         name = "m5",
-        title = "На встречу закату",
+        title = "Навстречу закату",
         subtitle = "Для сна",
-        url = "https://chakris.app/audio/meditation_7.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/pjZrHy-WCxWrdg",
         background = R.drawable.sleep_03_01b_concentration_on_breathing,
         foreground = R.drawable.sleep_03_01f_concentration_on_breathing,
         sound = R.raw.ariya
@@ -61,42 +60,43 @@ object DataBase {
 
     val meditation6 = SoundModel(
         name = "m6",
-        title = "Наедине с вечностью",
+        title = "Последние лучи",
         subtitle = "Для сна",
-        url = "https://chakris.app/audio/meditation_8.mp3",
-        background = R.drawable.sleep_04_1b_milky_way,
-        foreground = R.drawable.sleep_04_1f_milky_way,
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/tp7gPdoYlB07XQ",
+        background = R.drawable.sleep_02_1b_summer_evening,
+        foreground = R.drawable.sleep_03_01f_concentration_on_breathing,
         sound = R.raw.ariya
     )
+
 
     val meditation7 = SoundModel(
         name = "m7",
         title = "Северный огонь",
         subtitle = "Для сна",
-        url = "https://chakris.app/audio/meditation_9.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/K5DbeyrgTCm_og",
         background = R.drawable.sleep_04_2b_northern_lights,
         foreground = R.drawable.sleep_04_2f_northern_lights,
         sound = R.raw.ariya
     )
 
-
     val meditation8 = SoundModel(
         name = "m8",
         title = "Внутренний покой",
         subtitle = "Для сна",
-        url = "https://chakris.app/audio/meditation_11.mp3",
-        background = R.drawable.sleep_05_1b_tara_mantra,
-        foreground = R.drawable.sleep_05_1f_tara_mantra,
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/CTsqIcts5TREvg",
+        background = R.drawable.meditation_06_1b,
+        foreground = R.drawable.meditation_06_1f,
         sound = R.raw.ariya
     )
 
+
     val meditation9 = SoundModel(
         name = "m9",
-        title = "Морская ария",
+        title = "Штиль",
         subtitle = "Для сна",
-        url = "https://chakris.app/audio/meditation_12.mp3",
-        background = R.drawable.sleep_02_1b_song_of_dolphins,
-        foreground = R.drawable.sleep_02_1f_song_of_dolphins,
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/b6rpfodLHrEXUA",
+        background = R.drawable.meditation_09_1b,
+        foreground = R.drawable.meditation_09_1f,
         sound = R.raw.ariya
     )
 
@@ -104,7 +104,7 @@ object DataBase {
         name = "m10",
         title = "Последний луч",
         subtitle = "Для сна",
-        url = "https://chakris.app/audio/meditation_14.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/DyQWbM8zwafSNg",
         background = R.drawable.sleep_02_1b_forest_harmony,
         foreground = R.drawable.sleep_02_1f_forest_harmony,
         sound = R.raw.ariya
@@ -112,20 +112,20 @@ object DataBase {
 
     val meditation11 = SoundModel(
         name = "m11",
-        title = "Четвертая стихия",
+        title = "Уютный вечер",
         subtitle = "Для сна",
-        url = "https://chakris.app/audio/meditation_22.mp3",
-        background = R.drawable.sleep_01_2b_wise_river,
-        foreground = R.drawable.sleep_01_2f_wise_river,
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/sbn70RtOpL2azA",
+        background = R.drawable.focus_01_1b,
+        foreground = R.drawable.nature_03_2f,
         sound = R.raw.ariya
     )
 
     val meditation12 = SoundModel(
         name = "m12",
-        title = "Созерцая вечность",
+        title = "Под звуки вечного",
         subtitle = "Для сна",
-        url = "https://chakris.app/audio/meditation_15.mp3",
-        background = R.drawable.sleep_07_1d_rainy_night,
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/sbn70RtOpL2azA",
+        background = R.drawable.sleep_01_2b_endless_space,
         foreground = R.drawable.sleep_07_1f_rainy_night,
         sound = R.raw.ariya
     )
@@ -134,18 +134,17 @@ object DataBase {
         name = "m13",
         title = "Мир сноведений",
         subtitle = "Для сна",
-        url = "https://chakris.app/audio/meditation_16.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/VnH5mr_CLCIcoA",
         background = R.drawable.sleep_07_2d_peaceful_sleep,
-        foreground = R.drawable.sleep_07_2f_peaceful_sleep_prev,
+        foreground = R.drawable.sleep_07_2f_peaceful_sleep,
         sound = R.raw.ariya
     )
 
-
     val meditation14 = SoundModel(
         name = "m14",
-        title = "Лунный свет",
+        title = "Лунное сияние",
         subtitle = "Для сна",
-        url = "https://chakris.app/audio/meditation_19.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/8C7A5bHBOI7u7Q",
         background = R.drawable.sleep_07_2d_new_moon,
         foreground = R.drawable.sleep_07_2f_new_moon,
         sound = R.raw.ariya
@@ -156,11 +155,14 @@ object DataBase {
         name = "m15",
         title = "Безмятежность",
         subtitle = "Для сна",
-        url = "https://chakris.app/audio/meditation_21.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/GwoK4KP-pWjXSQ\n",
         background = R.drawable.sleep_08_2d_quiet_time,
         foreground = R.drawable.sleep_08_2f_quiet_time,
         sound = R.raw.ariya
     )
+
+
+
 
 
     fun getListForSleep(): List<SoundModel>{
