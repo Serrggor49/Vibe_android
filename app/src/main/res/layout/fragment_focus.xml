@@ -334,7 +334,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/summer_evening_02_01"
+                            android:id="@+id/focus_03_2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
@@ -360,7 +360,7 @@
                                     app:layout_constraintTop_toTopOf="parent" />
 
                                 <ImageView
-                                    android:id="@+id/focus_03_2"
+                                    android:id="@+id/focus_03_2123123"
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
                                     android:adjustViewBounds="true"
@@ -888,7 +888,8 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="6dp"
                 android:layout_marginRight="10dp"
-                android:background="#00090909">
+                android:background="#00090909"
+                android:visibility="gone">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/focus_08_1"
@@ -928,7 +929,7 @@
                             android:layout_marginLeft="-2dp"
                             android:layout_marginRight="-2dp"
                             android:adjustViewBounds="true"
-                            android:scaleType="centerInside"
+                            android:scaleType="centerCrop"
                             app:layout_constraintBottom_toBottomOf="@+id/image214444"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"

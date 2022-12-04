@@ -63,8 +63,8 @@ object DataBase {
         title = "Последние лучи",
         subtitle = "Для сна",
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/tp7gPdoYlB07XQ",
-        background = R.drawable.sleep_02_1b_summer_evening,
-        foreground = R.drawable.sleep_03_01f_concentration_on_breathing,
+        background = R.drawable.meditation_08_2b,
+        foreground = R.drawable.meditation_08_2f,
         sound = R.raw.ariya
     )
 
@@ -155,7 +155,7 @@ object DataBase {
         name = "m15",
         title = "Безмятежность",
         subtitle = "Для сна",
-        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/GwoK4KP-pWjXSQ\n",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/GwoK4KP-pWjXSQ",
         background = R.drawable.sleep_08_2d_quiet_time,
         foreground = R.drawable.sleep_08_2f_quiet_time,
         sound = R.raw.ariya
@@ -170,136 +170,121 @@ object DataBase {
             meditation7, meditation8, meditation9, meditation10, meditation11, meditation12, meditation13, meditation14, meditation15)
     }
 
-
     val  meditation011 = SoundModel(
         name = "meditation011",
-        title = "Безмятежность",
+        title = "Поющие чаши",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_21.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/scOQPiwVncJj5A",
         background = R.drawable.meditation_01_1b,
         foreground = R.drawable.meditation_01_1f,
         sound = R.raw.ariya
     )
 
-
     val meditation021 = SoundModel(
         name = "meditation021",
-        title = "Безмятежность",
+        title = "Дзен путь",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_19.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/lxsnq8YJT2fVjg",
         background = R.drawable.meditation_02_1b,
         foreground = R.drawable.meditation_02_1f,
         sound = R.raw.ariya
     )
 
-
     val meditation022 = SoundModel(
         name = "meditation022",
         title = "Безмятежность",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_16.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/e6uc59wpt97S4A",
         background = R.drawable.meditation_02_2b,
         foreground = R.drawable.meditation_02_2f,
         sound = R.raw.ariya
     )
 
-
     val meditation031 = SoundModel(
         name = "meditation031",
-        title = "Безмятежность",
+        title = "Умиротворение и покой",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_15.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/pdKZwSlpUn9F9Q",
         background = R.drawable.meditation_03_1b,
         foreground = R.drawable.meditation_03_1f,
         sound = R.raw.ariya
     )
 
-
-
     val meditation032 = SoundModel(
         name = "meditation032",
-        title = "Безмятежность",
+        title = "Внутренний баланс",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_22.mp3",
-        background = R.drawable.meditation_03_2b,
-        foreground = R.drawable.meditation_03_2f,
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/SwObM9c-Kf0_Hg",
+        background = R.drawable.nature_01_1b,
+        foreground = R.drawable.nature_01_1f,
         sound = R.raw.ariya
     )
 
-
-
     val meditation041 = SoundModel(
         name = "meditation041",
-        title = "Безмятежность",
+        title = "В гармонии с собой",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_14.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/l5WX69yyQMa2pQ",
         background = R.drawable.meditation_04_1b,
         foreground = R.drawable.meditation_04_1f,
         sound = R.raw.ariya
     )
 
-
-
     val meditation042 = SoundModel(
         name = "meditation042",
-        title = "Безмятежность",
+        title = "Созерцая вечность",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_12.mp3",
-        background = R.drawable.meditation_04_2b,
-        foreground = R.drawable.meditation_04_2f,
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/E-KMSeCfPJu8sQ",
+        background = R.drawable.sleep_02_1b_summer_evening,
+        foreground = R.drawable.sleep_02_1f_summer_evening,
         sound = R.raw.ariya
     )
 
-
-
     val meditation051 = SoundModel(
         name = "meditation051",
-        title = "Безмятежность",
+        title = "Исцеление души",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_11.mp3",
-        background = R.drawable.meditation_05_1b,
-        foreground = R.drawable.meditation_05_1f,
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/NSB1sw-u9cv2rg",
+        background = R.drawable.meditation_08_1b,
+        foreground = R.drawable.nature_07_1f,
         sound = R.raw.ariya
     )
 
     val meditation061 = SoundModel(
         name = "meditation061",
-        title = "Безмятежность",
+        title = "Ом мантра",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_9.mp3",
-        background = R.drawable.meditation_06_1b,
-        foreground = R.drawable.meditation_06_1f,
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/ELUKikadeAZmMA",
+        background = R.drawable.sleep_05_1b_tara_mantra,
+        foreground = R.drawable.sleep_05_1f_tara_mantra,
         sound = R.raw.ariya
     )
 
-
     val meditation062 = SoundModel(
         name = "meditation062",
-        title = "Безмятежность",
+        title = "Анахата мантра",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_8.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/Sm9qd3-yzq1oKg",
         background = R.drawable.meditation_06_2b,
         foreground = R.drawable.meditation_06_2f,
         sound = R.raw.ariya
     )
 
-
     val meditation071 = SoundModel(
         name = "meditation071",
-        title = "Безмятежность",
+        title = "Манипура мантра",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_7.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/rLtuVtnd2tjp6Q",
         background = R.drawable.meditation_07_1b,
         foreground = R.drawable.meditation_07_1f,
         sound = R.raw.ariya
     )
 
-
     val meditation081 = SoundModel(
         name = "meditation081",
-        title = "Безмятежность",
+        title = "Чистый разум",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_5.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/waxOrRX3zrZ57A",
         background = R.drawable.meditation_08_1b,
         foreground = R.drawable.meditation_08_1f,
         sound = R.raw.ariya
@@ -307,11 +292,11 @@ object DataBase {
 
     val meditation082 = SoundModel(
         name = "meditation082",
-        title = "Безмятежность",
+        title = "Наедине с бесконечностью",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_4.mp3",
-        background = R.drawable.meditation_08_2b,
-        foreground = R.drawable.meditation_08_2f,
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/ekQF5tCEpSTOWg",
+        background = R.drawable.sleep_04_1b_milky_way,
+        foreground = R.drawable.sleep_04_1f_milky_way,
         sound = R.raw.ariya
     )
 
@@ -334,12 +319,11 @@ object DataBase {
             meditation081, meditation082, meditation091)
     }
 
-
     val  focus011 = SoundModel(
         name = "focus011",
-        title = "Безмятежность",
+        title = "Концентрация на моменте",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_2.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/bSwNpXRuU40pGA",
         background = R.drawable.focus_01_1b,
         foreground = R.drawable.focus_01_1f,
         sound = R.raw.ariya
@@ -347,9 +331,9 @@ object DataBase {
 
     val  focus021 = SoundModel(
         name = "focus021",
-        title = "Безмятежность",
-        subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_4.mp3",
+        title = "Сила воли",
+        subtitle = "Фокус",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/MR5pCv-t-WSXJA",
         background = R.drawable.focus_02_1b,
         foreground = R.drawable.focus_02_1f,
         sound = R.raw.ariya
@@ -358,31 +342,29 @@ object DataBase {
 
     val  focus022 = SoundModel(
         name = "focus022",
-        title = "Безмятежность",
+        title = "Энергия и гармония",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_5.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/1qJ92aJ7MJzmJw",
         background = R.drawable.focus_02_2b,
         foreground = R.drawable.focus_02_2f,
         sound = R.raw.ariya
     )
 
-
     val  focus031 = SoundModel(
         name = "focus031",
-        title = "Безмятежность",
+        title = "Мечты о большем",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_7.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/x0se-nyXw11-mA",
         background = R.drawable.focus_03_1b,
         foreground = R.drawable.focus_03_1f,
         sound = R.raw.ariya
     )
 
-
     val  focus032 = SoundModel(
         name = "focus032",
-        title = "Безмятежность",
+        title = "Путь к цели",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_8.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/JFek1jvjDIdMUQ",
         background = R.drawable.focus_03_2b,
         foreground = R.drawable.focus_03_2f,
         sound = R.raw.ariya
@@ -390,9 +372,9 @@ object DataBase {
 
     val  focus041 = SoundModel(
         name = "focus041",
-        title = "Безмятежность",
+        title = "Новые горизонты",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_9.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/IYWgirWyOpiXQg",
         background = R.drawable.focus_04_1b,
         foreground = R.drawable.focus_04_1f,
         sound = R.raw.ariya
@@ -401,9 +383,9 @@ object DataBase {
 
     val  focus051 = SoundModel(
         name = "focus051",
-        title = "Безмятежность",
+        title = "Внутренний покой",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_11.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/lBTaAlIP4ub2hg",
         background = R.drawable.focus_05_1b,
         foreground = R.drawable.focus_05_1f,
         sound = R.raw.ariya
@@ -411,14 +393,13 @@ object DataBase {
 
     val  focus052 = SoundModel(
         name = "focus052",
-        title = "Безмятежность",
+        title = "В кругу ближних",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_12.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/1pSW1OO18xo7ZA",
         background = R.drawable.focus_05_2b,
         foreground = R.drawable.focus_05_2f,
         sound = R.raw.ariya
     )
-
 
     val  focus061 = SoundModel(
         name = "focus061",
@@ -432,9 +413,9 @@ object DataBase {
 
     val  focus062 = SoundModel(
         name = "focus062",
-        title = "Безмятежность",
+        title = "Концентрация на задаче",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_22.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/1PE3wQuvtDPcEA",
         background = R.drawable.focus_06_2b,
         foreground = R.drawable.focus_06_2f,
         sound = R.raw.ariya
@@ -442,9 +423,9 @@ object DataBase {
 
     val  focus071 = SoundModel(
         name = "focus071",
-        title = "Безмятежность",
+        title = "Поток",
         subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_15.mp3",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/GsITX11lWUdorQ",
         background = R.drawable.focus_07_1b,
         foreground = R.drawable.focus_07_1f,
         sound = R.raw.ariya
@@ -453,13 +434,12 @@ object DataBase {
     val  focus072 = SoundModel(
         name = "focus072",
         title = "Безмятежность",
-        subtitle = "Медитация",
-        url = "https://chakris.app/audio/meditation_16.mp3",
+        subtitle = "Воображение и креативность",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/k8QAS4NCwUrSjA\n",
         background = R.drawable.focus_07_2b,
         foreground = R.drawable.focus_07_2f,
         sound = R.raw.ariya
     )
-
 
     val  focus081 = SoundModel(
         name = "focus081",
@@ -471,8 +451,6 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-
-
     fun getListForFocus(): List<SoundModel>{
         return listOf(
             focus011, focus021, focus022, focus031, focus032, focus041,
@@ -480,13 +458,170 @@ object DataBase {
             focus072, focus081)
     }
 
+    val  nature011 = SoundModel(
+        name = "nature011",
+        title = "Море и чайки",
+        subtitle = "Медитация",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/nGxIM28kDrb4-Q",
+        background = R.drawable.meditation_03_2b,
+        foreground = R.drawable.meditation_03_2f,
+        sound = R.raw.ariya
+    )
+
+    val  nature012 = SoundModel(
+        name = "nature012",
+        title = "Звуки костра",
+        subtitle = "Медитация",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/u0kEwsyDypyU-g",
+        background = R.drawable.nature_01_2b,
+        foreground = R.drawable.nature_01_2f,
+        sound = R.raw.ariya
+    )
+
+    val nature021 = SoundModel(
+        name = "nature021",
+        title = "Звуки космоса",
+        subtitle = "Медитация",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/zPJUMwUFd2vSTQ",
+        background = R.drawable.nature_02_1b,
+        foreground = R.drawable.nature_02_1f,
+        sound = R.raw.ariya
+    )
+
+    val nature022 = SoundModel(
+        name = "nature022",
+        title = "Песнь кита",
+        subtitle = "Медитация",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/yzEOgdlrkqkwVg",
+        background = R.drawable.sleep_07_2d_peaceful_sleep,
+        foreground = R.drawable.nature_02_2f,
+        sound = R.raw.ariya
+    )
+
+    val  nature031 = SoundModel(
+        name = "nature031",
+        title = "Дождь по крыше",
+        subtitle = "Медитация",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/sl1WHn-MRXmdQg",
+        background = R.drawable.nature_03_1b,
+        foreground = R.drawable.nature_03_1f,
+        sound = R.raw.ariya
+    )
+
+    val  nature032 = SoundModel(
+        name = "nature032",
+        title = "Журчание реки",
+        subtitle = "Медитация",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/yE_spt9_Pe0q7Q",
+        background = R.drawable.sleep_01_2b_wise_river,
+        foreground = R.drawable.sleep_01_2f_wise_river,
+        sound = R.raw.ariya
+    )
+
+    val  nature041 = SoundModel(
+        name = "nature041",
+        title = "Тропические птицы",
+        subtitle = "Медитация",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/N2DsVpmDlYZktg ",
+        background = R.drawable.nature_04_1b,
+        foreground = R.drawable.nature_04_1f,
+        sound = R.raw.ariya
+    )
+
+    val  nature051 = SoundModel(
+        name = "nature051",
+        title = "Мурчание кота",
+        subtitle = "Медитация",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/I8zvvoqbwjdEPg",
+        background = R.drawable.nature_05_1b,
+        foreground = R.drawable.nature_05_1f,
+        sound = R.raw.ariya
+    )
+
+    val  nature052 = SoundModel(
+        name = "nature052",
+        title = "Раскаты грома",
+        subtitle = "Медитация",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/KOttlic86JVBfw",
+        background = R.drawable.nature_05_2b,
+        foreground = R.drawable.nature_05_2f,
+        sound = R.raw.ariya
+    )
+
+    val  nature061 = SoundModel(
+        name = "nature061",
+        title = "Зов джунглей",
+        subtitle = "Медитация",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/DNdXaWjgJYTBdw",
+        background = R.drawable.nature_06_1b,
+        foreground = R.drawable.nature_06_1f,
+        sound = R.raw.ariya
+    )
+
+    val  nature062 = SoundModel(
+        name = "nature062",
+        title = "Ночная вьюга",
+        subtitle = "Медитация",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/-TgeNOUQ3v1ZKg",
+        background = R.drawable.focus_03_1b,
+        foreground = R.drawable.nature_06_2f,
+        sound = R.raw.ariya
+    )
+
+    val  nature071 = SoundModel(
+        name = "nature071",
+        title = "Песнь дельфинов",
+        subtitle = "Медитация",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/rXQOvMdggl0w4A",
+        background = R.drawable.sleep_02_1b_song_of_dolphins,
+        foreground = R.drawable.sleep_02_1f_song_of_dolphins,
+        sound = R.raw.ariya
+    )
+
+    val nature081 = SoundModel(
+        name = "nature081",
+        title = "На берегу озера",
+        subtitle = "Медитация",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/gTPY7Uz9zvSuCw",
+        background = R.drawable.nature_08_1b,
+        foreground = R.drawable.nature_08_1f,
+        sound = R.raw.ariya
+    )
+
+    val nature082 = SoundModel(
+        name = "nature082",
+        title = "Звуки водопада",
+        subtitle = "Медитация",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/jYsdmABC0aplvA",
+        background = R.drawable.nature_08_2b,
+        foreground = R.drawable.nature_08_2f,
+        sound = R.raw.ariya
+    )
+
+    val nature091 = SoundModel(
+        name = "nature091",
+        title = "Ночь в лесу",
+        subtitle = "Медитация",
+        url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/r-l1fReb4UQ_LA",
+        background = R.drawable.nature_09_1b,
+        foreground = R.drawable.nature_09_1f,
+        sound = R.raw.ariya
+    )
+
+    fun getListForNature(): List<SoundModel>{
+        return listOf(
+            nature011, nature012, nature021, nature022, nature031, nature032,
+            nature041, nature051, nature052, nature061, nature062,
+            nature071, nature081, nature082, nature081, nature091)
+    }
 
     fun getAllSounds(): List<SoundModel>{
       val sleepList = getListForSleep()
       val meditationList = getListForMeditaion()
       val focusList = getListForFocus()
+      val natureList = getListForNature()
 
-      val allList = concatenate(sleepList, meditationList, focusList)
+      val allList = concatenate(sleepList, meditationList, focusList, natureList)
 
         return allList
     }

@@ -32,16 +32,16 @@
 
     <ImageButton
         android:id="@+id/playButton"
-        android:layout_width="68dp"
-        android:layout_height="68dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:adjustViewBounds="false"
-        android:alpha="0.7"
+        android:alpha="0.62"
         android:background="#00FFFFFF"
         android:scaleType="fitXY"
         android:src="@drawable/ic_play_button_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/seekBar"
-        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintHorizontal_bias="0.97"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/background"
         app:layout_constraintVertical_bias="0.88" />
@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/foreground"
         app:layout_constraintTop_toBottomOf="@+id/playButton"
-        app:layout_constraintWidth_percent="0.9" />
+        app:layout_constraintWidth_percent="0.935" />
 
     <TextView
         android:id="@+id/trackTimeText"
@@ -83,8 +83,8 @@
         android:id="@+id/subTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="@font/inter_semibold"
+        android:layout_marginBottom="6dp"
+        android:fontFamily="@font/nunito_sans_light"
         android:text="Для сна"
         android:textColor="#C3FFFFFF"
         android:textSize="16sp"
@@ -95,9 +95,10 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_sans_semi_bold"
         android:text="Глубокая медитация"
         android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/subTitle"
         app:layout_constraintStart_toStartOf="@+id/subTitle" />
 
@@ -249,7 +250,7 @@
         android:id="@+id/playerGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:constraint_referenced_ids="seekBar,title,playButton,subTitle,trackTimeText,durationTimeText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

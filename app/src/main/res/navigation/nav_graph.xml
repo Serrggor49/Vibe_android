@@ -48,7 +48,11 @@
         android:id="@+id/natureFragment"
         android:name="com.gsu.vibe.presentation.NatureFragment"
         android:label="fragment_nature"
-        tools:layout="@layout/fragment_nature" />
+        tools:layout="@layout/fragment_nature" >
+        <action
+            android:id="@+id/action_natureFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.gsu.vibe.presentation.FavoriteFragment"

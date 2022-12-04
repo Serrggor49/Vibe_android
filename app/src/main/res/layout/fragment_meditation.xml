@@ -716,7 +716,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Ям мантра 88888"
+                                    android:text="Манипура мантра"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -725,7 +725,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -846,7 +845,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Мантра 777"
+                                    android:text="Анахата мантра"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -855,7 +854,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -191,7 +191,7 @@ class PlayerFragment : Fragment() {
                     mutableLiveData.postValue(false)
                 }
 
-                createChannel()
+              //  createChannel()
 
             }
         }
@@ -300,11 +300,10 @@ class PlayerFragment : Fragment() {
 
     var broadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
-
             val action = intent.extras?.getString("actionName")
             Log.d("MyLogs333", "action = $action")
-
         }
+
     }
 
     fun createChannel(){
@@ -341,6 +340,8 @@ class PlayerFragment : Fragment() {
                     Log.d("MyLogs3337", "$currentVolume")
 
                     currentVolume -= 0.065f
+
+                    if(currentVolume<0) currentVolume = 0f
                     mp?.setVolume(currentVolume, currentVolume)
                 }
                 //mTextField.setText("seconds remaining: " + millisUntilFinished / 1000)

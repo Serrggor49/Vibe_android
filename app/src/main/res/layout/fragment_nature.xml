@@ -76,7 +76,7 @@
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/focus_05_1"
+                            android:id="@+id/nature011"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
@@ -120,7 +120,7 @@
                                     android:fontFamily="@font/inter_semibold"
                                     android:maxLines="2"
                                     android:padding="10dp"
-                                    android:text="Море и чайки 33333"
+                                    android:text="Море и чайки"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -136,7 +136,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/focus_06_1"
+                            android:id="@+id/nature021"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
@@ -197,7 +197,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/focus_07_1"
+                            android:id="@+id/nature031"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
@@ -245,7 +245,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Дождь по крыше3333 "
+                                    android:text="Дождь по крыше"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -270,7 +270,7 @@
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/focus_05_2"
+                            android:id="@+id/nature012"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginBottom="3dp"
@@ -328,7 +328,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/m13_button"
+                            android:id="@+id/nature022"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
@@ -389,7 +389,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/focus_07_2"
+                            android:id="@+id/nature032"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
@@ -463,7 +463,7 @@
                 android:background="#00090909">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/focus_01_1"
+                    android:id="@+id/nature041"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardBackgroundColor="#00FFFFFF"
@@ -549,7 +549,7 @@
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/focus_02_1"
+                            android:id="@+id/nature051"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="3dp"
@@ -608,7 +608,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/focus_03_1"
+                            android:id="@+id/nature061"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
@@ -675,7 +675,7 @@
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/focus_02_2"
+                            android:id="@+id/nature052"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="3dp"
@@ -720,7 +720,7 @@
                                     android:fontFamily="@font/inter_semibold"
                                     android:maxLines="2"
                                     android:padding="10dp"
-                                    android:text="Раскаты грома 88888"
+                                    android:text="Раскаты грома"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -736,7 +736,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/summer_evening_02_01"
+                            android:id="@+id/nature062"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
@@ -815,7 +815,7 @@
                 android:background="#00090909">
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/focus_04_1"
+                    android:id="@+id/nature071"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardBackgroundColor="#00FFFFFF"
@@ -900,7 +900,7 @@
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/focus_02_177"
+                            android:id="@+id/nature081"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="3dp"
@@ -961,7 +961,7 @@
                         </androidx.cardview.widget.CardView>
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/focus_03_188"
+                            android:id="@+id/nature091"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
@@ -1028,7 +1028,7 @@
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
-                            android:id="@+id/summer_evening_02_0155"
+                            android:id="@+id/nature082"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             app:cardCornerRadius="12dp"

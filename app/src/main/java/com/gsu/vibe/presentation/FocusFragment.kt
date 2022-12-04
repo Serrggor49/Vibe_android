@@ -8,10 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
-import com.gsu.vibe.R
 import com.gsu.vibe.databinding.FragmentFocusBinding
-import com.gsu.vibe.databinding.FragmentMeditationBinding
-import com.gsu.vibe.databinding.FragmentSleepBinding
 
 
 class FocusFragment : Fragment() {
@@ -65,7 +62,7 @@ class FocusFragment : Fragment() {
         }
 
         binding.focus032.setOnClickListener {
-            mainViewmodel.setCurrentSound("focus032")
+            mainViewmodel.setCurrentSound("meditation032")
             val action = FocusFragmentDirections.actionFocusFragmentToPlayerFragment()
             view?.findNavController()?.navigate(action)
         }
