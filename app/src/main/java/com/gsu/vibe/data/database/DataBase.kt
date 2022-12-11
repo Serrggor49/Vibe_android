@@ -360,7 +360,7 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-    val  focus032 = SoundModel(
+    val focus032 = SoundModel(
         name = "focus032",
         title = "Путь к цели",
         subtitle = "Медитация",
@@ -370,7 +370,7 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-    val  focus041 = SoundModel(
+    val focus041 = SoundModel(
         name = "focus041",
         title = "Новые горизонты",
         subtitle = "Медитация",
@@ -381,7 +381,7 @@ object DataBase {
     )
 
 
-    val  focus051 = SoundModel(
+    val focus051 = SoundModel(
         name = "focus051",
         title = "Внутренний покой",
         subtitle = "Медитация",
@@ -391,7 +391,7 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-    val  focus052 = SoundModel(
+    val focus052 = SoundModel(
         name = "focus052",
         title = "В кругу ближних",
         subtitle = "Медитация",
@@ -401,7 +401,7 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-    val  focus061 = SoundModel(
+    val focus061 = SoundModel(
         name = "focus061",
         title = "Безмятежность",
         subtitle = "Медитация",
@@ -411,7 +411,7 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-    val  focus062 = SoundModel(
+    val focus062 = SoundModel(
         name = "focus062",
         title = "Концентрация на задаче",
         subtitle = "Медитация",
@@ -431,7 +431,7 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-    val  focus072 = SoundModel(
+    val focus072 = SoundModel(
         name = "focus072",
         title = "Безмятежность",
         subtitle = "Воображение и креативность",
@@ -441,7 +441,7 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-    val  focus081 = SoundModel(
+    val focus081 = SoundModel(
         name = "focus081",
         title = "Безмятежность",
         subtitle = "Медитация",
@@ -458,7 +458,7 @@ object DataBase {
             focus072, focus081)
     }
 
-    val  nature011 = SoundModel(
+    val nature011 = SoundModel(
         name = "nature011",
         title = "Море и чайки",
         subtitle = "Медитация",
@@ -468,7 +468,7 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-    val  nature012 = SoundModel(
+    val nature012 = SoundModel(
         name = "nature012",
         title = "Звуки костра",
         subtitle = "Медитация",
@@ -498,7 +498,7 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-    val  nature031 = SoundModel(
+    val nature031 = SoundModel(
         name = "nature031",
         title = "Дождь по крыше",
         subtitle = "Медитация",
@@ -508,7 +508,7 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-    val  nature032 = SoundModel(
+    val nature032 = SoundModel(
         name = "nature032",
         title = "Журчание реки",
         subtitle = "Медитация",
@@ -518,7 +518,7 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-    val  nature041 = SoundModel(
+    val nature041 = SoundModel(
         name = "nature041",
         title = "Тропические птицы",
         subtitle = "Медитация",
@@ -528,7 +528,7 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-    val  nature051 = SoundModel(
+    val nature051 = SoundModel(
         name = "nature051",
         title = "Мурчание кота",
         subtitle = "Медитация",
@@ -538,7 +538,7 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-    val  nature052 = SoundModel(
+    val nature052 = SoundModel(
         name = "nature052",
         title = "Раскаты грома",
         subtitle = "Медитация",
@@ -548,7 +548,7 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-    val  nature061 = SoundModel(
+    val nature061 = SoundModel(
         name = "nature061",
         title = "Зов джунглей",
         subtitle = "Медитация",
@@ -558,7 +558,7 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-    val  nature062 = SoundModel(
+    val nature062 = SoundModel(
         name = "nature062",
         title = "Ночная вьюга",
         subtitle = "Медитация",
@@ -568,7 +568,7 @@ object DataBase {
         sound = R.raw.ariya
     )
 
-    val  nature071 = SoundModel(
+    val nature071 = SoundModel(
         name = "nature071",
         title = "Песнь дельфинов",
         subtitle = "Медитация",

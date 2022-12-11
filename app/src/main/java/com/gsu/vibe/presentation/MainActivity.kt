@@ -100,6 +100,19 @@ class MainActivity : AppCompatActivity(),Playable {
             findNavController(R.id.fragmentContainerView).navigate(R.id.natureFragment)
         }
 
+        binding.buttonBar4.setOnClickListener {
+            clearNavButtons()
+            binding.buttonBar4Icon.setImageResource(R.drawable.ic_nature_bar_color)
+            findNavController(R.id.fragmentContainerView).navigate(R.id.natureFragment)
+        }
+
+        binding.buttonBar5.setOnClickListener {
+            clearNavButtons()
+            binding.buttonBar5Icon.setImageResource(R.drawable.ic_favorites_bar_color)
+            findNavController(R.id.fragmentContainerView).navigate(R.id.favoriteFragment)
+        }
+
+
     }
 
 
@@ -108,6 +121,7 @@ class MainActivity : AppCompatActivity(),Playable {
         binding.buttonBar2Icon.setImageResource(R.drawable.ic_focus_bar)
         binding.buttonBar3Icon.setImageResource(R.drawable.ic_meditation_bar)
         binding.buttonBar4Icon.setImageResource(R.drawable.ic_nature_bar)
+        binding.buttonBar5Icon.setImageResource(R.drawable.ic_favorites_bar)
     }
 
     override fun onTrackPrevius() {

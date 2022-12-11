@@ -35,7 +35,7 @@
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:adjustViewBounds="false"
-        android:alpha="0.62"
+        android:alpha="0.6"
         android:background="#00FFFFFF"
         android:scaleType="fitXY"
         android:src="@drawable/ic_play_button_2"
@@ -250,7 +250,7 @@
         android:id="@+id/playerGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         app:constraint_referenced_ids="seekBar,title,playButton,subTitle,trackTimeText,durationTimeText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -306,5 +306,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.89" />
+
+    <ImageView
+        android:id="@+id/favoriteButton"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginRight="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/player_favorites_false" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

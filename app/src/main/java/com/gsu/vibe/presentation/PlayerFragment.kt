@@ -27,6 +27,7 @@ import androidx.navigation.fragment.findNavController
 import com.flaviofaria.kenburnsview.RandomTransitionGenerator
 import com.gsu.vibe.ConnectionLiveData
 import com.gsu.vibe.R
+import com.gsu.vibe.data.Repository
 import com.gsu.vibe.databinding.FragmentPlayerBinding
 import com.gsu.vibe.services.DownloadAudioFromUrlNew
 import com.gsu.vibe.services.OnClearFromRecentService
@@ -80,6 +81,7 @@ class PlayerFragment : Fragment() {
         initInternetDetector()
 
 
+        initFavoriteButton()
 
 
 //        initBackPress()
@@ -88,6 +90,30 @@ class PlayerFragment : Fragment() {
 
 //        ininTimePicker()
 
+
+    }
+
+
+    fun initFavoriteButton(){
+
+        val favoriteList =  Repository.getFavoritesSounds(requireContext())
+        Log.d("MyLogs311", favoriteList.toString())
+
+        var status = Repository.getFavoritesStatus(requireContext(), mainViewModel.currentSound.name)
+
+        if (status){
+            binding.favoriteButton.setImageResource(R.drawable.player_favorites_true)
+        }
+        else {
+            binding.favoriteButton.setImageResource(R.drawable.player_favorites_false)
+        }
+
+        binding.favoriteButton.setOnClickListener {
+            Log.d("MyLogs311", "favoriteButton")
+            status = !status
+            Repository.addStatusSoundToFavorites(requireContext(), mainViewModel.currentSound.name, status )
+            initFavoriteButton()
+        }
 
     }
 
