@@ -25,11 +25,20 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="wrap_content"
+            android:id="@+id/previewImageB"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/sleep_01_1b_quiet_harbor_prev" />
+
+        <ImageView
+            android:id="@+id/previewImageF"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="centerInside"
-            app:srcCompat="@drawable/big_back_3648_3648" />
+            android:layout_gravity="bottom"
+            android:adjustViewBounds="true"
+            android:foregroundGravity="bottom"
+            android:scaleType="centerCrop"
+            app:srcCompat="@drawable/sleep_01_1f_quiet_harbor_prev" />
 
     </com.google.android.material.card.MaterialCardView>
 

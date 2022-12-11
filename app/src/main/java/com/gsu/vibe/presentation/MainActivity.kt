@@ -77,39 +77,54 @@ class MainActivity : AppCompatActivity(),Playable {
         }
 
         binding.buttonBar1.setOnClickListener {
-            clearNavButtons()
-            binding.buttonBar1Icon.setImageResource(R.drawable.ic_sleep_bar_color)
-            findNavController(R.id.fragmentContainerView).navigate(R.id.sleepFragment)
+            if (mainViewModel.currentType != MainViewModel.CurrentType.FOR_SLEEP) {
+                mainViewModel.currentType = MainViewModel.CurrentType.FOR_SLEEP
+                clearNavButtons()
+                binding.buttonBar1Icon.setImageResource(R.drawable.ic_sleep_bar_color)
+                findNavController(R.id.fragmentContainerView).navigate(R.id.sleepFragment)
+            }
         }
 
         binding.buttonBar2.setOnClickListener {
-            clearNavButtons()
-            binding.buttonBar2Icon.setImageResource(R.drawable.ic_focus_bar_color)
-            findNavController(R.id.fragmentContainerView).navigate(R.id.focusFragment)
+            if (mainViewModel.currentType != MainViewModel.CurrentType.FOR_FOCUS) {
+                mainViewModel.currentType = MainViewModel.CurrentType.FOR_FOCUS
+                clearNavButtons()
+                binding.buttonBar2Icon.setImageResource(R.drawable.ic_focus_bar_color)
+                findNavController(R.id.fragmentContainerView).navigate(R.id.focusFragment)
+            }
         }
 
         binding.buttonBar3.setOnClickListener {
-            clearNavButtons()
-            binding.buttonBar3Icon.setImageResource(R.drawable.ic_meditation_bar_color)
-            findNavController(R.id.fragmentContainerView).navigate(R.id.meditationFragment)
+            if (mainViewModel.currentType != MainViewModel.CurrentType.FOR_MEDITATION) {
+                mainViewModel.currentType = MainViewModel.CurrentType.FOR_MEDITATION
+                clearNavButtons()
+                binding.buttonBar3Icon.setImageResource(R.drawable.ic_meditation_bar_color)
+                findNavController(R.id.fragmentContainerView).navigate(R.id.meditationFragment)
+            }
         }
 
         binding.buttonBar4.setOnClickListener {
-            clearNavButtons()
-            binding.buttonBar4Icon.setImageResource(R.drawable.ic_nature_bar_color)
-            findNavController(R.id.fragmentContainerView).navigate(R.id.natureFragment)
+            if (mainViewModel.currentType != MainViewModel.CurrentType.NATURE) {
+                mainViewModel.currentType = MainViewModel.CurrentType.NATURE
+                clearNavButtons()
+                binding.buttonBar4Icon.setImageResource(R.drawable.ic_nature_bar_color)
+                findNavController(R.id.fragmentContainerView).navigate(R.id.natureFragment)
+            }
         }
 
-        binding.buttonBar4.setOnClickListener {
-            clearNavButtons()
-            binding.buttonBar4Icon.setImageResource(R.drawable.ic_nature_bar_color)
-            findNavController(R.id.fragmentContainerView).navigate(R.id.natureFragment)
-        }
+//        binding.buttonBar4.setOnClickListener {
+//            clearNavButtons()
+//            binding.buttonBar4Icon.setImageResource(R.drawable.ic_nature_bar_color)
+//            findNavController(R.id.fragmentContainerView).navigate(R.id.natureFragment)
+//        }
 
         binding.buttonBar5.setOnClickListener {
-            clearNavButtons()
-            binding.buttonBar5Icon.setImageResource(R.drawable.ic_favorites_bar_color)
-            findNavController(R.id.fragmentContainerView).navigate(R.id.favoriteFragment)
+            if (mainViewModel.currentType != MainViewModel.CurrentType.FAVORITE) {
+                mainViewModel.currentType = MainViewModel.CurrentType.FAVORITE
+                clearNavButtons()
+                binding.buttonBar5Icon.setImageResource(R.drawable.ic_favorites_bar_color)
+                findNavController(R.id.fragmentContainerView).navigate(R.id.favoriteFragment)
+            }
         }
 
 

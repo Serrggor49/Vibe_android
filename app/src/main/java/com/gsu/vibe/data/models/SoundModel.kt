@@ -8,6 +8,8 @@ data class SoundModel(
     val url: String =  "",
     val background: Int,
     val foreground: Int,
+    val previewF: Int,
+    val previewB: Int,
     val sound: Int,
     val isFavorite: Boolean = false
 

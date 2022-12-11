@@ -60,7 +60,11 @@
         android:id="@+id/favoriteFragment"
         android:name="com.gsu.vibe.presentation.FavoriteFragment"
         android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_playerFragment"
+            app:destination="@id/playerFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splachFragment"
         android:name="com.gsu.vibe.presentation.SplashFragment"

@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.gsu.vibe.R
 import com.gsu.vibe.data.Repository
@@ -44,12 +45,17 @@ class FavoriteFragment : Fragment() {
 
     fun init(){
 
-
         binding.recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.recycler.adapter = FavoritesSoundsAdapter(Repository.getFavoritesSounds(requireContext()))
+        binding.recycler.adapter = FavoritesSoundsAdapter(Repository.getFavoritesSounds(requireContext())) {
+                name -> itemClick(name)
+        }
 
+    }
 
-
+    fun itemClick(name: String){
+        mainViewModel.setCurrentSound(name)
+        val action = FavoriteFragmentDirections.actionFavoriteFragmentToPlayerFragment()
+        view?.findNavController()?.navigate(action)
     }
 
 }

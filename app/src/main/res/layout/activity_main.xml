@@ -72,7 +72,7 @@
                 android:id="@+id/buttonBar1Icon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_sleep_bar" />
+                app:srcCompat="@drawable/ic_sleep_bar_color" />
 
             <TextView
                 android:id="@+id/textView"
