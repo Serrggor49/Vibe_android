@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
+    android:background="#BD3838"
     tools:context=".presentation.PlayerFragment">
 
     <com.flaviofaria.kenburnsview.KenBurnsView
@@ -106,6 +107,7 @@
         android:id="@+id/timerView"
         android:layout_width="0dp"
         android:layout_height="250dp"
+        android:visibility="invisible"
         app:cardBackgroundColor="#77000000"
         app:cardCornerRadius="33dp"
         app:cardElevation="0dp"
@@ -250,7 +252,7 @@
         android:id="@+id/playerGroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="visible"
+        android:visibility="gone"
         app:constraint_referenced_ids="seekBar,title,playButton,subTitle,trackTimeText,durationTimeText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -277,6 +279,7 @@
         android:layout_height="wrap_content"
         android:backgroundTint="#CBE66C00"
         android:text="GO"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/timerView"
         app:layout_constraintEnd_toEndOf="@+id/timerView"
         app:layout_constraintStart_toStartOf="@+id/timerView"

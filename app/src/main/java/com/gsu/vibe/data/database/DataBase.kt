@@ -14,7 +14,7 @@ object DataBase {
         foreground = R.drawable.sleep_01_1f_quiet_harbor,
         previewF = R.drawable.sleep_01_1f_quiet_harbor_prev,
         previewB = R.drawable.sleep_01_1b_quiet_harbor_prev,
-        sound = R.raw.ariya
+        sound = 0
     )
 
     val meditation2 = SoundModel(
@@ -26,7 +26,7 @@ object DataBase {
         foreground = R.drawable.sleep_01_2f_endless_space,
         previewF = R.drawable.sleep_01_2f_endless_space,
         previewB = R.drawable.sleep_01_2b_endless_space,
-        sound = R.raw.ariya
+        sound = 0
     )
 
     val meditation3 = SoundModel(
@@ -37,8 +37,8 @@ object DataBase {
         background = R.drawable.meditation_04_2b,
         foreground = R.drawable.meditation_04_2f,
         previewF = R.drawable.meditation_04_2f_prev,
-        previewB = R.drawable.meditation_04_2f_prev,
-        sound = R.raw.ariya
+        previewB = R.drawable.meditation_04_2b_prev,
+        sound = 0
     )
 
     val meditation4 = SoundModel(
@@ -49,8 +49,8 @@ object DataBase {
         background = R.drawable.sleep_02_2b_calm,
         foreground = R.drawable.sleep_02_2f_calm,
         previewF = R.drawable.sleep_02_2f_calm_prev,
-        previewB = R.drawable.sleep_02_2f_calm_prev,
-        sound = R.raw.ariya
+        previewB = R.drawable.sleep_02_2b_calm_prev,
+        sound = 0
     )
 
 
@@ -62,8 +62,8 @@ object DataBase {
         background = R.drawable.sleep_03_01b_concentration_on_breathing,
         foreground = R.drawable.sleep_03_01f_concentration_on_breathing,
         previewF = R.drawable.sleep_03_01f_concentration_on_breathing,
-        previewB = R.drawable.sleep_03_01f_concentration_on_breathing,
-        sound = R.raw.ariya
+        previewB = R.drawable.sleep_03_01b_concentration_on_breathing,
+        sound = 0
     )
 
 
@@ -75,8 +75,8 @@ object DataBase {
         background = R.drawable.meditation_08_2b,
         foreground = R.drawable.meditation_08_2f,
         previewF = R.drawable.meditation_08_2f_prev,
-        previewB = R.drawable.meditation_08_2f_prev,
-        sound = R.raw.ariya
+        previewB = R.drawable.meditation_08_2b_prev,
+        sound = 0
     )
 
 
@@ -88,8 +88,8 @@ object DataBase {
         background = R.drawable.sleep_04_2b_northern_lights,
         foreground = R.drawable.sleep_04_2f_northern_lights,
         previewF = R.drawable.sleep_04_2f_northern_lights_prev,
-        previewB = R.drawable.sleep_04_2f_northern_lights_prev,
-        sound = R.raw.ariya
+        previewB = R.drawable.sleep_04_2b_northern_lights_prev,
+        sound = 0
     )
 
     val meditation8 = SoundModel(
@@ -100,8 +100,8 @@ object DataBase {
         background = R.drawable.meditation_06_1b,
         foreground = R.drawable.meditation_06_1f,
         previewF = R.drawable.meditation_06_1f_prev,
-        previewB = R.drawable.meditation_06_1f_prev,
-        sound = R.raw.ariya
+        previewB = R.drawable.meditation_06_1b_prev,
+        sound = 0
     )
 
 
@@ -113,8 +113,8 @@ object DataBase {
         background = R.drawable.meditation_09_1b,
         foreground = R.drawable.meditation_09_1f,
         previewF = R.drawable.meditation_09_1f_prev,
-        previewB = R.drawable.meditation_09_1f_prev,
-        sound = R.raw.ariya
+        previewB = R.drawable.meditation_09_1b_prev,
+        sound = 0
     )
 
     val meditation10 = SoundModel(
@@ -125,8 +125,8 @@ object DataBase {
         background = R.drawable.sleep_02_1b_forest_harmony,
         foreground = R.drawable.sleep_02_1f_forest_harmony,
         previewF = R.drawable.sleep_02_1f_forest_harmony_prev,
-        previewB = R.drawable.sleep_02_1f_forest_harmony_prev,
-        sound = R.raw.ariya
+        previewB = R.drawable.sleep_02_1b_forest_harmony_prev,
+        sound = 0
     )
 
     val meditation11 = SoundModel(
@@ -137,8 +137,8 @@ object DataBase {
         background = R.drawable.focus_01_1b,
         foreground = R.drawable.nature_03_2f,
         previewF = R.drawable.nature_03_2f_prev,
-        previewB = R.drawable.nature_03_2f_prev,
-        sound = R.raw.ariya
+        previewB = R.drawable.focus_01_1b_prev,
+        sound = 0
     )
 
     val meditation12 = SoundModel(
@@ -149,8 +149,8 @@ object DataBase {
         background = R.drawable.sleep_01_2b_endless_space,
         foreground = R.drawable.sleep_07_1f_rainy_night,
         previewF = R.drawable.sleep_07_1f_rainy_night_prev,
-        previewB = R.drawable.sleep_07_1f_rainy_night_prev,
-        sound = R.raw.ariya
+        previewB = R.drawable.sleep_07_1d_rainy_night_prev,
+        sound = 0
     )
 
     val meditation13 = SoundModel(
@@ -161,8 +161,8 @@ object DataBase {
         background = R.drawable.sleep_07_2d_peaceful_sleep,
         foreground = R.drawable.sleep_07_2f_peaceful_sleep,
         previewF = R.drawable.sleep_07_2f_peaceful_sleep_prev,
-        previewB = R.drawable.sleep_07_2f_peaceful_sleep_prev,
-        sound = R.raw.ariya
+        previewB = R.drawable.sleep_07_2d_peaceful_sleep_prev,
+        sound = 0
     )
 
     val meditation14 = SoundModel(
@@ -173,8 +173,8 @@ object DataBase {
         background = R.drawable.sleep_07_2d_new_moon,
         foreground = R.drawable.sleep_07_2f_new_moon,
         previewF = R.drawable.sleep_07_2f_new_moon_prev,
-        previewB = R.drawable.sleep_07_2f_new_moon_prev,
-        sound = R.raw.ariya
+        previewB = R.drawable.sleep_07_2d_new_moon_prev,
+        sound = 0
     )
 
 
@@ -186,8 +186,8 @@ object DataBase {
         background = R.drawable.sleep_08_2d_quiet_time,
         foreground = R.drawable.sleep_08_2f_quiet_time,
         previewF = R.drawable.sleep_08_2f_quiet_time_prev,
-        previewB = R.drawable.sleep_08_2f_quiet_time_prev,
-        sound = R.raw.ariya
+        previewB = R.drawable.sleep_08_2d_quiet_time_prev,
+        sound = 0
     )
 
 
@@ -206,9 +206,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/scOQPiwVncJj5A",
         background = R.drawable.meditation_01_1b,
         foreground = R.drawable.meditation_01_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.meditation_01_1f_prev,
+        previewB = R.drawable.meditation_01_1b_prev,
+        sound = 0
     )
 
     val meditation021 = SoundModel(
@@ -218,9 +218,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/lxsnq8YJT2fVjg",
         background = R.drawable.meditation_02_1b,
         foreground = R.drawable.meditation_02_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.meditation_02_1f_prev,
+        previewB = R.drawable.meditation_02_1b_prev,
+        sound = 0
     )
 
     val meditation022 = SoundModel(
@@ -230,9 +230,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/e6uc59wpt97S4A",
         background = R.drawable.meditation_02_2b,
         foreground = R.drawable.meditation_02_2f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.meditation_02_2f_prev,
+        previewB = R.drawable.meditation_02_2b_prev,
+        sound = 0
     )
 
     val meditation031 = SoundModel(
@@ -242,9 +242,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/pdKZwSlpUn9F9Q",
         background = R.drawable.meditation_03_1b,
         foreground = R.drawable.meditation_03_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.meditation_03_1f_prev,
+        previewB = R.drawable.meditation_03_1b_prev,
+        sound = 0
     )
 
     val meditation032 = SoundModel(
@@ -254,9 +254,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/SwObM9c-Kf0_Hg",
         background = R.drawable.nature_01_1b,
         foreground = R.drawable.nature_01_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.nature_01_1f_prev,
+        previewB = R.drawable.nature_01_1b_prev,
+        sound = 0
     )
 
     val meditation041 = SoundModel(
@@ -266,9 +266,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/l5WX69yyQMa2pQ",
         background = R.drawable.meditation_04_1b,
         foreground = R.drawable.meditation_04_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.meditation_04_1f_prev,
+        previewB = R.drawable.meditation_04_1b_prev,
+        sound = 0
     )
 
     val meditation042 = SoundModel(
@@ -278,9 +278,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/E-KMSeCfPJu8sQ",
         background = R.drawable.sleep_02_1b_summer_evening,
         foreground = R.drawable.sleep_02_1f_summer_evening,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.sleep_02_1f_summer_evening_prev,
+        previewB = R.drawable.sleep_02_1b_summer_evening_prev,
+        sound = 0
     )
 
     val meditation051 = SoundModel(
@@ -290,9 +290,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/NSB1sw-u9cv2rg",
         background = R.drawable.meditation_08_1b,
         foreground = R.drawable.nature_07_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.nature_07_1f_prev,
+        previewB = R.drawable.meditation_08_1b_prev,
+        sound = 0
     )
 
     val meditation061 = SoundModel(
@@ -302,9 +302,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/ELUKikadeAZmMA",
         background = R.drawable.sleep_05_1b_tara_mantra,
         foreground = R.drawable.sleep_05_1f_tara_mantra,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.sleep_05_1f_tara_mantra_prev,
+        previewB = R.drawable.sleep_05_1b_tara_mantra_prev,
+        sound = 0
     )
 
     val meditation062 = SoundModel(
@@ -314,9 +314,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/Sm9qd3-yzq1oKg",
         background = R.drawable.meditation_06_2b,
         foreground = R.drawable.meditation_06_2f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.meditation_06_2f_prev,
+        previewB = R.drawable.meditation_06_2b_prev,
+        sound = 0
     )
 
     val meditation071 = SoundModel(
@@ -326,9 +326,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/rLtuVtnd2tjp6Q",
         background = R.drawable.meditation_07_1b,
         foreground = R.drawable.meditation_07_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.meditation_07_1f_prev,
+        previewB = R.drawable.meditation_07_1b_prev,
+        sound = 0
     )
 
     val meditation081 = SoundModel(
@@ -338,9 +338,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/waxOrRX3zrZ57A",
         background = R.drawable.meditation_08_1b,
         foreground = R.drawable.meditation_08_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.meditation_08_1f_prev,
+        previewB = R.drawable.meditation_08_1b_prev,
+        sound = 0
     )
 
     val meditation082 = SoundModel(
@@ -350,9 +350,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/ekQF5tCEpSTOWg",
         background = R.drawable.sleep_04_1b_milky_way,
         foreground = R.drawable.sleep_04_1f_milky_way,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.sleep_04_1f_milky_way_prev,
+        previewB = R.drawable.sleep_04_1b_milky_way_prev,
+        sound = 0
     )
 
 
@@ -363,9 +363,9 @@ object DataBase {
         url = "https://chakris.app/audio/meditation_2.mp3",
         background = R.drawable.meditation_09_1b,
         foreground = R.drawable.meditation_09_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.meditation_09_1f_prev,
+        previewB = R.drawable.meditation_09_1b_prev,
+        sound = 0
     )
 
 
@@ -383,9 +383,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/bSwNpXRuU40pGA",
         background = R.drawable.focus_01_1b,
         foreground = R.drawable.focus_01_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.focus_01_1f_prev,
+        previewB = R.drawable.focus_01_1b_prev,
+        sound = 0
     )
 
     val  focus021 = SoundModel(
@@ -395,9 +395,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/MR5pCv-t-WSXJA",
         background = R.drawable.focus_02_1b,
         foreground = R.drawable.focus_02_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.focus_02_1f_prev,
+        previewB = R.drawable.focus_02_1b_prev,
+        sound = 0
     )
 
 
@@ -408,9 +408,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/1qJ92aJ7MJzmJw",
         background = R.drawable.focus_02_2b,
         foreground = R.drawable.focus_02_2f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.focus_02_2f_prev,
+        previewB = R.drawable.focus_02_2b_prev,
+        sound = 0
     )
 
     val  focus031 = SoundModel(
@@ -420,9 +420,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/x0se-nyXw11-mA",
         background = R.drawable.focus_03_1b,
         foreground = R.drawable.focus_03_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.focus_03_1f_prev,
+        previewB = R.drawable.focus_03_1b_prev,
+        sound = 0
     )
 
     val focus032 = SoundModel(
@@ -432,9 +432,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/JFek1jvjDIdMUQ",
         background = R.drawable.focus_03_2b,
         foreground = R.drawable.focus_03_2f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.focus_03_2f_prev,
+        previewB = R.drawable.focus_03_2b_prev,
+        sound = 0
     )
 
     val focus041 = SoundModel(
@@ -444,9 +444,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/IYWgirWyOpiXQg",
         background = R.drawable.focus_04_1b,
         foreground = R.drawable.focus_04_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.focus_04_1f_prev,
+        previewB = R.drawable.focus_04_1b_prev,
+        sound = 0
     )
 
 
@@ -457,9 +457,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/lBTaAlIP4ub2hg",
         background = R.drawable.focus_05_1b,
         foreground = R.drawable.focus_05_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.focus_05_1f_prev,
+        previewB = R.drawable.focus_05_1b_prev,
+        sound = 0
     )
 
     val focus052 = SoundModel(
@@ -469,9 +469,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/1pSW1OO18xo7ZA",
         background = R.drawable.focus_05_2b,
         foreground = R.drawable.focus_05_2f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.focus_05_2f_prev,
+        previewB = R.drawable.focus_05_2b_prev,
+        sound = 0
     )
 
     val focus061 = SoundModel(
@@ -481,9 +481,9 @@ object DataBase {
         url = "https://chakris.app/audio/meditation_14.mp3",
         background = R.drawable.focus_06_1b,
         foreground = R.drawable.focus_06_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.focus_06_1f_prev,
+        previewB = R.drawable.focus_06_1b_prev,
+        sound = 0
     )
 
     val focus062 = SoundModel(
@@ -493,9 +493,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/1PE3wQuvtDPcEA",
         background = R.drawable.focus_06_2b,
         foreground = R.drawable.focus_06_2f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.focus_06_2f_prev,
+        previewB = R.drawable.focus_06_2b_prev,
+        sound = 0
     )
 
     val  focus071 = SoundModel(
@@ -505,9 +505,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/GsITX11lWUdorQ",
         background = R.drawable.focus_07_1b,
         foreground = R.drawable.focus_07_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.focus_07_1f_prev,
+        previewB = R.drawable.focus_07_1b_prev,
+        sound = 0
     )
 
     val focus072 = SoundModel(
@@ -517,9 +517,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/k8QAS4NCwUrSjA\n",
         background = R.drawable.focus_07_2b,
         foreground = R.drawable.focus_07_2f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.focus_07_2f_prev,
+        previewB = R.drawable.focus_07_2b_prev,
+        sound = 0
     )
 
     val focus081 = SoundModel(
@@ -529,9 +529,9 @@ object DataBase {
         url = "https://chakris.app/audio/meditation_19.mp3",
         background = R.drawable.focus_08_1b,
         foreground = R.drawable.focus_08_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.focus_08_1f_prev,
+        previewB = R.drawable.focus_08_1b_prev,
+        sound = 0
     )
 
     fun getListForFocus(): List<SoundModel>{
@@ -548,9 +548,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/nGxIM28kDrb4-Q",
         background = R.drawable.meditation_03_2b,
         foreground = R.drawable.meditation_03_2f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.meditation_03_2f_prev,
+        previewB = R.drawable.meditation_03_2b_prev,
+        sound = 0
     )
 
     val nature012 = SoundModel(
@@ -560,9 +560,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/u0kEwsyDypyU-g",
         background = R.drawable.nature_01_2b,
         foreground = R.drawable.nature_01_2f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.nature_01_2f_prev,
+        previewB = R.drawable.nature_01_2b_prev,
+        sound = 0
     )
 
     val nature021 = SoundModel(
@@ -572,9 +572,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/zPJUMwUFd2vSTQ",
         background = R.drawable.nature_02_1b,
         foreground = R.drawable.nature_02_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.nature_02_1f_prev,
+        previewB = R.drawable.nature_02_1b_prev,
+        sound = 0
     )
 
     val nature022 = SoundModel(
@@ -584,9 +584,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/yzEOgdlrkqkwVg",
         background = R.drawable.sleep_07_2d_peaceful_sleep,
         foreground = R.drawable.nature_02_2f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.sleep_07_2d_peaceful_sleep_prev,
+        previewB = R.drawable.nature_02_2f_prev,
+        sound = 0
     )
 
     val nature031 = SoundModel(
@@ -596,9 +596,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/sl1WHn-MRXmdQg",
         background = R.drawable.nature_03_1b,
         foreground = R.drawable.nature_03_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.nature_03_1f_prev,
+        previewB = R.drawable.nature_03_1b_prev,
+        sound = 0
     )
 
     val nature032 = SoundModel(
@@ -608,9 +608,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/yE_spt9_Pe0q7Q",
         background = R.drawable.sleep_01_2b_wise_river,
         foreground = R.drawable.sleep_01_2f_wise_river,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.sleep_01_2f_wise_river_prev,
+        previewB = R.drawable.sleep_01_2b_wise_river_prev,
+        sound = 0
     )
 
     val nature041 = SoundModel(
@@ -620,9 +620,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/N2DsVpmDlYZktg ",
         background = R.drawable.nature_04_1b,
         foreground = R.drawable.nature_04_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.nature_04_1f_prev,
+        previewB = R.drawable.nature_04_1b_prev,
+        sound = 0
     )
 
     val nature051 = SoundModel(
@@ -632,9 +632,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/I8zvvoqbwjdEPg",
         background = R.drawable.nature_05_1b,
         foreground = R.drawable.nature_05_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.nature_05_1f_prev,
+        previewB = R.drawable.nature_05_1b_prev,
+        sound = 0
     )
 
     val nature052 = SoundModel(
@@ -644,9 +644,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/KOttlic86JVBfw",
         background = R.drawable.nature_05_2b,
         foreground = R.drawable.nature_05_2f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.nature_05_2f_prev,
+        previewB = R.drawable.nature_05_2b_prev,
+        sound = 0
     )
 
     val nature061 = SoundModel(
@@ -656,9 +656,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/DNdXaWjgJYTBdw",
         background = R.drawable.nature_06_1b,
         foreground = R.drawable.nature_06_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.nature_06_1f_prev,
+        previewB = R.drawable.nature_06_1b_prev,
+        sound = 0
     )
 
     val nature062 = SoundModel(
@@ -668,9 +668,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/-TgeNOUQ3v1ZKg",
         background = R.drawable.focus_03_1b,
         foreground = R.drawable.nature_06_2f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.nature_06_2f_prev,
+        previewB = R.drawable.focus_03_1b_prev,
+        sound = 0
     )
 
     val nature071 = SoundModel(
@@ -680,9 +680,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/rXQOvMdggl0w4A",
         background = R.drawable.sleep_02_1b_song_of_dolphins,
         foreground = R.drawable.sleep_02_1f_song_of_dolphins,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.sleep_02_1f_song_of_dolphins_prev,
+        previewB = R.drawable.sleep_02_1b_song_of_dolphins_prev,
+        sound = 0
     )
 
     val nature081 = SoundModel(
@@ -692,9 +692,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/gTPY7Uz9zvSuCw",
         background = R.drawable.nature_08_1b,
         foreground = R.drawable.nature_08_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.nature_08_1f_prev,
+        previewB = R.drawable.nature_08_1b_prev,
+        sound = 0
     )
 
     val nature082 = SoundModel(
@@ -704,9 +704,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/jYsdmABC0aplvA",
         background = R.drawable.nature_08_2b,
         foreground = R.drawable.nature_08_2f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.nature_08_2f_prev,
+        previewB = R.drawable.nature_08_2b_prev,
+        sound = 0
     )
 
     val nature091 = SoundModel(
@@ -716,9 +716,9 @@ object DataBase {
         url = "https://getfile.dokpub.com/yandex/get/https://disk.yandex.ru/d/r-l1fReb4UQ_LA",
         background = R.drawable.nature_09_1b,
         foreground = R.drawable.nature_09_1f,
-        previewF = R.drawable.sleep_01_2f_endless_space,
-        previewB = R.drawable.sleep_01_2f_endless_space,
-        sound = R.raw.ariya
+        previewF = R.drawable.nature_09_1f_prev,
+        previewB = R.drawable.nature_09_1b_prev,
+        sound = 0
     )
 
     fun getListForNature(): List<SoundModel>{

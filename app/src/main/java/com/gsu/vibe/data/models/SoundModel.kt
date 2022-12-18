@@ -10,7 +10,7 @@ data class SoundModel(
     val foreground: Int,
     val previewF: Int,
     val previewB: Int,
-    val sound: Int,
+    val sound: Int = 0,
     val isFavorite: Boolean = false
 
     )

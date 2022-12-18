@@ -26,7 +26,7 @@ class CreateNotification {
 
         val icon = BitmapFactory.decodeResource(context.resources, R.drawable.focus_01_1f)  // картинка с правой стороны уведомления (например, для обложки трека)
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q){
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
 
             val notificationManagerCompat = NotificationManagerCompat.from(context)
             val mediaSessionCompat = MediaSessionCompat(context, "tag")
@@ -62,18 +62,20 @@ class CreateNotification {
             ////////////////////////////////////////////
             var pendingIntentPlay: PendingIntent? = null
             var drw_play: Int? = null
-//            if (pos == 0){
+//            if (pos != -131){
 //                pendingIntentPlay = null
 //                drw_play = 0
+//                drw_play = R.drawable.ic_play_button
+//
 //            }
-//            else{
+       //     else{
                 val intentPlay = Intent(context, NotificationActionServices::class.java).setAction(ACTION_PLAY)
                 pendingIntentPlay = PendingIntent.getBroadcast(context, 0, intentPlay, PendingIntent.FLAG_UPDATE_CURRENT)
                 drw_play = R.drawable.ic_play_button
- //           }
+         //   }
 
 
-            val   style = androidx.media.app.NotificationCompat.MediaStyle()
+            val style = androidx.media.app.NotificationCompat.MediaStyle()
 
             val notification = NotificationCompat.Builder(context, CHANNEL_ID)
                 .setSmallIcon(R.drawable.ic_focus_bar)
@@ -82,8 +84,8 @@ class CreateNotification {
                 .setLargeIcon(icon)
                 .setOnlyAlertOnce(true)
                 .setShowWhen(false)
-                .addAction(drw_previous, "Previous", pendingIntentPrevious)
-                //                .addAction(drw_play, "Play", pendingIntentPlay)
+                //.addAction(drw_previous, "Previous", pendingIntentPrevious)
+                .addAction(drw_play, "Play", pendingIntentPlay)
                 //                .addAction(drw_next, "Next", pendingIntentNext)
 //                .setStyle(androidx.media.app.NotificationCompat.MediaStyle()
 //                    .setShowActionsInCompactView(0, 1, 2)

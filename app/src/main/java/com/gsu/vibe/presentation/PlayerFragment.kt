@@ -33,11 +33,8 @@ import com.gsu.vibe.services.DownloadAudioFromUrlNew
 import com.gsu.vibe.services.OnClearFromRecentService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import java.io.File
-
-private lateinit var connectionLiveData: ConnectionLiveData
 
 class PlayerFragment : Fragment() {
 
@@ -49,7 +46,6 @@ class PlayerFragment : Fragment() {
     var trackTime = 0
     var currentTime = 0
 
-
     val mutableLiveData = MutableLiveData(false)
     val mainViewModel : MainViewModel by activityViewModels()
 
@@ -59,8 +55,6 @@ class PlayerFragment : Fragment() {
 
     var mp: MediaPlayer? = null
     var mpIsReady = false // если песня загружена, то true. Чтобы при отключении интернета, загруженная песня не слетала
-   // var currentSong = mutableListOf(R.raw.ariya)
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -80,17 +74,7 @@ class PlayerFragment : Fragment() {
         initBackPress()
         initInternetDetector()
 
-
         initFavoriteButton()
-
-
-//        initBackPress()
-//        initPlayer(currentSong[0])
-//        initFields()
-
-//        ininTimePicker()
-
-
     }
 
 
@@ -126,28 +110,30 @@ class PlayerFragment : Fragment() {
             binding.progressBar.visibility = View.VISIBLE
             initSeekBar()
 
-            //initPlayer()
             downloadTrack()
 
         }
 
     }
 
+
     fun initFields(){
         binding.title.text = mainViewModel.currentSound.title
         binding.subTitle.text = mainViewModel.currentSound.subtitle
-       // binding.background.setBackgroundResource(mainViewModel.currentSound.background)
         binding.background.setImageResource(mainViewModel.currentSound.background)
-        //binding.foreground.setBackgroundResource(mainViewModel.currentSound.foreground)
         binding.foreground.setImageResource(mainViewModel.currentSound.foreground)
     }
 
+    fun fileExists() : Boolean{
+        val file = File("$mediaPath${mainViewModel.currentSound.name}")
+        return file.exists()
+    }
 
     fun downloadTrack() {
 
-        val file = File("$mediaPath${mainViewModel.currentSound.name}")
-        val fileExist = file.exists()
-        if (!fileExist) {
+//        val file = File("$mediaPath${mainViewModel.currentSound.name}")
+//        val fileExist = file.exists()
+        if (!fileExists()) {
             CoroutineScope(Dispatchers.IO).launch {
                 //DownloadAudioFromUrlNew.download( fileName = mainViewModel.currentSound.title, urlString = "https://firebasestorage.googleapis.com/v0/b/vibe-3bd24.appspot.com/o/Ария%20-%20Беспечный%20Ангел%20(2).mp3?alt=media&token=e9ae6b4c-bcb7-4625-a963-3cee7e0151ab", context = requireContext())
                 DownloadAudioFromUrlNew.download(
@@ -177,14 +163,14 @@ class PlayerFragment : Fragment() {
 //            DownloadAudioFromUrlNew.download( fileName = mainViewModel.currentSound.name, urlString = mainViewModel.currentSound.url, context = requireContext())
 //
 //            CoroutineScope(Dispatchers.Main).launch {
-                initTimer(trackTime)
+        initTimer(trackTime)
 
-                binding.playerGroup.visibility = View.VISIBLE
-                            binding.progressBar.visibility = View.GONE
-                            mpIsReady = true
-                            binding.percentage.visibility = View.GONE
+        binding.playerGroup.visibility = View.VISIBLE
+        binding.progressBar.visibility = View.GONE
+        mpIsReady = true
+        binding.percentage.visibility = View.GONE
 
-                mp = MediaPlayer.create(requireActivity(),  Uri.parse("$mediaPath${mainViewModel.currentSound.name}"))
+        mp = MediaPlayer.create(requireActivity(),  Uri.parse("$mediaPath${mainViewModel.currentSound.name}"))
         mp?.apply {
             isLooping = true
 
@@ -217,7 +203,7 @@ class PlayerFragment : Fragment() {
                     mutableLiveData.postValue(false)
                 }
 
-              //  createChannel()
+                createChannel()
 
             }
         }
@@ -228,7 +214,6 @@ class PlayerFragment : Fragment() {
     fun initBackground(){
 
         val kbv = binding.background
-        //kbv.setBackgroundResource(mainViewModel.currentSound.background)
         val ACCELERATE_DECELERATE = AccelerateDecelerateInterpolator()
         //val generator = RandomTransitionGenerator(50000, ACCELERATE_DECELERATE)
         val generator = RandomTransitionGenerator(25000, ACCELERATE_DECELERATE)
@@ -279,14 +264,11 @@ class PlayerFragment : Fragment() {
                         mp?.seekTo(0)
                     }
                 }
-
-
             }
+
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
             override fun onStopTrackingTouch(seekBar: SeekBar?) {
-              //  timer.onTick(currentTime.toLong())
-              //  timer.onTick(340183)
-              //  timer.cancel()
+
                 timer.cancel()
                 initTimer(trackTime - currentTime)
                 timer.start()
@@ -304,36 +286,41 @@ class PlayerFragment : Fragment() {
         })
     }
 
-    fun initInternetDetector(){
-        connectionLiveData = ConnectionLiveData(requireActivity())
-        connectionLiveData.observe(viewLifecycleOwner) { isNetworkAvailable ->
-            isNetworkAvailable?.let {
-                if(it || mpIsReady){
-                   // binding.playerGroup.visibility = View.VISIBLE
-                    binding.networkProblems.visibility = View.INVISIBLE
-                }
-                else {
-                    binding.playerGroup.visibility = View.INVISIBLE
-                    binding.networkProblems.visibility = View.VISIBLE
+    fun initInternetDetector() {
 
+      if (mainViewModel.isOnline() || fileExists()){
+          binding.timerView.visibility = View.VISIBLE
+          binding.setTimeButton.visibility = View.VISIBLE
+          binding.networkProblems.visibility = View.INVISIBLE
+      }
 
-                }
-            }
+      else{
+          binding.timerView.visibility = View.INVISIBLE
+          binding.setTimeButton.visibility = View.INVISIBLE
+
+          binding.networkProblems.visibility = View.VISIBLE
         }
     }
-
-
 
     var broadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             val action = intent.extras?.getString("actionName")
-            Log.d("MyLogs333", "action = $action")
-        }
+            Log.d("MyLogs332", "action = $action")
 
+            if (mutableLiveData.value == false) {
+                mp?.start()
+                mutableLiveData.postValue(true)
+                initSeekBar()
+            } else {
+                mp?.pause()
+                mutableLiveData.postValue(false)
+            }
+        }
     }
 
     fun createChannel(){
-        val channel = NotificationChannel("channel1", "pau=pau", NotificationManager.IMPORTANCE_HIGH)
+
+        val channel = NotificationChannel(CreateNotification().CHANNEL_ID, "pau=pau", NotificationManager.IMPORTANCE_HIGH)
         val notificationManager = requireActivity().getSystemService(NotificationManager::class.java)
         notificationManager.createNotificationChannel(channel)
 
@@ -345,16 +332,17 @@ class PlayerFragment : Fragment() {
             )
         )
 
+
+
+
+       // notificationManager.createNotificationChannel(channel)
         CreateNotification().createNotification(requireContext(), 0)
     }
 
 
-    fun initTimer(timeMs : Int){
-//        timer.cancel()
-//        initTimer(trackTime)
-         timer =  object : CountDownTimer(timeMs.toLong(), 1000) {
-//        timer =  object : CountDownTimer(trackTime.toLong(), 1000) {
 
+    fun initTimer(timeMs : Int){
+         timer =  object : CountDownTimer(timeMs.toLong(), 1000) {
             override fun onTick(millisUntilFinished: Long) {
 
 
@@ -368,18 +356,13 @@ class PlayerFragment : Fragment() {
                     currentVolume -= 0.065f
 
                     if(currentVolume<0) currentVolume = 0f
+
                     mp?.setVolume(currentVolume, currentVolume)
                 }
-                //mTextField.setText("seconds remaining: " + millisUntilFinished / 1000)
             }
 
             override fun onFinish() {
-//                mutableLiveData.postValue(false)
-//                mp?.stop()
-//                currentTime = 0
                 currentVolume = 1f
-//                Log.d("MyLogs3337", "Timer onFinish")
-
                 findNavController().popBackStack()
                 mainViewModel.visibilityBottomBarLivaData.postValue(true)
             }
@@ -388,12 +371,13 @@ class PlayerFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
+        if (this::timer.isInitialized) {timer.cancel()}
         mp?.release()
     }
 
     override fun onPause() {
         super.onPause()
-
+        if (this::timer.isInitialized) {timer.cancel()}
         mp?.pause()
     }
 

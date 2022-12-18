@@ -5,5 +5,4 @@ interface Playable {
     fun onTrackPlay()
     fun onTrackPause()
     fun onTrackNext()
-
 }

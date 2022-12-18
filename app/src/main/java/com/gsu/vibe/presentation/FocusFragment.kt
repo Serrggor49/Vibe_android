@@ -62,7 +62,7 @@ class FocusFragment : Fragment() {
         }
 
         binding.focus032.setOnClickListener {
-            mainViewmodel.setCurrentSound("meditation032")
+            mainViewmodel.setCurrentSound("focus032")
             val action = FocusFragmentDirections.actionFocusFragmentToPlayerFragment()
             view?.findNavController()?.navigate(action)
         }
