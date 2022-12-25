@@ -35,6 +35,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
+import kotlin.contracts.contract
 
 class PlayerFragment : Fragment() {
 
@@ -54,7 +55,7 @@ class PlayerFragment : Fragment() {
         get() = _binding
 
     var mp: MediaPlayer? = null
-    var mpIsReady = false // если песня загружена, то true. Чтобы при отключении интернета, загруженная песня не слетала
+    var mpIsReady = false // если песня загружена, то true. Чтобы при отсутствии интернета, загруженная песня не слетала
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -157,12 +158,6 @@ class PlayerFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     fun initPlayer() {
 
-
-//        CoroutineScope(Dispatchers.IO).launch {
-//            //DownloadAudioFromUrlNew.download( fileName = mainViewModel.currentSound.title, urlString = "https://firebasestorage.googleapis.com/v0/b/vibe-3bd24.appspot.com/o/Ария%20-%20Беспечный%20Ангел%20(2).mp3?alt=media&token=e9ae6b4c-bcb7-4625-a963-3cee7e0151ab", context = requireContext())
-//            DownloadAudioFromUrlNew.download( fileName = mainViewModel.currentSound.name, urlString = mainViewModel.currentSound.url, context = requireContext())
-//
-//            CoroutineScope(Dispatchers.Main).launch {
         initTimer(trackTime)
 
         binding.playerGroup.visibility = View.VISIBLE
@@ -174,15 +169,32 @@ class PlayerFragment : Fragment() {
         mp?.apply {
             isLooping = true
 
-    //                    binding.percentage.visibility = View.VISIBLE
-
             mutableLiveData.observe(requireActivity()) {
+
                 if (it) {
+                    Log.d("MyLogs332", "mutableLiveData changed = $it")
+
+                    // CreateNotification().createNotification(requireContext(), 1)
+                   // Log.d("MyLogs332", "createNotification(requireContext(), 1)")
+                    mp?.pause()
+                    //mutableLiveData.postValue(false)
+                    CreateNotification().createNotification(context = requireContext(), pos = 2, nameType = mainViewModel.currentSound.subtitle, trackName = mainViewModel.currentSound.title, backgroundImage = mainViewModel.currentSound.previewB)
+                    timer.cancel()
+
+                    binding.playButton.setImageResource(R.drawable.ic_play_button_2)
+                } else {
+                    Log.d("MyLogs332", "mutableLiveData changed = $it")
+
+                    //  CreateNotification().createNotification(requireContext(), 2)
+                  //  Log.d("MyLogs332", "createNotification(requireContext(), 2)")
+
+                    mp?.start()
+                    //mutableLiveData.postValue(true)
+                    initSeekBar()
+                    CreateNotification().createNotification(context = requireContext(), pos = 1, nameType = mainViewModel.currentSound.subtitle, trackName = mainViewModel.currentSound.title, backgroundImage = mainViewModel.currentSound.previewB)
                     binding.playButton.setImageResource(R.drawable.ic_pause_button_2)
                     timer.start()
-                } else {
-                    binding.playButton.setImageResource(R.drawable.ic_play_button_2)
-                    timer.cancel()
+
                 }
             }
     //
@@ -191,20 +203,23 @@ class PlayerFragment : Fragment() {
                 Log.d("MyLogs991", "playButton")
 
                 if (mutableLiveData.value == false) {
-                    mp?.start()
+//                    mp?.start()
                     mutableLiveData.postValue(true)
-                    initSeekBar()
+//                    initSeekBar()
+//                    CreateNotification().createNotification(requireContext(), 1)
+
                 } else {
-                    mp?.pause()
+//                    mp?.pause()
                     mutableLiveData.postValue(false)
+//                    CreateNotification().createNotification(requireContext(), 2)
+
                 }
 
                 mp?.setOnCompletionListener {
                     mutableLiveData.postValue(false)
                 }
 
-                createChannel()
-
+                configBroadcastReceiver()
             }
         }
 
@@ -305,21 +320,33 @@ class PlayerFragment : Fragment() {
     var broadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
             val action = intent.extras?.getString("actionName")
-            Log.d("MyLogs332", "action = $action")
 
-            if (mutableLiveData.value == false) {
+            if (action == CreateNotification().ACTION_PAUSE){
+                Log.d("MyLogs332", "broadcastReceiver postValue(false)")
+
+                CreateNotification().createNotification(context = requireContext(), pos = 1, nameType = mainViewModel.currentSound.subtitle, trackName = mainViewModel.currentSound.title, backgroundImage = mainViewModel.currentSound.previewB)
+
                 mp?.start()
-                mutableLiveData.postValue(true)
-                initSeekBar()
-            } else {
-                mp?.pause()
                 mutableLiveData.postValue(false)
+
+                timer.start()
+
+            }
+            else if (action == CreateNotification().ACTION_PLAY){
+
+                CreateNotification().createNotification(context = requireContext(), pos = 2, nameType = mainViewModel.currentSound.subtitle, trackName = mainViewModel.currentSound.title, backgroundImage = mainViewModel.currentSound.previewB)
+
+                Log.d("MyLogs332", "broadcastReceiver postValue(true)")
+                mp?.pause()
+                timer.cancel()
+
+                mutableLiveData.postValue(true)
             }
         }
     }
 
-    fun createChannel(){
 
+    fun configBroadcastReceiver(){
         val channel = NotificationChannel(CreateNotification().CHANNEL_ID, "pau=pau", NotificationManager.IMPORTANCE_HIGH)
         val notificationManager = requireActivity().getSystemService(NotificationManager::class.java)
         notificationManager.createNotificationChannel(channel)
@@ -331,20 +358,11 @@ class PlayerFragment : Fragment() {
                 OnClearFromRecentService::class.java
             )
         )
-
-
-
-
-       // notificationManager.createNotificationChannel(channel)
-        CreateNotification().createNotification(requireContext(), 0)
     }
-
-
 
     fun initTimer(timeMs : Int){
          timer =  object : CountDownTimer(timeMs.toLong(), 1000) {
             override fun onTick(millisUntilFinished: Long) {
-
 
                 currentTime += 1000
                 binding.seekBar.progress = currentTime
@@ -373,14 +391,26 @@ class PlayerFragment : Fragment() {
         super.onDestroy()
         if (this::timer.isInitialized) {timer.cancel()}
         mp?.release()
+
+        Log.d("MyLogs332", "onDestroy")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("MyLogs332", "onResume")
+
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        Log.d("MyLogs332", "onDetach")
     }
 
     override fun onPause() {
         super.onPause()
-        if (this::timer.isInitialized) {timer.cancel()}
-        mp?.pause()
+        Log.d("MyLogs332", "onPause")
+//        if (this::timer.isInitialized) {timer.cancel()}
+//        mp?.pause()
     }
-
-
 
 }

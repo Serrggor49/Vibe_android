@@ -5,6 +5,7 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_favorites_bar.xml" value="0.277" />
         <entry key="app/src/main/res/drawable/ic_favorites_bar_color.xml" value="0.277" />
+        <entry key="app/src/main/res/drawable/ic_focus_bar.xml" value="0.3235" />
         <entry key="app/src/main/res/drawable/ic_focus_bar_color.xml" value="0.277" />
         <entry key="app/src/main/res/drawable/ic_pause_button.xml" value="0.3385" />
         <entry key="app/src/main/res/drawable/ic_pause_button_2.xml" value="0.3385" />
