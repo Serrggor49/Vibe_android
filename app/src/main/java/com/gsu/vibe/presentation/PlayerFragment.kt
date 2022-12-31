@@ -7,7 +7,6 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.media.AudioManager
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
@@ -18,14 +17,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.SeekBar
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.navigation.fragment.findNavController
 import com.flaviofaria.kenburnsview.RandomTransitionGenerator
-import com.gsu.vibe.ConnectionLiveData
 import com.gsu.vibe.R
 import com.gsu.vibe.data.Repository
 import com.gsu.vibe.databinding.FragmentPlayerBinding
@@ -35,19 +32,20 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.File
-import kotlin.contracts.contract
 
 class PlayerFragment : Fragment() {
 
-    val mediaPath = "/data/data/com.gsu.vibe/files/"
 
+    var timerState = false  // false - timer не запущен
+
+    val mediaPath = "/data/data/com.gsu.vibe/files/"
     var currentVolume = 1.0f
 
     lateinit var timer : CountDownTimer
-    var trackTime = 0
+    var trackTime = 0  // продолжительность воспроизведения, которую установил пользователь
     var currentTime = 0
 
-    val mutableLiveData = MutableLiveData(false)
+    val stateLiveData = MutableLiveData(false)  // true - плеер в состоянии паузы, false - играет
     val mainViewModel : MainViewModel by activityViewModels()
 
     private lateinit var _binding: FragmentPlayerBinding
@@ -68,8 +66,8 @@ class PlayerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mainViewModel.visibilityBottomBarLivaData.postValue(false)
-        initSetTimeButtom()
+        mainViewModel.visibilityBottomBarLivaData.postValue(false)  // убрали отображене бара
+        initTimerPanel()
         initBackground()
         initFields()
         initBackPress()
@@ -102,13 +100,14 @@ class PlayerFragment : Fragment() {
 
     }
 
-    fun initSetTimeButtom(){
+    fun initTimerPanel(){
 
         binding.setTimeButton.setOnClickListener{
 
             binding.timerView.visibility = View.GONE
             binding.setTimeButton.visibility = View.GONE
             binding.progressBar.visibility = View.VISIBLE
+
             initSeekBar()
 
             downloadTrack()
@@ -132,11 +131,8 @@ class PlayerFragment : Fragment() {
 
     fun downloadTrack() {
 
-//        val file = File("$mediaPath${mainViewModel.currentSound.name}")
-//        val fileExist = file.exists()
-        if (!fileExists()) {
+        if (!fileExists()) {  // если трека с таким имени нет в памяти, то скачиваем
             CoroutineScope(Dispatchers.IO).launch {
-                //DownloadAudioFromUrlNew.download( fileName = mainViewModel.currentSound.title, urlString = "https://firebasestorage.googleapis.com/v0/b/vibe-3bd24.appspot.com/o/Ария%20-%20Беспечный%20Ангел%20(2).mp3?alt=media&token=e9ae6b4c-bcb7-4625-a963-3cee7e0151ab", context = requireContext())
                 DownloadAudioFromUrlNew.download(
                     fileName = mainViewModel.currentSound.name,
                     urlString = mainViewModel.currentSound.url,
@@ -162,65 +158,55 @@ class PlayerFragment : Fragment() {
 
         binding.playerGroup.visibility = View.VISIBLE
         binding.progressBar.visibility = View.GONE
-        mpIsReady = true
         binding.percentage.visibility = View.GONE
+
+        mpIsReady = true
 
         mp = MediaPlayer.create(requireActivity(),  Uri.parse("$mediaPath${mainViewModel.currentSound.name}"))
         mp?.apply {
-            isLooping = true
 
-            mutableLiveData.observe(requireActivity()) {
+            isLooping = true // плеер зациклен, играет трек по кругу
+
+            stateLiveData.observe(requireActivity()) {
+                Log.d("MyLogs332", "mutableLiveData changed = $it")
 
                 if (it) {
-                    Log.d("MyLogs332", "mutableLiveData changed = $it")
-
-                    // CreateNotification().createNotification(requireContext(), 1)
-                   // Log.d("MyLogs332", "createNotification(requireContext(), 1)")
                     mp?.pause()
-                    //mutableLiveData.postValue(false)
                     CreateNotification().createNotification(context = requireContext(), pos = 2, nameType = mainViewModel.currentSound.subtitle, trackName = mainViewModel.currentSound.title, backgroundImage = mainViewModel.currentSound.previewB)
                     timer.cancel()
+                    timerState = false
 
                     binding.playButton.setImageResource(R.drawable.ic_play_button_2)
                 } else {
-                    Log.d("MyLogs332", "mutableLiveData changed = $it")
-
-                    //  CreateNotification().createNotification(requireContext(), 2)
-                  //  Log.d("MyLogs332", "createNotification(requireContext(), 2)")
-
                     mp?.start()
-                    //mutableLiveData.postValue(true)
                     initSeekBar()
                     CreateNotification().createNotification(context = requireContext(), pos = 1, nameType = mainViewModel.currentSound.subtitle, trackName = mainViewModel.currentSound.title, backgroundImage = mainViewModel.currentSound.previewB)
                     binding.playButton.setImageResource(R.drawable.ic_pause_button_2)
-                    timer.start()
 
+                    if (!timerState){
+                        timer.start()
+                        timerState = true
+                    }
                 }
             }
-    //
+
             binding.playButton.setOnClickListener {
-                //    mp?.start()
                 Log.d("MyLogs991", "playButton")
 
-                if (mutableLiveData.value == false) {
-//                    mp?.start()
-                    mutableLiveData.postValue(true)
-//                    initSeekBar()
-//                    CreateNotification().createNotification(requireContext(), 1)
-
+                if (stateLiveData.value == false) {
+                    stateLiveData.postValue(true)
                 } else {
-//                    mp?.pause()
-                    mutableLiveData.postValue(false)
-//                    CreateNotification().createNotification(requireContext(), 2)
-
+                    stateLiveData.postValue(false)
                 }
 
-                mp?.setOnCompletionListener {
-                    mutableLiveData.postValue(false)
-                }
+//                mp?.setOnCompletionListener {
+//                    stateLiveData.postValue(false)
+//                }
 
-                configBroadcastReceiver()
+//                configBroadcastReceiver()
             }
+
+            configBroadcastReceiver()
         }
 
     }
@@ -237,6 +223,7 @@ class PlayerFragment : Fragment() {
     }
 
 
+    // передаем время в мс, получаем стрингу со временем в удобном для отображения формате
     fun getFormtTime(ms: Int) : String{
 
         val hour = (ms / 1000 / 60 / 60).toString()
@@ -256,17 +243,14 @@ class PlayerFragment : Fragment() {
 
     fun initSeekBar() {
 
-        val hours = binding.numberPickerHours.value.toString().toInt()
-        val minutes = binding.numberPickerMin.value.toString().toInt()
-
-        trackTime = ((hours*60) + minutes)*60*1000
+        trackTime = ((binding.numberPickerHours.value*60) + binding.numberPickerMin.value)*60*1000
         binding.trackTimeText.text = getFormtTime(trackTime)
 
         binding.seekBar.max = trackTime
+
         binding.seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             @SuppressLint("SetTextI18n")
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                //initTimer(trackTime)
 
                 binding.durationTimeText.text = getFormtTime(progress)
                 currentTime = progress
@@ -282,11 +266,17 @@ class PlayerFragment : Fragment() {
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
 
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
                 timer.cancel()
+                timerState = false
+
                 initTimer(trackTime - currentTime)
-                timer.start()
+
+                if (!timerState){
+                    timer.start()
+                    timerState = true
+                }
             }
 
         })
@@ -322,25 +312,35 @@ class PlayerFragment : Fragment() {
             val action = intent.extras?.getString("actionName")
 
             if (action == CreateNotification().ACTION_PAUSE){
-                Log.d("MyLogs332", "broadcastReceiver postValue(false)")
 
                 CreateNotification().createNotification(context = requireContext(), pos = 1, nameType = mainViewModel.currentSound.subtitle, trackName = mainViewModel.currentSound.title, backgroundImage = mainViewModel.currentSound.previewB)
 
                 mp?.start()
-                mutableLiveData.postValue(false)
+                stateLiveData.postValue(false)
 
-                timer.start()
+                if (!timerState){
+                    timer.start()
+                    timerState = true
+                }
 
+                //timerState = false
+                Log.d("MyLogs332", "testState = ${timerState}")
             }
             else if (action == CreateNotification().ACTION_PLAY){
 
                 CreateNotification().createNotification(context = requireContext(), pos = 2, nameType = mainViewModel.currentSound.subtitle, trackName = mainViewModel.currentSound.title, backgroundImage = mainViewModel.currentSound.previewB)
 
-                Log.d("MyLogs332", "broadcastReceiver postValue(true)")
                 mp?.pause()
                 timer.cancel()
+                timerState = false
 
-                mutableLiveData.postValue(true)
+
+                // таймер продолжает работать, если свернуть приложение. Но если нажать паузу в фоне, то таймер продолжит тикать
+
+                stateLiveData.postValue(true)
+
+                //timerState = true
+                Log.d("MyLogs332", "testState = ${timerState}")
             }
         }
     }
@@ -366,15 +366,12 @@ class PlayerFragment : Fragment() {
 
                 currentTime += 1000
                 binding.seekBar.progress = currentTime
-                Log.d("MyLogs3335", "millisUntilFinished = $millisUntilFinished")
+                //Log.d("MyLogs3335", "millisUntilFinished = $millisUntilFinished")
 
                 if(millisUntilFinished<15000){
                     Log.d("MyLogs3337", "$currentVolume")
-
                     currentVolume -= 0.065f
-
                     if(currentVolume<0) currentVolume = 0f
-
                     mp?.setVolume(currentVolume, currentVolume)
                 }
             }
@@ -389,7 +386,10 @@ class PlayerFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        if (this::timer.isInitialized) {timer.cancel()}
+        if (this::timer.isInitialized) {
+            timer.cancel()
+            timerState = false
+        }
         mp?.release()
 
         Log.d("MyLogs332", "onDestroy")
