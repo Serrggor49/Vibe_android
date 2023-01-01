@@ -347,7 +347,7 @@ class PlayerFragment : Fragment() {
 
 
     fun configBroadcastReceiver(){
-        val channel = NotificationChannel(CreateNotification().CHANNEL_ID, "pau=pau", NotificationManager.IMPORTANCE_HIGH)
+        val channel = NotificationChannel(CreateNotification().CHANNEL_ID, "pau=pau", NotificationManager.IMPORTANCE_LOW)
         val notificationManager = requireActivity().getSystemService(NotificationManager::class.java)
         notificationManager.createNotificationChannel(channel)
 
