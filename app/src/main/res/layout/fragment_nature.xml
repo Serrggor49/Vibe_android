@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00C86060"
     android:elevation="0dp"
     tools:context=".presentation.NatureFragment">
 
@@ -33,30 +34,47 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="45dp"
             android:layout_marginBottom="30dp"
             android:orientation="vertical"
             android:overScrollMode="never"
             android:paddingBottom="100dp">
 
-            <TextView
-                android:id="@+id/textView6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginBottom="15dp"
-                android:fontFamily="@font/inter_semibold"
-                android:gravity="left"
-                android:text="фокус"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp" />
+                android:layout_marginRight="15dp">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_semibold"
+                    android:gravity="left"
+                    android:text="природа"
+                    android:textColor="#FFFFFF"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_favorites_bar"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="6dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp">
 
                 <LinearLayout

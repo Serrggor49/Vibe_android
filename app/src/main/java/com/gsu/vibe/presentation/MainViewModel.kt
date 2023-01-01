@@ -21,6 +21,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     var currentType = CurrentType.FOR_SLEEP
 
     val visibilityBottomBarLivaData = MutableLiveData(true) // отвечает за показ бара на главном экране
+    val openFavoriteLivaData = MutableLiveData(true) // отвечает за открытие окна с изабранными аудиозаписями
 
     val repository: Repository = Repository
 

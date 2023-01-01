@@ -41,6 +41,9 @@ class MainActivity : AppCompatActivity(),Playable {
 
 
     fun initBar() {
+
+
+
         mainViewModel.visibilityBottomBarLivaData.observe(this) {
             if (it) {
                 binding.bottomBar.visibility = View.VISIBLE
@@ -108,6 +111,15 @@ class MainActivity : AppCompatActivity(),Playable {
                 mainViewModel.currentType = MainViewModel.CurrentType.FAVORITE
                 clearNavButtons()
                 binding.buttonBar5Icon.setImageResource(R.drawable.ic_favorites_bar_color)
+                findNavController(R.id.fragmentContainerView).navigate(R.id.favoriteFragment)
+            }
+        }
+
+
+        binding.favoriteButton.setOnClickListener {
+            if (mainViewModel.currentType != MainViewModel.CurrentType.FAVORITE) {
+                mainViewModel.currentType = MainViewModel.CurrentType.FAVORITE
+                clearNavButtons()
                 findNavController(R.id.fragmentContainerView).navigate(R.id.favoriteFragment)
             }
         }

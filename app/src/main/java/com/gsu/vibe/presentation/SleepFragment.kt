@@ -135,6 +135,12 @@ class SleepFragment : Fragment() {
             val action = SleepFragmentDirections.actionSleepFragmentToPlayerFragment()
             view?.findNavController()?.navigate(action)
         }
+
+        binding.imageView3.setOnClickListener {
+            val action = SleepFragmentDirections.actionSleepFragmentToPlayerFragment()
+            view?.findNavController()?.navigate(action)
+        }
+
 //        binding.quietHarbor01100.setOnClickListener {
 //            mainViewmodel.setCurrentSound("m7")
 //            val action = SleepFragmentDirections.actionSleepFragmentToPlayerFragment()
