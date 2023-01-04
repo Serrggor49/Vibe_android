@@ -181,7 +181,7 @@ class PlayerFragment : Fragment() {
                     mp?.start()
                     initSeekBar()
                     CreateNotification().createNotification(context = requireContext(), pos = 1, nameType = mainViewModel.currentSound.subtitle, trackName = mainViewModel.currentSound.title, backgroundImage = mainViewModel.currentSound.previewB)
-                    binding.playButton.setImageResource(R.drawable.ic_pause_button_2)
+                    binding.playButton.setImageResource(R.drawable.ic_pause_button)
 
                     if (!timerState){
                         timer.start()
