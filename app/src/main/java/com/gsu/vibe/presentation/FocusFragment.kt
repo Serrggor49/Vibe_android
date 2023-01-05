@@ -37,6 +37,10 @@ class FocusFragment : Fragment() {
     fun init() {
         Log.d("MyLogs", "button11")
 
+        binding.openFavoritesButton.setOnClickListener {
+            mainViewmodel.openFavoriteLivaData.postValue(true)
+        }
+
         binding.focus011.setOnClickListener {
             mainViewmodel.setCurrentSound("focus011")
             val action = FocusFragmentDirections.actionFocusFragmentToPlayerFragment()

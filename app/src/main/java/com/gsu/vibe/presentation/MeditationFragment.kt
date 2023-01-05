@@ -37,6 +37,10 @@ class MeditationFragment : Fragment() {
     fun init() {
         Log.d("MyLogs", "button11")
 
+        binding.openFavoritesButton.setOnClickListener {
+            mainViewmodel.openFavoriteLivaData.postValue(true)
+        }
+
         binding.meditation011.setOnClickListener {
             mainViewmodel.setCurrentSound("meditation011")
             val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()

@@ -21,7 +21,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     var currentType = CurrentType.FOR_SLEEP
 
     val visibilityBottomBarLivaData = MutableLiveData(true) // отвечает за показ бара на главном экране
-    val openFavoriteLivaData = MutableLiveData(true) // отвечает за открытие окна с изабранными аудиозаписями в
+
+    val openFavoriteLivaData = MutableLiveData(false) // отвечает за открытие окна с избранными аудиозаписями
 
     val repository: Repository = Repository
 
@@ -54,7 +55,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     enum class CurrentType {
-        FOR_SLEEP, FOR_MEDITATION, FOR_FOCUS, NATURE, FAVORITE
+        FOR_SLEEP, FOR_MEDITATION, FOR_FOCUS, NATURE, MIXER, FAVORITE
     }
 
 }

@@ -34,15 +34,26 @@ class MainActivity : AppCompatActivity(),Playable {
 
         initBar()
 
+        initFavorite()
+
+    }
+
+
+    fun initFavorite(){
+
+        mainViewModel.openFavoriteLivaData.observe(this){
+            if (true){
+                clearNavButtons()
+                mainViewModel.currentType = MainViewModel.CurrentType.FAVORITE
+                findNavController(R.id.fragmentContainerView).navigate(R.id.favoriteFragment)
+            }
+        }
     }
 
 
 
 
-
     fun initBar() {
-
-
 
         mainViewModel.visibilityBottomBarLivaData.observe(this) {
             if (it) {
@@ -107,11 +118,12 @@ class MainActivity : AppCompatActivity(),Playable {
 //        }
 
         binding.buttonBar5.setOnClickListener {
-            if (mainViewModel.currentType != MainViewModel.CurrentType.FAVORITE) {
-                mainViewModel.currentType = MainViewModel.CurrentType.FAVORITE
+            if (mainViewModel.currentType != MainViewModel.CurrentType.MIXER) {
+                mainViewModel.currentType = MainViewModel.CurrentType.MIXER
                 clearNavButtons()
+
                 binding.buttonBar5Icon.setImageResource(R.drawable.ic_favorites_bar_color)
-                findNavController(R.id.fragmentContainerView).navigate(R.id.favoriteFragment)
+                findNavController(R.id.fragmentContainerView).navigate(R.id.mixerFragment)
             }
         }
 

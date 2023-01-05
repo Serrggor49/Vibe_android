@@ -38,6 +38,10 @@ class NatureFragment : Fragment() {
     fun init() {
         Log.d("MyLogs", "button11")
 
+        binding.openFavoritesButton.setOnClickListener {
+            mainViewmodel.openFavoriteLivaData.postValue(true)
+        }
+
         binding.nature011.setOnClickListener {
             mainViewmodel.setCurrentSound("nature011")
             val action = NatureFragmentDirections.actionNatureFragmentToPlayerFragment()

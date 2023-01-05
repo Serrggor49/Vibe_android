@@ -18,12 +18,22 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09e7f78b-8ef6-4998-ab62-72d2ee931319" name="Changes" comment="- начал разработку экрана миксера 2">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="09e7f78b-8ef6-4998-ab62-72d2ee931319" name="Changes" comment="- сделал выбор инструментов миксера в горизонтальном скроле. Смотрится намного лучше">
+      <change afterPath="$PROJECT_DIR$/.idea/Vibe__.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/mixer_long_card_test.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/PlayerFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/PlayerFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/FocusFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/FocusFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/MainActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/MainViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/MainViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/MeditationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/MeditationFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/NatureFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/NatureFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/SleepFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/SleepFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_focus.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_focus.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_meditation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_meditation.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_mixer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_mixer.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_nature.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_nature.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_sleep.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_sleep.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,14 +108,14 @@
     </file-type-list>
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/res/values/themes.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/build.gradle" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/src/main/res/values/style.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/src/main/res/values-night/style.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/build.gradle" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/build.gradle" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/src/main/res/values/themes.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/app/src/main/res/values/colors.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2E8CTStUOqvNNQQKgIo8FEWZUHW" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -127,7 +137,7 @@
     <property name="cidr.known.project.marker" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/src/main/res/drawable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -337,7 +347,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672543430313</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="- сделал выбор инструментов миксера в горизонтальном скроле. Смотрится намного лучше">
+      <created>1672834635616</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1672834635616</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -351,7 +368,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="feature/testDesignMixer" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -397,6 +414,7 @@
     <MESSAGE value="- исправил проблему, из-за которой при нажатии воспроизведения в окне уведомлений, таймер начинал работать в два раза быстрее" />
     <MESSAGE value="- начал разработку экрана миксера" />
     <MESSAGE value="- начал разработку экрана миксера 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="- начал разработку экрана миксера 2" />
+    <MESSAGE value="- сделал выбор инструментов миксера в горизонтальном скроле. Смотрится намного лучше" />
+    <option name="LAST_COMMIT_MESSAGE" value="- сделал выбор инструментов миксера в горизонтальном скроле. Смотрится намного лучше" />
   </component>
 </project>

@@ -45,6 +45,10 @@ class SleepFragment : Fragment() {
     fun init() {
         Log.d("MyLogs", "button11")
 
+        binding.openFavoritesButton.setOnClickListener {
+            mainViewmodel.openFavoriteLivaData.postValue(true)
+        }
+
         binding.quietHarbor011.setOnClickListener {
             mainViewmodel.setCurrentSound("m1")
             val action = SleepFragmentDirections.actionSleepFragmentToPlayerFragment()
@@ -136,10 +140,10 @@ class SleepFragment : Fragment() {
             view?.findNavController()?.navigate(action)
         }
 
-        binding.imageView3.setOnClickListener {
-            val action = SleepFragmentDirections.actionSleepFragmentToPlayerFragment()
-            view?.findNavController()?.navigate(action)
-        }
+//        binding.imageView3.setOnClickListener {
+//            val action = SleepFragmentDirections.actionSleepFragmentToPlayerFragment()
+//            view?.findNavController()?.navigate(action)
+//        }
 
 //        binding.quietHarbor01100.setOnClickListener {
 //            mainViewmodel.setCurrentSound("m7")
