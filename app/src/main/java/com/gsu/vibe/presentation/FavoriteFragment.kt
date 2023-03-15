@@ -9,10 +9,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.gsu.vibe.R
 import com.gsu.vibe.data.Repository
 import com.gsu.vibe.databinding.FragmentFavoriteBinding
-import com.gsu.vibe.databinding.FragmentPlayerBinding
+
 import com.gsu.vibe.presentation.adapters.FavoritesSoundsAdapter
 
 class FavoriteFragment : Fragment() {

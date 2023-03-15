@@ -38,7 +38,6 @@ class MainActivity : AppCompatActivity(),Playable {
 
     }
 
-
     fun initFavorite(){
 
         mainViewModel.openFavoriteLivaData.observe(this){
@@ -49,9 +48,6 @@ class MainActivity : AppCompatActivity(),Playable {
             }
         }
     }
-
-
-
 
     fun initBar() {
 

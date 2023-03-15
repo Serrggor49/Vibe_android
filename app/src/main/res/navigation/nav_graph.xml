@@ -76,7 +76,7 @@
     </fragment>
     <fragment
         android:id="@+id/mixerFragment"
-        android:name="com.gsu.vibe.MixerFragment"
+        android:name="com.gsu.vibe.presentation.MixerFragment"
         android:label="fragment_mixer"
         tools:layout="@layout/fragment_mixer" />
 </navigation>

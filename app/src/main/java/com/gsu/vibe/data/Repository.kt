@@ -3,10 +3,23 @@ package com.gsu.vibe.data
 import android.annotation.SuppressLint
 import android.content.Context
 import com.gsu.vibe.data.database.DataBase
+import com.gsu.vibe.data.database.SoundsForMixerData
+import com.gsu.vibe.data.models.MixerSoundModel
 import com.gsu.vibe.data.models.SoundModel
 
 object Repository {
 
+
+    fun getSoundsForMixer(type: SoundsForMixerType): ArrayList<MixerSoundModel> {
+
+        val list: ArrayList<MixerSoundModel> = when (type) {
+            SoundsForMixerType.ANIMALS -> SoundsForMixerData.getAnimals()
+            SoundsForMixerType.NATURE -> SoundsForMixerData.getNature()
+            SoundsForMixerType.INSTRUMENTS -> SoundsForMixerData.getInstrument()
+        }
+
+        return list
+    }
 
     fun getSounds(type: SoundType): List<SoundModel> {
 
@@ -21,7 +34,6 @@ object Repository {
 
         return list
     }
-
 
     // возвращает список звуков добавленный в избранное
     fun getFavoritesSounds(context: Context) : List<SoundModel>{
@@ -58,6 +70,10 @@ object Repository {
         NATURE,
         FAVORITES,
         ALL
+    }
+
+    enum class SoundsForMixerType{
+        ANIMALS,NATURE,INSTRUMENTS
     }
 
 }

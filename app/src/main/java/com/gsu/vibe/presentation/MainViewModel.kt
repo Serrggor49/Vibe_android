@@ -10,10 +10,16 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.gsu.vibe.ConnectionLiveData
 import com.gsu.vibe.data.Repository
+import com.gsu.vibe.data.models.MixerSoundModel
 import com.gsu.vibe.data.models.SoundModel
 
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
+
+    var animalSound: MixerSoundModel? = null
+    var natureSound: MixerSoundModel? = null
+    var instrumentsSound: MixerSoundModel? = null
+    var binuaSound: MixerSoundModel? = null
 
     @SuppressLint("StaticFieldLeak")
     val context = application.applicationContext
