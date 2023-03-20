@@ -45,7 +45,7 @@ class FavoriteFragment : Fragment() {
     fun init(){
 
         binding.recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.recycler.adapter = FavoritesSoundsAdapter(Repository.getFavoritesSounds(requireContext())) {
+        binding.recycler.adapter = FavoritesSoundsAdapter(Repository.getFavoritesSounds(requireContext()), requireContext()) {
                 name -> itemClick(name)
         }
 

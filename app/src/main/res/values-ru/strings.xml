@@ -1,0 +1,110 @@
+<resources>
+    <string name="app_name">Vibe</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="close">Закрыть</string>
+
+    <string name="nothing">Без ритма</string>
+    <string name="nothing_d">Наслаждайтесь натуральным звучанием</string>
+
+    <string name="delta">Дельта 1–4 Гц</string>
+    <string name="delta_d">Для расслабление и глубокого сона</string>
+    <string name="tetta">Тетта 4–8 Гц</string>
+    <string name="tetta_d">Улучшение долговременной памяти,\nбыстрый сон</string>
+    <string name="alpha">Альфа 8–14 Гц</string>
+    <string name="alpha_d">Хорошее настроение, снижение\nбеспокойства, позитивная концентрация</string>
+    <string name="betta">Бетта 14–30 Гц</string>
+    <string name="betta_d">Высокая концентрация,\nулучшение памяти</string>
+    <string name="gamma">Гамма 30–100 Гц</string>
+    <string name="gamma_d">Повышение умственных способностей и\nкогнитивной активности</string>
+
+    <string name="description_binua">Бинауральные ритмы – слуховая иллюзия, которую создает мозг. Через наушники подаются звуки с разными частотами. Например, правое ухо слышит звук с частотой 120 Гц, а левое – 140 Гц. Чтобы нивелировать разницу, мозг создает дополнительный тон в 20 Гц. Считается, что он способен влиять на наше самочувствие.</string>
+
+
+    <string name="birds_and_animals">Пение птиц и зверей</string>
+    <string name="sounds_of_nature_mixer">Звуки природы</string>
+    <string name="musical_instruments">Музыкальные инструменты</string>
+    <string name="binaural_beats">Бинауральные ритмы</string>
+
+    <string name="sleep">Для сна</string>
+    <string name="meditations">Медитации</string>
+    <string name="focus">Фокус</string>
+    <string name="nature">Природа</string>
+    <string name="favorite">Избранное</string>
+    <string name="mixer">Миксер</string>
+
+    <string name="sleep_l">для сна</string>
+    <string name="meditations_l">медитации</string>
+    <string name="focus_l">фокус</string>
+    <string name="nature_l">природа</string>
+    <string name="favorite_l">избранное</string>
+    <string name="mixer_l">миксер</string>
+
+    <string name="for_sleep">Для сна</string>
+    <string name="for_meditation">Медитации</string>
+    <string name="for_focus">Фокусирование</string>
+    <string name="sounds_of_nature">Звуки природы</string>
+
+    <string name="singing_bowls">Поющие чаши</string>
+    <string name="path_of_zen">Дзен-путь</string>
+    <string name="serenity">Безмятежность</string>
+    <string name="peace_and_tranquility">Умиротворение и покой</string>
+    <string name="internal_balance">Внутренний баланс</string>
+    <string name="in_harmony_with_yourself">В гармонии с собой</string>
+    <string name="contemplating_eternity">Созерцая вечность</string>
+    <string name="soul_healing">Исцеление души</string>
+    <string name="om_mantra">Ом мантра</string>
+    <string name="manipura_mantra">Манипура мантра</string>
+    <string name="anahata_mantra">Анахата мантра</string>
+    <string name="clear_mind">Чистый разум</string>
+    <string name="alone_in_infinity">Наедине с бесконечностью</string>
+
+    <string name="through_time">Сквозь\nвремя</string>
+    <string name="space_whisper">Шепот\nкосмоса</string>
+    <string name="with_loved_ones">В объятиях\nблизкого</string>
+    <string name="desert_melody">Пустынная мелодия</string>
+    <string name="towards_the_sunset">Навстречу\nзакату</string>
+    <string name="last_rays">Последние лучи</string>
+    <string name="inner_peace">Внутренний\nпокой</string>
+    <string name="northern_lights">Северный\nогонь</string>
+    <string name="calm">Штиль</string>
+    <string name="last_ray_of_sunshine">Последний луч</string>
+    <string name="cozy_evening">Уютный вечер</string>
+    <string name="sounds_of_infinity">Под звуки вечного</string>
+    <string name="dream_world">Мир\nсноведений</string>
+    <string name="moonlight">Лунное сияние</string>
+    <string name="appeasement">Умиротворение</string>
+
+    <string name="the_moment_of_concentration">Концентрация в моменте</string>
+    <string name="strength_of_will">Сила воли</string>
+    <string name="energy_and_harmony">Энергия и гармония</string>
+    <string name="dreams_of_the_future">Мечты о большем</string>
+    <string name="way_to_the_goal">Путь к цели</string>
+    <string name="new_horizons">Новые горизонты</string>
+    <string name="inner_peace2">Внутреннний покой</string>
+    <string name="together_with_relatives">В кругу ближних</string>
+    <string name="seclusion">Уединение</string>
+    <string name="focus_on_the_task">Концентрация на задаче</string>
+    <string name="flow_of_thought">Поток мыслей</string>
+    <string name="imagination_and_creativity">Воображение и креативность</string>
+
+    <string name="sea_and_seagulls">Море и чайки</string>
+    <string name="bonfire_sounds">Звуки костра</string>
+    <string name="sounds_of_space">Звуки космоса</string>
+    <string name="whale_song">Песнь кита</string>
+    <string name="rain_on_the_roof">Дождь по крыше</string>
+    <string name="river_flowing">Журчание реки</string>
+    <string name="tropical_birds">Тропические птицы</string>
+    <string name="cat_purring">Мурчание кота</string>
+    <string name="thunder_rolls">Раскаты грома</string>
+    <string name="jungle_song">Зов джунглей</string>
+    <string name="night_blizzard">Ночная вьюга</string>
+    <string name="dolphin_song">Песнь дельфинов</string>
+    <string name="lake_shore">На берегу озера</string>
+    <string name="night_forest">Ночь в лесу</string>
+    <string name="waterfall_sounds">Звуки водопада</string>
+
+
+
+
+</resources>

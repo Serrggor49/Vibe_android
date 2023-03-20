@@ -1,5 +1,6 @@
 package com.gsu.vibe.presentation.adapters
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,6 +12,7 @@ import com.gsu.vibe.R
 import com.gsu.vibe.data.models.SoundModel
 
 class FavoritesSoundsAdapter(private val sounds: List<SoundModel>,
+                             private val context: Context,
                              private val onItemClicked: (name: String) -> Unit): RecyclerView.Adapter<FavoritesSoundsAdapter.MyViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -18,8 +20,8 @@ class FavoritesSoundsAdapter(private val sounds: List<SoundModel>,
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.soundName.text = sounds[position].title
-        holder.typeSoundTextView.text = sounds[position].subtitle
+        holder.soundName.text = context.getString(sounds[position].title)
+        holder.typeSoundTextView.text = context.getString(sounds[position].subtitle)
         holder.previewImageF.setImageResource(sounds[position].previewF)
         holder.previewImageB.setImageResource(sounds[position].previewB)
         holder.constraintItemView.setOnClickListener {

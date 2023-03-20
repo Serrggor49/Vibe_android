@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources>
+
+    <style name="NumberPickerText">
+        <item name="android:textSize">22sp</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="colorControlNormal">#0003DAC5</item>
+
+        
+        <!--        <item name="android:background">@drawable/onboard_gradient_frame_button_on</item>-->
+<!--        <item name="backgroundInsetBottom">@drawable/onboard_gradient_frame_button_on</item>-->
+<!--        <item name="android:detailsElementBackground">@drawable/onboard_gradient_frame_button_on</item>-->
+<!--        <item name="android:backgroundStacked">@drawable/onboard_gradient_frame_button_on</item>-->
+
+        <item name="android:textColorPrimary">#F6F6F6</item>
+    </style>
+
+
+
+</resources>

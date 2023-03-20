@@ -90,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Для сна"
+                android:text="@string/sleep"
                 android:textColor="#AEFFFFFF"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -113,7 +113,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Фокус"
+                android:text="@string/focus"
                 android:textColor="#AEFFFFFF"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -136,7 +136,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Медитации"
+                android:text="@string/meditations"
                 android:textColor="#AEFFFFFF"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -160,7 +160,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Природа"
+                android:text="@string/nature"
                 android:textColor="#AEFFFFFF"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -184,7 +184,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Избранное"
+                android:text="@string/mixer"
                 android:textColor="#AEFFFFFF"
                 android:textSize="12sp" />
         </LinearLayout>

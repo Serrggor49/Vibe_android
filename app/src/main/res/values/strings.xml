@@ -1,5 +1,112 @@
 <resources>
     <string name="app_name">Vibe</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="close">Close</string>
+
+    <string name="nothing">Nothing</string>
+    <string name="nothing_d">Enjoy natural sound</string>
+
+    <string name="delta">Delta 1–4 Hz</string>
+    <string name="delta_d">For relaxation and deep sleep</string>
+    <string name="tetta">Tetta 4–8 Hz</string>
+    <string name="tetta_d">Improving long-term memory,\nfast sleep</string>
+    <string name="alpha">Alpha 8–14 Hz</string>
+    <string name="alpha_d">Good mood, reduced\nanxiety, positive concentration</string>
+    <string name="betta">Betta 14–30 Hz</string>
+    <string name="betta_d">High concentration,\nmemory improvement</string>
+    <string name="gamma">Gamma 30–100 Hz</string>
+    <string name="gamma_d">Enhancing mental abilities and\ncognitive activity</string>
+
+    <string name="description_binua">Binaural beats are an auditory illusion created by the brain. Sounds with different frequencies are fed through the headphones. For example, the right ear hears a sound at 120 Hz, while the left ear hears 140 Hz. To offset the difference, the brain creates an additional tone of 20 Hz. It is believed that it is able to influence our well-being.</string>
+
+
+    <string name="birds_and_animals">Birds and animals</string>
+    <string name="sounds_of_nature_mixer">Sounds of nature</string>
+    <string name="musical_instruments">Musical instruments</string>
+    <string name="binaural_beats">Binaural beats</string>
+
+    <string name="sleep">For sleep</string>
+    <string name="meditations">Meditations</string>
+    <string name="focus">Focus</string>
+    <string name="nature">Nature</string>
+    <string name="favorite">Favorite</string>
+    <string name="mixer">Mixer</string>
+
+    <string name="sleep_l">for sleep</string>
+    <string name="meditations_l">meditations</string>
+    <string name="focus_l">focus</string>
+    <string name="nature_l">nature</string>
+    <string name="favorite_l">favorite</string>
+    <string name="mixer_l">mixer</string>
+
+    <string name="for_sleep">For sleep</string>
+    <string name="for_meditation">For meditation</string>
+    <string name="for_focus">For focus</string>
+    <string name="sounds_of_nature">Sounds of nature</string>
+
+
+    <string name="singing_bowls">Singing bowls</string>
+    <string name="path_of_zen">Path of zen</string>
+    <string name="serenity">Serenity</string>
+    <string name="peace_and_tranquility">Peace and tranquility</string>
+    <string name="internal_balance">Internal balance</string>
+    <string name="in_harmony_with_yourself">In harmony with yourself</string>
+    <string name="contemplating_eternity">Contemplating eternity</string>
+    <string name="soul_healing">Soul healing</string>
+    <string name="om_mantra">Om mantra</string>
+    <string name="manipura_mantra">Manipura mantra</string>
+    <string name="anahata_mantra">Anahata mantra</string>
+    <string name="clear_mind">Clear mind</string>
+    <string name="alone_in_infinity">Alone in infinity</string>
+
+    <string name="through_time">Through time</string>
+    <string name="space_whisper">Space\nwhisper</string>
+    <string name="with_loved_ones">With loved\nones</string>
+    <string name="desert_melody">Desert\nMelody</string>
+    <string name="towards_the_sunset">Towards the sunset</string>
+    <string name="last_rays">Last rays</string>
+    <string name="inner_peace">Inner peace</string>
+    <string name="northern_lights">Northern\nlights</string>
+    <string name="calm">Calm</string>
+    <string name="last_ray_of_sunshine">Last ray of\nsunshine</string>
+    <string name="cozy_evening">Cozy evening</string>
+    <string name="sounds_of_infinity">Sounds of infinity</string>
+    <string name="dream_world">Dream world</string>
+    <string name="moonlight">Moonlight</string>
+    <string name="appeasement">Appeasement</string>
+
+    <string name="the_moment_of_concentration">The Moment Of Concentration</string>
+    <string name="strength_of_will">Strength of will</string>
+    <string name="energy_and_harmony">Energy and harmony</string>
+    <string name="dreams_of_the_future">Dreams of the future</string>
+    <string name="way_to_the_goal">Way to the goal</string>
+    <string name="new_horizons">New horizons</string>
+    <string name="inner_peace2">Inner peace</string>
+    <string name="together_with_relatives">Together with relatives</string>
+    <string name="seclusion">Seclusion</string>
+    <string name="focus_on_the_task">Focus on the task</string>
+    <string name="flow_of_thought">Flow of thought</string>
+    <string name="imagination_and_creativity">Imagination and creativity</string>
+
+    <string name="sea_and_seagulls">Sea and seagulls</string>
+    <string name="bonfire_sounds">Bonfire sounds</string>
+    <string name="sounds_of_space">Sounds of space</string>
+    <string name="whale_song">Whale song</string>
+    <string name="rain_on_the_roof">Rain on the roof</string>
+    <string name="river_flowing">River flowing</string>
+    <string name="tropical_birds">Tropical birds</string>
+    <string name="cat_purring">Cat purring</string>
+    <string name="thunder_rolls">Thunder rolls</string>
+    <string name="jungle_song">Jungle Song</string>
+    <string name="night_blizzard">Night blizzard</string>
+    <string name="dolphin_song">Dolphin Song</string>
+    <string name="lake_shore">Lake Shore</string>
+    <string name="night_forest">Night forest</string>
+    <string name="waterfall_sounds">Waterfall sounds</string>
+
+
+
+
 </resources>

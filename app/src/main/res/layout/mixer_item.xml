@@ -5,14 +5,13 @@
     android:id="@+id/constraintItemView"
     android:layout_width="85dp"
     android:layout_height="85dp"
-    android:layout_marginBottom="15dp"
     android:elevation="0dp"
     android:orientation="vertical">
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/cardView"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
+        android:layout_width="79dp"
+        android:layout_height="79dp"
         android:animationCache="false"
         app:cardCornerRadius="8dp"
         app:cardElevation="5dp"

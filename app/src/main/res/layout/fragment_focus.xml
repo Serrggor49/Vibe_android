@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter_semibold"
                     android:gravity="left"
-                    android:text="фокус"
+                    android:text="@string/focus_l"
                     android:textColor="#FFFFFF"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -130,7 +130,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_semibold"
                             android:padding="10dp"
-                            android:text="Концентрация в моменте"
+                            android:text="@string/the_moment_of_concentration"
                             android:textColor="#FFFFFF"
                             android:textSize="18sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -208,7 +208,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Сила воли"
+                                    android:text="@string/strength_of_will"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -217,7 +217,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -267,7 +266,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Мечты о большем"
+                                    android:text="@string/dreams_of_the_future"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -276,7 +275,6 @@
                                     app:layout_constraintHeight_percent="0.25"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.51" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
@@ -336,7 +334,7 @@
                                     android:fontFamily="@font/inter_semibold"
                                     android:maxLines="2"
                                     android:padding="10dp"
-                                    android:text="Энергия и гармония"
+                                    android:text="@string/energy_and_harmony"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -401,7 +399,7 @@
                                     android:layout_marginRight="10dp"
                                     android:layout_marginBottom="10dp"
                                     android:fontFamily="@font/inter_semibold"
-                                    android:text="Путь к цели"
+                                    android:text="@string/way_to_the_goal"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -410,7 +408,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -483,7 +480,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_semibold"
                             android:padding="10dp"
-                            android:text="Новые горизонты"
+                            android:text="@string/new_horizons"
                             android:textColor="#FFFFFF"
                             android:textSize="18sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -562,7 +559,7 @@
                                     android:fontFamily="@font/inter_semibold"
                                     android:maxLines="2"
                                     android:padding="10dp"
-                                    android:text="Внутренний покой"
+                                    android:text="@string/inner_peace2"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -625,7 +622,7 @@
                                     android:layout_marginBottom="10dp"
                                     android:fontFamily="@font/inter_semibold"
                                     android:maxLines="2"
-                                    android:text="Уединение"
+                                    android:text="@string/seclusion"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="uniform"
@@ -688,7 +685,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Поток"
+                                    android:text="@string/flow_of_thought"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -697,7 +694,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -756,7 +752,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="В кругу ближних"
+                                    android:text="@string/together_with_relatives"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -765,7 +761,6 @@
                                     app:layout_constraintHeight_percent="0.25"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.51" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
@@ -819,7 +814,7 @@
                                     android:layout_marginRight="10dp"
                                     android:layout_marginBottom="5dp"
                                     android:fontFamily="@font/inter_semibold"
-                                    android:text="Концентрация на задаче"
+                                    android:text="@string/focus_on_the_task"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="uniform"
@@ -828,7 +823,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -880,7 +874,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Воображение и креативность"
+                                    android:text="@string/imagination_and_creativity"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -889,7 +883,6 @@
                                     app:layout_constraintHeight_percent="0.25"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.51" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>

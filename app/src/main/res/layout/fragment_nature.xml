@@ -52,7 +52,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter_semibold"
                     android:gravity="left"
-                    android:text="природа"
+                    android:text="@string/nature_l"
                     android:textColor="#FFFFFF"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -138,7 +138,7 @@
                                     android:fontFamily="@font/inter_semibold"
                                     android:maxLines="2"
                                     android:padding="10dp"
-                                    android:text="Море и чайки"
+                                    android:text="@string/sea_and_seagulls"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -199,7 +199,7 @@
                                     android:fontFamily="@font/inter_semibold"
                                     android:maxLines="2"
                                     android:padding="10dp"
-                                    android:text="Звуки космоса"
+                                    android:text="@string/sounds_of_space"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -263,7 +263,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Дождь по крыше"
+                                    android:text="@string/rain_on_the_roof"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -272,7 +272,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -331,7 +330,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Звуки костра"
+                                    android:text="@string/bonfire_sounds"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -340,7 +339,6 @@
                                     app:layout_constraintHeight_percent="0.25"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.51" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
@@ -391,7 +389,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Песнь кита"
+                                    android:text="@string/whale_song"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -400,7 +398,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -452,7 +449,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Журчание реки"
+                                    android:text="@string/river_flowing"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -461,7 +458,6 @@
                                     app:layout_constraintHeight_percent="0.25"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.51" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
@@ -532,7 +528,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_semibold"
                             android:padding="10dp"
-                            android:text="Тропические птицы"
+                            android:text="@string/tropical_birds"
                             android:textColor="#FFFFFF"
                             android:textSize="18sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -610,7 +606,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Мурчание кота"
+                                    android:text="@string/cat_purring"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -619,7 +615,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -669,7 +664,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Зов джунглей 8888"
+                                    android:text="@string/jungle_song"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -678,7 +673,6 @@
                                     app:layout_constraintHeight_percent="0.25"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.51" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
@@ -738,7 +732,7 @@
                                     android:fontFamily="@font/inter_semibold"
                                     android:maxLines="2"
                                     android:padding="10dp"
-                                    android:text="Раскаты грома"
+                                    android:text="@string/thunder_rolls"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -801,7 +795,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Ночная вьюга"
+                                    android:text="@string/night_blizzard"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -810,7 +804,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -884,7 +877,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_semibold"
                             android:padding="10dp"
-                            android:text="Песнь дельфинов"
+                            android:text="@string/dolphin_song"
                             android:textColor="#FFFFFF"
                             android:textSize="18sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -963,7 +956,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="На берегу озера"
+                                    android:text="@string/lake_shore"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -972,7 +965,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -1022,7 +1014,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Ночь в лесу"
+                                    android:text="@string/night_forest"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -1031,7 +1023,6 @@
                                     app:layout_constraintHeight_percent="0.25"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.51" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
@@ -1092,7 +1083,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Звуки водопада"
+                                    android:text="@string/waterfall_sounds"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -1101,7 +1092,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 

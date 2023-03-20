@@ -16,6 +16,7 @@ object Repository {
             SoundsForMixerType.ANIMALS -> SoundsForMixerData.getAnimals()
             SoundsForMixerType.NATURE -> SoundsForMixerData.getNature()
             SoundsForMixerType.INSTRUMENTS -> SoundsForMixerData.getInstrument()
+            else -> {SoundsForMixerData.getAnimals()}
         }
 
         return list
@@ -73,7 +74,7 @@ object Repository {
     }
 
     enum class SoundsForMixerType{
-        ANIMALS,NATURE,INSTRUMENTS
+        ANIMALS,NATURE,INSTRUMENTS, BINUA
     }
 
 }

@@ -51,7 +51,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter_semibold"
                     android:gravity="left"
-                    android:text="для сна"
+                    android:text="@string/sleep_l"
                     android:textColor="#FFFFFF"
                     android:textSize="24sp"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -138,7 +138,7 @@
                                     android:fontFamily="@font/inter_semibold"
                                     android:maxLines="2"
                                     android:padding="10dp"
-                                    android:text="Сквозь\nвремя"
+                                    android:text="@string/through_time"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -201,7 +201,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="В объятиях близкого"
+                                    android:text="@string/with_loved_ones"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -210,7 +210,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -269,7 +268,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Шепот\nкосмоса"
+                                    android:text="@string/space_whisper"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -278,7 +277,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -328,7 +326,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Пустынная\nмелодия"
+                                    android:text="@string/desert_melody"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -337,7 +335,6 @@
                                     app:layout_constraintHeight_percent="0.25"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.51" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
@@ -408,7 +405,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_semibold"
                             android:padding="10dp"
-                            android:text="Навстречу\nзакату"
+                            android:text="@string/towards_the_sunset"
                             android:textColor="#FFFFFF"
                             android:textSize="18sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -487,7 +484,7 @@
                                     android:fontFamily="@font/inter_semibold"
                                     android:maxLines="2"
                                     android:padding="10dp"
-                                    android:text="Последние лучи"
+                                    android:text="@string/last_rays"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -550,7 +547,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Внутренний\nпокой"
+                                    android:text="@string/inner_peace"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -559,7 +556,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -618,7 +614,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Северный\nогонь"
+                                    android:text="@string/northern_lights"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -699,7 +695,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/inter_semibold"
                             android:padding="10dp"
-                            android:text="Штиль"
+                            android:text="@string/calm"
                             android:textColor="#FFFFFF"
                             android:textSize="18sp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -778,7 +774,7 @@
                                     android:fontFamily="@font/inter_semibold"
                                     android:maxLines="2"
                                     android:padding="10dp"
-                                    android:text="Последний лучь"
+                                    android:text="@string/last_ray_of_sunshine"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -839,7 +835,7 @@
                                     android:fontFamily="@font/inter_semibold"
                                     android:maxLines="2"
                                     android:padding="10dp"
-                                    android:text="Под звуки вечного"
+                                    android:text="@string/sounds_of_infinity"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -902,7 +898,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Лунное сияние"
+                                    android:text="@string/moonlight"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -911,7 +907,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -970,7 +965,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Уютный вечер"
+                                    android:text="@string/cozy_evening"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -979,7 +974,6 @@
                                     app:layout_constraintHeight_percent="0.25"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.51" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
@@ -1030,7 +1024,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Мир\nсноведений"
+                                    android:text="@string/dream_world"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -1039,7 +1033,6 @@
                                     app:layout_constraintHeight_percent="0.28"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.75" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -1089,7 +1082,7 @@
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_semibold"
                                     android:padding="10dp"
-                                    android:text="Безмятежность"
+                                    android:text="@string/appeasement"
                                     android:textColor="#FFFFFF"
                                     android:textSize="18sp"
                                     app:autoSizeTextType="none"
@@ -1098,7 +1091,6 @@
                                     app:layout_constraintHeight_percent="0.25"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.51" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>

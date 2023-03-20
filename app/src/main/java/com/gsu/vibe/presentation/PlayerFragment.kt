@@ -9,6 +9,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.media.MediaPlayer
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -18,6 +19,7 @@ import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.SeekBar
 import androidx.activity.OnBackPressedCallback
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.MutableLiveData
@@ -118,8 +120,8 @@ class PlayerFragment : Fragment() {
 
 
     fun initFields(){
-        binding.title.text = mainViewModel.currentSound.title
-        binding.subTitle.text = mainViewModel.currentSound.subtitle
+        binding.title.text = getString(mainViewModel.currentSound.title)
+        binding.subTitle.text = getString(mainViewModel.currentSound.subtitle)
         binding.background.setImageResource(mainViewModel.currentSound.background)
         binding.foreground.setImageResource(mainViewModel.currentSound.foreground)
     }
@@ -172,7 +174,7 @@ class PlayerFragment : Fragment() {
 
                 if (it) {
                     mp?.pause()
-                    CreateNotification().createNotification(context = requireContext(), pos = 2, nameType = mainViewModel.currentSound.subtitle, trackName = mainViewModel.currentSound.title, backgroundImage = mainViewModel.currentSound.previewB)
+                    CreateNotification().createNotification(context = requireContext(), pos = 2, nameType = getString(mainViewModel.currentSound.subtitle), trackName = getString(mainViewModel.currentSound.title), backgroundImage = mainViewModel.currentSound.previewB)
                     timer.cancel()
                     timerState = false
 
@@ -180,7 +182,7 @@ class PlayerFragment : Fragment() {
                 } else {
                     mp?.start()
                     initSeekBar()
-                    CreateNotification().createNotification(context = requireContext(), pos = 1, nameType = mainViewModel.currentSound.subtitle, trackName = mainViewModel.currentSound.title, backgroundImage = mainViewModel.currentSound.previewB)
+                    CreateNotification().createNotification(context = requireContext(), pos = 1, nameType = getString(mainViewModel.currentSound.subtitle), trackName = getString(mainViewModel.currentSound.title), backgroundImage = mainViewModel.currentSound.previewB)
                     binding.playButton.setImageResource(R.drawable.ic_pause_button)
 
                     if (!timerState){
@@ -308,12 +310,13 @@ class PlayerFragment : Fragment() {
     }
 
     var broadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
+        @RequiresApi(Build.VERSION_CODES.S)
         override fun onReceive(context: Context, intent: Intent) {
             val action = intent.extras?.getString("actionName")
 
             if (action == CreateNotification().ACTION_PAUSE){
 
-                CreateNotification().createNotification(context = requireContext(), pos = 1, nameType = mainViewModel.currentSound.subtitle, trackName = mainViewModel.currentSound.title, backgroundImage = mainViewModel.currentSound.previewB)
+                CreateNotification().createNotification(context = requireContext(), pos = 1, nameType = getString(mainViewModel.currentSound.subtitle), trackName = getString(mainViewModel.currentSound.title), backgroundImage = mainViewModel.currentSound.previewB)
 
                 mp?.start()
                 stateLiveData.postValue(false)
@@ -328,7 +331,7 @@ class PlayerFragment : Fragment() {
             }
             else if (action == CreateNotification().ACTION_PLAY){
 
-                CreateNotification().createNotification(context = requireContext(), pos = 2, nameType = mainViewModel.currentSound.subtitle, trackName = mainViewModel.currentSound.title, backgroundImage = mainViewModel.currentSound.previewB)
+                CreateNotification().createNotification(context = requireContext(), pos = 2, nameType = getString(mainViewModel.currentSound.subtitle), trackName = getString(mainViewModel.currentSound.title), backgroundImage = mainViewModel.currentSound.previewB)
 
                 mp?.pause()
                 timer.cancel()
