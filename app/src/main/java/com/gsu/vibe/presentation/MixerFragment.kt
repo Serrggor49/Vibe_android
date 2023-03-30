@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.graphics.drawable.ColorDrawable
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.Display
@@ -14,7 +15,8 @@ import android.view.ViewGroup
 import android.widget.SeekBar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.MutableLiveData
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.gsu.vibe.R
@@ -22,7 +24,14 @@ import com.gsu.vibe.data.Repository
 import com.gsu.vibe.data.models.MixerSoundModel
 import com.gsu.vibe.databinding.FragmentMixerBinding
 import com.gsu.vibe.presentation.adapters.MixerContentAdapter
-import kotlin.math.ln
+import com.shawnlin.numberpicker.NumberPicker
+import java.lang.String
+import java.util.*
+import kotlin.Boolean
+import kotlin.Int
+import kotlin.collections.ArrayList
+import kotlin.concurrent.timer
+import kotlin.getValue
 import kotlin.math.roundToInt
 
 class MixerFragment : Fragment() {
@@ -50,6 +59,12 @@ class MixerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        mainViewModel.currentType = MainViewModel.CurrentType.MIXER
+        (activity as MainActivity).updateBottomButtons()
     }
 
     lateinit var animalList: ArrayList<MixerSoundModel>
@@ -113,20 +128,57 @@ class MixerFragment : Fragment() {
             }
         }
 
+
+        initButtonSetTimer()
         binuaInit()
         initPlayers()
         volumeInit()
 
-
     }
 
+    fun initButtonSetTimer(){
+
+        binding.setTimerButton.setOnClickListener {
+            mainViewModel.timeForMixerPlayerInMs = (((binding.numberPickerHours.value*60) + (binding.numberPickerMinutes.value))*60 + binding.numberPickerSec.value)*1000
+
+            var animalSoundVolume = mainViewModel.animalSoundVolume
+            var natureSoundVolume = mainViewModel.natureSoundVolume
+            var instrumentsSoundVolume = mainViewModel.instrumentsVolume
+            var binuaSoundVolume = mainViewModel.binuaSoundVolume
+
+            val timeToFinish = 200L
+            object : CountDownTimer(timeToFinish, 20) {
+
+                override fun onTick(millisUntilFinished: Long) {
+                    animalSoundVolume -= 0.015f
+                    natureSoundVolume -= 0.015f
+                    instrumentsSoundVolume -= 0.015f
+                    binuaSoundVolume -= 0.015f
+                    mediaPlayer1.setVolume(animalSoundVolume, animalSoundVolume)
+                    mediaPlayer2.setVolume(natureSoundVolume, natureSoundVolume)
+                    mediaPlayer3.setVolume(instrumentsSoundVolume, instrumentsSoundVolume)
+                    mediaPlayer4.setVolume(binuaSoundVolume, binuaSoundVolume)
+                }
+
+                override fun onFinish() {
+                    val action = MixerFragmentDirections.actionMixerFragmentToMixerPlayerFragment()
+                    mainViewModel.visibilityBottomBarLivaData.postValue(false)
+                    view?.findNavController()?.navigate(action)
+                }
+            }.start()
+
+        }
+
+    }
 
     fun volumeInit(){
 
         binding.seekBarAnimal.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                val log1 = 1f-(Math.log((MAX_VOLUME - progress).toDouble()) / Math.log(MAX_VOLUME.toDouble())).toFloat()
+                var log1 = 1f-(Math.log((MAX_VOLUME - progress).toDouble()) / Math.log(MAX_VOLUME.toDouble())).toFloat()
+                if (log1>=0.99f) {log1 = 1f}
                 mediaPlayer1.setVolume(log1,log1)
+                mainViewModel.animalSoundVolume = log1
             }
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
             override fun onStopTrackingTouch(seekBar: SeekBar) {}
@@ -134,8 +186,10 @@ class MixerFragment : Fragment() {
 
         binding.seekBarNature.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                val log1 = 1f-(Math.log((MAX_VOLUME - progress).toDouble()) / Math.log(MAX_VOLUME.toDouble())).toFloat()
+                var log1 = 1f-(Math.log((MAX_VOLUME - progress).toDouble()) / Math.log(MAX_VOLUME.toDouble())).toFloat()
+                if (log1>=0.99f) {log1 = 1f}
                 mediaPlayer2.setVolume(log1,log1)
+                mainViewModel.natureSoundVolume = log1
             }
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
             override fun onStopTrackingTouch(seekBar: SeekBar) {}
@@ -143,8 +197,10 @@ class MixerFragment : Fragment() {
 
         binding.seekBarInstruments.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                val log1 = 1f-(Math.log((MAX_VOLUME - progress).toDouble()) / Math.log(MAX_VOLUME.toDouble())).toFloat()
+                var log1 = 1f-(Math.log((MAX_VOLUME - progress).toDouble()) / Math.log(MAX_VOLUME.toDouble())).toFloat()
+                if (log1>=0.99f) {log1 = 1f}
                 mediaPlayer3.setVolume(log1,log1)
+                mainViewModel.instrumentsVolume = log1
             }
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
             override fun onStopTrackingTouch(seekBar: SeekBar) {}
@@ -152,8 +208,10 @@ class MixerFragment : Fragment() {
 
         binding.seekBarBinua.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener{
             override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
-                val log1 = 1f-(Math.log((MAX_VOLUME - progress).toDouble()) / Math.log(MAX_VOLUME.toDouble())).toFloat()
+                var log1 = 1f-(Math.log((MAX_VOLUME - progress).toDouble()) / Math.log(MAX_VOLUME.toDouble())).toFloat()
+                if (log1>=0.99f) {log1 = 1f}
                 mediaPlayer4.setVolume(log1,log1)
+                mainViewModel.binuaSoundVolume = log1
             }
             override fun onStartTrackingTouch(seekBar: SeekBar) {}
             override fun onStopTrackingTouch(seekBar: SeekBar) {}
@@ -165,7 +223,7 @@ class MixerFragment : Fragment() {
         binding.emptyButton.setOnClickListener {
             setShadows()
             binding.emptyShadow.visibility = View.INVISIBLE
-            mainViewModel.binuaSound.sound = 0
+            mainViewModel.binuaSound.sound = R.raw.empty
             initChoiсePlayer(Repository.SoundsForMixerType.BINUA)
 
         }
@@ -173,7 +231,7 @@ class MixerFragment : Fragment() {
         binding.deltaButton.setOnClickListener {
             setShadows()
             binding.deltaShadow.visibility = View.INVISIBLE
-            mainViewModel.binuaSound.sound = R.raw.binaural_test
+            mainViewModel.binuaSound.sound = R.raw.delta_binua
             initChoiсePlayer(Repository.SoundsForMixerType.BINUA)
 
         }
@@ -181,7 +239,7 @@ class MixerFragment : Fragment() {
         binding.tettaButton.setOnClickListener {
             setShadows()
             binding.tettaShadow.visibility = View.INVISIBLE
-            mainViewModel.binuaSound.sound = R.raw.binaural_test
+            mainViewModel.binuaSound.sound = R.raw.tetta_binua
             initChoiсePlayer(Repository.SoundsForMixerType.BINUA)
 
         }
@@ -189,7 +247,7 @@ class MixerFragment : Fragment() {
         binding.alphaButton.setOnClickListener {
             setShadows()
             binding.alphaShadow.visibility = View.INVISIBLE
-            mainViewModel.binuaSound.sound = R.raw.binaural_test
+            mainViewModel.binuaSound.sound = R.raw.alpha_binua
             initChoiсePlayer(Repository.SoundsForMixerType.BINUA)
 
         }
@@ -197,7 +255,7 @@ class MixerFragment : Fragment() {
         binding.bettaButton.setOnClickListener {
             setShadows()
             binding.bettaShadow.visibility = View.INVISIBLE
-            mainViewModel.binuaSound.sound = R.raw.binaural_test
+            mainViewModel.binuaSound.sound = R.raw.betta_binua
             initChoiсePlayer(Repository.SoundsForMixerType.BINUA)
 
         }
@@ -205,10 +263,12 @@ class MixerFragment : Fragment() {
         binding.gammaButton.setOnClickListener {
             setShadows()
             binding.gammaShadow.visibility = View.INVISIBLE
-            mainViewModel.binuaSound.sound = R.raw.binaural_test
+            mainViewModel.binuaSound.sound = R.raw.gamma_binua
             initChoiсePlayer(Repository.SoundsForMixerType.BINUA)
         }
     }
+
+
 
     fun setShadows() {
         val shadowList = arrayListOf(
@@ -255,10 +315,15 @@ class MixerFragment : Fragment() {
 
     fun initPlayers() {
 
-        mediaPlayer1 = MediaPlayer.create(requireContext(), R.raw.bird_test)
-        mediaPlayer2 = MediaPlayer.create(requireContext(), R.raw.bird_test)
-        mediaPlayer3 = MediaPlayer.create(requireContext(), R.raw.bird_test)
-        mediaPlayer4 = MediaPlayer.create(requireContext(), R.raw.bird_test)
+        mediaPlayer1 = MediaPlayer.create(requireContext(), R.raw.tetta_binua)
+        mediaPlayer2 = MediaPlayer.create(requireContext(), R.raw.tetta_binua)
+        mediaPlayer3 = MediaPlayer.create(requireContext(), R.raw.tetta_binua)
+        mediaPlayer4 = MediaPlayer.create(requireContext(), R.raw.tetta_binua)
+
+        mediaPlayer1.setVolume(0.5f,0.5f)
+        mediaPlayer2.setVolume(0.5f,0.5f)
+        mediaPlayer3.setVolume(0.5f,0.5f)
+        mediaPlayer4.setVolume(0.5f,0.5f)
     }
 
     fun initChoiсePlayer(type: Repository.SoundsForMixerType) {
@@ -309,6 +374,11 @@ class MixerFragment : Fragment() {
 
     }
 
+    override fun onPause() {
+        super.onPause()
 
+        val players = arrayOf(mediaPlayer1, mediaPlayer2, mediaPlayer3, mediaPlayer4)
+        players.forEach { it.release() }
+    }
 
 }

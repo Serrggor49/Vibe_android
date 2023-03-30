@@ -36,22 +36,29 @@ class CreateNotification {
         var pendingIntentPlay: PendingIntent? = null
         var drw_play: Int? = null
         if (pos == 0){
+            Log.d("MyLogs332", "createNotification pos == 0")
+
             pendingIntentPlay = null
             //drw_play = 0
-            drw_play = R.drawable.ic_focus_bar
+            drw_play = R.drawable.ic_meditation_bar_color
         }
         else if(pos == 1){
+            Log.d("MyLogs332", "createNotification pos == 1")
+
             val intentPlay = Intent(context, NotificationActionServices::class.java).setAction(ACTION_PLAY)
-            //pendingIntentPlay = PendingIntent.getBroadcast(context, 0, intentPlay, PendingIntent.FLAG_UPDATE_CURRENT)
-            pendingIntentPlay = PendingIntent.getBroadcast(context, 0, intentPlay, PendingIntent.FLAG_MUTABLE)
-            drw_play = R.drawable.ic_pause_button
+      //      pendingIntentPlay = PendingIntent.getBroadcast(context, 0, intentPlay, PendingIntent.FLAG_UPDATE_CURRENT)  // для новых версий
+            pendingIntentPlay = PendingIntent.getBroadcast(context, 0, intentPlay, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+//            pendingIntentPlay = PendingIntent.getBroadcast(context, 0, intentPlay, PendingIntent.FLAG_MUTABLE)
+            drw_play = R.drawable.ic_baseline_pause_circle_filled_24
         }
 
         else{
+            Log.d("MyLogs332", "createNotification pos == ${pos}")
             val intentPlay = Intent(context, NotificationActionServices::class.java).setAction(ACTION_PAUSE)
             //pendingIntentPlay = PendingIntent.getBroadcast(context, 0, intentPlay, PendingIntent.FLAG_UPDATE_CURRENT)
-            pendingIntentPlay = PendingIntent.getBroadcast(context, 0, intentPlay, PendingIntent.FLAG_MUTABLE)
-            drw_play = R.drawable.ic_play_button
+            pendingIntentPlay = PendingIntent.getBroadcast(context, 0, intentPlay, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
+            //pendingIntentPlay = PendingIntent.getBroadcast(context, 0, intentPlay, PendingIntent.FLAG_MUTABLE)
+            drw_play = R.drawable.ic_play_buuton_3
         }
 
 
@@ -62,7 +69,7 @@ class CreateNotification {
             .setMediaSession(mediaSessionCompat.sessionToken.token as MediaSession.Token?)
 
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_focus_bar)
+            .setSmallIcon(R.drawable.ic_meditation_bar_color)
             .setContentTitle(trackName)
             .setContentText(nameType)
             //    .setLargeIcon(icon)  // если убрать, то не будет разворачиваться. Но не будет и обложки

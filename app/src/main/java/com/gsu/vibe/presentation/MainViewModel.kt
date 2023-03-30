@@ -9,6 +9,7 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import com.gsu.vibe.ConnectionLiveData
+import com.gsu.vibe.R
 import com.gsu.vibe.data.Repository
 import com.gsu.vibe.data.models.MixerSoundModel
 import com.gsu.vibe.data.models.SoundModel
@@ -16,10 +17,16 @@ import com.gsu.vibe.data.models.SoundModel
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
-    var animalSound: MixerSoundModel = MixerSoundModel(name = "null")
-    var natureSound: MixerSoundModel = MixerSoundModel(name = "null")
-    var instrumentsSound: MixerSoundModel = MixerSoundModel(name = "null")
-    var binuaSound: MixerSoundModel = MixerSoundModel(name = "null")
+    var timeForMixerPlayerInMs = 0
+
+    var animalSound: MixerSoundModel = MixerSoundModel(name = "null", sound = R.raw.empty)
+    var animalSoundVolume = 0.5f
+    var natureSound: MixerSoundModel = MixerSoundModel(name = "null", sound = R.raw.empty)
+    var natureSoundVolume = 0.5f
+    var instrumentsSound: MixerSoundModel = MixerSoundModel(name = "null", sound = R.raw.empty)
+    var instrumentsVolume = 0.5f
+    var binuaSound: MixerSoundModel = MixerSoundModel(name = "null", sound = R.raw.empty)
+    var binuaSoundVolume = 0.5f
 
     @SuppressLint("StaticFieldLeak")
     val context = application.applicationContext

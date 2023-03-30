@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
 
-    android:background="#17004A"
+    android:background="@drawable/blue_gradient2"
     android:fitsSystemWindows="false"
     tools:context=".presentation.MainActivity">
 
@@ -177,7 +177,7 @@
                 android:id="@+id/buttonBar5Icon"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_favorites_bar" />
+                app:srcCompat="@drawable/ic_mixer_bar" />
 
             <TextView
                 android:id="@+id/textView5"

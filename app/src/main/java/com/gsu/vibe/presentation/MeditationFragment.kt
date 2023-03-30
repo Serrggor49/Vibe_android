@@ -6,13 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
 import com.gsu.vibe.databinding.FragmentMeditationBinding
-
+import com.gsu.vibe.services.RandomTransitionGeneratorForPrev
 
 class MeditationFragment : Fragment() {
 
+    val ACCELERATE_DECELERATE = AccelerateDecelerateInterpolator()
+    val transitionDuration = 20000L
     val mainViewmodel: MainViewModel by activityViewModels()
 
     private lateinit var _binding: FragmentMeditationBinding
@@ -34,8 +37,29 @@ class MeditationFragment : Fragment() {
         init()
     }
 
+
+    override fun onResume() {
+        super.onResume()
+        mainViewmodel.currentType = MainViewModel.CurrentType.FOR_MEDITATION
+        (activity as MainActivity).updateBottomButtons()
+    }
+
     fun init() {
-        Log.d("MyLogs", "button11")
+
+        binding.image2.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image2511222.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image25112223.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image31122222.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image41122.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image31122.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image411223.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image21.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image4113334.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image311.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image41177.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image311277.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image25112.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+
 
         binding.openFavoritesButton.setOnClickListener {
             mainViewmodel.openFavoriteLivaData.postValue(true)

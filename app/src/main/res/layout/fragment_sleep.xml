@@ -4,21 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_marginTop="45dp"
+    android:layout_marginTop="0dp"
     android:elevation="0dp"
     tools:context=".presentation.SleepFragment">
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/background"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollView"
@@ -26,14 +14,15 @@
         android:layout_height="0dp"
         android:overScrollMode="always"
         android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/imageView2"
-        app:layout_constraintTop_toTopOf="@+id/imageView2">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="45dp"
             android:layout_marginBottom="30dp"
             android:orientation="vertical"
             android:overScrollMode="never"
@@ -49,11 +38,11 @@
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/inter_semibold"
+                    android:fontFamily="@font/inter_regular"
                     android:gravity="left"
                     android:text="@string/sleep_l"
                     android:textColor="#FFFFFF"
-                    android:textSize="24sp"
+                    android:textSize="25sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -111,6 +100,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
                                     android:adjustViewBounds="true"
+                                    android:foreground="@drawable/sleep_01_1f_quiet_harbor_prev"
                                     android:src="@drawable/sleep_01_1b_quiet_harbor_prev"
                                     android:visibility="visible"
                                     app:layout_constraintBottom_toBottomOf="parent"
@@ -118,18 +108,6 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
-
-                                <ImageView
-                                    android:id="@+id/imageView8511"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:adjustViewBounds="true"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
-                                    app:srcCompat="@drawable/sleep_01_1f_quiet_harbor_prev" />
 
                                 <TextView
                                     android:id="@+id/textView8511"
@@ -158,6 +136,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="3dp"
+                            android:visibility="visible"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="0dp"
                             app:cardMaxElevation="0dp">
@@ -166,13 +145,14 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                                <com.flaviofaria.kenburnsview.KenBurnsView
-                                    android:id="@+id/image3112"
+
+                                <ImageView
+                                    android:id="@+id/imageView7"
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
                                     android:adjustViewBounds="true"
+                                    android:scaleType="centerCrop"
                                     android:src="@drawable/meditation_04_2b_prev"
-                                    android:visibility="visible"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintDimensionRatio="h,10:16"
                                     app:layout_constraintEnd_toEndOf="parent"
@@ -180,20 +160,14 @@
                                     app:layout_constraintTop_toTopOf="parent" />
 
                                 <ImageView
-                                    android:id="@+id/imageView9112"
+                                    android:id="@+id/imageView8"
                                     android:layout_width="0dp"
-                                    android:layout_height="0dp"
+                                    android:layout_height="wrap_content"
                                     android:adjustViewBounds="true"
-                                    android:scaleType="centerCrop"
-                                    app:layout_constraintBottom_toBottomOf="@+id/image3112"
+                                    app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@+id/image3112"
                                     app:srcCompat="@drawable/meditation_04_2f_prev" />
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintDimensionRatio="10:8"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent" />
 
                                 <TextView
                                     android:id="@+id/textView9112"
@@ -229,6 +203,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="3dp"
+                            app:cardBackgroundColor="#00FFFFFF"
                             app:cardCornerRadius="12dp"
                             app:cardElevation="0dp"
                             app:cardMaxElevation="0dp">
@@ -242,22 +217,11 @@
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
                                     android:adjustViewBounds="true"
+                                    android:foreground="@drawable/sleep_01_2f_endless_space"
                                     android:src="@drawable/sleep_01_2b_endless_space_prev"
                                     android:visibility="visible"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintDimensionRatio="h,10:16"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <ImageView
-                                    android:id="@+id/imageView911"
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    android:adjustViewBounds="true"
-                                    android:scaleType="centerCrop"
-                                    android:src="@drawable/sleep_01_2f_endless_space"
-                                    app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
@@ -300,6 +264,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
                                     android:adjustViewBounds="true"
+                                    android:foreground="@drawable/sleep_02_2f_calm_prev"
                                     android:src="@drawable/sleep_02_2b_calm_prev"
                                     android:visibility="visible"
                                     app:layout_constraintBottom_toBottomOf="parent"
@@ -307,18 +272,6 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
-
-                                <ImageView
-                                    android:id="@+id/imageView1011"
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    android:adjustViewBounds="true"
-                                    android:scaleType="centerCrop"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/sleep_02_2f_calm_prev" />
 
                                 <TextView
                                     android:id="@+id/textView11"
@@ -357,6 +310,7 @@
                     android:id="@+id/m5_button"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="visible"
                     app:cardBackgroundColor="#00FFFFFF"
                     app:cardCornerRadius="12dp"
                     app:cardElevation="0dp"
@@ -376,6 +330,7 @@
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:adjustViewBounds="true"
+                            android:foreground="@drawable/sleep_03_01f_concentration_on_breathing"
                             android:scaleType="centerInside"
                             android:src="@drawable/sleep_02_1b_summer_evening_prev"
                             android:visibility="visible"
@@ -384,20 +339,6 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
-
-                        <ImageView
-                            android:id="@+id/imageView7"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="-2dp"
-                            android:layout_marginRight="-2dp"
-                            android:adjustViewBounds="true"
-                            android:src="@drawable/sleep_03_01f_concentration_on_breathing"
-                            app:layout_constraintBottom_toBottomOf="@+id/image2"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/image2"
-                            app:layout_constraintVertical_bias="1.0" />
 
                         <TextView
                             android:id="@+id/textView5"
@@ -457,6 +398,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:adjustViewBounds="true"
+                                    android:foreground="@drawable/meditation_08_2f_prev"
                                     android:src="@drawable/meditation_08_2b_prev"
                                     android:visibility="visible"
                                     app:layout_constraintBottom_toBottomOf="parent"
@@ -464,18 +406,6 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
-
-                                <ImageView
-                                    android:id="@+id/imageView851100"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:adjustViewBounds="true"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
-                                    app:srcCompat="@drawable/meditation_08_2f_prev" />
 
                                 <TextView
                                     android:id="@+id/textView851100"
@@ -517,29 +447,21 @@
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
                                     android:adjustViewBounds="true"
+                                    android:foreground="@drawable/meditation_06_1f_prev"
                                     android:src="@drawable/meditation_06_1b_prev"
                                     android:visibility="visible"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintDimensionRatio="h,10:8"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintTop_toTopOf="parent" /><![CDATA[
 
-                                <ImageView
-                                    android:id="@+id/imageView91100200"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:adjustViewBounds="true"
-                                    app:layout_constraintBottom_toBottomOf="@+id/image3110020"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@+id/image3110020"
-                                    app:layout_constraintVertical_bias="1.0"
-                                    app:srcCompat="@drawable/meditation_06_1f_prev" />
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintDimensionRatio="10:8"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent" />
+
+                                ]]>
 
                                 <TextView
                                     android:id="@+id/textView911200"
@@ -587,6 +509,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
                                     android:adjustViewBounds="true"
+                                    android:foreground="@drawable/sleep_04_2f_northern_lights_prev"
                                     android:src="@drawable/sleep_04_2b_northern_lights_prev"
                                     android:visibility="visible"
                                     app:layout_constraintBottom_toBottomOf="parent"
@@ -594,19 +517,6 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
-
-                                <ImageView
-                                    android:id="@+id/imageView91100"
-                                    android:layout_width="0dp"
-                                    android:layout_height="wrap_content"
-                                    android:adjustViewBounds="true"
-                                    android:scaleType="centerCrop"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
-                                    app:srcCompat="@drawable/sleep_04_2f_northern_lights_prev" />
 
                                 <TextView
                                     android:id="@+id/textView91100"
@@ -666,6 +576,7 @@
                             android:layout_width="0dp"
                             android:layout_height="0dp"
                             android:adjustViewBounds="true"
+                            android:foreground="@drawable/meditation_09_1f_prev"
                             android:scaleType="centerInside"
                             android:src="@drawable/meditation_09_1b_prev"
                             android:visibility="visible"
@@ -674,20 +585,6 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
-
-                        <ImageView
-                            android:id="@+id/imageView711"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="-2dp"
-                            android:layout_marginRight="-2dp"
-                            android:adjustViewBounds="true"
-                            app:layout_constraintBottom_toBottomOf="@+id/image21"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/image21"
-                            app:layout_constraintVertical_bias="1.0"
-                            app:srcCompat="@drawable/meditation_09_1f_prev" />
 
                         <TextView
                             android:id="@+id/textView522"
@@ -742,13 +639,12 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                                <com.flaviofaria.kenburnsview.KenBurnsView
-                                    android:id="@+id/image2511222"
+                                <ImageView
+                                    android:id="@+id/imageView13"
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
-                                    android:adjustViewBounds="true"
+                                    android:scaleType="fitXY"
                                     android:src="@drawable/sleep_02_1b_forest_harmony_prev"
-                                    android:visibility="visible"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintDimensionRatio="h,10:10"
                                     app:layout_constraintEnd_toEndOf="parent"
@@ -756,15 +652,13 @@
                                     app:layout_constraintTop_toTopOf="parent" />
 
                                 <ImageView
-                                    android:id="@+id/imageView851122"
-                                    android:layout_width="wrap_content"
+                                    android:id="@+id/imageView14"
+                                    android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:adjustViewBounds="true"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:srcCompat="@drawable/sleep_02_1f_forest_harmony_prev" />
 
                                 <TextView
@@ -783,8 +677,6 @@
                                     app:layout_constraintHeight_percent="0.17"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@+id/image2511222"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.77" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
@@ -808,6 +700,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
                                     android:adjustViewBounds="true"
+                                    android:foreground="@drawable/sleep_07_1f_rainy_night_prev"
                                     android:src="@drawable/sleep_01_2b_endless_space_prev"
                                     android:visibility="visible"
                                     app:layout_constraintBottom_toBottomOf="parent"
@@ -815,18 +708,6 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
-
-                                <ImageView
-                                    android:id="@+id/imageView8511223"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:adjustViewBounds="true"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:layout_constraintVertical_bias="1.0"
-                                    app:srcCompat="@drawable/sleep_07_1f_rainy_night_prev" />
 
                                 <TextView
                                     android:id="@+id/textView8511223"
@@ -868,29 +749,21 @@
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
                                     android:adjustViewBounds="true"
+                                    android:foreground="@drawable/sleep_07_2f_new_moon_prev"
                                     android:src="@drawable/sleep_07_2d_new_moon_prev"
                                     android:visibility="visible"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintDimensionRatio="h,10:10"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintTop_toTopOf="parent" /><![CDATA[
 
-                                <ImageView
-                                    android:id="@+id/imageView91122222"
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    android:adjustViewBounds="true"
-                                    android:scaleType="centerCrop"
-                                    app:layout_constraintBottom_toBottomOf="@+id/image31122222"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@+id/image31122222"
-                                    app:srcCompat="@drawable/sleep_07_2f_new_moon_prev" />
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintDimensionRatio="10:8"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent" />
+
+                                ]]>
 
                                 <TextView
                                     android:id="@+id/textView91122222"
@@ -939,6 +812,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
                                     android:adjustViewBounds="true"
+                                    android:foreground="@drawable/nature_03_2f_prev"
                                     android:src="@drawable/focus_01_1b_prev"
                                     android:visibility="visible"
                                     app:layout_constraintBottom_toBottomOf="parent"
@@ -946,18 +820,6 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
-
-                                <ImageView
-                                    android:id="@+id/imageView101122"
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    android:adjustViewBounds="true"
-                                    android:scaleType="centerCrop"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/nature_03_2f_prev" />
 
                                 <TextView
                                     android:id="@+id/textView1122"
@@ -992,31 +854,28 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                                <com.flaviofaria.kenburnsview.KenBurnsView
-                                    android:id="@+id/image31122"
+                                <ImageView
+                                    android:id="@+id/imageView9"
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
                                     android:adjustViewBounds="true"
                                     android:scaleType="fitXY"
                                     android:src="@drawable/sleep_07_2d_peaceful_sleep_prev"
-                                    android:visibility="visible"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintDimensionRatio="h,10:14"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/sleep_07_2d_peaceful_sleep_prev" />
 
                                 <ImageView
-                                    android:id="@+id/imageView91122"
+                                    android:id="@+id/imageView10"
                                     android:layout_width="0dp"
-                                    android:layout_height="0dp"
+                                    android:layout_height="wrap_content"
                                     android:adjustViewBounds="true"
-                                    android:scaleType="fitXY"
+                                    android:src="@drawable/sleep_07_2f_peaceful_sleep_prev"
                                     app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/sleep_07_2f_peaceful_sleep_prev" />
+                                    app:layout_constraintEnd_toEndOf="parent" />
 
                                 <TextView
                                     android:id="@+id/textView91122"
@@ -1056,6 +915,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
                                     android:adjustViewBounds="true"
+                                    android:foreground="@drawable/sleep_08_2f_quiet_time_prev"
                                     android:src="@drawable/sleep_08_2d_quiet_time_prev"
                                     android:visibility="visible"
                                     app:layout_constraintBottom_toBottomOf="parent"
@@ -1063,18 +923,6 @@
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
-
-                                <ImageView
-                                    android:id="@+id/imageView1011223"
-                                    android:layout_width="0dp"
-                                    android:layout_height="0dp"
-                                    android:adjustViewBounds="true"
-                                    android:scaleType="centerCrop"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent"
-                                    app:srcCompat="@drawable/sleep_08_2f_quiet_time_prev" />
 
                                 <TextView
                                     android:id="@+id/textView11223"

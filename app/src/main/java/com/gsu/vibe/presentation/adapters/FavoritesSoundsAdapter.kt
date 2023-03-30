@@ -20,7 +20,7 @@ class FavoritesSoundsAdapter(private val sounds: List<SoundModel>,
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.soundName.text = context.getString(sounds[position].title)
+        holder.soundName.text = (context.getString(sounds[position].title)).replace("\n", "  ")
         holder.typeSoundTextView.text = context.getString(sounds[position].subtitle)
         holder.previewImageF.setImageResource(sounds[position].previewF)
         holder.previewImageB.setImageResource(sounds[position].previewB)

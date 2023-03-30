@@ -19,6 +19,7 @@ import androidx.navigation.findNavController
 import com.gsu.vibe.Playable
 import com.gsu.vibe.R
 import com.gsu.vibe.databinding.ActivityMainBinding
+import java.lang.Exception
 
 
 class MainActivity : AppCompatActivity(),Playable {
@@ -32,21 +33,43 @@ class MainActivity : AppCompatActivity(),Playable {
         setContentView(binding.root)
         supportActionBar?.hide()
 
-        initBar()
-
         initFavorite()
 
+        initBar()
+       // findNavController(R.id.fragmentContainerView).navigate(R.id.sleepFragment)
     }
 
     fun initFavorite(){
 
         mainViewModel.openFavoriteLivaData.observe(this){
-            if (true){
+            if (it) {
                 clearNavButtons()
                 mainViewModel.currentType = MainViewModel.CurrentType.FAVORITE
                 findNavController(R.id.fragmentContainerView).navigate(R.id.favoriteFragment)
             }
         }
+    }
+
+    fun updateBottomButtons(){
+        clearNavButtons()
+        val currentType = mainViewModel.currentType
+
+        when (currentType){
+            MainViewModel.CurrentType.FOR_SLEEP ->  binding.buttonBar1Icon.setImageResource(R.drawable.ic_sleep_bar_color)
+            MainViewModel.CurrentType.FOR_FOCUS ->  binding.buttonBar2Icon.setImageResource(R.drawable.ic_focus_bar_color)
+            MainViewModel.CurrentType.FOR_MEDITATION ->  binding.buttonBar3Icon.setImageResource(R.drawable.ic_meditation_bar_color)
+            MainViewModel.CurrentType.NATURE ->  binding.buttonBar4Icon.setImageResource(R.drawable.ic_nature_bar_color)
+            MainViewModel.CurrentType.MIXER ->  binding.buttonBar5Icon.setImageResource(R.drawable.ic_mixer_bar_color)
+            else -> {}
+        }
+
+
+//        if (mainViewModel.currentType != MainViewModel.CurrentType.FOR_FOCUS) {
+//            mainViewModel.currentType = MainViewModel.CurrentType.FOR_FOCUS
+//            clearNavButtons()
+//            binding.buttonBar2Icon.setImageResource(R.drawable.ic_focus_bar_color)
+//            findNavController(R.id.fragmentContainerView).navigate(R.id.focusFragment)
+//        }
     }
 
     fun initBar() {
@@ -59,7 +82,7 @@ class MainActivity : AppCompatActivity(),Playable {
                 WindowCompat.setDecorFitsSystemWindows(
                     window,
                     true
-                )  // показывае верхний и нижний бары
+                )  // показывает верхний и нижний бары
             } else {
                 binding.bottomBar.visibility = View.INVISIBLE
                 binding.imageGradientView.visibility = View.INVISIBLE
@@ -107,6 +130,7 @@ class MainActivity : AppCompatActivity(),Playable {
             }
         }
 
+
 //        binding.buttonBar4.setOnClickListener {
 //            clearNavButtons()
 //            binding.buttonBar4Icon.setImageResource(R.drawable.ic_nature_bar_color)
@@ -118,11 +142,10 @@ class MainActivity : AppCompatActivity(),Playable {
                 mainViewModel.currentType = MainViewModel.CurrentType.MIXER
                 clearNavButtons()
 
-                binding.buttonBar5Icon.setImageResource(R.drawable.ic_favorites_bar_color)
+                binding.buttonBar5Icon.setImageResource(R.drawable.ic_mixer_bar_color)
                 findNavController(R.id.fragmentContainerView).navigate(R.id.mixerFragment)
             }
         }
-
 
         binding.favoriteButton.setOnClickListener {
             if (mainViewModel.currentType != MainViewModel.CurrentType.FAVORITE) {
@@ -140,7 +163,7 @@ class MainActivity : AppCompatActivity(),Playable {
         binding.buttonBar2Icon.setImageResource(R.drawable.ic_focus_bar)
         binding.buttonBar3Icon.setImageResource(R.drawable.ic_meditation_bar)
         binding.buttonBar4Icon.setImageResource(R.drawable.ic_nature_bar)
-        binding.buttonBar5Icon.setImageResource(R.drawable.ic_favorites_bar)
+        binding.buttonBar5Icon.setImageResource(R.drawable.ic_mixer_bar)
     }
 
     override fun onTrackPrevius() {
@@ -158,6 +181,5 @@ class MainActivity : AppCompatActivity(),Playable {
     override fun onTrackNext() {
         TODO("Not yet implemented")
     }
-
 
 }

@@ -1,20 +1,23 @@
 package com.gsu.vibe.presentation
 
-import android.media.MediaPlayer
-import android.net.Uri
+import android.R
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AccelerateDecelerateInterpolator
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
-import com.gsu.vibe.R
 import com.gsu.vibe.databinding.FragmentSleepBinding
+import com.gsu.vibe.services.RandomTransitionGeneratorForPrev
+
 
 class SleepFragment : Fragment() {
 
+    val ACCELERATE_DECELERATE = AccelerateDecelerateInterpolator()
+    val transitionDuration = 20000L
     val mainViewmodel: MainViewModel by activityViewModels()
 
     private lateinit var _binding: FragmentSleepBinding
@@ -23,7 +26,7 @@ class SleepFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
 
         _binding = FragmentSleepBinding.inflate(inflater, container, false)
@@ -35,15 +38,32 @@ class SleepFragment : Fragment() {
 
         init()
         mainViewmodel.visibilityBottomBarLivaData.postValue(true)
+    }
 
-
-        //val mediaPlayer = MediaPlayer.create(requireActivity(),  Uri.parse("/data/data/com.gsu.vibe/files/audio.mp3"))
-        //mediaPlayer.start()
-
+    override fun onResume() {
+        super.onResume()
+        Log.d("MyLogs", "MyLogs444")
+        mainViewmodel.currentType = MainViewModel.CurrentType.FOR_SLEEP
+        (activity as MainActivity).updateBottomButtons()
     }
 
     fun init() {
-        Log.d("MyLogs", "button11")
+
+        binding.image3112200.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image25112.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image311.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image411.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image2.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image251100200.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image3110020.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image21.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image25112223.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image31122222.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image41122.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        binding.image411223.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+
+       // binding.imageView2.
+        //Glide.with(this).load(com.gsu.vibe.R.drawable.sleep_01_1f_quiet_harbor_prev).into(binding.imageView2)
 
         binding.openFavoritesButton.setOnClickListener {
             mainViewmodel.openFavoriteLivaData.postValue(true)
@@ -157,10 +177,6 @@ class SleepFragment : Fragment() {
 //            val action = SleepFragmentDirections.actionSleepFragmentToPlayerFragment()
 //            view?.findNavController()?.navigate(action)
 //        }
-
-
-
-
 
     }
 

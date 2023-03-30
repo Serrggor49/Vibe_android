@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/blue_gradient2"
     tools:context=".presentation.MixerFragment">
 
     <ScrollView
@@ -16,7 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
-            android:background="@drawable/blue_gradient2"
             android:orientation="vertical">
 
             <TextView
@@ -26,11 +26,11 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="15dp"
-                android:fontFamily="@font/inter_semibold"
+                android:fontFamily="@font/inter_regular"
                 android:gravity="left"
                 android:text="@string/mixer_l"
                 android:textColor="#FFFFFF"
-                android:textSize="24sp" />
+                android:textSize="25sp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -85,7 +85,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="20dp"
-                        android:progress="50"
+                        android:progress="100"
                         android:progressBackgroundTint="#3247EC"
                         android:progressTint="#3247EC"
                         android:thumbTint="#3247EC"
@@ -160,7 +160,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="20dp"
-                        android:progress="50"
+                        android:progress="100"
                         android:progressBackgroundTint="#3247EC"
                         android:progressTint="#3247EC"
                         android:thumbTint="#3247EC"
@@ -235,7 +235,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="20dp"
-                        android:progress="50"
+                        android:progress="100"
                         android:progressBackgroundTint="#3247EC"
                         android:progressTint="#3247EC"
                         android:thumbTint="#3247EC"
@@ -670,17 +670,42 @@
             </androidx.cardview.widget.CardView>
 
 
-            <SeekBar
-                android:id="@+id/seekBarBinua"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:progress="100" />
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp">
+
+                <ImageView
+                    android:id="@+id/imageView84"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@android:drawable/ic_lock_silent_mode_off"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/recyclerinstruments"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <SeekBar
+                    android:id="@+id/seekBarBinua"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:progress="100"
+                    android:progressBackgroundTint="#3247EC"
+                    android:progressTint="#3247EC"
+                    android:thumbTint="#3247EC"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView84"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/timerView"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="15dp"
                 android:visibility="visible"
                 app:cardBackgroundColor="#03061A"
@@ -800,12 +825,12 @@
                                 android:text="m"
                                 android:textColor="#F6F6F0"
                                 android:textSize="15sp"
-                                app:layout_constraintBottom_toBottomOf="@+id/number_picker_hours22"
-                                app:layout_constraintStart_toEndOf="@+id/number_picker_hours22"
+                                app:layout_constraintBottom_toBottomOf="@+id/number_picker_minutes"
+                                app:layout_constraintStart_toEndOf="@+id/number_picker_minutes"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <com.shawnlin.numberpicker.NumberPicker
-                                android:id="@+id/number_picker_hours22"
+                                android:id="@+id/number_picker_minutes"
                                 android:layout_width="40dp"
                                 android:layout_height="0dp"
                                 android:layout_centerInParent="true"
@@ -817,13 +842,13 @@
                                 app:np_dividerColor="#00FFFFFF"
                                 app:np_dividerType="side_lines"
                                 app:np_height="180dp"
-                                app:np_max="23"
+                                app:np_max="59"
                                 app:np_min="0"
                                 app:np_selectedTextColor="#F6F6F0"
                                 app:np_selectedTextSize="21sp"
                                 app:np_textColor="#F6F6F0"
                                 app:np_textSize="20sp"
-                                app:np_value="0"
+                                app:np_value="10"
                                 app:np_wheelItemCount="3"
                                 app:np_width="64dp"
                                 app:np_wrapSelectorWheel="false">
@@ -848,11 +873,11 @@
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintStart_toEndOf="@+id/number_picker_min"
+                                app:layout_constraintStart_toEndOf="@+id/number_picker_sec"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <com.shawnlin.numberpicker.NumberPicker
-                                android:id="@+id/number_picker_min"
+                                android:id="@+id/number_picker_sec"
                                 android:layout_width="40dp"
                                 android:layout_height="0dp"
                                 android:layout_centerInParent="true"
@@ -871,7 +896,7 @@
                                 app:np_selectedTextSize="21sp"
                                 app:np_textColor="#F6F6F0"
                                 app:np_textSize="20sp"
-                                app:np_value="10"
+                                app:np_value="0"
                                 app:np_wheelItemCount="3"
                                 app:np_width="64dp"
                                 app:np_wrapSelectorWheel="false" />
@@ -883,12 +908,14 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/setTimerButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="12dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="12dp"
-                android:layout_marginBottom="120dp">
+                android:layout_marginBottom="120dp"
+                android:visibility="visible">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="wrap_content"

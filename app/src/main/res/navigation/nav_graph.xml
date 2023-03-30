@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mixerFragment">
+    app:startDestination="@id/sleepFragment">
     <fragment
         android:id="@+id/sleepFragment"
         android:name="com.gsu.vibe.presentation.SleepFragment"
@@ -78,5 +78,14 @@
         android:id="@+id/mixerFragment"
         android:name="com.gsu.vibe.presentation.MixerFragment"
         android:label="fragment_mixer"
-        tools:layout="@layout/fragment_mixer" />
+        tools:layout="@layout/fragment_mixer" >
+        <action
+            android:id="@+id/action_mixerFragment_to_mixerPlayerFragment"
+            app:destination="@id/mixerPlayerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mixerPlayerFragment"
+        android:name="com.gsu.vibe.MixerPlayerFragment"
+        android:label="fragment_mixer_player"
+        tools:layout="@layout/fragment_mixer_player" />
 </navigation>

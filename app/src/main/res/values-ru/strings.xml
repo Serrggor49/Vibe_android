@@ -2,6 +2,11 @@
     <string name="app_name">Vibe</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="start">Начать</string>
+    <string name="cont">Продолжить</string>
+    <string name="pause">Пауза</string>
+    <string name="noConnection">Проблемы с соединением</string>
+
     <string name="close">Закрыть</string>
 
     <string name="nothing">Без ритма</string>

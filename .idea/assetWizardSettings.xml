@@ -293,11 +293,26 @@
                   <entry key="vectorAssetStep">
                     <value>
                       <PersistentState>
+                        <option name="children">
+                          <map>
+                            <entry key="clipartAsset">
+                              <value>
+                                <PersistentState>
+                                  <option name="values">
+                                    <map>
+                                      <entry key="url" value="file:$USER_HOME$/Library/Android/sdk/icons/material/materialicons/pause_circle_filled/baseline_pause_circle_filled_24.xml" />
+                                    </map>
+                                  </option>
+                                </PersistentState>
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
                         <option name="values">
                           <map>
-                            <entry key="assetSourceType" value="FILE" />
-                            <entry key="outputName" value="ic_alert_button" />
-                            <entry key="sourceFile" value="$PROJECT_DIR$/../pic/mixer/бинуральные ритмы/alert_button.svg" />
+                            <entry key="color" value="ffffff" />
+                            <entry key="outputName" value="ic_baseline_pause_circle_filled_24" />
+                            <entry key="sourceFile" value="$PROJECT_DIR$/../pic/bottom_bar/mixer_bar.svg" />
                           </map>
                         </option>
                       </PersistentState>
