@@ -1,16 +1,18 @@
 package com.gsu.vibe.presentation
 
+import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import com.gsu.vibe.data.Repository
 import com.gsu.vibe.databinding.FragmentMeditationBinding
-import com.gsu.vibe.services.RandomTransitionGeneratorForPrev
+import com.gsu.vibe.setVibro
 
 class MeditationFragment : Fragment() {
 
@@ -44,112 +46,89 @@ class MeditationFragment : Fragment() {
         (activity as MainActivity).updateBottomButtons()
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     fun init() {
 
-        binding.image2.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
-        binding.image2511222.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
-        binding.image25112223.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
-        binding.image31122222.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
-        binding.image41122.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
-        binding.image31122.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
-        binding.image411223.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
-        binding.image21.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
-        binding.image4113334.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
-        binding.image311.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
-        binding.image41177.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
-        binding.image311277.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
-        binding.image25112.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+
+        //val playIntent = Intent(requireContext(), MediaPlayerService::class.java).apply {
+
+
+
+        //binding.image2.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        //binding.image2511222.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        //binding.image25112223.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+ //       binding.image31122222.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        //binding.image41122.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        //binding.image31122.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+//        binding.image411223.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+//        binding.image21.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+//        binding.image4113334.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+//        binding.image311.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+//        binding.image41177.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+//        binding.image311277.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+//        binding.image25112.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
 
 
         binding.openFavoritesButton.setOnClickListener {
             mainViewmodel.openFavoriteLivaData.postValue(true)
         }
 
-        binding.meditation011.setOnClickListener {
-            mainViewmodel.setCurrentSound("meditation011")
-            val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()
-            view?.findNavController()?.navigate(action)
+        binding.meditation011.setOnTouchListener { v, event -> openPlayer(v, event, "meditation011") }
+        binding.meditation021.setOnTouchListener { v, event -> openPlayer(v, event, "meditation021") }
+        binding.meditation022.setOnTouchListener { v, event -> openPlayer(v, event, "meditation022") }
+        binding.meditation031.setOnTouchListener { v, event -> openPlayer(v, event, "meditation031") }
+        binding.meditation032.setOnTouchListener { v, event -> openPlayer(v, event, "meditation032") }
+        binding.meditation041.setOnTouchListener { v, event -> openPlayer(v, event, "meditation041") }
+        binding.meditation042.setOnTouchListener { v, event -> openPlayer(v, event, "meditation042") }
+        binding.meditation051.setOnTouchListener { v, event -> openPlayer(v, event, "meditation051") }
+        binding.meditation061.setOnTouchListener { v, event -> openPlayer(v, event, "meditation061") }
+        binding.meditation062.setOnTouchListener { v, event -> openPlayer(v, event, "meditation062") }
+        binding.meditation071.setOnTouchListener { v, event -> openPlayer(v, event, "meditation071") }
+        binding.meditation081.setOnTouchListener { v, event -> openPlayer(v, event, "meditation081") }
+        binding.meditation082.setOnTouchListener { v, event -> openPlayer(v, event, "meditation082") }
+
+        if(Repository.getFavoritesSounds(requireContext()).isEmpty()){
+            binding.openFavoritesButton.visibility = View.GONE
         }
-
-        binding.meditation021.setOnClickListener {
-            mainViewmodel.setCurrentSound("meditation021")
-            val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()
-            view?.findNavController()?.navigate(action)
-        }
-
-        binding.meditation022.setOnClickListener {
-            mainViewmodel.setCurrentSound("meditation022")
-            val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()
-            view?.findNavController()?.navigate(action)
-        }
-
-        binding.meditation031.setOnClickListener {
-            mainViewmodel.setCurrentSound("meditation031")
-            val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()
-            view?.findNavController()?.navigate(action)
-        }
-
-        binding.meditation032.setOnClickListener {
-            mainViewmodel.setCurrentSound("meditation032")
-            val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()
-            view?.findNavController()?.navigate(action)
-        }
-
-        binding.meditation041.setOnClickListener {
-            mainViewmodel.setCurrentSound("meditation041")
-            val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()
-            view?.findNavController()?.navigate(action)
-        }
-
-        binding.meditation042.setOnClickListener {
-            mainViewmodel.setCurrentSound("meditation042")
-            val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()
-            view?.findNavController()?.navigate(action)
-        }
-
-        binding.meditation051.setOnClickListener {
-            mainViewmodel.setCurrentSound("meditation051")
-            val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()
-            view?.findNavController()?.navigate(action)
-        }
-
-        binding.meditation061.setOnClickListener {
-            mainViewmodel.setCurrentSound("meditation061")
-            val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()
-            view?.findNavController()?.navigate(action)
-        }
-
-        binding.meditation062.setOnClickListener {
-            mainViewmodel.setCurrentSound("meditation062")
-            val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()
-            view?.findNavController()?.navigate(action)
-        }
-
-
-        binding.meditation071.setOnClickListener {
-            mainViewmodel.setCurrentSound("meditation071")
-            val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()
-            view?.findNavController()?.navigate(action)
-        }
-
-        binding.meditation081.setOnClickListener {
-            mainViewmodel.setCurrentSound("meditation081")
-            val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()
-            view?.findNavController()?.navigate(action)
-        }
-
-        binding.meditation082.setOnClickListener {
-            mainViewmodel.setCurrentSound("meditation082")
-            val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()
-            view?.findNavController()?.navigate(action)
-        }
-
-        binding.meditation091.setOnClickListener {
-            mainViewmodel.setCurrentSound("meditation091")
-            val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()
-            view?.findNavController()?.navigate(action)
+        else{
+            binding.openFavoritesButton.visibility = View.VISIBLE
         }
 
     }
+
+
+    fun openPlayer(v: View, event: MotionEvent, currentSound: String): Boolean {
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                v.animate().scaleX(0.96f).scaleY(0.96f).setDuration(200).start()
+            }
+            MotionEvent.ACTION_UP -> {
+                // Пользователь отпустил кнопку
+                setVibro()
+                v.animate()
+                    .scaleX(1f)
+                    .scaleY(1f)
+                    .setDuration(100)
+                    .withEndAction {
+                        mainViewmodel.setCurrentSound(currentSound)
+                        //val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()
+                        val action = MeditationFragmentDirections.actionMeditationFragmentToMediaPlayerServiceFragment()
+                        view?.findNavController()?.navigate(action)
+                    }
+                    .start()
+                //Log.d("MY_l124", "ACTION_UP")
+            }
+            MotionEvent.ACTION_CANCEL -> {
+                v.animate().scaleX(1f).scaleY(1f).setDuration(200).start()
+            }
+            MotionEvent.ACTION_MOVE -> {
+            }
+
+            MotionEvent.ACTION_BUTTON_RELEASE -> {
+            }
+        }
+        return true
+    }
+
 
 }

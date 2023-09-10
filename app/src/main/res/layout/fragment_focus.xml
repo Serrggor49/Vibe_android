@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,8 +10,8 @@
 
     <ScrollView
         android:id="@+id/scrollView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:overScrollMode="always"
         android:scrollbars="none"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,7 +26,7 @@
             android:layout_marginBottom="30dp"
             android:orientation="vertical"
             android:overScrollMode="never"
-            android:paddingBottom="100dp">
+            android:paddingBottom="160dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -50,11 +51,11 @@
                     android:id="@+id/openFavoritesButton"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ic_favorites_bar"
                     android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_favorites_bar" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -84,20 +85,17 @@
                         android:layout_height="wrap_content"
                         android:background="#00FFFFFF">
 
-                        <com.flaviofaria.kenburnsview.KenBurnsView
-                            android:id="@+id/image2"
+                        <ImageView
+                            android:id="@+id/imageView23"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:adjustViewBounds="true"
-                            android:foreground="@drawable/focus_01_1f_prev"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/focus_01_1b_prev"
-                            android:visibility="visible"
+                            android:scaleType="fitXY"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintDimensionRatio="h,100:40"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/focus_01_1f_prev" />
 
                         <TextView
                             android:id="@+id/textView5"
@@ -108,10 +106,7 @@
                             android:text="@string/the_moment_of_concentration"
                             android:textColor="#FFFFFF"
                             android:textSize="18sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@+id/image2"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toStartOf="@+id/image2" />
+                            app:layout_constraintBottom_toBottomOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -152,19 +147,17 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                                <com.flaviofaria.kenburnsview.KenBurnsView
-                                    android:id="@+id/image311"
+                                <ImageView
+                                    android:id="@+id/imageView24"
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
-                                    android:adjustViewBounds="true"
-                                    android:foreground="@drawable/focus_02_1f_prev"
-                                    android:src="@drawable/focus_02_1b_prev"
-                                    android:visibility="visible"
+                                    android:scaleType="fitXY"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintDimensionRatio="h,10:16"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/focus_02_1b_prev" />
 
                                 <TextView
                                     android:id="@+id/textView911"
@@ -199,19 +192,17 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                                <com.flaviofaria.kenburnsview.KenBurnsView
-                                    android:id="@+id/image411"
+                                <ImageView
+                                    android:id="@+id/imageView26"
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
-                                    android:adjustViewBounds="true"
-                                    android:foreground="@drawable/focus_03_1f_prev"
-                                    android:src="@drawable/focus_03_1b_prev"
-                                    android:visibility="visible"
+                                    android:scaleType="fitXY"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintDimensionRatio="h,10:10"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/focus_03_1b_prev" />
 
                                 <TextView
                                     android:id="@+id/textView11"
@@ -254,19 +245,17 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                                <com.flaviofaria.kenburnsview.KenBurnsView
-                                    android:id="@+id/image25112"
+                                <ImageView
+                                    android:id="@+id/imageView25"
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
-                                    android:adjustViewBounds="true"
-                                    android:foreground="@drawable/focus_02_2f_prev"
-                                    android:src="@drawable/focus_02_2b_prev"
-                                    android:visibility="visible"
+                                    android:scaleType="fitXY"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintDimensionRatio="h,10:7"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/focus_02_2b_prev" />
 
                                 <TextView
                                     android:id="@+id/textView8511"
@@ -284,8 +273,6 @@
                                     app:layout_constraintHeight_percent="0.17"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@+id/image25112"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.77" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
@@ -303,26 +290,17 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                                <com.flaviofaria.kenburnsview.KenBurnsView
-                                    android:id="@+id/image3112"
+                                <ImageView
+                                    android:id="@+id/imageView27"
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
-                                    android:adjustViewBounds="true"
-                                    android:foreground="@drawable/focus_03_2f_prev"
-                                    android:src="@drawable/focus_03_1b_prev"
-                                    android:visibility="visible"
+                                    android:scaleType="fitXY"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintDimensionRatio="h,100:194"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" /><![CDATA[
-
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintDimensionRatio="10:8"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent" />
-
-                                ]]>
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/focus_03_2f_prev" />
 
                                 <TextView
                                     android:id="@+id/textView9112"
@@ -379,20 +357,17 @@
                         android:layout_height="wrap_content"
                         android:background="#00FFFFFF">
 
-                        <com.flaviofaria.kenburnsview.KenBurnsView
-                            android:id="@+id/image21"
+                        <ImageView
+                            android:id="@+id/imageView28"
                             android:layout_width="0dp"
                             android:layout_height="0dp"
-                            android:adjustViewBounds="true"
-                            android:foreground="@drawable/focus_04_1f_prev"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/focus_04_1b_prev"
-                            android:visibility="visible"
+                            android:scaleType="fitXY"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintDimensionRatio="h,100:40"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/focus_04_1f_prev" />
 
                         <TextView
                             android:id="@+id/textView522"
@@ -403,10 +378,7 @@
                             android:text="@string/new_horizons"
                             android:textColor="#FFFFFF"
                             android:textSize="18sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@+id/image21"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toStartOf="@+id/image21" />
+                            app:layout_constraintBottom_toBottomOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
                 </androidx.cardview.widget.CardView>
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -447,19 +419,17 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                                <com.flaviofaria.kenburnsview.KenBurnsView
-                                    android:id="@+id/image2511222"
+                                <ImageView
+                                    android:id="@+id/imageView29"
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
-                                    android:adjustViewBounds="true"
-                                    android:foreground="@drawable/focus_05_1f_prev"
-                                    android:src="@drawable/focus_05_1b_prev"
-                                    android:visibility="visible"
+                                    android:scaleType="fitXY"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintDimensionRatio="h,10:7"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/focus_05_1b_prev" />
 
                                 <TextView
                                     android:id="@+id/textView851122"
@@ -477,8 +447,6 @@
                                     app:layout_constraintHeight_percent="0.17"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@+id/image2511222"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.77" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
@@ -497,19 +465,17 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                                <com.flaviofaria.kenburnsview.KenBurnsView
-                                    android:id="@+id/image25112223"
+                                <ImageView
+                                    android:id="@+id/imageView31"
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
-                                    android:adjustViewBounds="true"
-                                    android:foreground="@drawable/focus_06_1f_prev"
-                                    android:src="@drawable/focus_06_1b_prev"
-                                    android:visibility="visible"
+                                    android:scaleType="fitXY"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintDimensionRatio="h,10:13"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/focus_06_1f_prev" />
 
                                 <TextView
                                     android:id="@+id/textView8511223"
@@ -529,8 +495,6 @@
                                     app:layout_constraintHeight_percent="0.17"
                                     app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="@+id/image25112223"
-                                    app:layout_constraintVertical_bias="1.0"
                                     app:layout_constraintWidth_percent="0.77" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </androidx.cardview.widget.CardView>
@@ -548,26 +512,17 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                                <com.flaviofaria.kenburnsview.KenBurnsView
-                                    android:id="@+id/image31122222"
+                                <ImageView
+                                    android:id="@+id/imageView36"
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
-                                    android:adjustViewBounds="true"
-                                    android:foreground="@drawable/focus_07_1f_prev"
-                                    android:src="@drawable/focus_07_1b_prev"
-                                    android:visibility="visible"
+                                    android:scaleType="fitXY"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintDimensionRatio="h,10:14"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" /><![CDATA[
-
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintDimensionRatio="10:8"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent" />
-
-                                ]]>
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/focus_07_1f_prev" />
 
                                 <TextView
                                     android:id="@+id/textView91122222"
@@ -611,19 +566,17 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                                <com.flaviofaria.kenburnsview.KenBurnsView
-                                    android:id="@+id/image41122"
+                                <ImageView
+                                    android:id="@+id/imageView30"
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
-                                    android:adjustViewBounds="true"
-                                    android:foreground="@drawable/focus_05_2f_prev"
-                                    android:src="@drawable/focus_05_2b_prev"
-                                    android:visibility="visible"
+                                    android:scaleType="fitXY"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintDimensionRatio="h,10:15"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/focus_05_2f_prev" />
 
                                 <TextView
                                     android:id="@+id/textView1122"
@@ -658,20 +611,17 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                                <com.flaviofaria.kenburnsview.KenBurnsView
-                                    android:id="@+id/image31122"
+                                <ImageView
+                                    android:id="@+id/imageView35"
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
-                                    android:adjustViewBounds="true"
-                                    android:foreground="@drawable/focus_06_2f_prev"
                                     android:scaleType="fitXY"
-                                    android:src="@drawable/focus_06_2b_prev"
-                                    android:visibility="visible"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintDimensionRatio="h,10:11"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:srcCompat="@drawable/focus_06_2f_prev" />
 
                                 <TextView
                                     android:id="@+id/textView91122"
@@ -708,21 +658,17 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                                <com.flaviofaria.kenburnsview.KenBurnsView
-                                    android:id="@+id/image411223"
+                                <ImageView
+                                    android:id="@+id/imageView37"
                                     android:layout_width="0dp"
                                     android:layout_height="0dp"
-                                    android:adjustViewBounds="true"
-                                    android:foreground="@drawable/focus_07_2f_prev"
-                                    android:src="@drawable/focus_07_2b_prev"
-                                    android:visibility="visible"
+                                    android:scaleType="fitXY"
                                     app:layout_constraintBottom_toBottomOf="parent"
                                     app:layout_constraintDimensionRatio="h,1000:800"
                                     app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintHorizontal_bias="0.0"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent"
-                                    app:layout_constraintVertical_bias="0.0" />
+                                    app:srcCompat="@drawable/focus_07_2f_prev" />
 
                                 <TextView
                                     android:id="@+id/textView11223"
@@ -748,80 +694,7 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/concentration_on_breathing_03_01111444"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginRight="10dp"
-                android:background="#00090909"
-                android:visibility="gone">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/focus_08_1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    app:cardBackgroundColor="#00FFFFFF"
-                    app:cardCornerRadius="12dp"
-                    app:cardElevation="0dp"
-                    app:cardMaxElevation="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:background="#00FFFFFF">
-
-                        <com.flaviofaria.kenburnsview.KenBurnsView
-                            android:id="@+id/image214444"
-                            android:layout_width="0dp"
-                            android:layout_height="0dp"
-                            android:adjustViewBounds="true"
-                            android:scaleType="centerInside"
-                            android:src="@drawable/focus_08_1b_prev"
-                            android:visibility="visible"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <ImageView
-                            android:id="@+id/imageView711444"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="-2dp"
-                            android:layout_marginRight="-2dp"
-                            android:adjustViewBounds="true"
-                            android:scaleType="centerCrop"
-                            app:layout_constraintBottom_toBottomOf="@+id/image214444"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/image214444"
-                            app:layout_constraintVertical_bias="1.0"
-                            app:srcCompat="@drawable/focus_08_1f_prev" />
-
-                        <TextView
-                            android:id="@+id/textView522444"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/inter_semibold"
-                            android:padding="10dp"
-                            android:text="Полет мысли"
-                            android:textColor="#FFFFFF"
-                            android:textSize="18sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@+id/image214444"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toStartOf="@+id/image214444" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.cardview.widget.CardView>
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
         </LinearLayout>
     </ScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

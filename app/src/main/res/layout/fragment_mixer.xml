@@ -4,19 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blue_gradient2"
     tools:context=".presentation.MixerFragment">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scrollbars="none"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
+            android:background="@drawable/blue_gradient2"
             android:orientation="vertical">
 
             <TextView
@@ -25,85 +27,249 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="15dp"
+                android:layout_marginBottom="5dp"
                 android:fontFamily="@font/inter_regular"
                 android:gravity="left"
                 android:text="@string/mixer_l"
                 android:textColor="#FFFFFF"
                 android:textSize="25sp" />
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:gravity="left"
+                    android:text="@string/birds_and_animals"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerAnimals"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp"
+                    android:clipToPadding="false"
+                    android:foregroundGravity="center"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintBottom_toTopOf="@+id/imageView6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView10">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <SeekBar
+                    android:id="@+id/seekBarAnimal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:progress="100"
+                    android:progressBackgroundTint="#000000"
+                    android:progressDrawable="@drawable/custome_seek_bar"
+                    android:progressTint="#FFFFFF"
+                    android:thumb="@drawable/mixer_dot_volume"
+                    android:thumbTint="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView6"
+                    app:layout_constraintTop_toTopOf="@+id/imageView6" />
+
+                <ImageView
+                    android:id="@+id/imageView6"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/mixer_volume"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/recyclerAnimals" />
+
+                <View
+                    android:id="@+id/divider4"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_marginRight="15dp"
+                    android:background="#0DFFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/seekBarAnimal"
+                    app:layout_constraintStart_toStartOf="@+id/imageView6" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView102"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:gravity="left"
+                    android:text="@string/sounds_of_nature_mixer"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerNature"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp"
+                    android:clipToPadding="false"
+                    android:foregroundGravity="center"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintBottom_toTopOf="@+id/imageView61"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView102">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <SeekBar
+                    android:id="@+id/seekBarNature"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:progress="100"
+                    android:progressBackgroundTint="#000000"
+                    android:progressDrawable="@drawable/custome_seek_bar"
+                    android:progressTint="#FFFFFF"
+                    android:thumb="@drawable/mixer_dot_volume"
+                    android:thumbTint="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView61"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView61"
+                    app:layout_constraintTop_toTopOf="@+id/imageView61" />
+
+                <ImageView
+                    android:id="@+id/imageView61"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/mixer_volume"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/recyclerNature" />
+
+                <View
+                    android:id="@+id/divider5"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_marginRight="15dp"
+                    android:background="#0DFFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/seekBarNature"
+                    app:layout_constraintStart_toStartOf="@+id/imageView61" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView1021"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:gravity="left"
+                    android:text="@string/musical_instruments"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerinstruments"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp"
+                    android:clipToPadding="false"
+                    android:foregroundGravity="center"
+                    android:nestedScrollingEnabled="false"
+                    app:layout_constraintBottom_toTopOf="@+id/imageView611"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView1021">
+
+                </androidx.recyclerview.widget.RecyclerView>
+
+                <SeekBar
+                    android:id="@+id/seekBarInstruments"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:progress="100"
+                    android:progressBackgroundTint="#000000"
+                    android:progressDrawable="@drawable/custome_seek_bar"
+                    android:progressTint="#FFFFFF"
+                    android:thumb="@drawable/mixer_dot_volume"
+                    android:thumbTint="#FFFFFF"
+                    app:layout_constraintBottom_toBottomOf="@+id/imageView611"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/imageView611"
+                    app:layout_constraintTop_toTopOf="@+id/imageView611" />
+
+                <ImageView
+                    android:id="@+id/imageView611"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/mixer_volume"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/recyclerinstruments" />
+
+                <View
+                    android:id="@+id/divider6"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_marginRight="15dp"
+                    android:background="#0DFFFFFF"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/seekBarInstruments"
+                    app:layout_constraintStart_toStartOf="@+id/imageView611" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="15dp"
                 app:cardBackgroundColor="#03061A"
                 app:cardCornerRadius="15dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginRight="20dp"
-                        android:fontFamily="@font/inter_semibold"
-                        android:gravity="left"
-                        android:text="@string/birds_and_animals"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerAnimals"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="15dp"
-                        android:clipToPadding="false"
-                        android:foregroundGravity="center"
-                        android:nestedScrollingEnabled="false"
-                        app:layout_constraintBottom_toTopOf="@+id/imageView6"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView10">
-
-                    </androidx.recyclerview.widget.RecyclerView>
-
-                    <SeekBar
-                        android:id="@+id/seekBarAnimal"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:progress="100"
-                        android:progressBackgroundTint="#3247EC"
-                        android:progressTint="#3247EC"
-                        android:thumbTint="#3247EC"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView6"
-                        app:layout_constraintTop_toTopOf="@+id/imageView6" />
-
-                    <ImageView
-                        android:id="@+id/imageView6"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_marginBottom="15dp"
-                        android:src="@android:drawable/ic_lock_silent_mode_off"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/recyclerAnimals" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
 
@@ -115,145 +281,6 @@
                 android:layout_marginRight="15dp"
                 app:cardBackgroundColor="#03061A"
                 app:cardCornerRadius="15dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/textView102"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginRight="20dp"
-                        android:fontFamily="@font/inter_semibold"
-                        android:gravity="left"
-                        android:text="@string/sounds_of_nature_mixer"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerNature"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="15dp"
-                        android:clipToPadding="false"
-                        android:foregroundGravity="center"
-                        android:nestedScrollingEnabled="false"
-                        app:layout_constraintBottom_toTopOf="@+id/imageView61"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView102">
-
-                    </androidx.recyclerview.widget.RecyclerView>
-
-                    <SeekBar
-                        android:id="@+id/seekBarNature"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:progress="100"
-                        android:progressBackgroundTint="#3247EC"
-                        android:progressTint="#3247EC"
-                        android:thumbTint="#3247EC"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView61"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView61"
-                        app:layout_constraintTop_toTopOf="@+id/imageView61" />
-
-                    <ImageView
-                        android:id="@+id/imageView61"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_marginBottom="15dp"
-                        android:src="@android:drawable/ic_lock_silent_mode_off"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/recyclerNature" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="15dp"
-                app:cardBackgroundColor="#03061A"
-                app:cardCornerRadius="15dp">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/textView1021"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginRight="20dp"
-                        android:fontFamily="@font/inter_semibold"
-                        android:gravity="left"
-                        android:text="@string/musical_instruments"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerinstruments"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginRight="20dp"
-                        android:layout_marginBottom="15dp"
-                        android:clipToPadding="false"
-                        android:foregroundGravity="center"
-                        android:nestedScrollingEnabled="false"
-                        app:layout_constraintBottom_toTopOf="@+id/imageView611"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView1021">
-
-                    </androidx.recyclerview.widget.RecyclerView>
-
-                    <SeekBar
-                        android:id="@+id/seekBarInstruments"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:progress="100"
-                        android:progressBackgroundTint="#3247EC"
-                        android:progressTint="#3247EC"
-                        android:thumbTint="#3247EC"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView611"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toEndOf="@+id/imageView611"
-                        app:layout_constraintTop_toTopOf="@+id/imageView611" />
-
-                    <ImageView
-                        android:id="@+id/imageView611"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_marginBottom="15dp"
-                        android:src="@android:drawable/ic_lock_silent_mode_off"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="@+id/recyclerinstruments" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
 
@@ -346,6 +373,7 @@
                         android:layout_width="0dp"
                         android:layout_height="0dp"
                         android:background="#9A000000"
+                        android:visibility="invisible"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -672,32 +700,58 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginRight="20dp">
+                android:layout_marginTop="15dp">
 
                 <ImageView
                     android:id="@+id/imageView84"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:src="@android:drawable/ic_lock_silent_mode_off"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/recyclerinstruments"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="@+id/seekBarBinua"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/seekBarBinua"
+                    app:srcCompat="@drawable/mixer_volume" />
 
                 <SeekBar
                     android:id="@+id/seekBarBinua"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
                     android:progress="100"
-                    android:progressBackgroundTint="#3247EC"
-                    android:progressTint="#3247EC"
-                    android:thumbTint="#3247EC"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:progressBackgroundTint="#000000"
+                    android:progressDrawable="@drawable/custome_seek_bar"
+                    android:progressTint="#FFFFFF"
+                    android:thumb="@drawable/mixer_dot_volume"
+                    android:thumbTint="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/imageView84"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/divider7"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#0DFFFFFF"
+                    app:layout_constraintEnd_toEndOf="@+id/seekBarBinua"
+                    app:layout_constraintStart_toStartOf="@+id/imageView611"
+                    app:layout_constraintTop_toBottomOf="@+id/seekBarBinua" />
+
+                <TextView
+                    android:id="@+id/textView13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/inter_semibold"
+                    android:gravity="left"
+                    android:text="@string/duration"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/divider7" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.cardview.widget.CardView
@@ -907,47 +961,38 @@
 
             </androidx.cardview.widget.CardView>
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/setTimerButton"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="58dp"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="12dp"
-                android:layout_marginBottom="120dp"
-                android:visibility="visible">
+                android:layout_marginBottom="155dp"
+                app:cardBackgroundColor="#00FFFFFF"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp">
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:cardBackgroundColor="#050927"
-                    app:cardCornerRadius="15dp"
-                    app:cardMaxElevation="0dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/setTimerButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/blue_gradient_for_button"
+                    android:visibility="visible">
 
-                    <ImageView
-                        android:id="@+id/imageView4"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:adjustViewBounds="true"
-                        android:visibility="visible"
-                        app:srcCompat="@drawable/back_for_start_button" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                    <TextView
-                        android:id="@+id/textView19"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:fontFamily="@font/inter_regular"
-                        android:gravity="center"
-                        android:text="установить таймер"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp" />
-                </androidx.cardview.widget.CardView>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/textView19"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="center"
+                    android:text="@string/mixer_start"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+                    android:visibility="visible" />
+            </androidx.cardview.widget.CardView>
 
         </LinearLayout>
     </ScrollView>

@@ -1,16 +1,17 @@
 package com.gsu.vibe.data.models
 
 data class SoundModel(
-
-    val name: String = " ",
+    var name: String = " ",
     val title: Int = 0,
     val subtitle: Int = 0,
     val url: String =  "",
-    val background: Int,
-    val foreground: Int,
-    val previewF: Int,
-    val previewB: Int,
-    val sound: Int = 0,
-    val isFavorite: Boolean = false
-
-    )
+    val background: Int = 0,
+    val foreground: Int = 0,
+    val mixerIcon: Int = 0, // иконка которая показывается в окне конфигурации миксера
+    var isSelected: Boolean = false, // для миксера
+    val preview: Int = 0,
+    var sound: Int = 0,  // для миксера
+    var soundVolume: Int = 1,
+    val isFavorite: Boolean = false,
+    val volume: Int = 1
+)

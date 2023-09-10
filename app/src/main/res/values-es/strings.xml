@@ -1,0 +1,120 @@
+<resources>
+    <string name="app_name">Vibe</string>
+    <string name="hello_blank_fragment">Hola fragmento en blanco</string>
+
+    <string name="start">Iniciar</string>
+    <string name="cont">Continuar</string>
+    <string name="pause">Pausar</string>
+    <string name="noConnection">Problemas de conexión,\npor favor, inténtalo más tarde</string>
+    <string name="reset">Reiniciar</string>
+    <string name="close">Cerrar</string>
+    <string name="nothing">Nada</string>
+    <string name="nothing_d">Disfruta del sonido natural</string>
+    <string name="delta">Delta 1–4 Hz</string>
+    <string name="delta_d">Para relajación y sueño profundo</string>
+    <string name="tetta">Theta 4–8 Hz</string>
+    <string name="tetta_d">Mejora la memoria a largo plazo,\nsueño rápido</string>
+    <string name="alpha">Alfa 8–14 Hz</string>
+    <string name="alpha_d">Buen humor, reducción de la\nansiedad, concentración positiva</string>
+    <string name="betta">Beta 14–30 Hz</string>
+    <string name="betta_d">Alta concentración,\nmejora de la memoria</string>
+    <string name="gamma">Gamma 30–100 Hz</string>
+    <string name="gamma_d">Potenciación de habilidades mentales y\nactividad cognitiva</string>
+    <string name="description_binua">Los beats binaurales son una ilusión auditiva creada por el cerebro. Sonidos con diferentes frecuencias se envían a través de los auriculares. Por ejemplo, el oído derecho escucha un sonido a 120 Hz, mientras que el oído izquierdo escucha 140 Hz. Para compensar la diferencia, el cerebro crea un tono adicional de 20 Hz. Se cree que puede influir en nuestro bienestar.</string>
+    <string name="set_timer">establecer temporizador</string>
+    <string name="mixer_start">Iniciar</string>
+    <string name="birds_and_animals">Aves y animales</string>
+    <string name="sounds_of_nature_mixer">Sonidos de la naturaleza</string>
+    <string name="musical_instruments">Instrumentos musicales</string>
+    <string name="binaural_beats">Beats binaurales</string>
+    <string name="duration">Duración</string>
+    <string name="sleep">Para dormir</string>
+    <string name="meditations">Meditaciones</string>
+    <string name="focus">Enfocar</string>
+    <string name="nature">Naturaleza</string>
+    <string name="favorite">Favorito</string>
+    <string name="mixer">Mezclador</string>
+    <string name="sleep_l">para dormir</string>
+    <string name="meditations_l">meditaciones</string>
+    <string name="focus_l">enfocar</string>
+    <string name="nature_l">naturaleza</string>
+    <string name="favorite_l">favorito</string>
+    <string name="mixer_l">mezclador</string>
+
+    <string name="for_sleep">Para dormir</string>
+    <string name="for_meditation">Para meditar</string>
+    <string name="for_focus">Para concentrarse</string>
+    <string name="sounds_of_nature">Sonidos de la naturaleza</string>
+
+    <string name="singing_bowls">Cuencos tibetanos</string>
+    <string name="path_of_zen">Camino del zen</string>
+    <string name="serenity">Serenidad</string>
+    <string name="peace_and_tranquility">Paz y tranquilidad</string>
+    <string name="internal_balance">Equilibrio interno</string>
+    <string name="in_harmony_with_yourself">En armonía contigo mismo</string>
+    <string name="contemplating_eternity">Contemplando la eternidad</string>
+    <string name="soul_healing">Sanación del alma</string>
+    <string name="om_mantra">Mantra Om</string>
+    <string name="manipura_mantra">Mantra Manipura</string>
+    <string name="anahata_mantra">Mantra Anahata</string>
+    <string name="clear_mind">Mente clara</string>
+    <string name="alone_in_infinity">Solo en el infinito</string>
+
+    <string name="through_time">A través del tiempo</string>
+    <string name="space_whisper">Susurro del espacio</string>
+    <string name="with_loved_ones">Con seres queridos</string>
+    <string name="desert_melody">Melodía del desierto</string>
+    <string name="towards_the_sunset">Hacia el atardecer</string>
+    <string name="last_rays">Últimos rayos</string>
+    <string name="inner_peace">Paz interior</string>
+    <string name="northern_lights">Aurora boreal</string>
+    <string name="calm">Calma</string>
+    <string name="last_ray_of_sunshine">Último rayo de sol</string>
+    <string name="cozy_evening">Noche acogedora</string>
+    <string name="sounds_of_infinity">Sonidos del infinito</string>
+    <string name="dream_world">Mundo de sueños</string>
+    <string name="moonlight">Luz de luna</string>
+    <string name="appeasement">Apaciguamiento</string>
+
+    <string name="the_moment_of_concentration">El momento de concentración</string>
+    <string name="strength_of_will">Fuerza de voluntad</string>
+    <string name="energy_and_harmony">Energía y armonía</string>
+    <string name="dreams_of_the_future">Sueños del futuro</string>
+    <string name="way_to_the_goal">Camino al objetivo</string>
+    <string name="new_horizons">Nuevos horizontes</string>
+    <string name="inner_peace2">Paz interior</string>
+    <string name="together_with_relatives">Junto a familiares</string>
+    <string name="seclusion">Reclusión</string>
+    <string name="focus_on_the_task">Enfocarse en la tarea</string>
+    <string name="flow_of_thought">Flujo de pensamiento</string>
+    <string name="imagination_and_creativity">Imaginación y creatividad</string>
+
+    <string name="sea_and_seagulls">Mar y gaviotas</string>
+    <string name="bonfire_sounds">Sonidos de la fogata</string>
+    <string name="sounds_of_space">Sonidos del espacio</string>
+    <string name="whale_song">Canto de ballena</string>
+    <string name="rain_on_the_roof">Lluvia en el techo</string>
+    <string name="river_flowing">Río fluyendo</string>
+    <string name="tropical_birds">Aves tropicales</string>
+    <string name="cat_purring">Ronroneo del gato</string>
+    <string name="thunder_rolls">Truenos</string>
+    <string name="jungle_song">Canto de la jungla</string>
+    <string name="mountain_blizzard">Tormenta de montaña</string>
+    <string name="dolphin_song">Canto del delfín</string>
+    <string name="lake_shore">Orilla del lago</string>
+    <string name="night_forest">Bosque nocturno</string>
+    <string name="waterfall_sounds">Sonidos de la cascada</string>
+
+    <string name="paywall_text1">Prueba 3 días GRATIS</string>
+    <string name="paywall_text2">Luego 3$ por mes</string>
+    <string name="paywall_text3">Suscribirse</string>
+    <string name="paywall_text4">Puede cancelar su suscripción sin costo durante el período de prueba gratuito</string>
+    <string name="paywall_text5">No hay acceso sin suscripción</string>
+
+    <string name="paywall_first_header">Meditación</string>
+    <string name="paywall_first_description">Alcanza la armonía mental y física, duerme y concéntrate. Una gran biblioteca de sonidos para cualquier ocasión</string>
+
+    <string name="paywall_second_header">Crea música</string>
+    <string name="paywall_second_description">Crea tu propia composición a partir de instrumentos musicales, sonidos de la naturaleza y ritmos binaurales.</string>
+
+</resources>

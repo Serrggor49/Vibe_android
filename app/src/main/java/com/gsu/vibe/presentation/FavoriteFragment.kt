@@ -35,9 +35,7 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         Log.d("MyLogs311", Repository.getFavoritesSounds(requireContext()).toString())
-
         init()
     }
 
@@ -53,7 +51,7 @@ class FavoriteFragment : Fragment() {
 
     fun itemClick(name: String){
         mainViewModel.setCurrentSound(name)
-        val action = FavoriteFragmentDirections.actionFavoriteFragmentToPlayerFragment()
+        val action = FavoriteFragmentDirections.actionFavoriteFragmentToMediaPlayerServiceFragment()
         view?.findNavController()?.navigate(action)
     }
 

@@ -1,0 +1,120 @@
+<resources>
+
+    <string name="app_name">Vibe</string>
+    <string name="hello_blank_fragment">你好，空白片段</string>
+
+    <string name="start">开始</string>
+    <string name="cont">继续</string>
+    <string name="pause">暂停</string>
+    <string name="noConnection">连接问题，\n请稍后再试</string>
+    <string name="reset">重置</string>
+    <string name="close">关闭</string>
+    <string name="nothing">无</string>
+    <string name="nothing_d">享受自然之声</string>
+    <string name="delta">Delta 1–4 Hz</string>
+    <string name="delta_d">用于放松和深度睡眠</string>
+    <string name="tetta">Theta 4–8 Hz</string>
+    <string name="tetta_d">提高长期记忆，\n快速入睡</string>
+    <string name="alpha">Alpha 8–14 Hz</string>
+    <string name="alpha_d">良好的心情，减少焦虑，\n积极的专注</string>
+    <string name="betta">Beta 14–30 Hz</string>
+    <string name="betta_d">高度集中，\n记忆改善</string>
+    <string name="gamma">Gamma 30–100 Hz</string>
+    <string name="gamma_d">增强心智能力和\ncognitive活动</string>
+    <string name="description_binua">双耳节拍是大脑产生的听觉错觉。耳机通过不同频率的声音。例如，右耳听到120 Hz的声音，而左耳听到140 Hz。为了抵消这种差异，大脑创建了一个额外的20 Hz音调。人们认为它能够影响我们的幸福感。</string>
+    <string name="set_timer">设置计时器</string>
+    <string name="mixer_start">开始</string>
+    <string name="birds_and_animals">鸟和动物</string>
+    <string name="sounds_of_nature_mixer">自然之声</string>
+    <string name="musical_instruments">乐器</string>
+    <string name="binaural_beats">双耳节拍</string>
+    <string name="duration">持续时间</string>
+    <string name="sleep">睡眠</string>
+    <string name="meditations">冥想</string>
+    <string name="focus">专注</string>
+    <string name="nature">自然</string>
+    <string name="favorite">最爱</string>
+    <string name="mixer">混音器</string>
+    <string name="sleep_l">睡眠</string>
+    <string name="meditations_l">冥想</string>
+    <string name="focus_l">专注</string>
+    <string name="nature_l">自然</string>
+    <string name="favorite_l">最爱</string>
+    <string name="mixer_l">混音器</string>
+    <string name="for_sleep">为了睡眠</string>
+    <string name="for_meditation">为了冥想</string>
+    <string name="for_focus">为了集中</string>
+    <string name="sounds_of_nature">大自然的声音</string>
+
+    <string name="singing_bowls">唱歌碗</string>
+    <string name="path_of_zen">禅的路径</string>
+    <string name="serenity">宁静</string>
+    <string name="peace_and_tranquility">和平与宁静</string>
+    <string name="internal_balance">内在平衡</string>
+    <string name="in_harmony_with_yourself">与自己和谐相处</string>
+    <string name="contemplating_eternity">沉思永恒</string>
+    <string name="soul_healing">灵魂疗愈</string>
+    <string name="om_mantra">Om咒语</string>
+    <string name="manipura_mantra">咒语</string>
+    <string name="anahata_mantra">咒语</string>
+    <string name="clear_mind">头脑清晰</string>
+    <string name="alone_in_infinity">独自在无尽中</string>
+
+    <string name="through_time">穿越时光</string>
+    <string name="space_whisper">空间的低语</string>
+    <string name="with_loved_ones">与亲人在一起</string>
+    <string name="desert_melody">沙漠旋律</string>
+    <string name="towards_the_sunset">朝向夕阳</string>
+    <string name="last_rays">最后的光线</string>
+    <string name="inner_peace">内心的和平</string>
+    <string name="northern_lights">北极光</string>
+    <string name="calm">冷静</string>
+    <string name="last_ray_of_sunshine">最后的阳光</string>
+    <string name="cozy_evening">舒适的晚上</string>
+    <string name="sounds_of_infinity">无尽的声音</string>
+    <string name="dream_world">梦想世界</string>
+    <string name="moonlight">月光</string>
+    <string name="appeasement">安抚</string>
+
+    <string name="the_moment_of_concentration">集中的时刻</string>
+    <string name="strength_of_will">意志的力量</string>
+    <string name="energy_and_harmony">能量与和谐</string>
+    <string name="dreams_of_the_future">未来的梦想</string>
+    <string name="way_to_the_goal">通向目标的道路</string>
+    <string name="new_horizons">新的视野</string>
+    <string name="inner_peace2">内心的和平</string>
+    <string name="together_with_relatives">与亲人在一起</string>
+    <string name="seclusion">隐居</string>
+    <string name="focus_on_the_task">专注于任务</string>
+    <string name="flow_of_thought">思维的流动</string>
+    <string name="imagination_and_creativity">想象力与创造力</string>
+
+    <string name="sea_and_seagulls">海与海鸥</string>
+    <string name="bonfire_sounds">篝火的声音</string>
+    <string name="sounds_of_space">空间的声音</string>
+    <string name="whale_song">鲸鱼之歌</string>
+    <string name="rain_on_the_roof">屋顶上的雨声</string>
+    <string name="river_flowing">流淌的河流</string>
+    <string name="tropical_birds">热带鸟类</string>
+    <string name="cat_purring">猫的呼噜声</string>
+    <string name="thunder_rolls">雷声</string>
+    <string name="jungle_song">丛林之歌</string>
+    <string name="mountain_blizzard">山中暴风雪</string>
+    <string name="dolphin_song">海豚之歌</string>
+    <string name="lake_shore">湖畔</string>
+    <string name="night_forest">夜晚的森林</string>
+    <string name="waterfall_sounds">瀑布的声音</string>
+
+    <string name="paywall_text1">免费试用3天</string>
+    <string name="paywall_text2">之后每月3美元</string>
+    <string name="paywall_text3">订阅</string>
+    <string name="paywall_text4">在免费试用期内，您可以随时取消订阅，无需支付费用</string>
+    <string name="paywall_text5">未订阅无法访问</string>
+
+    <string name="paywall_first_header">冥想</string>
+    <string name="paywall_first_description">达到身心和谐，入睡和集中。一个为各种场合提供的广泛声音库</string>
+
+    <string name="paywall_second_header">创作音乐</string>
+    <string name="paywall_second_description">使用乐器、自然之声和双耳节奏创建自己的作品。</string>
+
+</resources>

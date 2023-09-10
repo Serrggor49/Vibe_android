@@ -22,8 +22,8 @@ class FavoritesSoundsAdapter(private val sounds: List<SoundModel>,
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.soundName.text = (context.getString(sounds[position].title)).replace("\n", "  ")
         holder.typeSoundTextView.text = context.getString(sounds[position].subtitle)
-        holder.previewImageF.setImageResource(sounds[position].previewF)
-        holder.previewImageB.setImageResource(sounds[position].previewB)
+        //holder.previewImageF.setImageResource(sounds[position].previewF)
+        holder.previewImageB.setImageResource(sounds[position].preview)
         holder.constraintItemView.setOnClickListener {
             onItemClicked(sounds[position].name)
         }
@@ -39,14 +39,14 @@ class FavoritesSoundsAdapter(private val sounds: List<SoundModel>,
         val constraintItemView: ConstraintLayout
         val soundName: TextView
         val typeSoundTextView: TextView
-        val previewImageF: ImageView
+        //val previewImageF: ImageView
         val previewImageB: ImageView
 
         init {
             constraintItemView = itemView.findViewById(R.id.constraintItemView)
             soundName = itemView.findViewById(R.id.soundName)
             typeSoundTextView = itemView.findViewById(R.id.typeSoundTextView)
-            previewImageF = itemView.findViewById(R.id.previewImageF)
+            //previewImageF = itemView.findViewById(R.id.previewImageF)
             previewImageB = itemView.findViewById(R.id.previewImageB)
         }
 

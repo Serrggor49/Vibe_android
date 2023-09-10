@@ -6,6 +6,7 @@
     <string name="cont">Продолжить</string>
     <string name="pause">Пауза</string>
     <string name="noConnection">Проблемы с соединением</string>
+    <string name="reset">Сбросить</string>
 
     <string name="close">Закрыть</string>
 
@@ -25,11 +26,15 @@
 
     <string name="description_binua">Бинауральные ритмы – слуховая иллюзия, которую создает мозг. Через наушники подаются звуки с разными частотами. Например, правое ухо слышит звук с частотой 120 Гц, а левое – 140 Гц. Чтобы нивелировать разницу, мозг создает дополнительный тон в 20 Гц. Считается, что он способен влиять на наше самочувствие.</string>
 
+    <string name="set_timer">установить таймер</string>
+    <string name="mixer_start">Начать</string>
+
 
     <string name="birds_and_animals">Пение птиц и зверей</string>
     <string name="sounds_of_nature_mixer">Звуки природы</string>
     <string name="musical_instruments">Музыкальные инструменты</string>
     <string name="binaural_beats">Бинауральные ритмы</string>
+    <string name="duration">Продолжительность</string>
 
     <string name="sleep">Для сна</string>
     <string name="meditations">Медитации</string>
@@ -47,7 +52,7 @@
 
     <string name="for_sleep">Для сна</string>
     <string name="for_meditation">Медитации</string>
-    <string name="for_focus">Фокусирование</string>
+    <string name="for_focus">Фокус</string>
     <string name="sounds_of_nature">Звуки природы</string>
 
     <string name="singing_bowls">Поющие чаши</string>
@@ -103,11 +108,26 @@
     <string name="cat_purring">Мурчание кота</string>
     <string name="thunder_rolls">Раскаты грома</string>
     <string name="jungle_song">Зов джунглей</string>
-    <string name="night_blizzard">Ночная вьюга</string>
+    <string name="mountain_blizzard">Горная вьюга</string>
     <string name="dolphin_song">Песнь дельфинов</string>
     <string name="lake_shore">На берегу озера</string>
     <string name="night_forest">Ночь в лесу</string>
     <string name="waterfall_sounds">Звуки водопада</string>
+
+    <string name="paywall_text1">Попробуйте БЕСПЛАТНЫЙ 3-х дневный период</string>
+    <string name="paywall_text2">Далее 888888 в месяц</string>
+    <string name="paywall_text3">Подписка</string>
+    <string name="paywall_text4">Бесплатная отмена в течении всего бесплатного периода</string>
+    <string name="paywall_text5"> </string>
+
+
+    <string name="paywall_first_header">Медитируйте</string>
+    <string name="paywall_first_description">Обретайте душевную и физическую гармонию, засыпайте и фокусируйтесь. Большая библиотека звуков на любой случай</string>
+
+    <string name="paywall_second_header">Создавайте</string>
+    <string name="paywall_second_description">Соберите свою композицию из музыкальных инструментов, звуков природы и бинуруальных ритмов</string>
+
+
 
 
 

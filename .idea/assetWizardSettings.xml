@@ -310,9 +310,10 @@
                         </option>
                         <option name="values">
                           <map>
+                            <entry key="assetSourceType" value="FILE" />
                             <entry key="color" value="ffffff" />
-                            <entry key="outputName" value="ic_baseline_pause_circle_filled_24" />
-                            <entry key="sourceFile" value="$PROJECT_DIR$/../pic/bottom_bar/mixer_bar.svg" />
+                            <entry key="outputName" value="mixer_dot_volume" />
+                            <entry key="sourceFile" value="$PROJECT_DIR$/../pic/mixer/mixer_dot_volume.svg" />
                           </map>
                         </option>
                       </PersistentState>

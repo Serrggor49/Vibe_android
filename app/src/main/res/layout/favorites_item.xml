@@ -15,7 +15,7 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:animationCache="false"
-        app:cardCornerRadius="30dp"
+        app:cardCornerRadius="22dp"
         app:cardElevation="5dp"
         app:cardMaxElevation="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,17 +28,8 @@
             android:id="@+id/previewImageB"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/sleep_01_1b_quiet_harbor_prev" />
-
-        <ImageView
-            android:id="@+id/previewImageF"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:adjustViewBounds="true"
-            android:foregroundGravity="bottom"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/sleep_01_1f_quiet_harbor_prev" />
+            app:srcCompat="@drawable/sleep_01_2b_endless_space_prev" />
 
     </com.google.android.material.card.MaterialCardView>
 

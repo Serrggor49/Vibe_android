@@ -8,10 +8,8 @@ import android.net.NetworkCapabilities
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import com.gsu.vibe.ConnectionLiveData
 import com.gsu.vibe.R
 import com.gsu.vibe.data.Repository
-import com.gsu.vibe.data.models.MixerSoundModel
 import com.gsu.vibe.data.models.SoundModel
 
 
@@ -19,14 +17,22 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     var timeForMixerPlayerInMs = 0
 
-    var animalSound: MixerSoundModel = MixerSoundModel(name = "null", sound = R.raw.empty)
+    lateinit var currentSound : SoundModel
+
+    var animalSound: SoundModel = SoundModel(name = "null", sound = R.raw.empty)
     var animalSoundVolume = 0.5f
-    var natureSound: MixerSoundModel = MixerSoundModel(name = "null", sound = R.raw.empty)
+    var natureSound: SoundModel = SoundModel(name = "null", sound = R.raw.empty)
     var natureSoundVolume = 0.5f
-    var instrumentsSound: MixerSoundModel = MixerSoundModel(name = "null", sound = R.raw.empty)
+    var instrumentsSound: SoundModel = SoundModel(name = "null", sound = R.raw.empty)
     var instrumentsVolume = 0.5f
-    var binuaSound: MixerSoundModel = MixerSoundModel(name = "null", sound = R.raw.empty)
+    var binuaSound: SoundModel = SoundModel(name = "null", sound = R.raw.empty)
     var binuaSoundVolume = 0.5f
+
+
+    fun getSoundsArray(){
+
+        return
+    }
 
     @SuppressLint("StaticFieldLeak")
     val context = application.applicationContext
@@ -36,12 +42,12 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     val visibilityBottomBarLivaData = MutableLiveData(true) // отвечает за показ бара на главном экране
 
     val openFavoriteLivaData = MutableLiveData(false) // отвечает за открытие окна с избранными аудиозаписями
+    val openSubscribeFragmentLivaData = MutableLiveData(false) // отвечает за открытие окна с подписками
 
     val repository: Repository = Repository
 
     var listAllSounds = repository.getSounds((Repository.SoundType.ALL))
 
-    lateinit var currentSound : SoundModel
 
     fun isOnline(): Boolean {
         val connectivityManager =
@@ -68,7 +74,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     enum class CurrentType {
-        FOR_SLEEP, FOR_MEDITATION, FOR_FOCUS, NATURE, MIXER, FAVORITE
+        FOR_SLEEP, FOR_MEDITATION, FOR_FOCUS, NATURE, MIXER, FAVORITE, SUBSCRIBE
     }
 
 }

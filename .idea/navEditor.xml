@@ -13,13 +13,13 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="397" />
-                            <option name="y" value="130" />
+                            <option name="x" value="468" />
+                            <option name="y" value="22" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_favoriteFragment_to_playerFragment">
+                            <entry key="action_favoriteFragment_to_mediaPlayerServiceFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -40,12 +40,24 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_focusFragment_to_playerFragment">
+                            <entry key="action_focusFragment_to_mediaPlayerServiceFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="mediaPlayerServiceFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="743" />
+                            <option name="y" value="1213" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -66,7 +78,7 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
-                            <entry key="action_meditationFragment_to_playerFragment">
+                            <entry key="action_meditationFragment_to_mediaPlayerServiceFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -97,13 +109,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="mixerPlayerFragment">
+                  <entry key="mixerPlayerServiceFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="1210" />
-                            <option name="y" value="368" />
+                            <option name="x" value="12" />
+                            <option name="y" value="12" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -120,7 +132,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_natureFragment_to_playerFragment">
+                            <entry key="action_natureFragment_to_mediaPlayerServiceFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -130,13 +142,67 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="playerFragment">
+                  <entry key="onboardFirstFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="988" />
-                            <option name="y" value="368" />
+                            <option name="x" value="-55" />
+                            <option name="y" value="730" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_onboardFirstFragment_to_onboardSecondFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="onboardSecondFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="224" />
+                            <option name="y" value="473" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_onboardSecondFragment_to_paywallFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="onboardThirdFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="256" />
+                            <option name="y" value="958" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="paywallFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="513" />
+                            <option name="y" value="728" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -153,7 +219,7 @@
                         </option>
                         <option name="myPositions">
                           <map>
-                            <entry key="action_sleepFragment_to_playerFragment">
+                            <entry key="action_sleepFragment_to_mediaPlayerServiceFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
@@ -173,18 +239,35 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="500" />
-                            <option name="y" value="724" />
+                            <option name="x" value="-227" />
+                            <option name="y" value="728" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_splachFragment_to_onboardFirstFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_splachFragment_to_sleepFragment">
                               <value>
                                 <LayoutPositions />
                               </value>
                             </entry>
                           </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="subscriptionsFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="515" />
+                            <option name="y" value="1214" />
+                          </Point>
                         </option>
                       </LayoutPositions>
                     </value>

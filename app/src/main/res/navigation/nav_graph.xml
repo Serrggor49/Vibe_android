@@ -13,8 +13,8 @@
             android:id="@+id/action_sleepFragment_to_tracksListFragment"
             app:destination="@id/tracksListFragment" />
         <action
-            android:id="@+id/action_sleepFragment_to_playerFragment"
-            app:destination="@id/playerFragment" />
+            android:id="@+id/action_sleepFragment_to_mediaPlayerServiceFragment"
+            app:destination="@id/mediaPlayerServiceFragment" />
     </fragment>
     <fragment
         android:id="@+id/tracksListFragment"
@@ -22,18 +22,13 @@
         android:label="fragment_tracks_list"
         tools:layout="@layout/fragment_tracks_list" />
     <fragment
-        android:id="@+id/playerFragment"
-        android:name="com.gsu.vibe.presentation.PlayerFragment"
-        android:label="fragment_player"
-        tools:layout="@layout/fragment_player" />
-    <fragment
         android:id="@+id/focusFragment"
         android:name="com.gsu.vibe.presentation.FocusFragment"
         android:label="fragment_focus"
         tools:layout="@layout/fragment_focus" >
         <action
-            android:id="@+id/action_focusFragment_to_playerFragment"
-            app:destination="@id/playerFragment" />
+            android:id="@+id/action_focusFragment_to_mediaPlayerServiceFragment"
+            app:destination="@id/mediaPlayerServiceFragment" />
     </fragment>
     <fragment
         android:id="@+id/meditationFragment"
@@ -41,11 +36,11 @@
         android:label="fragment_meditation"
         tools:layout="@layout/fragment_meditation" >
         <action
-            android:id="@+id/action_meditationFragment_to_playerFragment"
-            app:destination="@id/playerFragment" />
-        <action
             android:id="@+id/action_meditationFragment_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/action_meditationFragment_to_mediaPlayerServiceFragment"
+            app:destination="@id/mediaPlayerServiceFragment" />
     </fragment>
     <fragment
         android:id="@+id/natureFragment"
@@ -53,8 +48,8 @@
         android:label="fragment_nature"
         tools:layout="@layout/fragment_nature" >
         <action
-            android:id="@+id/action_natureFragment_to_playerFragment"
-            app:destination="@id/playerFragment" />
+            android:id="@+id/action_natureFragment_to_mediaPlayerServiceFragment"
+            app:destination="@id/mediaPlayerServiceFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
@@ -62,8 +57,8 @@
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" >
         <action
-            android:id="@+id/action_favoriteFragment_to_playerFragment"
-            app:destination="@id/playerFragment" />
+            android:id="@+id/action_favoriteFragment_to_mediaPlayerServiceFragment"
+            app:destination="@id/mediaPlayerServiceFragment" />
     </fragment>
     <fragment
         android:id="@+id/splachFragment"
@@ -73,6 +68,9 @@
         <action
             android:id="@+id/action_splachFragment_to_sleepFragment"
             app:destination="@id/sleepFragment" />
+        <action
+            android:id="@+id/action_splachFragment_to_onboardFirstFragment"
+            app:destination="@id/onboardFirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/mixerFragment"
@@ -81,11 +79,49 @@
         tools:layout="@layout/fragment_mixer" >
         <action
             android:id="@+id/action_mixerFragment_to_mixerPlayerFragment"
-            app:destination="@id/mixerPlayerFragment" />
+            app:destination="@id/mixerPlayerServiceFragment" />
     </fragment>
     <fragment
-        android:id="@+id/mixerPlayerFragment"
-        android:name="com.gsu.vibe.MixerPlayerFragment"
+        android:id="@+id/mixerPlayerServiceFragment"
+        android:name="com.gsu.vibe.MixerPlayerServiceFragment"
         android:label="fragment_mixer_player"
         tools:layout="@layout/fragment_mixer_player" />
+    <fragment
+        android:id="@+id/paywallFragment"
+        android:name="com.gsu.vibe.presentation.PaywallFragment"
+        android:label="fragment_paywall"
+        tools:layout="@layout/fragment_paywall" />
+    <fragment
+        android:id="@+id/onboardFirstFragment"
+        android:name="com.gsu.vibe.presentation.OnboardFirstFragment"
+        android:label="fragment_onboard_first"
+        tools:layout="@layout/fragment_onboard_first" >
+        <action
+            android:id="@+id/action_onboardFirstFragment_to_onboardSecondFragment"
+            app:destination="@id/onboardSecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardSecondFragment"
+        android:name="com.gsu.vibe.presentation.OnboardSecondFragment"
+        android:label="fragment_onboard_second"
+        tools:layout="@layout/fragment_onboard_second" >
+        <action
+            android:id="@+id/action_onboardSecondFragment_to_paywallFragment"
+            app:destination="@id/paywallFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mediaPlayerServiceFragment"
+        android:name="com.gsu.vibe.MediaPlayerServiceFragment"
+        android:label="fragment_media_player_service"
+        tools:layout="@layout/fragment_media_player_service" />
+    <fragment
+        android:id="@+id/onboardThirdFragment"
+        android:name="com.gsu.vibe.presentation.OnboardThirdFragment"
+        android:label="fragment_onboard_third"
+        tools:layout="@layout/fragment_onboard_third" />
+    <fragment
+        android:id="@+id/subscriptionsFragment"
+        android:name="com.gsu.vibe.presentation.SubscriptionsFragment"
+        android:label="fragment_subscriptions"
+        tools:layout="@layout/fragment_subscriptions" />
 </navigation>

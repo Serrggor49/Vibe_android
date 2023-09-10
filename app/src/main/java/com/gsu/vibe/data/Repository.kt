@@ -4,15 +4,14 @@ import android.annotation.SuppressLint
 import android.content.Context
 import com.gsu.vibe.data.database.DataBase
 import com.gsu.vibe.data.database.SoundsForMixerData
-import com.gsu.vibe.data.models.MixerSoundModel
 import com.gsu.vibe.data.models.SoundModel
 
 object Repository {
 
 
-    fun getSoundsForMixer(type: SoundsForMixerType): ArrayList<MixerSoundModel> {
+    fun getSoundsForMixer(type: SoundsForMixerType): ArrayList<SoundModel> {
 
-        val list: ArrayList<MixerSoundModel> = when (type) {
+        val list: ArrayList<SoundModel> = when (type) {
             SoundsForMixerType.ANIMALS -> SoundsForMixerData.getAnimals()
             SoundsForMixerType.NATURE -> SoundsForMixerData.getNature()
             SoundsForMixerType.INSTRUMENTS -> SoundsForMixerData.getInstrument()

@@ -6,6 +6,7 @@
     <string name="cont">Continue</string>
     <string name="pause">Pause</string>
     <string name="noConnection">Connection problems,\nplease try again later</string>
+    <string name="reset">Reset</string>
 
     <string name="close">Close</string>
 
@@ -25,11 +26,15 @@
 
     <string name="description_binua">Binaural beats are an auditory illusion created by the brain. Sounds with different frequencies are fed through the headphones. For example, the right ear hears a sound at 120 Hz, while the left ear hears 140 Hz. To offset the difference, the brain creates an additional tone of 20 Hz. It is believed that it is able to influence our well-being.</string>
 
+    <string name="set_timer">set timer</string>
+    <string name="mixer_start">Start</string>
+
 
     <string name="birds_and_animals">Birds and animals</string>
     <string name="sounds_of_nature_mixer">Sounds of nature</string>
     <string name="musical_instruments">Musical instruments</string>
     <string name="binaural_beats">Binaural beats</string>
+    <string name="duration">Duration</string>
 
     <string name="sleep">For sleep</string>
     <string name="meditations">Meditations</string>
@@ -104,11 +109,23 @@
     <string name="cat_purring">Cat purring</string>
     <string name="thunder_rolls">Thunder rolls</string>
     <string name="jungle_song">Jungle Song</string>
-    <string name="night_blizzard">Night blizzard</string>
+    <string name="mountain_blizzard">Mountain blizzard</string>
     <string name="dolphin_song">Dolphin Song</string>
     <string name="lake_shore">Lake Shore</string>
     <string name="night_forest">Night forest</string>
     <string name="waterfall_sounds">Waterfall sounds</string>
+
+    <string name="paywall_text1">Try 3 days FREE trial period</string>
+    <string name="paywall_text2">Then 3$ per month</string>
+    <string name="paywall_text3">Subscribe</string>
+    <string name="paywall_text4">You can cancel subscribe without charge during all free trial period</string>
+    <string name="paywall_text5">No access without subscribe</string>
+
+    <string name="paywall_first_header">Meditate</string>
+    <string name="paywall_first_description">Achieve mental and physical harmony, fall asleep and focus. A large library of sounds for any occasion</string>
+
+    <string name="paywall_second_header">Create music</string>
+    <string name="paywall_second_description">Create your own composition from musical instruments, sounds of nature, and binaural rhythms.</string>
 
 
 </resources>

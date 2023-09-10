@@ -6,13 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
-import com.flaviofaria.kenburnsview.RandomTransitionGenerator
-import com.gsu.vibe.R
-import com.gsu.vibe.databinding.FragmentPlayerBinding
 import com.gsu.vibe.databinding.FragmentSplashBinding
+import com.gsu.vibe.navOptionsLong
 
 class SplashFragment : Fragment() {
 
@@ -24,7 +21,7 @@ class SplashFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentSplashBinding.inflate(inflater, container, false)
         return _binding.root
@@ -41,21 +38,22 @@ class SplashFragment : Fragment() {
 
     fun initBackground() {
 
-        val kbv = binding.image1
-        val ACCELERATE_DECELERATE = AccelerateDecelerateInterpolator()
-        val generator = RandomTransitionGenerator(25000, ACCELERATE_DECELERATE)
-       // kbv.setTransitionGenerator(generator)
+        //val kbv = binding.image1
+
+        // kbv.setTransitionGenerator(generator)
 
     }
 
 
-    fun initTimer(){
-        val timer = object : CountDownTimer(500, 2000) {
+    fun initTimer() {
+        val timer = object : CountDownTimer(3000, 1000) {
             override fun onTick(millisUntilFinished: Long) {}
 
             override fun onFinish() {
-                val action = SplashFragmentDirections.actionSplachFragmentToSleepFragment()
-                view?.findNavController()?.navigate(action)
+                //val action = SplashFragmentDirections.actionSplachFragmentToSleepFragment()
+                val action = SplashFragmentDirections.actionSplachFragmentToOnboardFirstFragment()
+                view?.findNavController()?.navigate(action, navOptionsLong)
+
             }
         }
         timer.start()

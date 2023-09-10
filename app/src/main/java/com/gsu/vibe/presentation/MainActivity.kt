@@ -1,28 +1,28 @@
 package com.gsu.vibe.presentation
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.content.BroadcastReceiver
-import android.content.Context
 import android.content.Intent
-import android.content.IntentFilter
 import android.graphics.Color
-import android.media.MediaPlayer
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
-import com.gsu.vibe.Playable
 import com.gsu.vibe.R
 import com.gsu.vibe.databinding.ActivityMainBinding
-import java.lang.Exception
+import com.gsu.vibe.services.MediaPlayerService
+import io.branch.referral.Branch
+import io.branch.referral.BranchError
+import io.branch.referral.util.BRANCH_STANDARD_EVENT
+import io.branch.referral.util.BranchEvent
+import io.branch.referral.util.CurrencyType
+import org.json.JSONObject
 
 
-class MainActivity : AppCompatActivity(),Playable {
+class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     val mainViewModel: MainViewModel by viewModels()
@@ -33,10 +33,64 @@ class MainActivity : AppCompatActivity(),Playable {
         setContentView(binding.root)
         supportActionBar?.hide()
 
+        initBranch()
         initFavorite()
-
+        initCloseAd()
         initBar()
-       // findNavController(R.id.fragmentContainerView).navigate(R.id.sleepFragment)
+
+
+
+        window.decorView.systemUiVisibility = (
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                )
+    }
+
+    fun initBranch(){
+
+        //Branch.sessionBuilder(this).withCallback(branchListener).withData(this.intent?.data).init()
+
+        //val branch = Branch.getInstance()
+
+//        branch.initSession({ referringParams, error ->
+//            if (error == null) {
+//                Log.d("BRANCH SDK", referringParams.toString())
+//            } else {
+//                Log.d("BRANCH SDK", error.message)
+//            }
+//        }, this.intent.data, this)
+
+        Branch.sessionBuilder(this).withCallback { branchUniversalObject, linkProperties, error ->
+            if (error != null) {
+                Log.e("BranchSDK_Tester", "branch init failed. Caused by -" + error.message)
+            } else {
+                Log.i("BranchSDK_Tester", "branch init complete!")
+                if (branchUniversalObject != null) {
+                    Log.i("BranchSDK_Tester", "title " + branchUniversalObject.title)
+                    Log.i("BranchSDK_Tester", "CanonicalIdentifier " + branchUniversalObject.canonicalIdentifier)
+                    Log.i("BranchSDK_Tester", "metadata " + branchUniversalObject.contentMetadata.convertToJson())
+                }
+                if (linkProperties != null) {
+                    Log.i("BranchSDK_Tester", "Channel " + linkProperties.channel)
+                    Log.i("BranchSDK_Tester", "control params " + linkProperties.controlParams)
+                }
+            }
+        }.withData(this.intent.data).init()
+
+
+        // BranchEvent(BRANCH_STANDARD_EVENT.PURCHASE).setAffiliation("test").setCurrency(CurrencyType.USD).logEvent(this)  // для теста
+
+
+    }
+
+    fun initCloseAd(){
+        mainViewModel.openSubscribeFragmentLivaData.observe(this){
+            if (it) {
+                clearNavButtons()
+                mainViewModel.currentType = MainViewModel.CurrentType.FAVORITE
+                findNavController(R.id.fragmentContainerView).navigate(R.id.subscriptionsFragment)
+            }
+        }
     }
 
     fun initFavorite(){
@@ -52,9 +106,8 @@ class MainActivity : AppCompatActivity(),Playable {
 
     fun updateBottomButtons(){
         clearNavButtons()
-        val currentType = mainViewModel.currentType
 
-        when (currentType){
+        when (mainViewModel.currentType){
             MainViewModel.CurrentType.FOR_SLEEP ->  binding.buttonBar1Icon.setImageResource(R.drawable.ic_sleep_bar_color)
             MainViewModel.CurrentType.FOR_FOCUS ->  binding.buttonBar2Icon.setImageResource(R.drawable.ic_focus_bar_color)
             MainViewModel.CurrentType.FOR_MEDITATION ->  binding.buttonBar3Icon.setImageResource(R.drawable.ic_meditation_bar_color)
@@ -73,6 +126,13 @@ class MainActivity : AppCompatActivity(),Playable {
     }
 
     fun initBar() {
+
+        val navOptions = NavOptions.Builder()
+            .setEnterAnim(R.anim.fade_in)
+            .setExitAnim(R.anim.fade_out)
+            .setPopEnterAnim(R.anim.fade_in)
+            .setPopExitAnim(R.anim.fade_out)
+            .build()
 
         mainViewModel.visibilityBottomBarLivaData.observe(this) {
             if (it) {
@@ -99,7 +159,8 @@ class MainActivity : AppCompatActivity(),Playable {
                 mainViewModel.currentType = MainViewModel.CurrentType.FOR_SLEEP
                 clearNavButtons()
                 binding.buttonBar1Icon.setImageResource(R.drawable.ic_sleep_bar_color)
-                findNavController(R.id.fragmentContainerView).navigate(R.id.sleepFragment)
+
+                findNavController(R.id.fragmentContainerView).navigate(R.id.sleepFragment, null, navOptions)
             }
         }
 
@@ -108,7 +169,10 @@ class MainActivity : AppCompatActivity(),Playable {
                 mainViewModel.currentType = MainViewModel.CurrentType.FOR_FOCUS
                 clearNavButtons()
                 binding.buttonBar2Icon.setImageResource(R.drawable.ic_focus_bar_color)
-                findNavController(R.id.fragmentContainerView).navigate(R.id.focusFragment)
+
+
+
+                findNavController(R.id.fragmentContainerView).navigate(R.id.focusFragment, null, navOptions)
             }
         }
 
@@ -117,7 +181,7 @@ class MainActivity : AppCompatActivity(),Playable {
                 mainViewModel.currentType = MainViewModel.CurrentType.FOR_MEDITATION
                 clearNavButtons()
                 binding.buttonBar3Icon.setImageResource(R.drawable.ic_meditation_bar_color)
-                findNavController(R.id.fragmentContainerView).navigate(R.id.meditationFragment)
+                findNavController(R.id.fragmentContainerView).navigate(R.id.meditationFragment, null, navOptions)
             }
         }
 
@@ -126,7 +190,7 @@ class MainActivity : AppCompatActivity(),Playable {
                 mainViewModel.currentType = MainViewModel.CurrentType.NATURE
                 clearNavButtons()
                 binding.buttonBar4Icon.setImageResource(R.drawable.ic_nature_bar_color)
-                findNavController(R.id.fragmentContainerView).navigate(R.id.natureFragment)
+                findNavController(R.id.fragmentContainerView).navigate(R.id.natureFragment, null, navOptions)
             }
         }
 
@@ -141,9 +205,8 @@ class MainActivity : AppCompatActivity(),Playable {
             if (mainViewModel.currentType != MainViewModel.CurrentType.MIXER) {
                 mainViewModel.currentType = MainViewModel.CurrentType.MIXER
                 clearNavButtons()
-
                 binding.buttonBar5Icon.setImageResource(R.drawable.ic_mixer_bar_color)
-                findNavController(R.id.fragmentContainerView).navigate(R.id.mixerFragment)
+                findNavController(R.id.fragmentContainerView).navigate(R.id.mixerFragment, null, navOptions)
             }
         }
 
@@ -151,12 +214,11 @@ class MainActivity : AppCompatActivity(),Playable {
             if (mainViewModel.currentType != MainViewModel.CurrentType.FAVORITE) {
                 mainViewModel.currentType = MainViewModel.CurrentType.FAVORITE
                 clearNavButtons()
-                findNavController(R.id.fragmentContainerView).navigate(R.id.favoriteFragment)
+                findNavController(R.id.fragmentContainerView).navigate(R.id.favoriteFragment, null, navOptions)
             }
         }
 
     }
-
 
     fun clearNavButtons() {
         binding.buttonBar1Icon.setImageResource(R.drawable.ic_sleep_bar)
@@ -166,20 +228,29 @@ class MainActivity : AppCompatActivity(),Playable {
         binding.buttonBar5Icon.setImageResource(R.drawable.ic_mixer_bar)
     }
 
-    override fun onTrackPrevius() {
-        TODO("Not yet implemented")
-    }
+//    object branchListener : Branch.BranchReferralInitListener {
+//        override fun onInitFinished(referringParams: JSONObject?, error: BranchError?) {
+//            if (error == null) {
+//                Log.i("BRANCH SDK", referringParams.toString())
+//                // Retrieve deeplink keys from 'referringParams' and evaluate the values to determine where to route the user
+//                // Check '+clicked_branch_link' before deciding whether to use your Branch routing logic
+//            } else {
+//                Log.e("BRANCH SDK", error.message)
+//            }
+//        }
+//
+//    }
 
-    override fun onTrackPlay() {
-        TODO("Not yet implemented")
-    }
-
-    override fun onTrackPause() {
-        TODO("Not yet implemented")
-    }
-
-    override fun onTrackNext() {
-        TODO("Not yet implemented")
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        this.setIntent(intent);
+        Branch.sessionBuilder(this).withCallback { referringParams, error ->
+            if (error != null) {
+                Log.e("BranchSDK_Tester", error.message)
+            } else if (referringParams != null) {
+                Log.i("BranchSDK_Tester", referringParams.toString())
+            }
+        }.reInit()
     }
 
 }
