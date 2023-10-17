@@ -11,13 +11,18 @@ import androidx.lifecycle.MutableLiveData
 import com.gsu.vibe.R
 import com.gsu.vibe.data.Repository
 import com.gsu.vibe.data.models.SoundModel
+import kotlin.random.Random
 
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     var timeForMixerPlayerInMs = 0
 
-    lateinit var currentSound : SoundModel
+    val prefName = "PREFERENCE_NAME"
+    val subStatusKey = "subStatus"
+    val onboardStatusKey = "onboardStatus"
+
+    lateinit var currentSound: SoundModel
 
     var animalSound: SoundModel = SoundModel(name = "null", sound = R.raw.empty)
     var animalSoundVolume = 0.5f
@@ -28,26 +33,22 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     var binuaSound: SoundModel = SoundModel(name = "null", sound = R.raw.empty)
     var binuaSoundVolume = 0.5f
 
-
-    fun getSoundsArray(){
-
-        return
-    }
-
     @SuppressLint("StaticFieldLeak")
     val context = application.applicationContext
 
     var currentType = CurrentType.FOR_SLEEP
 
-    val visibilityBottomBarLivaData = MutableLiveData(true) // отвечает за показ бара на главном экране
+    val visibilityBottomBarLivaData =
+        MutableLiveData(true) // отвечает за показ бара на главном экране
 
-    val openFavoriteLivaData = MutableLiveData(false) // отвечает за открытие окна с избранными аудиозаписями
-    val openSubscribeFragmentLivaData = MutableLiveData(false) // отвечает за открытие окна с подписками
+    val openFavoriteLivaData =
+        MutableLiveData(false) // отвечает за открытие окна с избранными аудиозаписями
+    val openSubscribeFragmentLivaData =
+        MutableLiveData(false) // отвечает за открытие окна с подписками
 
     val repository: Repository = Repository
 
     var listAllSounds = repository.getSounds((Repository.SoundType.ALL))
-
 
     fun isOnline(): Boolean {
         val connectivityManager =
@@ -69,12 +70,34 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         return false
     }
 
-    fun setCurrentSound(name: String){
+    fun showAd(): Boolean = (Random.nextBoolean())
+
+    fun setSubStatus(res: Boolean){
+        val sharedPreference = context.getSharedPreferences(prefName,Context.MODE_PRIVATE)
+        val editor = sharedPreference.edit()
+        editor.putBoolean(subStatusKey, res)
+        editor.apply()
+    }
+    fun getSubStatus() = context.getSharedPreferences(prefName,Context.MODE_PRIVATE).getBoolean(subStatusKey, false)
+
+
+    fun setOnboardStatus(res: Boolean){
+        val sharedPreference = context.getSharedPreferences(prefName,Context.MODE_PRIVATE)
+        val editor = sharedPreference.edit()
+        editor.putBoolean(onboardStatusKey, res)
+        editor.apply()
+    }
+    fun getOnboardStatus() = context.getSharedPreferences(prefName,Context.MODE_PRIVATE).getBoolean(onboardStatusKey, false)
+
+
+
+    fun setCurrentSound(name: String) {
         currentSound = listAllSounds.filter { it.name == name }[0]
     }
 
     enum class CurrentType {
         FOR_SLEEP, FOR_MEDITATION, FOR_FOCUS, NATURE, MIXER, FAVORITE, SUBSCRIBE
     }
+
 
 }

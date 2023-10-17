@@ -110,10 +110,31 @@
     <string name="paywall_text4">Vous pouvez annuler à tout moment pendant l\'essai gratuit</string>
     <string name="paywall_text5">Accès restreint sans abonnement</string>
 
-    <string name="paywall_first_header">Méditation</string>
-    <string name="paywall_first_description">Atteignez l\'harmonie du corps et de l\'esprit, dormez et concentrez-vous. Bibliothèque sonore riche pour toutes les occasions</string>
+    <string name="weekly_sub_head">Hebdomadaire</string>
+    <string name="monthly_sub_head">Mensuel</string>
+    <string name="yearly_sub_head">Annuel</string>
 
-    <string name="paywall_second_header">Créez de la musique</string>
-    <string name="paywall_second_description">Créez avec des outils musicaux, des sons de la nature et des rythmes binauraux.</string>
+    <string name="ready_to_go_pro">Prêt à passer au Pro ?</string>
+    <string name="ready_to_go_pro_sub">Sans engagement, annulez à tout moment.</string>
+
+    <string name="sub_description">3 jours gratuits, puis %1$s</string>
+
+    <string name="weekly_sub">semaine</string>
+    <string name="monthly_sub">mois</string>
+    <string name="annual_sub">année</string>
+    <string name="disable_ad_button">Désactiver les publicités</string>
+    <string name="disable_ad_description_1">Désactivez les publicités et profitez de toutes les fonctionnalités de l\'application sans aucune limitation!</string>
+    <string name="disable_ad_description_2">Vous pouvez annuler l\'abonnement à tout moment.</string>
+    <string name="paywall_first_header">Méditez</string>
+    <string name="paywall_first_description">Au lieu de chercher la tranquillité dans le monde extérieur, trouvez-la en vous-même. Commencez votre voyage dans le monde de la méditation.</string>
+    <string name="paywall_abstraction_header">Abstrayez-vous</string>
+    <string name="paywall_abstraction_description">Apprenez à vous détacher du tumulte quotidien. Plongez dans vos pensées et trouvez la paix intérieure.</string>
+    <string name="paywall_relax_header">Détendez-vous</string>
+    <string name="paywall_relax_description">Laissez derrière vous tous les stress et les soucis. Il est temps d\'apprendre la vraie relaxation et l\'harmonie.</string>
+    <string name="paywall_concentration">Concentrez-vous</string>
+    <string name="paywall_concentration_description">Souvent distrait? Apprenez à gérer votre attention et à devenir plus efficace dans vos tâches quotidiennes.</string>
+    <string name="paywall_second_header">Créez</string>
+    <string name="paywall_second_description">Créez un espace sonore unique qui vous aide à vous détendre ou à vous concentrer.</string>
+
 
 </resources>

@@ -111,10 +111,31 @@
     <string name="paywall_text4">在免费试用期内，您可以随时取消订阅，无需支付费用</string>
     <string name="paywall_text5">未订阅无法访问</string>
 
-    <string name="paywall_first_header">冥想</string>
-    <string name="paywall_first_description">达到身心和谐，入睡和集中。一个为各种场合提供的广泛声音库</string>
+    <string name="weekly_sub_head">每周</string>
+    <string name="monthly_sub_head">每月</string>
+    <string name="yearly_sub_head">每年</string>
 
-    <string name="paywall_second_header">创作音乐</string>
-    <string name="paywall_second_description">使用乐器、自然之声和双耳节奏创建自己的作品。</string>
+
+    <string name="ready_to_go_pro">准备升级至专业版？</string>
+    <string name="ready_to_go_pro_sub">无需长期承诺，随时取消</string>
+
+    <string name="sub_description">前3天免费，之后 %1$s</string>
+
+    <string name="weekly_sub">周 %1$s </string>
+    <string name="monthly_sub">月 %1$s </string>
+    <string name="annual_sub">年 %1$s </string>
+    <string name="disable_ad_button">禁用广告</string>
+    <string name="disable_ad_description_1">禁用广告，并无限制地享受应用的所有功能！</string>
+    <string name="disable_ad_description_2">您可以随时取消订阅。</string>
+    <string name="paywall_first_header">冥想</string>
+    <string name="paywall_first_description">不要在外界寻找宁静，而是在自己内心找到它。开始您的冥想之旅。</string>
+    <string name="paywall_abstraction_header">抽象</string>
+    <string name="paywall_abstraction_description">学会从日常琐事中抽身。沉浸在自己的思想中，找到内心的平静。</string>
+    <string name="paywall_relax_header">放松</string>
+    <string name="paywall_relax_description">把所有的压力和烦恼都留在门外。是时候学习真正的放松和和谐了。</string>
+    <string name="paywall_concentration">集中</string>
+    <string name="paywall_concentration_description">经常分心？学会管理您的注意力，提高日常任务的效率。</string>
+    <string name="paywall_second_header">创建</string>
+    <string name="paywall_second_description">创建一个独特的声音空间，帮助您放松或集中注意力。</string>
 
 </resources>

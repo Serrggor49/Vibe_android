@@ -16,10 +16,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.RemoteViews
+import androidx.activity.OnBackPressedCallback
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.Navigation.findNavController
 import androidx.navigation.findNavController
 import com.gsu.vibe.R
 import com.gsu.vibe.data.Repository
@@ -54,11 +56,15 @@ class SleepFragment : Fragment() {
         init()
         mainViewmodel.visibilityBottomBarLivaData.postValue(true)
 
+
+
+
        // testCustomNotif()
     }
 
     override fun onResume() {
         super.onResume()
+        mainViewmodel.visibilityBottomBarLivaData.postValue(true)
         mainViewmodel.currentType = MainViewModel.CurrentType.FOR_SLEEP
         (activity as MainActivity).updateBottomButtons()
     }
@@ -110,13 +116,17 @@ class SleepFragment : Fragment() {
     @SuppressLint("ClickableViewAccessibility")
     fun init() {
 
+        if (mainViewmodel.getSubStatus()) binding.closeAdButton.visibility = View.GONE
+
+        binding.closeAdButton.setOnClickListener {
+            mainViewmodel.openSubscribeFragmentLivaData.postValue(true)
+            mainViewmodel.visibilityBottomBarLivaData.postValue(false)
+        }
+
         binding.openFavoritesButton.setOnClickListener {
             mainViewmodel.openFavoriteLivaData.postValue(true)
         }
 
-        binding.closeAdButton.setOnClickListener {
-            mainViewmodel.openSubscribeFragmentLivaData.postValue(true)
-        }
 
 
         binding.quietHarbor011.setOnTouchListener { v, event -> openPlayer(v, event, "m1") }
@@ -141,10 +151,7 @@ class SleepFragment : Fragment() {
             binding.openFavoritesButton.visibility = View.VISIBLE
         }
 
-
-
     }
-
 
 
     fun openPlayer(v: View, event: MotionEvent, currentSound: String): Boolean {
@@ -162,10 +169,17 @@ class SleepFragment : Fragment() {
                     .setDuration(100)
                     .withEndAction {
                         mainViewmodel.setCurrentSound(currentSound)
-                        //val action = SleepFragmentDirections.actionSleepFragmentToPlayerFragment()
-                        val action =
-                            SleepFragmentDirections.actionSleepFragmentToMediaPlayerServiceFragment()
-                        view?.findNavController()?.navigate(action)
+
+                        if (mainViewmodel.showAd() && !mainViewmodel.getSubStatus()) {
+                            val action = SleepFragmentDirections.actionSleepFragmentToInterstitialAdFragment()
+                            view?.findNavController()?.navigate(action)
+                        }
+                        else{
+                            val action =
+                                SleepFragmentDirections.actionSleepFragmentToMediaPlayerServiceFragment()
+                            view?.findNavController()?.navigate(action)
+                        }
+
                     }
                     .start()
                 //Log.d("MY_l124", "ACTION_UP")
@@ -183,5 +197,8 @@ class SleepFragment : Fragment() {
         }
         return true
     }
+
+
+
 
 }

@@ -8,6 +8,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import com.gsu.vibe.R
 import com.gsu.vibe.databinding.FragmentOnboardSecondBinding
@@ -94,7 +95,7 @@ fun openSecondOnboard(v: View, event: MotionEvent): Boolean {
                 .withEndAction {
                     val action =
                         OnboardSecondFragmentDirections.actionOnboardSecondFragmentToPaywallFragment()
-                    view?.findNavController()?.navigate(action, navOptionsLong)
+                    view?.findNavController()?.navigate(action, navOptions)
                 }
                 .start()
             //Log.d("MY_l124", "ACTION_UP")
@@ -110,6 +111,15 @@ fun openSecondOnboard(v: View, event: MotionEvent): Boolean {
     }
     return true
 }
+
+
+    val navOptions: NavOptions = NavOptions.Builder()
+        .setEnterAnim(R.anim.fade_in_long)
+        .setExitAnim(R.anim.fade_out_long)
+        .setPopEnterAnim(R.anim.fade_in_long)
+        .setPopExitAnim(R.anim.fade_out_long)
+        .setPopUpTo(R.id.onboardSecondFragment, true)  // Удаление SplashFragment из стека
+        .build()
 
 
 }

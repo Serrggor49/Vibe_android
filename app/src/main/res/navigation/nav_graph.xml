@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/sleepFragment">
+    app:startDestination="@id/splachFragment">
     <fragment
         android:id="@+id/sleepFragment"
         android:name="com.gsu.vibe.presentation.SleepFragment"
@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_sleepFragment_to_mediaPlayerServiceFragment"
             app:destination="@id/mediaPlayerServiceFragment" />
+        <action
+            android:id="@+id/action_sleepFragment_to_interstitialAdFragment"
+            app:destination="@id/interstitialAdFragment" />
     </fragment>
     <fragment
         android:id="@+id/tracksListFragment"
@@ -29,6 +32,9 @@
         <action
             android:id="@+id/action_focusFragment_to_mediaPlayerServiceFragment"
             app:destination="@id/mediaPlayerServiceFragment" />
+        <action
+            android:id="@+id/action_focusFragment_to_interstitialAdFragment"
+            app:destination="@id/interstitialAdFragment" />
     </fragment>
     <fragment
         android:id="@+id/meditationFragment"
@@ -41,6 +47,9 @@
         <action
             android:id="@+id/action_meditationFragment_to_mediaPlayerServiceFragment"
             app:destination="@id/mediaPlayerServiceFragment" />
+        <action
+            android:id="@+id/action_meditationFragment_to_interstitialAdFragment"
+            app:destination="@id/interstitialAdFragment" />
     </fragment>
     <fragment
         android:id="@+id/natureFragment"
@@ -50,6 +59,9 @@
         <action
             android:id="@+id/action_natureFragment_to_mediaPlayerServiceFragment"
             app:destination="@id/mediaPlayerServiceFragment" />
+        <action
+            android:id="@+id/action_natureFragment_to_interstitialAdFragment"
+            app:destination="@id/interstitialAdFragment" />
     </fragment>
     <fragment
         android:id="@+id/favoriteFragment"
@@ -71,6 +83,9 @@
         <action
             android:id="@+id/action_splachFragment_to_onboardFirstFragment"
             app:destination="@id/onboardFirstFragment" />
+        <action
+            android:id="@+id/action_splachFragment_to_newOnboardFirstFragment"
+            app:destination="@id/newOnboardFirstFragment" />
     </fragment>
     <fragment
         android:id="@+id/mixerFragment"
@@ -90,7 +105,11 @@
         android:id="@+id/paywallFragment"
         android:name="com.gsu.vibe.presentation.PaywallFragment"
         android:label="fragment_paywall"
-        tools:layout="@layout/fragment_paywall" />
+        tools:layout="@layout/fragment_paywall" >
+        <action
+            android:id="@+id/action_paywallFragment_to_sleepFragment"
+            app:destination="@id/sleepFragment" />
+    </fragment>
     <fragment
         android:id="@+id/onboardFirstFragment"
         android:name="com.gsu.vibe.presentation.OnboardFirstFragment"
@@ -124,4 +143,61 @@
         android:name="com.gsu.vibe.presentation.SubscriptionsFragment"
         android:label="fragment_subscriptions"
         tools:layout="@layout/fragment_subscriptions" />
+    <fragment
+        android:id="@+id/interstitialAdFragment"
+        android:name="com.gsu.vibe.presentation.InterstitialAdFragment"
+        android:label="fragment_interstitial_ad"
+        tools:layout="@layout/fragment_interstitial_ad" >
+        <action
+            android:id="@+id/action_interstitialAdFragment_to_mediaPlayerServiceFragment"
+            app:destination="@id/mediaPlayerServiceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newOnboardFirstFragment"
+        android:name="com.gsu.vibe.presentation.onboards.NewOnboardFirstFragment"
+        android:label="fragment_new_onboard_first"
+        tools:layout="@layout/fragment_new_onboard_first" >
+        <action
+            android:id="@+id/action_newOnboardFirstFragment_to_newOnboardSecondFragment"
+            app:destination="@id/newOnboardSecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newOnboardSecondFragment"
+        android:name="com.gsu.vibe.presentation.onboards.NewOnboardSecondFragment"
+        android:label="fragment_new_onboard_second"
+        tools:layout="@layout/fragment_new_onboard_second" >
+        <action
+            android:id="@+id/action_newOnboardSecondFragment_to_newOnboardThirdFragment"
+            app:destination="@id/newOnboardThirdFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newOnboardThirdFragment"
+        android:name="com.gsu.vibe.presentation.onboards.NewOnboardThirdFragment"
+        android:label="fragment_new_onboard_third"
+        tools:layout="@layout/fragment_new_onboard_third" >
+        <action
+            android:id="@+id/action_newOnboardThirdFragment_to_newOnboardFourthFragment"
+            app:destination="@id/newOnboardFourthFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newOnboardFourthFragment"
+        android:name="com.gsu.vibe.presentation.onboards.NewOnboardFourthFragment"
+        android:label="fragment_new_onboard_fourth"
+        tools:layout="@layout/fragment_new_onboard_fourth" >
+        <action
+            android:id="@+id/action_newOnboardFourthFragment_to_newOnboardSixFragment"
+            app:destination="@id/newOnboardSixFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/newOnboardSixFragment"
+        android:name="com.gsu.vibe.presentation.onboards.NewOnboardSixFragment"
+        android:label="fragment_new_onboard_six"
+        tools:layout="@layout/fragment_new_onboard_six" >
+        <action
+            android:id="@+id/action_newOnboardSixFragment_to_paywallFragment"
+            app:destination="@id/paywallFragment" />
+        <action
+            android:id="@+id/action_newOnboardSixFragment_to_sleepFragment"
+            app:destination="@id/sleepFragment" />
+    </fragment>
 </navigation>

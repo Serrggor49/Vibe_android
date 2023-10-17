@@ -105,13 +105,6 @@ class MixerPlayerServiceFragment : Fragment() {
         binding.timerText.text = getFormtTime(time.toInt())
         binding.playButtonText.text = getString(R.string.start)
 
-
-
-
-
-
-
-
         binding.closeButton.setOnTouchListener { v, event ->
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
@@ -134,6 +127,7 @@ class MixerPlayerServiceFragment : Fragment() {
                     requireContext().startService(closeServiceIntent)
                     NotificationManagerCompat.from(requireContext()).cancelAll() // спрятать все уведомления
 
+                    mainViewModel.visibilityBottomBarLivaData.postValue(true)
                     findNavController().popBackStack()
                     true
                 }

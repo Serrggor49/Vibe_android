@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="20dp"
+    android:height="20dp"
+    android:viewportWidth="20"
+    android:viewportHeight="20">
+
+  <!-- Круглый фон красного цвета -->
+  <path
+      android:fillColor="#D86500"
+      android:pathData="M10,20C4.477,20 0,15.523 0,10C0,4.477 4.477,0 10,0C15.523,0 20,4.477 20,10C20,15.523 15.523,20 10,20z"/>
+
+  <!-- Галочка в виде треугольника в центре -->
+  <group android:scaleX="0.8" android:scaleY="0.8" android:pivotX="10" android:pivotY="10">
+    <path
+        android:pathData="M15.71,6C15.522,5.811 15.267,5.704 15,5.704C14.733,5.704 14.478,5.811 14.29,6L8.29,12L5.71,9.29C5.318,8.898 4.682,8.898 4.29,9.29C3.898,9.682 3.898,10.318 4.29,10.71L7.63,14C8.015,14.362 8.615,14.362 9,14L15.67,7.33C16.019,6.961 16.036,6.389 15.71,6Z"
+        android:strokeWidth="1"
+        android:fillColor="#FFFFFF"
+        android:fillType="evenOdd"
+        android:strokeColor="#00000000"/>
+  </group>
+</vector>

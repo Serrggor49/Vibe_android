@@ -41,6 +41,7 @@ class NatureFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        mainViewmodel.visibilityBottomBarLivaData.postValue(true)
         mainViewmodel.currentType = MainViewModel.CurrentType.NATURE
         (activity as MainActivity).updateBottomButtons()
     }
@@ -48,6 +49,12 @@ class NatureFragment : Fragment() {
     @SuppressLint("ClickableViewAccessibility")
     fun init() {
 
+        if (mainViewmodel.getSubStatus()) binding.closeAdButton.visibility = View.GONE
+
+        binding.closeAdButton.setOnClickListener {
+            mainViewmodel.openSubscribeFragmentLivaData.postValue(true)
+            mainViewmodel.visibilityBottomBarLivaData.postValue(false)
+        }
 //        binding.image2511222.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
 //        binding.image25112223.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
 //        binding.image31122222.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
@@ -109,9 +116,16 @@ class NatureFragment : Fragment() {
                     .setDuration(100)
                     .withEndAction {
                         mainViewmodel.setCurrentSound(currentSound)
-                        //val action = NatureFragmentDirections.actionNatureFragmentToPlayerFragment()
-                        val action = NatureFragmentDirections.actionNatureFragmentToMediaPlayerServiceFragment()
-                        view?.findNavController()?.navigate(action)
+
+                        if (mainViewmodel.showAd() && !mainViewmodel.getSubStatus()) {
+                            val action = NatureFragmentDirections.actionNatureFragmentToInterstitialAdFragment()
+                            view?.findNavController()?.navigate(action)
+                        }
+                        else{
+                            val action =
+                                NatureFragmentDirections.actionNatureFragmentToMediaPlayerServiceFragment()
+                            view?.findNavController()?.navigate(action)
+                        }
                     }
                     .start()
                 //Log.d("MY_l124", "ACTION_UP")

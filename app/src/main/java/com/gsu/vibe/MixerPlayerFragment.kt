@@ -187,6 +187,7 @@ class MixerPlayerFragment : Fragment() {
     }
 
     fun initPlayers() {
+
         mediaPlayer1 = MediaPlayer.create(requireContext(), mainViewModel.animalSound.sound)
         mediaPlayer1.setVolume(mainViewModel.animalSoundVolume, mainViewModel.animalSoundVolume)
 

@@ -121,12 +121,31 @@
     <string name="paywall_text5"> </string>
 
 
+    <string name="weekly_sub_head">Неделя</string>
+    <string name="monthly_sub_head">Месяц</string>
+    <string name="yearly_sub_head">Год</string>
+
+    <string name="ready_to_go_pro">Готовы перейти на Pro?</string>
+    <string name="ready_to_go_pro_sub">Вы можете отменить подписку в любое время.</string>
+
+    <string name="sub_description">3 дня бесплатно, далее %1$s</string>
+
+    <string name="weekly_sub">неделя</string>
+    <string name="monthly_sub">месяц</string>
+    <string name="annual_sub">год</string>
+    <string name="disable_ad_button">Отключить рекламу</string>
+    <string name="disable_ad_description_1">Отключите рекламу и наслаждайтесь всеми возможностями приложения без ограничений!</string>
+    <string name="disable_ad_description_2">Вы можете отменить подписку в любое время.</string>
     <string name="paywall_first_header">Медитируйте</string>
-    <string name="paywall_first_description">Обретайте душевную и физическую гармонию, засыпайте и фокусируйтесь. Большая библиотека звуков на любой случай</string>
-
+    <string name="paywall_first_description">Зачем чем искать спокойствие внешнего мира,  найдите его внутри себя, Начните своё путешествие в мир медитации</string>
+    <string name="paywall_abstraction_header">Абстрагируйтесь</string>
+    <string name="paywall_abstraction_description">Научитесь отвлекаться от повседневной суеты. Погрузитесь в свои мысли и обретите внутренний покой</string>
+    <string name="paywall_relax_header">Расслабляйтесь</string>
+    <string name="paywall_relax_description">Оставьте за порогом все стрессы и заботы. Время научиться истинному расслаблению и гармонии.</string>
+    <string name="paywall_concentration">Фокусируйтесь</string>
+    <string name="paywall_concentration_description">Часто отвлекаетесь? Научитесь управлять своим вниманием и стать эффективнее в своих ежедневных делах.</string>
     <string name="paywall_second_header">Создавайте</string>
-    <string name="paywall_second_description">Соберите свою композицию из музыкальных инструментов, звуков природы и бинуруальных ритмов</string>
-
+    <string name="paywall_second_description">Создайте уникальное звуковое пространство, которое поможет вам расслабиться или сконцентрироваться.</string>
 
 
 

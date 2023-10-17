@@ -121,11 +121,34 @@
     <string name="paywall_text4">You can cancel subscribe without charge during all free trial period</string>
     <string name="paywall_text5">No access without subscribe</string>
 
-    <string name="paywall_first_header">Meditate</string>
-    <string name="paywall_first_description">Achieve mental and physical harmony, fall asleep and focus. A large library of sounds for any occasion</string>
 
-    <string name="paywall_second_header">Create music</string>
-    <string name="paywall_second_description">Create your own composition from musical instruments, sounds of nature, and binaural rhythms.</string>
+
+    <string name="weekly_sub_head">Weekly</string>
+    <string name="monthly_sub_head">Monthly</string>
+    <string name="yearly_sub_head">Yearly</string>
+
+
+    <string name="ready_to_go_pro">Ready to go Pro?</string>
+    <string name="ready_to_go_pro_sub">No commitment, cancel anytime</string>
+
+    <string name="sub_description">3 days free, then %1$s </string>
+
+    <string name="weekly_sub">week</string>
+    <string name="monthly_sub">month</string>
+    <string name="annual_sub">year</string>
+    <string name="disable_ad_button">Disable Ads</string>
+    <string name="disable_ad_description_1">Disable ads and enjoy all the features of the app without any limitations!</string>
+    <string name="disable_ad_description_2">You can cancel the subscription at any time.</string>
+    <string name="paywall_first_header">Meditate</string>
+    <string name="paywall_first_description">Instead of seeking tranquility in the outside world, find it within yourself. Begin your journey into the world of meditation.</string>
+    <string name="paywall_abstraction_header">Abstract</string>
+    <string name="paywall_abstraction_description">Learn to detach from the daily hustle. Dive into your thoughts and find inner peace.</string>
+    <string name="paywall_relax_header">Relax</string>
+    <string name="paywall_relax_description">Leave all the stresses and worries behind. It’s time to learn true relaxation and harmony.</string>
+    <string name="paywall_concentration">Focus</string>
+    <string name="paywall_concentration_description">Often distracted? Learn to manage your attention and become more efficient in your daily tasks.</string>
+    <string name="paywall_second_header">Create</string>
+    <string name="paywall_second_description">Create a unique sound space that helps you relax or focus.</string>
 
 
 </resources>

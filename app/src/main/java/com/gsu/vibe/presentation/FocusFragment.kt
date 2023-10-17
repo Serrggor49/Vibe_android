@@ -2,6 +2,7 @@ package com.gsu.vibe.presentation
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -41,6 +42,7 @@ class FocusFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        mainViewmodel.visibilityBottomBarLivaData.postValue(true)
         mainViewmodel.currentType = MainViewModel.CurrentType.FOR_FOCUS
         (activity as MainActivity).updateBottomButtons()
     }
@@ -48,7 +50,13 @@ class FocusFragment : Fragment() {
     @SuppressLint("ClickableViewAccessibility")
     fun init() {
 
-       // binding.image2.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
+        if (mainViewmodel.getSubStatus()) binding.closeAdButton.visibility = View.GONE
+
+        binding.closeAdButton.setOnClickListener {
+            mainViewmodel.openSubscribeFragmentLivaData.postValue(true)
+            mainViewmodel.visibilityBottomBarLivaData.postValue(false)
+        }
+        // binding.image2.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
        // binding.image311.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
      //   binding.image411.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
     //    binding.image25112.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
@@ -103,9 +111,18 @@ class FocusFragment : Fragment() {
                     .setDuration(100)
                     .withEndAction {
                         mainViewmodel.setCurrentSound(currentSound)
-                        //val action = FocusFragmentDirections.actionFocusFragmentToPlayerFragment()
-                        val action = FocusFragmentDirections.actionFocusFragmentToMediaPlayerServiceFragment()
-                        view?.findNavController()?.navigate(action)
+
+                        if (mainViewmodel.showAd() && !mainViewmodel.getSubStatus()) {
+                            val action =
+                                FocusFragmentDirections.actionFocusFragmentToInterstitialAdFragment()
+                            view?.findNavController()?.navigate(action)
+                        }
+                        else{
+                            val action =
+                                FocusFragmentDirections.actionFocusFragmentToMediaPlayerServiceFragment()
+                            view?.findNavController()?.navigate(action)
+                        }
+
                     }
                     .start()
                 //Log.d("MY_l124", "ACTION_UP")

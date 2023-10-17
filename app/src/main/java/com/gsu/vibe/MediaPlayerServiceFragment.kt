@@ -282,7 +282,8 @@ class MediaPlayerServiceFragment : Fragment() {
                 }
 
                 override fun onFinish() {
-                    findNavController().popBackStack()
+                    //findNavController().popBackStack()
+                    findNavController().popBackStack(R.id.sleepFragment, false)
                     mainViewModel.visibilityBottomBarLivaData.postValue(true)
                 }
             }
@@ -305,8 +306,9 @@ class MediaPlayerServiceFragment : Fragment() {
                 }
                 requireContext().startService(closeServiceIntent)
                 NotificationManagerCompat.from(requireContext()).cancelAll() // спрятать все уведомления
-                findNavController().popBackStack()
+                findNavController().popBackStack(R.id.sleepFragment, false)
             }
         })
     }
+
 }

@@ -42,6 +42,7 @@ class MeditationFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        mainViewmodel.visibilityBottomBarLivaData.postValue(true)
         mainViewmodel.currentType = MainViewModel.CurrentType.FOR_MEDITATION
         (activity as MainActivity).updateBottomButtons()
     }
@@ -49,11 +50,13 @@ class MeditationFragment : Fragment() {
     @SuppressLint("ClickableViewAccessibility")
     fun init() {
 
-
         //val playIntent = Intent(requireContext(), MediaPlayerService::class.java).apply {
+        if (mainViewmodel.getSubStatus()) binding.closeAdButton.visibility = View.GONE
 
-
-
+        binding.closeAdButton.setOnClickListener {
+            mainViewmodel.openSubscribeFragmentLivaData.postValue(true)
+            mainViewmodel.visibilityBottomBarLivaData.postValue(false)
+        }
         //binding.image2.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
         //binding.image2511222.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
         //binding.image25112223.setTransitionGenerator(RandomTransitionGeneratorForPrev(transitionDuration, ACCELERATE_DECELERATE))
@@ -111,9 +114,17 @@ class MeditationFragment : Fragment() {
                     .setDuration(100)
                     .withEndAction {
                         mainViewmodel.setCurrentSound(currentSound)
-                        //val action = MeditationFragmentDirections.actionMeditationFragmentToPlayerFragment()
-                        val action = MeditationFragmentDirections.actionMeditationFragmentToMediaPlayerServiceFragment()
-                        view?.findNavController()?.navigate(action)
+
+                        if (mainViewmodel.showAd() && !mainViewmodel.getSubStatus()) {
+                            val action = MeditationFragmentDirections.actionMeditationFragmentToInterstitialAdFragment()
+                            view?.findNavController()?.navigate(action)
+                        }
+                        else{
+                            val action =
+                                MeditationFragmentDirections.actionMeditationFragmentToMediaPlayerServiceFragment()
+                            view?.findNavController()?.navigate(action)
+                        }
+
                     }
                     .start()
                 //Log.d("MY_l124", "ACTION_UP")

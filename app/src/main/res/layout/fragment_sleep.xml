@@ -50,7 +50,7 @@
                 <ImageView
                     android:id="@+id/openFavoritesButton"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -63,9 +63,11 @@
                     android:layout_height="0dp"
                     android:layout_marginRight="10dp"
                     android:adjustViewBounds="true"
-                    app:layout_constraintBottom_toBottomOf="@+id/openFavoritesButton"
+                    android:scaleX="0.8"
+                    android:scaleY="0.8"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/openFavoritesButton"
-                    app:layout_constraintTop_toTopOf="@+id/openFavoritesButton"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/ad_delete" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 

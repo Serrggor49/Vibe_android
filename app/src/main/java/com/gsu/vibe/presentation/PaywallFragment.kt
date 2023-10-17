@@ -7,12 +7,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavOptions
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.gsu.vibe.R
+import com.gsu.vibe.buttonPress
 import com.gsu.vibe.databinding.FragmentPaywallBinding
+import com.gsu.vibe.navOptionsLong
 
 import com.gsu.vibe.presentation.adapters.AdapterForRecycler
+import com.gsu.vibe.presentation.onboards.NewOnboardSixFragmentDirections
 
 
 class PaywallFragment : Fragment() {
@@ -29,6 +35,8 @@ class PaywallFragment : Fragment() {
         return _binding.root
     }
 
+    private val viewModel : MainViewModel by activityViewModels()
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -38,6 +46,7 @@ class PaywallFragment : Fragment() {
 
         initTexts()
         //   view?.findViewById<TextView>(R.id.descriptionSubscribe)?.text = viewModelFragments.descriptionSubscribeYearly
+        viewModel.visibilityBottomBarLivaData.postValue(false)
 
     }
 
@@ -47,74 +56,15 @@ class PaywallFragment : Fragment() {
     }
 
 
+    @SuppressLint("ClickableViewAccessibility")
     fun buttonsConfig() {
 
-        //val nextButton = view?.findViewById<ImageButton>(R.id.nextButton)
-//        nextButton?.setOnClickListener {
-//            viewModelFragments.bp?.subscribe(activity, viewModelFragments.selectedSubscribe)
-//            activity?.let { it1 ->
-//                viewModelFragments.liveDataStatus.observe(it1) {
-//                    if (it) {
-//
-//                        val bandle = Bundle()
-//                        bandle.putString("period", "monthly")
-//                        viewModelFragments.sendAnalitic("sub_success", bandle)
-//
-//                        val intent = Intent(activity, KEditorDemoActivity1::class.java)
-//                        requireActivity().finish()
-//                        startActivity(intent)
-//
-//                    }
-//                }
-//            }
-//        }
-
-
-
-
-
-//        val monthDescriptionSubscribe =
-//            view?.findViewById<AppCompatTextView>(R.id.monthDescriptionSubscribe)
-//        activity?.let { it ->
-//            viewModelFragments.descriptionSubscribeMounth.observe(it) {
-//                monthDescriptionSubscribe?.text = it
-//            }
-//        }
-
-//
-//        val weekDescriptionSubscribe =
-//            view?.findViewById<AppCompatTextView>(R.id.weekDescriptionSubscribe)
-//        activity?.let { it ->
-//            viewModelFragments.descriptionSubscribeWeek.observe(it) {
-//                weekDescriptionSubscribe?.text = it
-//            }
-//        }
-
-
-//        val descriptionSubscribeNew =
-//            view?.findViewById<AppCompatTextView>(R.id.descriptionSubscribeNew)
-//        activity?.let { it ->
-//            viewModelFragments.descriptionSubscribeNew.observe(it) {
-//                descriptionSubscribeNew?.text = it
-//            }
-//        }
-
-//        monthButton?.setOnClickListener {
-//            viewModelFragments.selectedSubscribe = viewModelFragments.mounthlySubscribeId
-//            // view?.findViewById<TextView>(R.id.descriptionSubscribe)?.text = viewModelFragments.descriptionSubscribeYearly
-//            monthButton.setBackgroundResource(R.drawable.sub_select)
-//            weekButton?.setBackgroundResource(R.drawable.sub_unselect)
-//        }
-
-
-//        weekButton?.setOnClickListener {
-//
-//            viewModelFragments.selectedSubscribe = viewModelFragments.weekSubscribeId
-//            // view?.findViewById<TextView>(R.id.descriptionSubscribe)?.text = viewModelFragments.descriptionSubscribeMounth
-//            monthButton?.setBackgroundResource(R.drawable.sub_unselect)
-//            weekButton.setBackgroundResource(R.drawable.sub_select)
-//        }
-
+        binding.nextButton.setOnTouchListener { v, event ->
+            buttonPress(v, event) {
+                val action = PaywallFragmentDirections.actionPaywallFragmentToSleepFragment()
+                view?.findNavController()?.navigate(action, navOptionsPaywall)
+            }
+        }
 
     }
 
@@ -160,7 +110,7 @@ class PaywallFragment : Fragment() {
                 Pair(R.drawable.meditation_03_2f_prev, R.string.sea_and_seagulls),
                 Pair(R.drawable.nature_02_2f_prev, R.string.whale_song),
                 Pair(R.drawable.nature_08_1f_prev, R.string.lake_shore),
-                Pair(R.drawable.nature_08_2f_prev, R.string.waterfall_sounds),
+//                Pair(R.drawable.nature_08_2f_prev, R.string.waterfall_sounds),
             )
         )
         recycler3?.scrollToPosition(Int.MAX_VALUE / 2)
@@ -241,6 +191,13 @@ class PaywallFragment : Fragment() {
     // context?.let { YandexMetrica.getReporter(it, "Testing API key").reportRevenue(revenue) };
 
 
+    val navOptionsPaywall: NavOptions = NavOptions.Builder()
+        .setEnterAnim(R.anim.fade_in_long)
+        .setExitAnim(R.anim.fade_out_long)
+        .setPopEnterAnim(R.anim.fade_in_long)
+        .setPopExitAnim(R.anim.fade_out_long)
+        .setPopUpTo(R.id.paywallFragment, true)  // Удаление SplashFragment из стека
+        .build()
 
 
 

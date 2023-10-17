@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Белый круг на фоне, для создания эффекта "бублика" -->
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="#03FFFFFF"/>
+            <size
+                android:width="150dp"
+                android:height="150dp"/>
+        </shape>
+    </item>
+    <item>
+        <rotate
+            android:fromDegrees="0"
+            android:toDegrees="360">
+            <shape
+                android:innerRadius="40dp"
+                android:shape="ring"
+                android:thickness="20dp"
+                android:useLevel="false">
+                <gradient
+                    android:centerColor="#FFFFFF"
+                    android:endColor="#0000FF"
+                    android:startColor="#FFFFFF"
+                    android:type="linear"
+                    android:gradientRadius="90%"
+                    android:centerX="0.75"/>
+            </shape>
+        </rotate>
+    </item>
+</layer-list>

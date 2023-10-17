@@ -135,6 +135,17 @@ class MixerFragment : Fragment() {
 
 
     fun setTimer() {
+
+//        if (mainViewmodel.showAd() && !mainViewmodel.getSubStatus()) {
+//            val action = SleepFragmentDirections.actionSleepFragmentToInterstitialAdFragment()
+//            view?.findNavController()?.navigate(action)
+//        }
+//        else{
+//            val action =
+//                SleepFragmentDirections.actionSleepFragmentToMediaPlayerServiceFragment()
+//            view?.findNavController()?.navigate(action)
+//        }
+
         mainViewModel.timeForMixerPlayerInMs =
             (((binding.numberPickerHours.value * 60) + (binding.numberPickerMinutes.value)) * 60 + binding.numberPickerSec.value) * 1000
 
