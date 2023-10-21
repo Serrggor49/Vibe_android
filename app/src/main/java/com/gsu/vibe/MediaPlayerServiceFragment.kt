@@ -192,8 +192,9 @@ class MediaPlayerServiceFragment : Fragment() {
                         putExtra(timerKey, (trackTime - currentTime))
                     }
                     requireContext().startService(playIntent)
-                    Log.d("MyLogs443", "onStopTrackingTouch")
+                    Log.d("MyLogs332", "onStopTrackingTouch")
 
+                    initTimer((trackTime - currentTime))
                     timer.start()
                 }
 
@@ -282,11 +283,15 @@ class MediaPlayerServiceFragment : Fragment() {
     }
 
     fun initTimer(timeMs: Int) {
+        Log.d("MyLogs332", "initTimer")
 
         if (::timer.isInitialized){
             timer.cancel()
+            Log.d("MyLogs332", "timer.cancel()")
         }
         if (timeMs != -1) {
+            Log.d("MyLogs332", "timeMs != -1")
+
             timer = object : CountDownTimer(timeMs.toLong(), 1000) {
                 override fun onTick(millisUntilFinished: Long) {
                     currentTime += 1000
@@ -304,10 +309,7 @@ class MediaPlayerServiceFragment : Fragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-
-        if (this::timer.isInitialized) {
-            timer.cancel()
-        }
+        if (this::timer.isInitialized) timer.cancel()
     }
 
     fun onBackOverride(){
