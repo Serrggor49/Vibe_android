@@ -69,7 +69,6 @@ class NewOnboardSixFragment : Fragment() {
 
     }
 
-
     class AnimatedCircles(context: Context, attrs: AttributeSet) : View(context, attrs) {
         private val outerPaint = Paint().apply { color = Color.parseColor("#1FA8B7FF") }
         private val middlePaint = Paint().apply { color = Color.parseColor("#73D0D9FF") }

@@ -52,6 +52,7 @@ class MediaPlayerServiceFragment : Fragment() {
         return _binding.root
     }
 
+    @SuppressLint("UnspecifiedRegisterReceiverFlag")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -145,6 +146,7 @@ class MediaPlayerServiceFragment : Fragment() {
                 V_ACTION_PAUSE_FOR_FRAGMENT -> {
                     binding.playButton.setImageResource(R.drawable.ic_baseline_pause_circle_filled_24)
                     playerIsPlaing = true
+
                     initTimer(intent.getIntExtra(timerKey, -1))
                     timer.start()
                 }
@@ -194,6 +196,16 @@ class MediaPlayerServiceFragment : Fragment() {
 
                     timer.start()
                 }
+
+//                else{
+//                    val playIntent = Intent(requireActivity(), MediaPlayerService::class.java).apply {
+//                        putExtra(timerKey, (trackTime - currentTime))
+//                    }
+//                    requireContext().startService(playIntent)
+//                    Log.d("MyLogs443", "onStopTrackingTouch")
+//
+//                    timer.start()
+//                }
             }
         })
     }
