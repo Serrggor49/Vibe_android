@@ -10,6 +10,7 @@ import android.os.CountDownTimer
 import android.os.IBinder
 import android.util.Log
 import com.gsu.vibe.R
+import com.gsu.vibe.V_ACTION_CHANGE_TIME
 import com.gsu.vibe.V_ACTION_CLOSE
 import com.gsu.vibe.V_ACTION_PAUSE_FOR_FRAGMENT
 import com.gsu.vibe.V_ACTION_PLAY_FOR_FRAGMENT
@@ -37,6 +38,7 @@ class MediaPlayerService : Service(), MediaPlayer.OnCompletionListener {
     lateinit var notificationActionServices: NotificationActionServices
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        Log.d("MyLogs332", "onStartCommand")
 
         val trackForServices =
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) intent!!.getParcelableExtra(
@@ -79,6 +81,9 @@ class MediaPlayerService : Service(), MediaPlayer.OnCompletionListener {
         val icon = if (!isPlaying) R.drawable.ic_baseline_pause_circle_filled_24 else R.drawable.ic_play_buuton_3
 
         trackForServices?.timer.let {
+
+            Log.d("MyLogs3321", "trackForServices = ${it}")
+
             if (it != null) {
                 if (it > 0) {
                     timeToEnd = it
@@ -141,9 +146,40 @@ class MediaPlayerService : Service(), MediaPlayer.OnCompletionListener {
                 stopSelf()
             }
 
+            V_ACTION_CHANGE_TIME ->{
+                if (!isPlaying) {
+                    mediaPlayerArray.forEach { it?.pause() }
+                    isPlaying = false
+                    timer.cancel()
+                } else {
+                    mediaPlayerArray.forEach { it?.start() }
+                    initTimer()
+                    isPlaying = true
+                }
+                startForeground(
+                    notificationId,
+                    notificationActionServices.createNotification(
+                        soundName = soundName,
+                        soundType = soundType,
+                        albumImage = bitmap,
+                        iconImage = icon,
+                        // trackForServices = null
+                    )
+                )
+
+                val intentForFragment = Intent().apply {
+                    putExtra(timerKey, timeToEnd)
+                }
+
+                if (isPlaying) {
+                    intentForFragment.action = V_ACTION_PAUSE_FOR_FRAGMENT
+                } else {
+                    intentForFragment.action = V_ACTION_PLAY_FOR_FRAGMENT
+                }
+                sendBroadcast(intentForFragment)
+            }
+
         }
-
-
 
         return START_STICKY
     }
@@ -165,6 +201,7 @@ class MediaPlayerService : Service(), MediaPlayer.OnCompletionListener {
 
         timer = object : CountDownTimer(timeToEnd.toLong(), 1000) {
             override fun onTick(millisUntilFinished: Long) {
+                Log.d("MyLogs3323", "timeToEnd.toLong() service = ${timeToEnd.toLong()}")
 
                 timeToEnd -= 1000
                 if (millisUntilFinished < 15000) {

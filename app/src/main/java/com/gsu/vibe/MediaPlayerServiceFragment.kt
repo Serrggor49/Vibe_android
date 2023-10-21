@@ -105,7 +105,6 @@ class MediaPlayerServiceFragment : Fragment() {
 
     @SuppressLint("ClickableViewAccessibility")
     fun initTimerPanel() {
-
         binding.resetTimeButton.setOnTouchListener { v, event -> buttonPress(v, event, ::resetTimer ) }
         binding.setTimeButton.setOnTouchListener { v, event -> buttonPress(v, event, ::confirmTimer ) }
     }
@@ -126,7 +125,6 @@ class MediaPlayerServiceFragment : Fragment() {
                     duration = trackTime))
             }
             requireContext().startService(playIntent)
-            binding.playButton.setImageResource(R.drawable.ic_baseline_pause_circle_filled_24)
         }
     }
 
@@ -166,16 +164,6 @@ class MediaPlayerServiceFragment : Fragment() {
                 binding.durationTimeText.text = getFormtTime(progress)
                 currentTime = progress
 
-
-              //  Log.d("MyLogs443", "onProgressChanged")
-
-//                if (fromUser) {
-//                    if (mp?.duration != 0) {
-//                        mp?.seekTo(currentTime % (pla?.duration!!))
-//                    } else {
-//                        mp?.seekTo(0)
-//                    }
-//                }
             }
 
             override fun onStartTrackingTouch(seekBar: SeekBar?) {}
@@ -184,29 +172,38 @@ class MediaPlayerServiceFragment : Fragment() {
                 //timer.cancel()
 
 
-
                 // на случай, если seekBar переместится, когда плеер не будет в состоянии паузы
-                if(playerIsPlaing) {
-
-                    val playIntent = Intent(requireActivity(), MediaPlayerService::class.java).apply {
-                        putExtra(timerKey, (trackTime - currentTime))
-                    }
-                    requireContext().startService(playIntent)
-                    Log.d("MyLogs332", "onStopTrackingTouch")
-
-                    initTimer((trackTime - currentTime))
-                    timer.start()
-                }
-
-//                else{
+//                if(playerIsPlaing) {
+//
 //                    val playIntent = Intent(requireActivity(), MediaPlayerService::class.java).apply {
+//                        //action = V_ACTION_PLAY_FOR_FRAGMENT
 //                        putExtra(timerKey, (trackTime - currentTime))
+//                        Log.d("MyLogs332", "(trackTime - currentTime) = ${(trackTime - currentTime)}")
+//
 //                    }
 //                    requireContext().startService(playIntent)
-//                    Log.d("MyLogs443", "onStopTrackingTouch")
+//                    Log.d("MyLogs332", "onStopTrackingTouch")
 //
+//                    initTimer((trackTime - currentTime))
 //                    timer.start()
 //                }
+
+
+                val uri = Uri.parse("$mediaPath${mainViewModel.currentSound.name}").toString()
+                    val playIntent = Intent(requireActivity(), MediaPlayerService::class.java).apply {
+                        action = V_ACTION_CHANGE_TIME
+                        putExtra(trackForServiceModelKey, TrackForServiceModel(
+                            soundImage = mainViewModel.currentSound.preview,
+                            soundName = mainViewModel.currentSound.title,
+                            soundPaths = arrayOf(uri),
+                            soundVolume = arrayOf(1f),
+                            soundType = mainViewModel.currentSound.subtitle,
+                            timer = trackTime - currentTime,
+                            duration = trackTime))
+                    }
+                    requireContext().startService(playIntent)
+
+
             }
         })
     }
@@ -226,39 +223,34 @@ class MediaPlayerServiceFragment : Fragment() {
     }
 
     fun downloadTrack() {
-        if (!File("$mediaPath${mainViewModel.currentSound.name}").exists()) {  // если трека с таким имени нет в памяти, то скачиваем
-            CoroutineScope(Dispatchers.IO).launch {
-
-                try {
-                    DownloadAudioFromUrlNew.download(
-                        fileName = mainViewModel.currentSound.name,
-                        urlString = mainViewModel.currentSound.url,
-                        context = requireContext()
-                    )
-                }
-                catch (e: java.lang.Exception) { // без этого, если будет отключение интернета во время скачивания, приложение вылетает
-                    CoroutineScope(Dispatchers.Main).launch {
-                        requireActivity().onBackPressed()
+        CoroutineScope(Dispatchers.Main).launch {
+            if (!File("$mediaPath${mainViewModel.currentSound.name}").exists()) {  // если трека с таким имени нет в памяти, то скачиваем
+                val job = CoroutineScope(Dispatchers.IO).launch {
+                    try {
+                        DownloadAudioFromUrlNew.download(
+                            fileName = mainViewModel.currentSound.name,
+                            urlString = mainViewModel.currentSound.url,
+                            context = requireContext()
+                        )
+                    } catch (e: java.lang.Exception) { // без этого, если будет отключение интернета во время скачивания, приложение вылетает
+                        CoroutineScope(Dispatchers.Main).launch {
+                            requireActivity().onBackPressed()
+                        }
                     }
                 }
-
-                CoroutineScope(Dispatchers.Main).launch {
-                    initPlayer()
-                    binding.favoriteButton.visibility = View.VISIBLE
-                }
+                job.join()
             }
-        } else {
             initPlayer()
-            binding.favoriteButton.visibility = View.VISIBLE
         }
     }
 
-    fun initPlayer() {
 
+
+    fun initPlayer() {
+        binding.favoriteButton.visibility = View.VISIBLE
         binding.playerGroup.visibility = View.VISIBLE
         binding.progressBar.visibility = View.GONE
         binding.percentage.visibility = View.GONE
-
         mpIsReady = true
     }
 
