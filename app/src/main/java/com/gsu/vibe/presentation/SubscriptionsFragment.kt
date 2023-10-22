@@ -1,5 +1,6 @@
 package com.gsu.vibe.presentation
 
+import android.animation.ValueAnimator
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
 import androidx.compose.runtime.traceEventEnd
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -28,6 +30,8 @@ import java.util.Locale
 
 
 class SubscriptionsFragment : Fragment() {
+
+    lateinit var timer: CountDownTimer
 
     private var annualPrice = ""
     private var monthlyPrice = ""
@@ -67,7 +71,6 @@ class SubscriptionsFragment : Fragment() {
     }
 
     fun initSubscribes() {
-        Log.d("MyLogsAD", "initSubscribes")
 
         bp = BillingProcessor.newBillingProcessor(
             requireContext(),
@@ -75,23 +78,23 @@ class SubscriptionsFragment : Fragment() {
             object : BillingProcessor.IBillingHandler {
 
                 override fun onBillingError(errorCode: Int, error: Throwable?) {
-                    Log.d("MyLogsAD", "onBillingError")
-                    Log.d("MyLogsAD", "error = $errorCode")
+//                    Log.d("MyLogsAD", "onBillingError")
+//                    Log.d("MyLogsAD", "error = $errorCode")
                 }
 
                 override fun onBillingInitialized() {
-                    Log.d("MyLogsAD", "onBillingInitialized")
+//                    Log.d("MyLogsAD", "onBillingInitialized")
                     loadAvailableSubscriptions()
                 }
 
                 override fun onProductPurchased(productId: String, details: PurchaseInfo?) {
-                    Log.d("MyLogsAD", "onProductPurchased")
+//                    Log.d("MyLogsAD", "onProductPurchased")
                     viewModel.setSubStatus(true)
                     view?.findNavController()?.popBackStack()
                 }
 
                 override fun onPurchaseHistoryRestored() {
-                    Log.d("MyLogsAD", "onPurchaseHistoryRestored")
+//                    Log.d("MyLogsAD", "onPurchaseHistoryRestored")
                 }
             })
 
@@ -110,7 +113,7 @@ class SubscriptionsFragment : Fragment() {
             }
 
             override fun onSkuDetailsError(error: String?) {
-                Log.d("MyLogsAD", "error = ${error.toString()}")
+//                Log.d("MyLogsAD", "error = ${error.toString()}")
             }
 
         })
@@ -123,7 +126,7 @@ class SubscriptionsFragment : Fragment() {
 
 
         for (subscribe in subscribes){
-            Log.d("MyLogsAD", "product = ${subscribe.productId}")
+//            Log.d("MyLogsAD", "product = ${subscribe.productId}")
             when(subscribe.productId){
                 //"vibe_weekly_sub" -> {binding.weekText.text = getString(R.string.weekly_sub, subscribe.priceText)}
                 "vibe_weekly_sub" -> {
@@ -213,9 +216,9 @@ class SubscriptionsFragment : Fragment() {
     @SuppressLint("ClickableViewAccessibility")
     fun startRecyclerBackground() {
 
-        //val recycler1 = view?.findViewById<RecyclerView>(R.id.recyclerview1)
         val recycler1 = binding.recyclerview1
-        recycler1.layoutManager = LinearLayoutManager(activity?.applicationContext)
+        recycler1.setHasFixedSize(true)
+        recycler1.layoutManager = LinearLayoutManager(requireActivity())
         recycler1.adapter = AdapterForRecycler(
             listOf(
                 //Pair(R.drawable.sleep_04_1f_milky_way_prev, R.string.alone_in_infinity ),
@@ -228,10 +231,9 @@ class SubscriptionsFragment : Fragment() {
         )
         recycler1.scrollToPosition(Int.MAX_VALUE / 2)
 
-
-       // val recycler2 = view?.findViewById<RecyclerView>(R.id.recyclerview2)
         val recycler2 = binding.recyclerview2
-        recycler2.layoutManager = LinearLayoutManager(activity?.applicationContext)
+        recycler2.setHasFixedSize(true)
+        recycler2.layoutManager = LinearLayoutManager(requireActivity())
         recycler2.adapter = AdapterForRecycler(
             listOf(
                 Pair(R.drawable.meditation_02_1f_prev, R.string.path_of_zen),
@@ -243,10 +245,9 @@ class SubscriptionsFragment : Fragment() {
         )
         recycler2.scrollToPosition(Int.MAX_VALUE / 2)
 
-
-       // val recycler3 = view?.findViewById<RecyclerView>(R.id.recyclerview3)
         val recycler3 = binding.recyclerview3
-        recycler3.layoutManager = LinearLayoutManager(activity?.applicationContext)
+        recycler3.setHasFixedSize(true)
+        recycler3.layoutManager = LinearLayoutManager(requireActivity())
         recycler3.adapter = AdapterForRecycler(
             listOf(
               //  Pair(R.drawable.focus_07_1f_prev, R.string.flow_of_thought),
@@ -258,10 +259,9 @@ class SubscriptionsFragment : Fragment() {
         )
         recycler3.scrollToPosition(Int.MAX_VALUE / 2)
 
-
-        //val recycler4 = view?.findViewById<RecyclerView>(R.id.recyclerview4)
         val recycler4 = binding.recyclerview4
-        recycler4.layoutManager = LinearLayoutManager(activity?.applicationContext)
+        recycler4.setHasFixedSize(true)
+        recycler4.layoutManager = LinearLayoutManager(requireActivity())
         recycler4.adapter = AdapterForRecycler(
             listOf(
                 Pair(R.drawable.meditation_02_1f_prev, R.string.sea_and_seagulls),
@@ -272,7 +272,7 @@ class SubscriptionsFragment : Fragment() {
         )
         recycler4.scrollToPosition(Int.MAX_VALUE / 2)
 
-        val timer = object : CountDownTimer(9999999, 6) {
+        timer = object : CountDownTimer(9999999, 7) {
             override fun onTick(millisUntilFinished: Long) {
                 recycler1.scrollBy(0, 1)
                 recycler2.scrollBy(0, -1)
@@ -281,19 +281,13 @@ class SubscriptionsFragment : Fragment() {
             }
 
             override fun onFinish() {
-
             }
-        }
-        timer.start()
-
+        }.start()
 
         recycler1.setOnTouchListener { _, _ -> true }
         recycler2.setOnTouchListener { _, _ -> true }
         recycler3.setOnTouchListener { _, _ -> true }
         recycler4.setOnTouchListener { _, _ -> true }
-
-        // recycler4?.setOnTouchListener()
-
 
     }
 
@@ -327,5 +321,11 @@ class SubscriptionsFragment : Fragment() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        if(::timer.isInitialized){
+            timer.cancel()
+        }
+    }
 
 }

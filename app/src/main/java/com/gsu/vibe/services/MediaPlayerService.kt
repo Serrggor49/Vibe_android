@@ -147,14 +147,17 @@ class MediaPlayerService : Service(), MediaPlayer.OnCompletionListener {
             }
 
             V_ACTION_CHANGE_TIME ->{
+
+                val icon2 = if (isPlaying) R.drawable.ic_baseline_pause_circle_filled_24 else R.drawable.ic_play_buuton_3
+
                 if (!isPlaying) {
                     mediaPlayerArray.forEach { it?.pause() }
-                    isPlaying = false
+                    //isPlaying = false
                     timer.cancel()
                 } else {
                     mediaPlayerArray.forEach { it?.start() }
                     initTimer()
-                    isPlaying = true
+                    //isPlaying = true
                 }
                 startForeground(
                     notificationId,
@@ -162,7 +165,7 @@ class MediaPlayerService : Service(), MediaPlayer.OnCompletionListener {
                         soundName = soundName,
                         soundType = soundType,
                         albumImage = bitmap,
-                        iconImage = icon,
+                        iconImage = icon2,
                         // trackForServices = null
                     )
                 )
@@ -191,7 +194,6 @@ class MediaPlayerService : Service(), MediaPlayer.OnCompletionListener {
         }
 
         if (duration > 0) {
-
             val seekTime = ((duration - timeToEnd) % (mediaPlayerArray[0]!!.duration))
             mediaPlayerArray.forEach { it?.seekTo(seekTime) }
 
