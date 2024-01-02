@@ -1,5 +1,7 @@
 package com.gsu.vibe
 
+import androidx.compose.ui.unit.dp
+
 const val actionKey = "action"
 const val trackForServiceModelKey = "trackForServiceModel"
 const val soundPathKey = "soundPath"
@@ -15,4 +17,8 @@ const val V_ACTION_CHANGE_TIME = "V_ACTION_CHANGE_TIME"  // перематыва
 const val V_ACTION_PAUSE = "V_ACTION_PAUSE"
 const val V_CHANGE_PLAYER_STATE = "V_CHANGE_PLAYER_STATE"
 const val V_ACTION_CLOSE = "V_ACTION_CLOSE"
+
+
+val paddingForCards = 3.dp
+val radiusForCards = 10.dp
 

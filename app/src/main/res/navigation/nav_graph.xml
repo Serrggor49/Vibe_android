@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splachFragment">
+    app:startDestination="@id/sleepComposeFragment">
     <fragment
         android:id="@+id/sleepFragment"
         android:name="com.gsu.vibe.presentation.SleepFragment"
@@ -200,4 +200,9 @@
             android:id="@+id/action_newOnboardSixFragment_to_sleepFragment"
             app:destination="@id/sleepFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/sleepComposeFragment"
+        android:name="com.gsu.vibe.SleepComposeFragment"
+        android:label="fragment_sleep_compose"
+        tools:layout="@layout/fragment_sleep_compose" />
 </navigation>
