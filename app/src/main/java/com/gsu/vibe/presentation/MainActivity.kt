@@ -9,8 +9,12 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
+import androidx.lifecycle.lifecycleScope
+import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.gsu.vibe.R
 import com.gsu.vibe.databinding.ActivityMainBinding
 import com.gsu.vibe.services.MediaPlayerService
@@ -19,6 +23,7 @@ import io.branch.referral.BranchError
 import io.branch.referral.util.BRANCH_STANDARD_EVENT
 import io.branch.referral.util.BranchEvent
 import io.branch.referral.util.CurrencyType
+import kotlinx.coroutines.launch
 import org.json.JSONObject
 
 
@@ -26,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var binding: ActivityMainBinding
     val mainViewModel: MainViewModel by viewModels()
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         initFavorite()
         initCloseAd()
         initBar()
-
+        initNavBarButtons()
 
 
         window.decorView.systemUiVisibility = (
@@ -240,6 +246,25 @@ class MainActivity : AppCompatActivity() {
 //        }
 //
 //    }
+
+    fun initNavBarButtons(){
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
+        navController = navHostFragment.navController
+        setupWithNavController(binding.bottomNavigationView, navController)
+
+
+        mainViewModel.visibilityBottomBarLivaData.observe(this) {
+            if (it) {
+                binding.bottomNavigationView.visibility = View.VISIBLE
+            } else {
+                binding.bottomNavigationView.visibility = View.GONE
+            }
+        }
+
+
+    }
+
 
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)

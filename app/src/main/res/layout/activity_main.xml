@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -11,6 +11,31 @@
     android:fitsSystemWindows="false"
     tools:context=".presentation.MainActivity">
 
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#17004A"
+        android:layerType="none"
+        android:pointerIcon="none"
+        app:itemActiveIndicatorStyle="@style/Custom.Indicator"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@color/tab_color_selector"
+        app:itemPaddingTop="4dp"
+        app:itemRippleColor="#00FFFFFF"
+        app:itemTextAppearanceActive="@style/MyBottomNavigationViewStyleItemActive"
+        app:itemTextAppearanceInactive="@style/MyBottomNavigationViewStyleItemInactive"
+        app:itemTextColor="@color/tab_color_selector"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_nav_menu">
+
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
 
     <ImageView
         android:id="@+id/favoriteButton"
@@ -63,24 +88,24 @@
         app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/focus_01_1b_prev" />
 
+    <ImageView
+        android:id="@+id/imageGradientView"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="1"
+        app:srcCompat="@drawable/blue_gradient" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom"
         android:orientation="vertical"
         android:visibility="visible">
-
-        <ImageView
-            android:id="@+id/imageGradientView"
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:paddingLeft="0dp"
-            android:paddingRight="0dp"
-            app:layout_constraintBottom_toTopOf="@+id/bottomBar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintWidth_percent="1"
-            app:srcCompat="@drawable/blue_gradient" />
 
         <LinearLayout
             android:id="@+id/bottomBar"
@@ -89,6 +114,7 @@
             android:layout_gravity="bottom"
             android:background="#17004A"
             android:orientation="horizontal"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent">
@@ -214,4 +240,4 @@
     </LinearLayout>
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

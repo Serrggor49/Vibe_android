@@ -1,4 +1,4 @@
-package com.gsu.vibe.composeComponents
+package com.gsu.vibe.composeScreens.composeComponents
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -15,14 +15,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gsu.vibe.paddingForCards
+import com.gsu.vibe.paddingForTextCards
 import com.gsu.vibe.radiusForCards
 
 @Composable
-fun SingleImageItem(images: List<Painter>) {
+fun SingleImageItem(images: List<Int>) {
 
     Button(
         onClick = { /*TODO*/ },
@@ -31,28 +33,24 @@ fun SingleImageItem(images: List<Painter>) {
             .clip(RoundedCornerShape(radiusForCards))
             .padding(paddingForCards)
             .clip(RoundedCornerShape(radiusForCards))
-
     )
     {
         Box {
             Image(
-                painter = images[0],
+                painter = painterResource(id = images[0]),
                 contentDescription = "",
                 modifier = Modifier
                     .fillMaxWidth()
                     .wrapContentHeight(),
-
                 contentScale = ContentScale.Crop
             )
             Text(
                 modifier = Modifier
                     .align(Alignment.BottomStart)
-                    .padding(horizontal = 15.dp, vertical = 15.dp),
+                    .padding(paddingForTextCards),
                 text = "234e234sdf3",
                 textAlign = TextAlign.Right,
-                //     fontFamily = firaSansFamily,
                 fontSize = 18.sp
-
             )
         }
     }

@@ -18,6 +18,20 @@
     </style>
 
 
+    <style name="Custom.Indicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@color/transparent</item>
+    </style>
+
+    <style name="MyBottomNavigationViewStyleItemInactive" parent="Widget.Material3.BottomNavigationView">
+<!--        <item name="fontFamily">@font/inter_bold</item>-->
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="MyBottomNavigationViewStyleItemActive" parent="Widget.Material3.BottomNavigationView">
+<!--        <item name="fontFamily">@font/inter_bold</item>-->
+        <item name="android:textSize">12sp</item>
+<!--        <item name="android:fontWeight">400</item>-->
+    </style>
 
 
 

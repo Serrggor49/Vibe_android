@@ -1,4 +1,4 @@
-package com.gsu.vibe.composeComponents
+package com.gsu.vibe.composeScreens.composeComponents
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -24,44 +24,42 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.android.material.color.utilities.MaterialDynamicColors.background
 import com.gsu.vibe.R
 import com.gsu.vibe.paddingForCards
+import com.gsu.vibe.paddingForTextCards
 import com.gsu.vibe.radiusForCards
 
+
 @Composable
-fun QuadroImageItem(images: List<Painter>) {
+fun QuadroImageItem(images: List<Int>) {
     Row(
         Modifier
-        //    .padding(10.dp)
             .height(IntrinsicSize.Max)
             .background(Color.Transparent)
-
     ) {
         Column(
             Modifier
                 .weight(1f)
                 .wrapContentHeight()
-                .background(Color.Transparent)
         ) {
             images.take(2).forEachIndexed { index, image ->
                 Button(
-                    modifier = Modifier
-                        .padding(paddingForCards)
-                        .clip(RoundedCornerShape(radiusForCards))
-                        .fillMaxWidth(),
                     onClick = { /* TODO */ },
                     contentPadding = PaddingValues(0.dp),
-
-                ) {
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .clip(RoundedCornerShape(radiusForCards))
+                        .padding(paddingForCards),
+                    ) {
                     Box(modifier = Modifier.background(Color.Transparent)) {
                         Image(
-                            painter = image,
+                            painter = painterResource(image),
                             contentDescription = "",
                             modifier = Modifier
-                         //       .background(Color.Transparent)
                                 .fillMaxWidth()
                                 .wrapContentHeight(),
                             contentScale = ContentScale.Crop
@@ -70,7 +68,7 @@ fun QuadroImageItem(images: List<Painter>) {
                             text = "Текст ${index + 2}",
                             modifier = Modifier
                                 .align(Alignment.BottomStart)
-                                .padding(horizontal = 15.dp, vertical = 15.dp)
+                                .padding(paddingForTextCards)
                         )
                     }
                 }
@@ -90,11 +88,10 @@ fun QuadroImageItem(images: List<Painter>) {
                         .fillMaxWidth()
                         .padding(paddingForCards)
                         .clip(RoundedCornerShape(radiusForCards))
-
                 ) {
                     Box {
                         Image(
-                            painter = image,
+                            painter = painterResource(image),
                             contentDescription = "",
                             modifier = Modifier
                                 .fillMaxWidth()
@@ -105,7 +102,7 @@ fun QuadroImageItem(images: List<Painter>) {
                             text = "Текст ${index + 2}",
                             modifier = Modifier
                                 .align(Alignment.BottomStart)
-                                .padding(horizontal = 15.dp, vertical = 15.dp)
+                                .padding(paddingForTextCards)
                         )
                     }
                 }

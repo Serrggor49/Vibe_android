@@ -202,7 +202,22 @@
     </fragment>
     <fragment
         android:id="@+id/sleepComposeFragment"
-        android:name="com.gsu.vibe.SleepComposeFragment"
+        android:name="com.gsu.vibe.composeScreens.SleepComposeFragment"
         android:label="fragment_sleep_compose"
         tools:layout="@layout/fragment_sleep_compose" />
+    <fragment
+        android:id="@+id/meditationComposeFragment"
+        android:name="com.gsu.vibe.composeScreens.MeditationComposeFragment"
+        android:label="fragment_meditation_compose"
+        tools:layout="@layout/fragment_meditation_compose" />
+    <fragment
+        android:id="@+id/focusFragmentCompose"
+        android:name="com.gsu.vibe.composeScreens.FocusFragmentCompose"
+        android:label="fragment_focus_compose"
+        tools:layout="@layout/fragment_focus_compose" />
+    <fragment
+        android:id="@+id/natureComposeFragment"
+        android:name="com.gsu.vibe.composeScreens.NatureComposeFragment"
+        android:label="fragment_nature_compose"
+        tools:layout="@layout/fragment_nature_compose" />
 </navigation>

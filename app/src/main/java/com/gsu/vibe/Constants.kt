@@ -21,4 +21,5 @@ const val V_ACTION_CLOSE = "V_ACTION_CLOSE"
 
 val paddingForCards = 3.dp
 val radiusForCards = 10.dp
+val paddingForTextCards = 15.dp
 
