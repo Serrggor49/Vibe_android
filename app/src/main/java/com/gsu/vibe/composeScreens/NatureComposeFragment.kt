@@ -28,11 +28,13 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
-import com.gsu.vibe.R
+import com.gsu.vibe.composeScreens.composeComponents.DoubleImageItem
 import com.gsu.vibe.composeScreens.composeComponents.InitHeaderBlock
 import com.gsu.vibe.composeScreens.composeComponents.QuadroImageItem
 import com.gsu.vibe.composeScreens.composeComponents.SingleImageItem
 import com.gsu.vibe.composeScreens.composeComponents.TripleImageItem
+import com.gsu.vibe.data.models.ItemType
+import com.gsu.vibe.data.models.SongsBlock
 
 class NatureComposeFragment : Fragment() {
 
@@ -77,23 +79,23 @@ class NatureComposeFragment : Fragment() {
     }
 
     @Composable
-    fun MosaicColumn(list: List<Item>) {
+    fun MosaicColumn(list: List<SongsBlock>) {
         LazyColumn {
             item {
                 InitHeaderBlock()
             }
             items(list) { item1 ->
                 when (item1.type) {
-                    ItemType.Single -> SingleImageItem(item1.images)
+                    ItemType.Single -> SingleImageItem(item1.songs,  onClick = {})
                     ItemType.Triple -> {
                         TripleImageItem(
-                            item1.images,
+                            item1.songs,
                             leftSideSingleImage = leftSideSingleImage
                         )
                         leftSideSingleImage = !leftSideSingleImage
                     }
-
-                    ItemType.Quadruple -> QuadroImageItem(item1.images)
+                    ItemType.Double -> DoubleImageItem(item1.songs)
+                    ItemType.Quadruple -> QuadroImageItem(item1.songs)
                 }
             }
 

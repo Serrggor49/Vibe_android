@@ -1,6 +1,7 @@
 package com.gsu.vibe.composeScreens
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -28,14 +29,20 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
+import androidx.fragment.app.activityViewModels
+import com.gsu.vibe.composeScreens.composeComponents.DoubleImageItem
 import com.gsu.vibe.composeScreens.composeComponents.InitHeaderBlock
 import com.gsu.vibe.composeScreens.composeComponents.QuadroImageItem
 import com.gsu.vibe.composeScreens.composeComponents.SingleImageItem
 import com.gsu.vibe.composeScreens.composeComponents.TripleImageItem
+import com.gsu.vibe.data.models.ItemType
+import com.gsu.vibe.data.models.SongsBlock
+import com.gsu.vibe.presentation.MainViewModel
 
 class SleepComposeFragment : Fragment() {
 
     var leftSideSingleImage = false
+    val mainViewmodel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,6 +59,8 @@ class SleepComposeFragment : Fragment() {
     @Preview
     @Composable
     fun MyScreen() {
+
+        val sounds = mainViewmodel.getListForSleepForCompose()
 
         var size by remember { mutableStateOf(Size.Zero) } // Инициализация размера с нулевым значением
         val gradient = Brush.linearGradient(
@@ -70,34 +79,38 @@ class SleepComposeFragment : Fragment() {
                 .padding(top = 10.dp, start = 10.dp, end = 10.dp)
         ) {
             MosaicColumn(
-                FakeData().sleep
+               // FakeData().sleep
+                sounds
+
             )
         }
     }
 
     @Composable
-    fun MosaicColumn(list: List<Item>) {
+    fun MosaicColumn(list: List<SongsBlock>) {
         LazyColumn {
-            item {
-                InitHeaderBlock()
-            }
+            item { InitHeaderBlock() }
             items(list) { item1 ->
                 when (item1.type) {
-                    ItemType.Single -> SingleImageItem(item1.images)
+                    ItemType.Single -> SingleImageItem(songs =  item1.songs, onClick = { songName -> onImageClick(songName) })
                     ItemType.Triple -> {
                         TripleImageItem(
-                            item1.images,
+                            item1.songs,
                             leftSideSingleImage = leftSideSingleImage
                         )
                         leftSideSingleImage = !leftSideSingleImage
                     }
-
-                    ItemType.Quadruple -> QuadroImageItem(item1.images)
+                    ItemType.Double -> DoubleImageItem(item1.songs)
+                    ItemType.Quadruple -> QuadroImageItem(item1.songs)
                 }
             }
 
             item { Spacer(modifier = Modifier.padding(bottom = 120.dp)) }
         }
+    }
+
+    fun onImageClick(songName: String){
+        Log.d("MyLogs33", "songName = $songName")
     }
 
 

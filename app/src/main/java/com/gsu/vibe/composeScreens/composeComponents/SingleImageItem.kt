@@ -19,15 +19,16 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.gsu.vibe.data.models.SoundModel
 import com.gsu.vibe.paddingForCards
 import com.gsu.vibe.paddingForTextCards
 import com.gsu.vibe.radiusForCards
 
 @Composable
-fun SingleImageItem(images: List<Int>) {
+fun SingleImageItem(songs: List<SoundModel>, onClick:(name: String) -> Unit) {
 
     Button(
-        onClick = { /*TODO*/ },
+        onClick = { onClick(songs[0].name) },
         contentPadding = PaddingValues(0.dp),
         modifier = Modifier
             .clip(RoundedCornerShape(radiusForCards))
@@ -37,7 +38,7 @@ fun SingleImageItem(images: List<Int>) {
     {
         Box {
             Image(
-                painter = painterResource(id = images[0]),
+                painter = painterResource(id = songs[0].preview),
                 contentDescription = "",
                 modifier = Modifier
                     .fillMaxWidth()

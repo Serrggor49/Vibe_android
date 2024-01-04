@@ -2,6 +2,8 @@ package com.gsu.vibe.data.database
 
 import android.content.res.Resources
 import com.gsu.vibe.R
+import com.gsu.vibe.data.models.ItemType
+import com.gsu.vibe.data.models.SongsBlock
 import com.gsu.vibe.data.models.SoundModel
 
 object DataBase {
@@ -15,6 +17,7 @@ object DataBase {
         foreground = R.drawable.sleep_01_1f_quiet_harbor,
         preview = R.drawable.sleep_01_1b_quiet_harbor_prev,
         sound = R.raw.empty
+
     )
 
     val meditation2 = SoundModel(
@@ -177,12 +180,24 @@ object DataBase {
     )
 
 
-
-
-
     fun getListForSleep(): List<SoundModel>{
         return listOf(meditation1, meditation2, meditation3, meditation4, meditation5, meditation6,
-            meditation7, meditation8, meditation9, meditation10, meditation11, meditation12, meditation13, meditation14, meditation15)
+            meditation7, meditation8, meditation9, meditation10, meditation11, meditation12,
+            meditation13, meditation14, meditation15)
+    }
+
+    fun getListForSleepForCompose(): List<SongsBlock>{
+
+
+        return listOf(
+            SongsBlock(type = ItemType.Quadruple, songs = listOf(meditation1, meditation2, meditation3, meditation4)),
+            SongsBlock(type = ItemType.Single, songs = listOf(meditation5)),
+            SongsBlock(type = ItemType.Triple, songs = listOf(meditation7, meditation6, meditation8)),
+            SongsBlock(type = ItemType.Single, songs = listOf(meditation9)),
+            SongsBlock(type = ItemType.Quadruple, songs = listOf(meditation10, meditation12, meditation11, meditation13)),
+            SongsBlock(type = ItemType.Double, songs = listOf(meditation14, meditation15)),
+            )
+
     }
 
     val  meditation011 = SoundModel(
@@ -683,8 +698,7 @@ object DataBase {
       val natureList = getListForNature()
 
       val allList = concatenate(sleepList, meditationList, focusList, natureList)
-
-        return allList
+      return allList
     }
 
     fun <T> concatenate(vararg lists: List<T>): List<T> {

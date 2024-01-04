@@ -45,7 +45,6 @@ class MainActivity : AppCompatActivity() {
         initBar()
         initNavBarButtons()
 
-
         window.decorView.systemUiVisibility = (
                 View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                         or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
@@ -253,7 +252,6 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
         setupWithNavController(binding.bottomNavigationView, navController)
 
-
         mainViewModel.visibilityBottomBarLivaData.observe(this) {
             if (it) {
                 binding.bottomNavigationView.visibility = View.VISIBLE
@@ -261,7 +259,6 @@ class MainActivity : AppCompatActivity() {
                 binding.bottomNavigationView.visibility = View.GONE
             }
         }
-
 
     }
 

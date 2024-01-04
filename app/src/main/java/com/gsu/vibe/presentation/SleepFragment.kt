@@ -56,9 +56,6 @@ class SleepFragment : Fragment() {
         init()
         mainViewmodel.visibilityBottomBarLivaData.postValue(true)
 
-
-
-
        // testCustomNotif()
     }
 
@@ -153,7 +150,6 @@ class SleepFragment : Fragment() {
 
     }
 
-
     fun openPlayer(v: View, event: MotionEvent, currentSound: String): Boolean {
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
@@ -169,7 +165,6 @@ class SleepFragment : Fragment() {
                     .setDuration(100)
                     .withEndAction {
                         mainViewmodel.setCurrentSound(currentSound)
-
                         if (mainViewmodel.showAd() && !mainViewmodel.getSubStatus()) {
                             val action = SleepFragmentDirections.actionSleepFragmentToInterstitialAdFragment()
                             view?.findNavController()?.navigate(action)

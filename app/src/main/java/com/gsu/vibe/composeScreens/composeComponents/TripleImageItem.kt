@@ -24,12 +24,13 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import com.gsu.vibe.data.models.SoundModel
 import com.gsu.vibe.paddingForCards
 import com.gsu.vibe.paddingForTextCards
 import com.gsu.vibe.radiusForCards
 
 @Composable
-fun TripleImageItem(images: List<Int>, leftSideSingleImage: Boolean = false) {
+fun TripleImageItem(songs: List<SoundModel>, leftSideSingleImage: Boolean = false) {
     Row(
         Modifier.height(IntrinsicSize.Max)
     ) {
@@ -45,22 +46,22 @@ fun TripleImageItem(images: List<Int>, leftSideSingleImage: Boolean = false) {
             .background(Color.White)
 
         if (leftSideSingleImage) {
-            GetColumnWithTwoButtons(modifierForColumnWithTwoButtons, images)
-            GetSingleButton(modifierForSingleButton, images)
+            GetColumnWithTwoButtons(modifierForColumnWithTwoButtons, songs)
+            GetSingleButton(modifierForSingleButton, songs)
         }
         else
         {
-            GetSingleButton(modifierForSingleButton, images)
-            GetColumnWithTwoButtons(modifierForColumnWithTwoButtons, images)
+            GetSingleButton(modifierForSingleButton, songs)
+            GetColumnWithTwoButtons(modifierForColumnWithTwoButtons, songs)
         }
     }
 }
 
 @Composable
-fun GetColumnWithTwoButtons(modifier: Modifier, images: List<Int>) {
+fun GetColumnWithTwoButtons(modifier: Modifier, songs: List<SoundModel>) {
 
     Column(modifier = modifier) {
-        images.drop(1).forEachIndexed { index, image ->
+        songs.drop(1).forEachIndexed { index, song ->
             Button(
                 onClick = { /*TODO*/ },
                 contentPadding = PaddingValues(0.dp),
@@ -71,7 +72,7 @@ fun GetColumnWithTwoButtons(modifier: Modifier, images: List<Int>) {
             ) {
                 Box {
                     Image(
-                        painter = painterResource(image),
+                        painter = painterResource(song.preview),
                         contentDescription = "",
                         modifier = Modifier
                             .fillMaxWidth()
@@ -91,7 +92,7 @@ fun GetColumnWithTwoButtons(modifier: Modifier, images: List<Int>) {
 }
 
 @Composable
-fun GetSingleButton(modifier: Modifier, images: List<Int>) {
+fun GetSingleButton(modifier: Modifier, songs: List<SoundModel>) {
     Button(
         onClick = { /* TODO */ },
         contentPadding = PaddingValues(0.dp),
@@ -100,7 +101,7 @@ fun GetSingleButton(modifier: Modifier, images: List<Int>) {
     ) {
         Box {
             Image(
-                painter = painterResource(images[0]),
+                painter = painterResource(songs[0].preview),
                 contentDescription = "",
                 modifier = Modifier
                     .fillMaxWidth()

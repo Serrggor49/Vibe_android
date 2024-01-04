@@ -21,6 +21,8 @@ object Repository {
         return list
     }
 
+    fun getListForSleepForCompose() = DataBase.getListForSleepForCompose()
+
     fun getSounds(type: SoundType): List<SoundModel> {
 
         val list: List<SoundModel> = when (type) {

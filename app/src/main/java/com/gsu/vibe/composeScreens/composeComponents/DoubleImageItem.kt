@@ -36,7 +36,7 @@ import com.gsu.vibe.radiusForCards
 
 
 @Composable
-fun QuadroImageItem(images: List<SoundModel>) {
+fun DoubleImageItem(images: List<SoundModel>) {
     Row(
         Modifier
             .height(IntrinsicSize.Max)
@@ -47,7 +47,7 @@ fun QuadroImageItem(images: List<SoundModel>) {
                 .weight(1f)
                 .wrapContentHeight()
         ) {
-            images.take(2).forEachIndexed { index, song ->
+            images.take(1).forEachIndexed { index, song ->
                 Button(
                     onClick = { /* TODO */ },
                     contentPadding = PaddingValues(0.dp),
@@ -81,7 +81,7 @@ fun QuadroImageItem(images: List<SoundModel>) {
                 .weight(1f)
                 .wrapContentHeight() // Заполнение максимальной высоты
         ) {
-            images.drop(2).forEachIndexed { index, song  ->
+            images.drop(1).forEachIndexed { index, song  ->
                 Button(
                     onClick = { /* TODO */ },
                     contentPadding = PaddingValues(0.dp),

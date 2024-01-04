@@ -90,6 +90,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     fun getOnboardStatus() = context.getSharedPreferences(prefName,Context.MODE_PRIVATE).getBoolean(onboardStatusKey, false)
 
 
+    fun getSleepSounds() = repository.getSounds(Repository.SoundType.SLEEP)
+    fun getListForSleepForCompose() = repository.getListForSleepForCompose()
 
     fun setCurrentSound(name: String) {
         currentSound = listAllSounds.filter { it.name == name }[0]
