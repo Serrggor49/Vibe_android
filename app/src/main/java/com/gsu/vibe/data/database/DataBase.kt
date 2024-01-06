@@ -191,6 +191,7 @@ object DataBase {
 
         return listOf(
             SongsBlock(type = ItemType.Quadruple, songs = listOf(meditation1, meditation2, meditation3, meditation4)),
+      //      SongsBlock(type = ItemType.Quadruple, songs = listOf(meditation1, meditation3, meditation2, meditation4)),
             SongsBlock(type = ItemType.Single, songs = listOf(meditation5)),
             SongsBlock(type = ItemType.Triple, songs = listOf(meditation7, meditation6, meditation8)),
             SongsBlock(type = ItemType.Single, songs = listOf(meditation9)),
