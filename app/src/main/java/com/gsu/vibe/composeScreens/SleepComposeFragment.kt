@@ -42,7 +42,7 @@ import com.gsu.vibe.presentation.MainViewModel
 class SleepComposeFragment : Fragment() {
 
     var leftSideSingleImage = false
-    val mainViewmodel: MainViewModel by activityViewModels()
+    val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -60,7 +60,7 @@ class SleepComposeFragment : Fragment() {
     @Composable
     fun MyScreen() {
 
-        val sounds = mainViewmodel.getListForSleepForCompose()
+        val sounds = mainViewModel.getListForSleepForCompose()
 
         var size by remember { mutableStateOf(Size.Zero) } // Инициализация размера с нулевым значением
         val gradient = Brush.linearGradient(

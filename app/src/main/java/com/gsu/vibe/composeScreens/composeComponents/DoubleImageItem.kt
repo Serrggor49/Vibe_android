@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -27,9 +29,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.google.android.material.color.utilities.MaterialDynamicColors.background
 import com.gsu.vibe.data.models.SoundModel
-
 import com.gsu.vibe.paddingForCards
 import com.gsu.vibe.paddingForTextCards
 import com.gsu.vibe.radiusForCards
@@ -42,72 +42,68 @@ fun DoubleImageItem(images: List<SoundModel>) {
             .height(IntrinsicSize.Max)
             .background(Color.Transparent)
     ) {
-        Column(
-            Modifier
-                .weight(1f)
-                .wrapContentHeight()
-        ) {
-            images.take(1).forEachIndexed { index, song ->
-                Button(
-                    onClick = { /* TODO */ },
-                    contentPadding = PaddingValues(0.dp),
+
+        images.take(2).forEachIndexed { index, song ->
+            Button(
+                onClick = { /* TODO */ },
+                contentPadding = PaddingValues(0.dp),
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth()
+                    .padding(paddingForCards)
+                    .clip(RoundedCornerShape(radiusForCards)),
+            ) {
+                Box(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .clip(RoundedCornerShape(radiusForCards))
-                        .padding(paddingForCards),
-                    ) {
-                    Box(modifier = Modifier.background(Color.Transparent)) {
-                        Image(
-                            painter = painterResource(song.preview),
-                            contentDescription = "",
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .wrapContentHeight(),
-                            contentScale = ContentScale.Crop
-                        )
-                        Text(
-                            text = "Текст ${index + 2}",
-                            modifier = Modifier
-                                .align(Alignment.BottomStart)
-                                .padding(paddingForTextCards)
-                        )
-                    }
+                        .background(Color.Transparent)
+                ) {
+                    Image(
+                        painter = painterResource(song.preview),
+                        contentDescription = "",
+                        modifier = Modifier
+                            .fillMaxSize(),
+                            //.aspectRatio(1f),
+                        contentScale = ContentScale.Crop
+                    )
+                    Text(
+                        text = "Текст ${index + 2}",
+                        modifier = Modifier
+                            .align(Alignment.BottomStart)
+                            .padding(paddingForTextCards)
+                    )
                 }
             }
         }
 
-        Column(
-            Modifier
-                .weight(1f)
-                .wrapContentHeight() // Заполнение максимальной высоты
-        ) {
-            images.drop(1).forEachIndexed { index, song  ->
-                Button(
-                    onClick = { /* TODO */ },
-                    contentPadding = PaddingValues(0.dp),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(paddingForCards)
-                        .clip(RoundedCornerShape(radiusForCards))
-                ) {
-                    Box {
-                        Image(
-                            painter = painterResource(song.preview),
-                            contentDescription = "",
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .wrapContentHeight(),
-                            contentScale = ContentScale.Crop
-                        )
-                        Text(
-                            text = "Текст ${index + 2}",
-                            modifier = Modifier
-                                .align(Alignment.BottomStart)
-                                .padding(paddingForTextCards)
-                        )
-                    }
-                }
-            }
-        }
+
+//            Button(
+//                onClick = { /* TODO */ },
+//                contentPadding = PaddingValues(0.dp),
+//                modifier = Modifier
+//                    .weight(1f)
+//                    .fillMaxWidth()
+//                    .padding(paddingForCards)
+//                    .clip(RoundedCornerShape(radiusForCards))
+//
+//            ) {
+//                Box {
+//                    Image(
+//                        painter = painterResource(images[1].preview),
+//                        contentDescription = "",
+//                        modifier = Modifier
+//                            .fillMaxWidth()
+//                            .wrapContentHeight(),
+//                        contentScale = ContentScale.Crop
+//                    )
+//                    Text(
+//                        text = "Текст ${images[0].title + 2}",
+//                        modifier = Modifier
+//                            .align(Alignment.BottomStart)
+//                            .padding(paddingForTextCards)
+//                    )
+//                }
+//            }
     }
+
+
 }

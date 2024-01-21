@@ -1,13 +1,17 @@
 package com.gsu.vibe.composeScreens.composeComponents
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -20,8 +24,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.gsu.vibe.data.models.SoundModel
@@ -31,89 +35,93 @@ import com.gsu.vibe.radiusForCards
 
 @Composable
 fun TripleImageItem(songs: List<SoundModel>, leftSideSingleImage: Boolean = false) {
-    Row(
-        Modifier.height(IntrinsicSize.Max)
-    ) {
 
-        val modifierForColumnWithTwoButtons = Modifier
-            .weight(1f)
-            .wrapContentHeight()
+    val heightItem = 0.dp
+
+    Row {
+        val modifierForColumnWithTwoButtons = Modifier.weight(1f)
         val modifierForSingleButton = Modifier
             .weight(1f)
             .padding(paddingForCards)
             .clip(RoundedCornerShape(radiusForCards))
-            .fillMaxHeight()
-            .background(Color.White)
 
-        if (leftSideSingleImage) {
-            GetColumnWithTwoButtons(modifierForColumnWithTwoButtons, songs)
-            GetSingleButton(modifierForSingleButton, songs)
-        }
-        else
-        {
-            GetSingleButton(modifierForSingleButton, songs)
-            GetColumnWithTwoButtons(modifierForColumnWithTwoButtons, songs)
-        }
-    }
-}
 
-@Composable
-fun GetColumnWithTwoButtons(modifier: Modifier, songs: List<SoundModel>) {
+        var buttonHeight1 = 0.dp
 
-    Column(modifier = modifier) {
-        songs.drop(1).forEachIndexed { index, song ->
+        BoxWithConstraints(modifier = Modifier.weight(1f)) {
+            val maxWidth = with(LocalDensity.current) { constraints.maxWidth.toDp() }
+
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { },
                 contentPadding = PaddingValues(0.dp),
-                modifier = Modifier
-                    .padding(paddingForCards)
-                    .clip(RoundedCornerShape(radiusForCards))
-                    .fillMaxWidth()
+                modifier = modifierForSingleButton.height(maxWidth * 2)
             ) {
                 Box {
                     Image(
-                        painter = painterResource(song.preview),
                         contentDescription = "",
                         modifier = Modifier
-                            .fillMaxWidth()
-                            .wrapContentHeight(),
+                            .fillMaxSize(),
+                        //.aspectRatio(painterResource(songs[0].preview).intrinsicSize.width / painterResource(songs[0].preview).intrinsicSize.height), // Сохранить пропорции
+                        painter = painterResource(songs[0].preview),
                         contentScale = ContentScale.Crop
                     )
                     Text(
-                        text = "Текст ${index + 2}",
+                        text = "Текст 1",
                         modifier = Modifier
                             .align(Alignment.BottomStart)
                             .padding(paddingForTextCards)
                     )
                 }
             }
+
+            buttonHeight1 = with(LocalDensity.current) { constraints.maxHeight.toDp() }
+            buttonHeight1 = with(LocalDensity.current) { constraints.maxHeight.toDp() }
+            Log.d("MyLogs112", "maxHeight = ${buttonHeight1}")
+
         }
-    }
-}
 
-@Composable
-fun GetSingleButton(modifier: Modifier, songs: List<SoundModel>) {
-    Button(
-        onClick = { /* TODO */ },
-        contentPadding = PaddingValues(0.dp),
-        modifier = modifier
+        BoxWithConstraints(
+            Modifier
+                .weight(1f)
+        ) {
+            val maxWidth = with(LocalDensity.current) { constraints.maxWidth.toDp() + paddingForCards}
+            Log.d("MyLogs112", "maxWidth = ${maxWidth}")
 
-    ) {
-        Box {
-            Image(
-                painter = painterResource(songs[0].preview),
-                contentDescription = "",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .fillMaxHeight(),
-                contentScale = ContentScale.Crop
-            )
-            Text(
-                text = "Текст 1",
-                modifier = Modifier
-                    .align(Alignment.BottomStart)
-                    .padding(paddingForTextCards)
-            )
+            Column {
+                for (song in songs.drop(1)) {
+                    Button(
+                        onClick = { /*TODO*/ },
+                        contentPadding = PaddingValues(0.dp),
+                        modifier = Modifier
+                            //.weight(1f)
+                            // .fillMaxHeight()
+                            //
+                            //.height(buttonHeight)
+                            .height(maxWidth)
+                            .padding(paddingForCards)
+                            .clip(RoundedCornerShape(radiusForCards))
+                    ) {
+                        Box {
+                            Image(
+                                painter = painterResource(song.preview),
+                                contentDescription = "",
+                                modifier = Modifier
+                                    .fillMaxSize(),
+                                // .height(buttonHeight),
+                                // .wrapContentHeight(),
+                                contentScale = ContentScale.Crop
+                            )
+                            Text(
+                                text = "Текст ${2}",
+                                modifier = Modifier
+                                    .align(Alignment.BottomStart)
+                                    .padding(paddingForTextCards)
+                            )
+                        }
+                    }
+                }
+            }
+
         }
     }
 }

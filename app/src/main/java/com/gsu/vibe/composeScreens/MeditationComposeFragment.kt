@@ -28,6 +28,7 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
+import androidx.fragment.app.activityViewModels
 import com.gsu.vibe.composeScreens.composeComponents.DoubleImageItem
 import com.gsu.vibe.composeScreens.composeComponents.InitHeaderBlock
 import com.gsu.vibe.composeScreens.composeComponents.QuadroImageItem
@@ -35,11 +36,13 @@ import com.gsu.vibe.composeScreens.composeComponents.SingleImageItem
 import com.gsu.vibe.composeScreens.composeComponents.TripleImageItem
 import com.gsu.vibe.data.models.ItemType
 import com.gsu.vibe.data.models.SongsBlock
+import com.gsu.vibe.presentation.MainViewModel
 
 
 class MeditationComposeFragment : Fragment() {
 
     var leftSideSingleImage = false
+    val mainViewModel: MainViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -56,6 +59,9 @@ class MeditationComposeFragment : Fragment() {
     @Preview
     @Composable
     fun MyScreen() {
+
+        val sounds = mainViewModel.getListForMeditaionForCompose()
+
 
         var size by remember { mutableStateOf(Size.Zero) } // Инициализация размера с нулевым значением
         val gradient = Brush.linearGradient(
@@ -74,7 +80,7 @@ class MeditationComposeFragment : Fragment() {
                 .padding(top = 10.dp, start = 10.dp, end = 10.dp)
         ) {
             MosaicColumn(
-                FakeData().meditation
+                sounds
             )
         }
     }

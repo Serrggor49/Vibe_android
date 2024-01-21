@@ -187,18 +187,14 @@ object DataBase {
     }
 
     fun getListForSleepForCompose(): List<SongsBlock>{
-
-
         return listOf(
             SongsBlock(type = ItemType.Quadruple, songs = listOf(meditation1, meditation2, meditation3, meditation4)),
-      //      SongsBlock(type = ItemType.Quadruple, songs = listOf(meditation1, meditation3, meditation2, meditation4)),
             SongsBlock(type = ItemType.Single, songs = listOf(meditation5)),
             SongsBlock(type = ItemType.Triple, songs = listOf(meditation7, meditation6, meditation8)),
             SongsBlock(type = ItemType.Single, songs = listOf(meditation9)),
             SongsBlock(type = ItemType.Quadruple, songs = listOf(meditation10, meditation12, meditation11, meditation13)),
             SongsBlock(type = ItemType.Double, songs = listOf(meditation14, meditation15)),
             )
-
     }
 
     val  meditation011 = SoundModel(
@@ -363,6 +359,17 @@ object DataBase {
             meditation011, meditation021, meditation022, meditation031, meditation032, meditation041,
             meditation042, meditation051, meditation061, meditation062, meditation071,
             meditation081, meditation082)
+    }
+
+    fun getListForMeditaionForCompose(): List<SongsBlock>{
+        return listOf(
+            SongsBlock(type = ItemType.Single, songs = listOf(meditation011)),
+            SongsBlock(type = ItemType.Double, songs = listOf(meditation021, meditation022)),
+            SongsBlock(type = ItemType.Quadruple, songs = listOf(meditation031, meditation041, meditation032, meditation042)),
+            SongsBlock(type = ItemType.Single, songs = listOf(meditation051)),
+            SongsBlock(type = ItemType.Triple, songs = listOf(meditation062, meditation061, meditation071)),
+            SongsBlock(type = ItemType.Double, songs = listOf(meditation081, meditation082)),
+        )
     }
 
     val  focus011 = SoundModel(

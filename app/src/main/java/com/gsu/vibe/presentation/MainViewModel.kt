@@ -92,6 +92,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun getSleepSounds() = repository.getSounds(Repository.SoundType.SLEEP)
     fun getListForSleepForCompose() = repository.getListForSleepForCompose()
+    fun getListForMeditaionForCompose() = repository.getListForMeditaionForCompose()
 
     fun setCurrentSound(name: String) {
         currentSound = listAllSounds.filter { it.name == name }[0]
