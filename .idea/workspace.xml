@@ -89,23 +89,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09e7f78b-8ef6-4998-ab62-72d2ee931319" name="Changes" comment="- избранное теперь в правом верхнем углу. Нижняя крайняя права кнопка отвечает за открытие миксера">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/MediaPlayerComposeFragment.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/PlayerWindow.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/ic_play_button_compose.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_media_player_compose.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/navEditor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/navEditor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/Constants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/Constants.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/SleepComposeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/SleepComposeFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/DoubleImageItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/DoubleImageItem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/HeaderBlock.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/HeaderBlock.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/QuadroImageItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/QuadroImageItem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/SingleImageItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/SingleImageItem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/TripleImageItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/TripleImageItem.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/SleepFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/SleepFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_media_player_service.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_media_player_service.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/nav_graph.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/nav_graph.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/playerComponents/SetTimerComponent.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/MediaPlayerComposeFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/MediaPlayerComposeFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/PlayerWindow.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/playerComponents/PlayerWindow.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,42 +201,42 @@
     <option name="autoscrollFromSource" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "BundleExportedModule": "Vibe.app",
-    "ExportBundle.BundlePathForVibe.app": "/Users/gsu49/Desktop/PRJ/vibe/Vibe_sounds/app/release",
-    "PROJECT_TRUSTED_KEY": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ScreenRecorder.SavePath": "/Users/gsu49/Desktop",
-    "android-custom-view/Users/gsu49/Desktop/PRJ/vibe/Vibe__/app/src/main/java/com/gsu/vibe/presentation/SmokeView.kt_SELECTED": "SmokeView",
-    "android-custom-view/Users/gsu49/Desktop/PRJ/vibe/Vibe_sounds/app/src/main/java/com/gsu/vibe/presentation/onboards/NewOnboardFourthFragment.kt_SELECTED": "ShapeView",
-    "android-custom-view/Users/gsu49/Library/Android/sdk/sources/android-34/android/widget/ImageButton.java_SELECTED": "ImageButton",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "com.google.services.firebase.aqiPopupShown": "true",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "feature/composeView",
-    "last_directory_selection": "/Users/gsu49/Desktop/PRJ/vibe/Vibe__/app/src/main/res/drawable",
-    "last_opened_file_path": "/Users/gsu49/Desktop/PRJ/vibe/Vibe_sounds/app/src/main/res/drawable",
-    "project.structure.last.edited": "Dependencies",
-    "project.structure.proportion": "0.17",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "editor.preferences.tabs",
-    "show.migrate.to.gradle.popup": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;BundleExportedModule&quot;: &quot;Vibe.app&quot;,
+    &quot;ExportBundle.BundlePathForVibe.app&quot;: &quot;/Users/gsu49/Desktop/PRJ/vibe/Vibe_sounds/app/release&quot;,
+    &quot;PROJECT_TRUSTED_KEY&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ScreenRecorder.SavePath&quot;: &quot;/Users/gsu49/Desktop&quot;,
+    &quot;android-custom-view/Users/gsu49/Desktop/PRJ/vibe/Vibe__/app/src/main/java/com/gsu/vibe/presentation/SmokeView.kt_SELECTED&quot;: &quot;SmokeView&quot;,
+    &quot;android-custom-view/Users/gsu49/Desktop/PRJ/vibe/Vibe_sounds/app/src/main/java/com/gsu/vibe/presentation/onboards/NewOnboardFourthFragment.kt_SELECTED&quot;: &quot;ShapeView&quot;,
+    &quot;android-custom-view/Users/gsu49/Library/Android/sdk/sources/android-34/android/widget/ImageButton.java_SELECTED&quot;: &quot;ImageButton&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/composeView&quot;,
+    &quot;last_directory_selection&quot;: &quot;/Users/gsu49/Desktop/PRJ/vibe/Vibe__/app/src/main/res/drawable&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/gsu49/Desktop/PRJ/vibe/Vibe_sounds/app/src/main/res/drawable&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Dependencies&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   },
-  "keyToStringList": {
-    "ExportApk.BuildVariants": [
-      "release"
+  &quot;keyToStringList&quot;: {
+    &quot;ExportApk.BuildVariants&quot;: [
+      &quot;release&quot;
     ],
-    "android-custom-view/Users/gsu49/Desktop/PRJ/vibe/Vibe_sounds/app/src/main/java/com/gsu/vibe/presentation/onboards/NewOnboardFourthFragment.kt_ShapeView_DIMENSIONS": [
-      "1080",
-      "1920"
+    &quot;android-custom-view/Users/gsu49/Desktop/PRJ/vibe/Vibe_sounds/app/src/main/java/com/gsu/vibe/presentation/onboards/NewOnboardFourthFragment.kt_ShapeView_DIMENSIONS&quot;: [
+      &quot;1080&quot;,
+      &quot;1920&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
@@ -260,6 +246,7 @@
       <recent name="$PROJECT_DIR$/app/src/main/res/layout" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/playerComponents" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens" />
       <recent name="$PROJECT_DIR$/app/src/main/res/color" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe" />

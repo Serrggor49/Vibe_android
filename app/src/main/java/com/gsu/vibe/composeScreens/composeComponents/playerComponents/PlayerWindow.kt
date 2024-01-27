@@ -1,4 +1,4 @@
-package com.gsu.vibe.composeScreens.composeComponents
+package com.gsu.vibe.composeScreens.composeComponents.playerComponents
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -57,7 +57,6 @@ fun PlayerWindow() {
         )
         {
             Column {
-
 
                 Row {
                     Column(modifier = Modifier.weight(1f)) {
