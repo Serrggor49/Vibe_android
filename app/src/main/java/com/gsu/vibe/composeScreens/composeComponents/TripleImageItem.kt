@@ -27,6 +27,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.gsu.vibe.data.models.SoundModel
 import com.gsu.vibe.paddingForCards
@@ -39,12 +40,10 @@ fun TripleImageItem(songs: List<SoundModel>, leftSideSingleImage: Boolean = fals
     val heightItem = 0.dp
 
     Row {
-        val modifierForColumnWithTwoButtons = Modifier.weight(1f)
         val modifierForSingleButton = Modifier
             .weight(1f)
             .padding(paddingForCards)
             .clip(RoundedCornerShape(radiusForCards))
-
 
         var buttonHeight1 = 0.dp
 
@@ -52,24 +51,23 @@ fun TripleImageItem(songs: List<SoundModel>, leftSideSingleImage: Boolean = fals
             val maxWidth = with(LocalDensity.current) { constraints.maxWidth.toDp() }
 
             Button(
+                modifier = modifierForSingleButton.height(maxWidth * 2),
                 onClick = { },
-                contentPadding = PaddingValues(0.dp),
-                modifier = modifierForSingleButton.height(maxWidth * 2)
+                contentPadding = PaddingValues(0.dp)
             ) {
                 Box {
                     Image(
-                        contentDescription = "",
                         modifier = Modifier
                             .fillMaxSize(),
-                        //.aspectRatio(painterResource(songs[0].preview).intrinsicSize.width / painterResource(songs[0].preview).intrinsicSize.height), // Сохранить пропорции
+                        contentDescription = "",
                         painter = painterResource(songs[0].preview),
                         contentScale = ContentScale.Crop
                     )
                     Text(
-                        text = "Текст 1",
                         modifier = Modifier
                             .align(Alignment.BottomStart)
-                            .padding(paddingForTextCards)
+                            .padding(paddingForTextCards),
+                        text = stringResource(id = songs[0].title)
                     )
                 }
             }
@@ -84,7 +82,8 @@ fun TripleImageItem(songs: List<SoundModel>, leftSideSingleImage: Boolean = fals
             Modifier
                 .weight(1f)
         ) {
-            val maxWidth = with(LocalDensity.current) { constraints.maxWidth.toDp() + paddingForCards}
+            val maxWidth =
+                with(LocalDensity.current) { constraints.maxWidth.toDp() + paddingForCards }
             Log.d("MyLogs112", "maxWidth = ${maxWidth}")
 
             Column {
@@ -93,10 +92,6 @@ fun TripleImageItem(songs: List<SoundModel>, leftSideSingleImage: Boolean = fals
                         onClick = { /*TODO*/ },
                         contentPadding = PaddingValues(0.dp),
                         modifier = Modifier
-                            //.weight(1f)
-                            // .fillMaxHeight()
-                            //
-                            //.height(buttonHeight)
                             .height(maxWidth)
                             .padding(paddingForCards)
                             .clip(RoundedCornerShape(radiusForCards))
@@ -107,12 +102,10 @@ fun TripleImageItem(songs: List<SoundModel>, leftSideSingleImage: Boolean = fals
                                 contentDescription = "",
                                 modifier = Modifier
                                     .fillMaxSize(),
-                                // .height(buttonHeight),
-                                // .wrapContentHeight(),
                                 contentScale = ContentScale.Crop
                             )
                             Text(
-                                text = "Текст ${2}",
+                                text = stringResource(id = song.title),
                                 modifier = Modifier
                                     .align(Alignment.BottomStart)
                                     .padding(paddingForTextCards)

@@ -27,13 +27,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gsu.vibe.data.models.SoundModel
 import com.gsu.vibe.paddingForCards
 import com.gsu.vibe.paddingForTextCards
 import com.gsu.vibe.radiusForCards
-
 
 @Composable
 fun DoubleImageItem(images: List<SoundModel>) {
@@ -62,11 +62,10 @@ fun DoubleImageItem(images: List<SoundModel>) {
                         contentDescription = "",
                         modifier = Modifier
                             .fillMaxSize(),
-                            //.aspectRatio(1f),
                         contentScale = ContentScale.Crop
                     )
                     Text(
-                        text = "Текст ${index + 2}",
+                        text = stringResource(id = song.title),
                         modifier = Modifier
                             .align(Alignment.BottomStart)
                             .padding(paddingForTextCards)

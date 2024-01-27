@@ -30,13 +30,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.gsu.vibe.R
+import com.gsu.vibe.firaSansFamily
 
 
 // блок в котором находится название экрана (для сна, медитации и т.д.) и кнопки
 // скрытия рекламы и переход в избранное
 
 //val firaSansFamily = FontFamily(Font(R.font.inter_semibold))
-val firaSansFamily = FontFamily(Font(R.font.inter_regular))
 
 @Preview
 @Composable

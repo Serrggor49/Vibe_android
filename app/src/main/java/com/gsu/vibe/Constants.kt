@@ -1,5 +1,7 @@
 package com.gsu.vibe
 
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 
 const val actionKey = "action"
@@ -21,5 +23,7 @@ const val V_ACTION_CLOSE = "V_ACTION_CLOSE"
 
 val paddingForCards = 3.dp
 val radiusForCards = 10.dp
+val radiusForPlayer = 16.dp
 val paddingForTextCards = 15.dp
 
+val firaSansFamily = FontFamily(Font(R.font.inter_regular))

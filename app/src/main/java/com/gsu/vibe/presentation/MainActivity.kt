@@ -5,11 +5,9 @@ import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.WindowCompat
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
@@ -17,15 +15,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.gsu.vibe.R
 import com.gsu.vibe.databinding.ActivityMainBinding
-import com.gsu.vibe.services.MediaPlayerService
 import io.branch.referral.Branch
-import io.branch.referral.BranchError
-import io.branch.referral.util.BRANCH_STANDARD_EVENT
-import io.branch.referral.util.BranchEvent
-import io.branch.referral.util.CurrencyType
-import kotlinx.coroutines.launch
-import org.json.JSONObject
-
 
 class MainActivity : AppCompatActivity() {
 

@@ -95,7 +95,6 @@ class SleepFragment : Fragment() {
 
         //val remoteViews = RemoteViews(packageName, R.layout.your_custom_notification_layout)
         contentView.setImageViewResource(R.id.imageView75, R.drawable.binua_betta)
-        contentView.setImageViewResource(R.id.button1, com.google.android.material.R.drawable.ic_m3_chip_close)
         contentView.setImageViewResource(R.id.button2, R.drawable.ic_pause_button)
 
 

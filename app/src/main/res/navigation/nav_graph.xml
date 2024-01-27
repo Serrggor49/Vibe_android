@@ -204,7 +204,11 @@
         android:id="@+id/sleepComposeFragment"
         android:name="com.gsu.vibe.composeScreens.SleepComposeFragment"
         android:label="fragment_sleep_compose"
-        tools:layout="@layout/fragment_sleep_compose" />
+        tools:layout="@layout/fragment_sleep_compose" >
+        <action
+            android:id="@+id/action_sleepComposeFragment_to_mediaPlayerComposeFragment"
+            app:destination="@id/mediaPlayerComposeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/meditationComposeFragment"
         android:name="com.gsu.vibe.composeScreens.MeditationComposeFragment"
@@ -220,4 +224,9 @@
         android:name="com.gsu.vibe.composeScreens.NatureComposeFragment"
         android:label="fragment_nature_compose"
         tools:layout="@layout/fragment_nature_compose" />
+    <fragment
+        android:id="@+id/mediaPlayerComposeFragment"
+        android:name="com.gsu.vibe.composeScreens.MediaPlayerComposeFragment"
+        android:label="fragment_media_player_compose"
+        tools:layout="@layout/fragment_media_player_compose" />
 </navigation>

@@ -30,6 +30,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
 import com.gsu.vibe.composeScreens.composeComponents.DoubleImageItem
 import com.gsu.vibe.composeScreens.composeComponents.InitHeaderBlock
 import com.gsu.vibe.composeScreens.composeComponents.QuadroImageItem
@@ -38,6 +39,7 @@ import com.gsu.vibe.composeScreens.composeComponents.TripleImageItem
 import com.gsu.vibe.data.models.ItemType
 import com.gsu.vibe.data.models.SongsBlock
 import com.gsu.vibe.presentation.MainViewModel
+import com.gsu.vibe.presentation.SleepFragmentDirections
 
 class SleepComposeFragment : Fragment() {
 
@@ -79,15 +81,24 @@ class SleepComposeFragment : Fragment() {
                 .padding(top = 10.dp, start = 10.dp, end = 10.dp)
         ) {
             MosaicColumn(
-               // FakeData().sleep
-                sounds
-
+                list = sounds,
+                onClick = { onClick() }
             )
         }
     }
 
+    fun onClick(){
+
+    }
+
+    fun onImageClick(songName: String){
+        Log.d("MyLogs33", "songName = $songName")
+        val action = SleepComposeFragmentDirections.actionSleepComposeFragmentToMediaPlayerComposeFragment()
+        view?.findNavController()?.navigate(action)
+    }
+
     @Composable
-    fun MosaicColumn(list: List<SongsBlock>) {
+    fun MosaicColumn(list: List<SongsBlock>, onClick: () -> Unit) {
         LazyColumn {
             item { InitHeaderBlock() }
             items(list) { item1 ->
@@ -109,9 +120,7 @@ class SleepComposeFragment : Fragment() {
         }
     }
 
-    fun onImageClick(songName: String){
-        Log.d("MyLogs33", "songName = $songName")
-    }
+
 
 
 }

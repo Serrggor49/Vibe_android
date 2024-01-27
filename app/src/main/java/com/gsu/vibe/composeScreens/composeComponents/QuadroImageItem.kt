@@ -1,5 +1,6 @@
 package com.gsu.vibe.composeScreens.composeComponents
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -20,6 +21,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.gsu.vibe.data.models.SoundModel
 import com.gsu.vibe.paddingForCards
@@ -50,7 +52,7 @@ fun QuadroImageItem(images: List<SoundModel>) {
         Column(
             Modifier
                 .weight(1f)
-               // .fillMaxHeight()
+            // .fillMaxHeight()
         ) {
             images.take(2).forEachIndexed { index, song ->
                 Button(
@@ -70,7 +72,7 @@ fun QuadroImageItem(images: List<SoundModel>) {
                             modifier = Modifier.aspectRatio(currentRatio),
                         )
                         Text(
-                            text = "Текст ${index + 2}",
+                            text = stringResource(id = song.title),
                             modifier = Modifier
                                 .align(Alignment.BottomStart)
                                 .padding(paddingForTextCards)
@@ -83,53 +85,34 @@ fun QuadroImageItem(images: List<SoundModel>) {
         Column(
             Modifier
                 .weight(1f)
-              //  .fillMaxHeight()
+            //  .fillMaxHeight()
         ) {
-            Button(
-                onClick = { /* TODO */ },
-                contentPadding = PaddingValues(0.dp),
-                modifier = Modifier
-                    .padding(paddingForCards)
-                    .clip(RoundedCornerShape(radiusForCards))
-            ) {
-                Box {
-                    Image(
-                        painter = painterResource(images[2].preview),
-                        contentDescription = "",
-                        modifier = Modifier.aspectRatio(ratio2),
-                        contentScale = ContentScale.Crop
-                    )
-                    Text(
-                        text = "${images[2].title}",
-                        modifier = Modifier
-                            .align(Alignment.BottomStart)
-                            .padding(paddingForTextCards)
-                    )
+
+            images.drop(2).forEachIndexed{ index, song ->
+                Button(
+                    modifier = Modifier
+                        .padding(paddingForCards)
+                        .clip(RoundedCornerShape(radiusForCards)),
+                    onClick = { /* TODO */ },
+                    contentPadding = PaddingValues(0.dp),
+                ) {
+                    Box {
+                        Image(
+                            modifier = if(index == 0) Modifier.aspectRatio(ratio2) else Modifier.aspectRatio(ratio1),
+                            painter = painterResource(song.preview),
+                            contentDescription = "",
+                            contentScale = ContentScale.Crop
+                        )
+                        Text(
+                            modifier = Modifier
+                                .align(Alignment.BottomStart)
+                                .padding(paddingForTextCards),
+                            text = stringResource(id = song.title)
+                        )
+                    }
                 }
             }
 
-            Button(
-                onClick = { /* TODO */ },
-                contentPadding = PaddingValues(0.dp),
-                modifier = Modifier
-                    .padding(paddingForCards)
-                    .clip(RoundedCornerShape(radiusForCards))
-            ) {
-                Box {
-                    Image(
-                        painter = painterResource(images[3].preview),
-                        contentDescription = "",
-                        modifier = Modifier.aspectRatio(ratio1),
-                        contentScale = ContentScale.Crop
-                    )
-                    Text(
-                        text = "${images[2].title}",
-                        modifier = Modifier
-                            .align(Alignment.BottomStart)
-                            .padding(paddingForTextCards)
-                    )
-                }
-            }
         }
 
     }
