@@ -1,5 +1,8 @@
 package com.gsu.vibe
 
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
@@ -27,3 +30,6 @@ val radiusForPlayer = 16.dp
 val paddingForTextCards = 15.dp
 
 val firaSansFamily = FontFamily(Font(R.font.inter_regular))
+
+
+

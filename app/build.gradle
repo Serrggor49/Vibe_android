@@ -143,4 +143,8 @@ dependencies {
     // UI Tests
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+    implementation 'com.github.zj565061763:compose-wheel-picker:1.0.0-beta01' // wheel picker // https://androidexample365.com/compose-wheel-picker-with-kotlin/
+    implementation 'com.github.commandiron:WheelPickerCompose:1.1.11'
+
 }

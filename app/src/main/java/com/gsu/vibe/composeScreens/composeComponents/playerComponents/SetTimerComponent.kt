@@ -3,12 +3,15 @@ package com.gsu.vibe.composeScreens.composeComponents.playerComponents
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -22,6 +25,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextAlign
@@ -30,22 +35,37 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.gsu.vibe.firaSansFamily
+import com.sd.lib.compose.wheel_picker.FVerticalWheelPicker
+import com.sd.lib.compose.wheel_picker.FWheelPickerFocusVertical
+import com.sd.lib.compose.wheel_picker.rememberFWheelPickerState
 import kotlin.math.abs
 
 @Composable
 @Preview
 fun SetTimerComponent() {
 
+
+
     var showDialog by remember { mutableStateOf(true) }
 
 
     if (showDialog) {
         Dialog(onDismissRequest = { showDialog = false }) {
-            Box(modifier = Modifier
-                //.fillMaxSize()
-                .padding(16.dp)
-                .clip(RoundedCornerShape(16.dp))
-                .background(Color.Blue)
+
+
+
+            BoxWithConstraints(
+                modifier = Modifier
+                    //.fillMaxSize()
+                    .padding(16.dp)
+                    .clip(RoundedCornerShape(16.dp))
+                    .background(Color.LightGray)
+                    .background(
+                        brush = Brush.linearGradient(
+                            colors = listOf(Color(0xFF0B1130), Color(0xFF0B1130), Color(0xFF0B1130),  Color(0xFF2A3572)),
+                            start = Offset.Zero, // Начало в левом верхнем углу
+                            end = Offset(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY) // Растягиваем градиент на весь возможный размер
+                        ))
 
             ) {
                 Column(modifier = Modifier.fillMaxWidth()) {
@@ -62,10 +82,83 @@ fun SetTimerComponent() {
                         textAlign = TextAlign.Center
                     )
 
-                    val items = (1..10).map { it.toString() } // Пример списка элементов
-                    WheelPicker(data = items) { selectedItem ->
-                        println("Выбранный элемент: $selectedItem")
+                    val state = rememberFWheelPickerState(10)
+                    Row(modifier = Modifier.align(Alignment.CenterHorizontally)) {
+                        FVerticalWheelPicker(
+
+                            modifier = Modifier.width(60.dp),
+                            count = 24,
+                            state = state,
+                            focus = {
+                                Text(text = "h", modifier = Modifier
+                                    .align(Alignment.Top)
+                                    .padding(bottom = 0.dp, start = 40.dp),
+                                    fontSize = 13.sp,
+                                    color = Color(0xFFFFFFFF))
+                                FWheelPickerFocusVertical(
+                                    dividerColor = Color.LightGray,
+                                    dividerSize = 1.dp
+                                )
+
+                            },
+                        ) { index ->
+                            Text(
+                                text = index.toString(),
+                                fontFamily = firaSansFamily,
+                                fontSize = 18.sp,
+                                color = Color(0xFFFFFFFF),
+                                textAlign = TextAlign.Center
+                            )
+                        }
+
+                        FVerticalWheelPicker(
+                            modifier = Modifier.width(60.dp),
+                            count = 50,
+                            focus = {
+                                Text(text = "m", modifier = Modifier
+                                    .align(Alignment.Top)
+                                    .padding(bottom = 2.dp, start = 40.dp))
+                                FWheelPickerFocusVertical(
+                                    dividerColor = Color.Red,
+                                    dividerSize = 1.dp
+                                )
+
+                            },
+                        ) { index ->
+                            Text(
+                                text = index.toString(),
+                                fontFamily = firaSansFamily,
+                                fontSize = 14.sp,
+                                color = Color(0xFFFFFFFF),
+                                textAlign = TextAlign.Center
+                            )
+                        }
+
+                        FVerticalWheelPicker(
+                            modifier = Modifier.width(60.dp),
+                            count = 50,
+                            focus = {
+                                Text(text = "s", modifier = Modifier
+                                    .align(Alignment.Top)
+                                    .padding(bottom = 2.dp, start = 40.dp))
+                                FWheelPickerFocusVertical(
+                                    dividerColor = Color.Red,
+                                    dividerSize = 1.dp
+                                )
+
+                            },
+                        ) { index ->
+                            Text(
+                                text = index.toString(),
+                                fontFamily = firaSansFamily,
+                                fontSize = 14.sp,
+                                color = Color(0xFFFFFFFF),
+                                textAlign = TextAlign.Center
+                            )
+                        }
                     }
+
+
 
                     Button(
                         modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -83,48 +176,4 @@ fun SetTimerComponent() {
 
 // https://androidexample365.com/compose-wheel-picker-with-kotlin/ вот его надо добавить
 
-
-@Composable
-fun WheelPicker(
-    data: List<String>, // Данные для пикера
-    onItemSelected: (String) -> Unit // Лямбда, вызываемая при выборе элемента
-) {
-    val itemHeight = 40.dp // Высота одного элемента
-    val visibleItemCount = 5 // Количество видимых элементов
-
-    LazyColumn(
-        modifier = Modifier.size(width = 100.dp, height = itemHeight * visibleItemCount),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        itemsIndexed(data) { index, item ->
-            Box(
-                modifier = Modifier
-                    .graphicsLayer {
-                        // Расчет масштаба и прозрачности в зависимости от положения элемента
-                        val itemCenter = (index + 0.5f) * itemHeight.value
-                        val lazyListCenter = itemHeight.value * visibleItemCount / 2
-                        val distanceToCenter = abs(lazyListCenter - itemCenter)
-                        val rawScale = 1f - (distanceToCenter / lazyListCenter)
-                        val scale = rawScale.coerceIn(0.5f, 1f)
-                        scaleX = scale
-                        scaleY = scale
-                        alpha = scale
-                    }
-                    .size(height = itemHeight, width = 100.dp)
-            ) {
-                Text(text = item, fontSize = 20.sp)
-            }
-        }
-    }
-}
-
-// Пример использования WheelPicker
-@Composable
-fun WheelPickerExample() {
-    val items = (1..10).map { it.toString() } // Пример списка элементов
-    WheelPicker(data = items) { selectedItem ->
-        println("Выбранный элемент: $selectedItem")
-    }
-}
 
