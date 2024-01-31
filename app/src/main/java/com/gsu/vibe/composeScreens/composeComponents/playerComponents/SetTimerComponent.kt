@@ -1,6 +1,7 @@
 package com.gsu.vibe.composeScreens.composeComponents.playerComponents
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
@@ -28,6 +29,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -40,32 +42,34 @@ import com.sd.lib.compose.wheel_picker.FWheelPickerFocusVertical
 import com.sd.lib.compose.wheel_picker.rememberFWheelPickerState
 import kotlin.math.abs
 
+
+val colorDivider = Color(0x26FFFFFF)
+val wheelPickerWidth = 72.dp
+val backColor = listOf(Color(0xFF2A3572), Color(0xFF0B1130), Color(0xFF0B1130), Color(0xFF0B1130), Color(0xFF2A3572))
+
 @Composable
 @Preview
 fun SetTimerComponent() {
 
-
-
     var showDialog by remember { mutableStateOf(true) }
-
 
     if (showDialog) {
         Dialog(onDismissRequest = { showDialog = false }) {
 
-
-
             BoxWithConstraints(
                 modifier = Modifier
                     //.fillMaxSize()
-                    .padding(16.dp)
                     .clip(RoundedCornerShape(16.dp))
-                    .background(Color.LightGray)
                     .background(
                         brush = Brush.linearGradient(
-                            colors = listOf(Color(0xFF0B1130), Color(0xFF0B1130), Color(0xFF0B1130),  Color(0xFF2A3572)),
+                            colors = backColor,
                             start = Offset.Zero, // Начало в левом верхнем углу
-                            end = Offset(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY) // Растягиваем градиент на весь возможный размер
-                        ))
+                            end = Offset(
+                                Float.POSITIVE_INFINITY,
+                                Float.POSITIVE_INFINITY
+                            ) // Растягиваем градиент на весь возможный размер
+                        )
+                    )
 
             ) {
                 Column(modifier = Modifier.fillMaxWidth()) {
@@ -77,26 +81,30 @@ fun SetTimerComponent() {
                             .padding(bottom = 8.dp)
                             .align(Alignment.CenterHorizontally),
                         fontFamily = firaSansFamily,
-                        fontSize = 14.sp,
+                        fontSize = 18.sp,
                         color = Color(0xFFFFFFFF),
                         textAlign = TextAlign.Center
                     )
+
+                    Spacer(modifier = Modifier.height(35.dp))
 
                     val state = rememberFWheelPickerState(10)
                     Row(modifier = Modifier.align(Alignment.CenterHorizontally)) {
                         FVerticalWheelPicker(
 
-                            modifier = Modifier.width(60.dp),
+                            modifier = Modifier.width(wheelPickerWidth),
                             count = 24,
                             state = state,
                             focus = {
-                                Text(text = "h", modifier = Modifier
-                                    .align(Alignment.Top)
-                                    .padding(bottom = 0.dp, start = 40.dp),
+                                Text(
+                                    text = "h", modifier = Modifier
+                                        .align(Alignment.Top)
+                                        .padding(bottom = 0.dp, start = 40.dp),
                                     fontSize = 13.sp,
-                                    color = Color(0xFFFFFFFF))
+                                    color = Color(0xFFFFFFFF)
+                                )
                                 FWheelPickerFocusVertical(
-                                    dividerColor = Color.LightGray,
+                                    dividerColor = colorDivider,
                                     dividerSize = 1.dp
                                 )
 
@@ -112,14 +120,19 @@ fun SetTimerComponent() {
                         }
 
                         FVerticalWheelPicker(
-                            modifier = Modifier.width(60.dp),
+                            modifier = Modifier.width(wheelPickerWidth),
                             count = 50,
                             focus = {
-                                Text(text = "m", modifier = Modifier
-                                    .align(Alignment.Top)
-                                    .padding(bottom = 2.dp, start = 40.dp))
+                                Text(
+                                    text = "m", modifier = Modifier
+                                        .align(Alignment.Top)
+                                        .padding(bottom = 0.dp, start = 40.dp),
+                                    fontSize = 13.sp,
+                                    color = Color(0xFFFFFFFF)
+                                )
+
                                 FWheelPickerFocusVertical(
-                                    dividerColor = Color.Red,
+                                    dividerColor = colorDivider,
                                     dividerSize = 1.dp
                                 )
 
@@ -128,21 +141,26 @@ fun SetTimerComponent() {
                             Text(
                                 text = index.toString(),
                                 fontFamily = firaSansFamily,
-                                fontSize = 14.sp,
+                                fontSize = 18.sp,
                                 color = Color(0xFFFFFFFF),
                                 textAlign = TextAlign.Center
                             )
                         }
 
                         FVerticalWheelPicker(
-                            modifier = Modifier.width(60.dp),
+                            modifier = Modifier.width(wheelPickerWidth),
                             count = 50,
                             focus = {
-                                Text(text = "s", modifier = Modifier
-                                    .align(Alignment.Top)
-                                    .padding(bottom = 2.dp, start = 40.dp))
+                                Text(
+                                    text = "s", modifier = Modifier
+                                        .align(Alignment.Top)
+                                        .padding(bottom = 0.dp, start = 40.dp),
+                                    fontSize = 13.sp,
+                                    color = Color(0xFFFFFFFF)
+                                )
+
                                 FWheelPickerFocusVertical(
-                                    dividerColor = Color.Red,
+                                    // dividerColor = colorDivider,
                                     dividerSize = 1.dp
                                 )
 
@@ -151,21 +169,60 @@ fun SetTimerComponent() {
                             Text(
                                 text = index.toString(),
                                 fontFamily = firaSansFamily,
-                                fontSize = 14.sp,
+                                fontSize = 18.sp,
                                 color = Color(0xFFFFFFFF),
                                 textAlign = TextAlign.Center
                             )
                         }
                     }
 
+                    Spacer(modifier = Modifier.height(35.dp))
 
-
-                    Button(
-                        modifier = Modifier.align(Alignment.CenterHorizontally),
-                        onClick = { showDialog = false }
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 15.dp, end = 15.dp)
+                            .height(60.dp)
+                            .clip(RoundedCornerShape(15.dp))
+                            .background(
+                                brush = Brush.linearGradient(
+                                    colors = listOf(Color(0xFF035ADD), Color(0xFF03D0DD)),
+                                    start = Offset.Zero, // Начало в левом верхнем углу
+                                    end = Offset(1000f, 1000f)
+                                )
+                            )
+                            .clickable(onClick = { showDialog = false })
                     ) {
-                        Text("Закрыть")
+                        Text(
+                            text = "Начать",
+                            color = Color.White,
+                            fontSize = 20.sp
+
+                        )
                     }
+
+                    Spacer(modifier = Modifier.height(10.dp))
+
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(start = 15.dp, end = 15.dp)
+                            .height(60.dp)
+                            .clip(RoundedCornerShape(15.dp))
+                            .background(
+                                Color(0xFF000429)
+                            )
+                            .clickable(onClick = { showDialog = false })
+                    ) {
+                        Text(
+                            text = "Закрыть",
+                            color = Color(0x99FFFFFF),
+                            fontSize = 20.sp
+                        )
+                    }
+
                     Spacer(modifier = Modifier.height(30.dp))
                 }
 
