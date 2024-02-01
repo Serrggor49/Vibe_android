@@ -44,8 +44,9 @@ import kotlin.math.abs
 
 
 val colorDivider = Color(0x26FFFFFF)
-val wheelPickerWidth = 72.dp
+val wheelPickerWidth = 72.dp  // for each component
 val backColor = listOf(Color(0xFF2A3572), Color(0xFF0B1130), Color(0xFF0B1130), Color(0xFF0B1130), Color(0xFF2A3572))
+val headerText = "Выбрать\n продолжительность"
 
 @Composable
 @Preview
@@ -64,10 +65,7 @@ fun SetTimerComponent() {
                         brush = Brush.linearGradient(
                             colors = backColor,
                             start = Offset.Zero, // Начало в левом верхнем углу
-                            end = Offset(
-                                Float.POSITIVE_INFINITY,
-                                Float.POSITIVE_INFINITY
-                            ) // Растягиваем градиент на весь возможный размер
+                            end = Offset(Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY)
                         )
                     )
 
@@ -75,8 +73,7 @@ fun SetTimerComponent() {
                 Column(modifier = Modifier.fillMaxWidth()) {
                     Spacer(modifier = Modifier.height(30.dp))
                     Text(
-                        text = "Выбрать\n" +
-                                "продолжительность",
+                        text = headerText,
                         modifier = Modifier
                             .padding(bottom = 8.dp)
                             .align(Alignment.CenterHorizontally),
