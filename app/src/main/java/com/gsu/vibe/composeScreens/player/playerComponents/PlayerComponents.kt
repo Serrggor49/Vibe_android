@@ -1,4 +1,4 @@
-package com.gsu.vibe.composeScreens.composeComponents.playerComponents
+package com.gsu.vibe.composeScreens.player.playerComponents
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Slider

@@ -226,7 +226,7 @@
         tools:layout="@layout/fragment_nature_compose" />
     <fragment
         android:id="@+id/mediaPlayerComposeFragment"
-        android:name="com.gsu.vibe.composeScreens.MediaPlayerComposeFragment"
+        android:name="com.gsu.vibe.composeScreens.player.MediaPlayerComposeFragment"
         android:label="fragment_media_player_compose"
         tools:layout="@layout/fragment_media_player_compose" />
 </navigation>

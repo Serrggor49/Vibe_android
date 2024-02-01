@@ -1,5 +1,6 @@
-package com.gsu.vibe.composeScreens.composeComponents.playerComponents
+package com.gsu.vibe.composeScreens.player.playerComponents
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -36,7 +37,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.gsu.vibe.firaSansFamily
+import com.gsu.vibe.presentation.MainViewModel
 import com.sd.lib.compose.wheel_picker.FVerticalWheelPicker
 import com.sd.lib.compose.wheel_picker.FWheelPickerFocusVertical
 import com.sd.lib.compose.wheel_picker.rememberFWheelPickerState
@@ -51,6 +54,9 @@ val headerText = "Выбрать\n продолжительность"
 @Composable
 @Preview
 fun SetTimerComponent() {
+
+    val mainViewModel: MainViewModel = viewModel()
+    Log.d("MyLogs553", mainViewModel.timeForMixerPlayerInMs.toString())
 
     var showDialog by remember { mutableStateOf(true) }
 
@@ -104,9 +110,9 @@ fun SetTimerComponent() {
                                     dividerColor = colorDivider,
                                     dividerSize = 1.dp
                                 )
-
                             },
                         ) { index ->
+                            mainViewModel.timeForMixerPlayerInMs = state.currentIndex
                             Text(
                                 text = index.toString(),
                                 fontFamily = firaSansFamily,
@@ -228,6 +234,6 @@ fun SetTimerComponent() {
     }
 }
 
-// https://androidexample365.com/compose-wheel-picker-with-kotlin/ вот его надо добавить
+// https://androidexample365.com/compose-wheel-picker-with-kotlin/ // либа для wheelPick
 
 

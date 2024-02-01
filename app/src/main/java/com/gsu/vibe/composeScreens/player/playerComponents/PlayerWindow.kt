@@ -1,4 +1,4 @@
-package com.gsu.vibe.composeScreens.composeComponents.playerComponents
+package com.gsu.vibe.composeScreens.player.playerComponents
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -34,14 +34,21 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.gsu.vibe.R
-import com.gsu.vibe.composeScreens.composeComponents.playerComponents.SliderForPlayer
+import com.gsu.vibe.composeScreens.player.playerComponents.SliderForPlayer
 import com.gsu.vibe.firaSansFamily
+import com.gsu.vibe.presentation.MainViewModel
 import com.gsu.vibe.radiusForPlayer
 
 @Composable
 @Preview(backgroundColor = 0xFF00FF00, showBackground = true)
 fun PlayerWindow() {
+
+    val mainViewModel: MainViewModel = viewModel()
+    mainViewModel.timeForMixerPlayerInMs = 1221
+    mainViewModel.startTest()
     Box(
         modifier = Modifier
             .fillMaxSize()

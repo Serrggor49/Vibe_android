@@ -11,12 +11,26 @@ import androidx.lifecycle.MutableLiveData
 import com.gsu.vibe.R
 import com.gsu.vibe.data.Repository
 import com.gsu.vibe.data.models.SoundModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     var timeForMixerPlayerInMs = 0
+
+    fun startTest() {
+
+            CoroutineScope(Dispatchers.IO).launch {
+                while (true) {
+                    delay(1000)
+                    Log.d("MyLogs553", ":" + timeForMixerPlayerInMs.toString())
+                }
+            }
+    }
 
     val prefName = "PREFERENCE_NAME"
     val subStatusKey = "subStatus"
@@ -72,22 +86,26 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
 
     fun showAd(): Boolean = (Random.nextBoolean())
 
-    fun setSubStatus(res: Boolean){
-        val sharedPreference = context.getSharedPreferences(prefName,Context.MODE_PRIVATE)
+    fun setSubStatus(res: Boolean) {
+        val sharedPreference = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
         val editor = sharedPreference.edit()
         editor.putBoolean(subStatusKey, res)
         editor.apply()
     }
-    fun getSubStatus() = context.getSharedPreferences(prefName,Context.MODE_PRIVATE).getBoolean(subStatusKey, false)
+
+    fun getSubStatus() =
+        context.getSharedPreferences(prefName, Context.MODE_PRIVATE).getBoolean(subStatusKey, false)
 
 
-    fun setOnboardStatus(res: Boolean){
-        val sharedPreference = context.getSharedPreferences(prefName,Context.MODE_PRIVATE)
+    fun setOnboardStatus(res: Boolean) {
+        val sharedPreference = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
         val editor = sharedPreference.edit()
         editor.putBoolean(onboardStatusKey, res)
         editor.apply()
     }
-    fun getOnboardStatus() = context.getSharedPreferences(prefName,Context.MODE_PRIVATE).getBoolean(onboardStatusKey, false)
+
+    fun getOnboardStatus() = context.getSharedPreferences(prefName, Context.MODE_PRIVATE)
+        .getBoolean(onboardStatusKey, false)
 
 
     fun getSleepSounds() = repository.getSounds(Repository.SoundType.SLEEP)

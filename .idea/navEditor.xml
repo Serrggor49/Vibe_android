@@ -106,7 +106,7 @@
                         <option name="myPosition">
                           <Point>
                             <option name="x" value="701" />
-                            <option name="y" value="1217" />
+                            <option name="y" value="1220" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -419,6 +419,15 @@
                             <option name="x" value="-649" />
                             <option name="y" value="-551" />
                           </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_sleepComposeFragment_to_mediaPlayerComposeFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
