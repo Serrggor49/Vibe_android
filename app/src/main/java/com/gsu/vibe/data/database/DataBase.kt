@@ -347,18 +347,29 @@ object DataBase {
             meditation081, meditation082)
     }
 
-    fun getListForMeditaionForCompose(): List<SongsBlock>{
+
+
+//    fun getListForFocus(): List<SoundModel>{
+//        return listOf(
+//            focus011,
+//            focus021, focus022, focus031, focus032,
+//            focus041,
+//            focus051, focus052, focus061, focus062,
+//            focus071,
+//            focus072)
+//    }
+
+    fun getListForFocusForCompose(): List<SongsBlock>{
         return listOf(
-            SongsBlock(type = ItemType.Single, songs = listOf(meditation011)),
-            SongsBlock(type = ItemType.Double, songs = listOf(meditation021, meditation022)),
-            SongsBlock(type = ItemType.Quadruple, songs = listOf(meditation031, meditation041, meditation032, meditation042)),
-            SongsBlock(type = ItemType.Single, songs = listOf(meditation051)),
-            SongsBlock(type = ItemType.Triple, songs = listOf(meditation062, meditation061, meditation071)),
-            SongsBlock(type = ItemType.Double, songs = listOf(meditation081, meditation082)),
+            SongsBlock(type = ItemType.Single, songs = listOf(focus011)),
+            SongsBlock(type = ItemType.Quadruple, songs = listOf(focus021, focus031, focus022, focus032)),
+            SongsBlock(type = ItemType.Single, songs = listOf(focus041)),
+            SongsBlock(type = ItemType.Quadruple, songs = listOf(focus051, focus052, focus062, focus072)), //061
+            SongsBlock(type = ItemType.Double, songs = listOf(focus061, focus071)),
         )
     }
 
-    fun getListForFocusForCompose(): List<SongsBlock>{
+    fun getListForMeditaionForCompose(): List<SongsBlock>{
         return listOf(
             SongsBlock(type = ItemType.Single, songs = listOf(meditation011)),
             SongsBlock(type = ItemType.Double, songs = listOf(meditation021, meditation022)),
