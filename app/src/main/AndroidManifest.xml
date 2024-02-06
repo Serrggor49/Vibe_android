@@ -3,14 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
-
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
 
     <application
         android:name=".presentation.MyApplication"
@@ -23,38 +21,44 @@
         android:theme="@style/Theme.Vibe"
         tools:targetApi="33">
         <activity
+
+            android:name=".composeScreens.MainComposeActivity"
+            android:exported="true"
+            android:theme="@style/AppThemeCompose">
+
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
+        <activity
             android:name=".presentation.MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-<!--        <receiver android:name=".services.NotificationActionServices"/>-->
-        <service android:name=".services.OnClearFromRecentService"/>
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity> <!-- <receiver android:name=".services.NotificationActionServices"/> -->
+        <service android:name=".services.OnClearFromRecentService" />
 
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts" />
-
-
-<!--        <receiver android:name=".services.MyBroadcastReceiver"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="V_ACTION_PLAY"/>-->
-<!--                <action android:name="V_ACTION_PAUSE"/>-->
-<!--                <action android:name="V_ACTION_STOP"/>-->
-<!--            </intent-filter>-->
-<!--        </receiver>-->
-
-        <service android:name=".services.MediaPlayerService"
+            android:resource="@array/preloaded_fonts" /> <!-- <receiver android:name=".services.MyBroadcastReceiver" -->
+        <!-- android:exported="true"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="V_ACTION_PLAY"/> -->
+        <!-- <action android:name="V_ACTION_PAUSE"/> -->
+        <!-- <action android:name="V_ACTION_STOP"/> -->
+        <!-- </intent-filter> -->
+        <!-- </receiver> -->
+        <service
+            android:name=".services.MediaPlayerService"
             android:enabled="true"
-            android:exported="true">
-        </service>
-
+            android:exported="true"></service>
 
         <meta-data
             android:name="io.branch.sdk.BranchKey"
@@ -63,13 +67,12 @@
             android:name="key_test_nwlfJv5dQtKC7ZiXU8ba8bmgwyiz0DaY"
             android:value="true" />
 
-        <receiver android:name=".services.YourButton1Receiver"/>
-        <receiver android:name=".services.YourButton2Receiver"/>
+        <receiver android:name=".services.YourButton1Receiver" />
+        <receiver android:name=".services.YourButton2Receiver" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-6974166282289246~5660246204"/>
-
+            android:value="ca-app-pub-6974166282289246~5660246204" />
     </application>
 
 </manifest>

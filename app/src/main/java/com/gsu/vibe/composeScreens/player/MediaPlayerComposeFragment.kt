@@ -11,6 +11,7 @@ import android.widget.ImageView
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.platform.ViewCompositionStrategy
@@ -39,10 +40,16 @@ class MediaPlayerComposeFragment : Fragment() {
     }
 
     @Composable
-    fun MyScreen() {
+    fun MyScreen(viewModel: MediaPlayerComposeViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
+
+        val state = viewModel.state.collectAsState()
+
+        Log.d("MyLogs554", "collectAsState")
+
+
         KenBurnsEffectFullScreen(modifier = Modifier.fillMaxSize(), imageRes = R.drawable.focus_04_1b)
         Box(modifier = Modifier.fillMaxSize()) {
-            PlayerWindow()
+            PlayerWindow(state.value.name)
             SetTimerComponent()
         }
     }

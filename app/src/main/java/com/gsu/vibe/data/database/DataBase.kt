@@ -340,20 +340,6 @@ object DataBase {
         sound = 0
     )
 
-
-//    val meditation091 = SoundModel(
-//        name = "meditation091",
-//        title = "Безмятежность",
-//        subtitle = R.string.for_meditation,
-//        url = "https://chakris.app/audio/meditation_2.mp3",
-//        background = R.drawable.meditation_09_1b,
-//        foreground = R.drawable.meditation_09_1f,
-//        preview = R.drawable.meditation_09_1f_prev,
-//        previewB = R.drawable.meditation_09_1b_prev,
-//        sound = 0
-//    )
-
-
     fun getListForMeditaion(): List<SoundModel>{
         return listOf(
             meditation011, meditation021, meditation022, meditation031, meditation032, meditation041,
@@ -371,6 +357,30 @@ object DataBase {
             SongsBlock(type = ItemType.Double, songs = listOf(meditation081, meditation082)),
         )
     }
+
+    fun getListForFocusForCompose(): List<SongsBlock>{
+        return listOf(
+            SongsBlock(type = ItemType.Single, songs = listOf(meditation011)),
+            SongsBlock(type = ItemType.Double, songs = listOf(meditation021, meditation022)),
+            SongsBlock(type = ItemType.Quadruple, songs = listOf(meditation031, meditation041, meditation032, meditation042)),
+            SongsBlock(type = ItemType.Single, songs = listOf(meditation051)),
+            SongsBlock(type = ItemType.Triple, songs = listOf(meditation062, meditation061, meditation071)),
+            SongsBlock(type = ItemType.Double, songs = listOf(meditation081, meditation082)),
+        )
+    }
+
+    fun getListForNatureForCompose(): List<SongsBlock>{
+        return listOf(
+            SongsBlock(type = ItemType.Single, songs = listOf(meditation011)),
+            SongsBlock(type = ItemType.Double, songs = listOf(meditation021, meditation022)),
+            SongsBlock(type = ItemType.Quadruple, songs = listOf(meditation031, meditation041, meditation032, meditation042)),
+            SongsBlock(type = ItemType.Single, songs = listOf(meditation051)),
+            SongsBlock(type = ItemType.Triple, songs = listOf(meditation062, meditation061, meditation071)),
+            SongsBlock(type = ItemType.Double, songs = listOf(meditation081, meditation082)),
+        )
+    }
+
+
 
     val  focus011 = SoundModel(
         name = "focus011",

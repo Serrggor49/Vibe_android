@@ -23,7 +23,6 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     var timeForMixerPlayerInMs = 0
 
     fun startTest() {
-
             CoroutineScope(Dispatchers.IO).launch {
                 while (true) {
                     delay(1000)
@@ -108,9 +107,10 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         .getBoolean(onboardStatusKey, false)
 
 
-    fun getSleepSounds() = repository.getSounds(Repository.SoundType.SLEEP)
     fun getListForSleepForCompose() = repository.getListForSleepForCompose()
     fun getListForMeditaionForCompose() = repository.getListForMeditaionForCompose()
+    fun getListForFocusForCompose() = repository.getListForFocusForCompose()
+    fun getListForNatureForCompose() = repository.getListForNatureForCompose()
 
     fun setCurrentSound(name: String) {
         currentSound = listAllSounds.filter { it.name == name }[0]

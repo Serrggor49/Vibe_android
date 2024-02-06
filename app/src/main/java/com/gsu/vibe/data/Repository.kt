@@ -23,6 +23,8 @@ object Repository {
 
     fun getListForSleepForCompose() = DataBase.getListForSleepForCompose()
     fun getListForMeditaionForCompose() = DataBase.getListForMeditaionForCompose()
+    fun getListForFocusForCompose() = DataBase.getListForFocusForCompose()
+    fun getListForNatureForCompose() = DataBase.getListForNatureForCompose()
 
     fun getSounds(type: SoundType): List<SoundModel> {
 

@@ -44,7 +44,7 @@ import com.gsu.vibe.radiusForPlayer
 
 @Composable
 @Preview(backgroundColor = 0xFF00FF00, showBackground = true)
-fun PlayerWindow() {
+fun PlayerWindow(testName: String = "testName") {
 
     val mainViewModel: MainViewModel = viewModel()
     mainViewModel.timeForMixerPlayerInMs = 1221
@@ -75,7 +75,7 @@ fun PlayerWindow() {
                             fontFamily = firaSansFamily,
                             fontSize = 18.sp,
                             color = Color(0xFFFFFFFF),
-                            text = "Мир сноведений"
+                            text = testName
                         )
                         Text(
                             modifier = Modifier
