@@ -57,6 +57,11 @@
           <theme>@style/Theme.Vibe</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_nature.xml">
+        <config>
+          <theme>@style/Theme.Vibe</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_paywall.xml">
         <config>
           <theme>@style/Theme.Vibe</theme>
@@ -98,6 +103,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09e7f78b-8ef6-4998-ab62-72d2ee931319" name="Changes" comment="- избранное теперь в правом верхнем углу. Нижняя крайняя права кнопка отвечает за открытие миксера">
+      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/data/database/DataBase.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/data/database/DataBase.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

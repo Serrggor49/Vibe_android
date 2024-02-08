@@ -380,14 +380,26 @@ object DataBase {
         )
     }
 
+
+    fun getListForNature(): List<SoundModel>{
+        return listOf(
+            nature011, nature012, nature021, nature022,
+            nature031, nature032,
+            nature041,
+            nature051, nature052, nature061, nature062,
+            nature071,
+            nature081, nature082, nature081, nature091)
+    }
+
+
     fun getListForNatureForCompose(): List<SongsBlock>{
         return listOf(
-            SongsBlock(type = ItemType.Single, songs = listOf(meditation011)),
-            SongsBlock(type = ItemType.Double, songs = listOf(meditation021, meditation022)),
-            SongsBlock(type = ItemType.Quadruple, songs = listOf(meditation031, meditation041, meditation032, meditation042)),
-            SongsBlock(type = ItemType.Single, songs = listOf(meditation051)),
-            SongsBlock(type = ItemType.Triple, songs = listOf(meditation062, meditation061, meditation071)),
-            SongsBlock(type = ItemType.Double, songs = listOf(meditation081, meditation082)),
+            SongsBlock(type = ItemType.Quadruple, songs = listOf(nature011, nature021, nature012, nature022 )),
+            SongsBlock(type = ItemType.Double, songs = listOf(nature031, nature032)),
+            SongsBlock(type = ItemType.Single, songs = listOf(nature041)),
+            SongsBlock(type = ItemType.Quadruple, songs = listOf(nature051, nature061, nature052, nature062,)),
+            SongsBlock(type = ItemType.Single, songs = listOf(nature071)),
+            SongsBlock(type = ItemType.Triple, songs = listOf(nature082, nature081, nature091 )),
         )
     }
 
@@ -713,12 +725,6 @@ object DataBase {
         sound = 0
     )
 
-    fun getListForNature(): List<SoundModel>{
-        return listOf(
-            nature011, nature012, nature021, nature022, nature031, nature032,
-            nature041, nature051, nature052, nature061, nature062,
-            nature071, nature081, nature082, nature081, nature091)
-    }
 
     fun getAllSounds(): List<SoundModel>{
       val sleepList = getListForSleep()
