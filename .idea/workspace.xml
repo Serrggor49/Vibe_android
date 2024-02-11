@@ -103,8 +103,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09e7f78b-8ef6-4998-ab62-72d2ee931319" name="Changes" comment="- избранное теперь в правом верхнем углу. Нижняя крайняя права кнопка отвечает за открытие миксера">
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/MainComposeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/MainComposeActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/SingleImageItem.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/SingleImageItem.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/player/MediaPlayerComposeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/player/MediaPlayerComposeViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/screens/MediaPlayerComposeScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/screens/MediaPlayerComposeScreen.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,11 +262,11 @@
       <recent name="$PROJECT_DIR$/app/src/main/res/values" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/screens" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents/playerComponents" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens" />
       <recent name="$PROJECT_DIR$/app/src/main/res/color" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe" />
-      <recent name="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation" />
     </key>
     <key name="MoveKotlinTopLevelDeclarationsDialog.RECENTS_KEY">
       <recent name="com.gsu.vibe.composeScreens.player" />

@@ -1,29 +1,52 @@
 package com.gsu.vibe.composeScreens.screens
 
+import android.content.Context
+import android.content.ContextWrapper
 import android.util.Log
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ImageView
+import androidx.activity.ComponentActivity
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.flaviofaria.kenburnsview.KenBurnsView
-import com.gsu.vibe.R
 import com.gsu.vibe.composeScreens.player.MediaPlayerComposeViewModel
 import com.gsu.vibe.composeScreens.player.playerComponents.PlayerWindow
 import com.gsu.vibe.composeScreens.player.playerComponents.SetTimerComponent
 
+fun Context.findActivity(): ComponentActivity? = when (this) {
+    is ComponentActivity -> this
+    is ContextWrapper -> baseContext.findActivity()
+    else -> null
+}
+
 @Composable
 fun MediaPlayerComposeScreen(navController: NavController) {
 
-    val viewModel: MediaPlayerComposeViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
-    val state = viewModel.state.collectAsState()
-    Log.d("MyLogs554", "collectAsState")
+    //val viewModel : MediaPlayerComposeViewModel = viewModel()
 
-    KenBurnsEffectFullScreen(modifier = Modifier.fillMaxSize(), imageRes = R.drawable.focus_04_1b)
+    val context = LocalContext.current
+    // Находим Activity, приводим к ComponentActivity и генерируем исключение, если она null
+    val viewModelStoreOwner = context.findActivity() ?: throw IllegalStateException("Activity not found")
+    // Теперь мы можем безопасно использовать viewModelStoreOwner, так как уверены, что он не null
+    val viewModel: MediaPlayerComposeViewModel = viewModel(viewModelStoreOwner)
+
+    val state = viewModel.state.collectAsState()
+
+
+
+    // KenBurnsEffectFullScreen(modifier = Modifier.fillMaxSize(), imageRes = R.drawable.focus_04_1b)
+    KenBurnsEffectFullScreen(modifier = Modifier.fillMaxSize(), imageRes = state.value.background)
+    Log.d("MyLogs33", "back = ${state.value.background}")
+    Log.d("MyLogs33", "test = ${viewModel.testString}")
+//    Log.d("MyLogs33", "navc2 = ${navController.hashCode()}")
+    Log.d("MyLogs33", "navc2 = ${viewModel.hashCode()}")
     Box(modifier = Modifier.fillMaxSize()) {
         PlayerWindow(state.value.name)
         SetTimerComponent()

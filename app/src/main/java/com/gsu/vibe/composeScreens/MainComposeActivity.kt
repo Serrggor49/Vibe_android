@@ -15,11 +15,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.gsu.vibe.composeScreens.player.MediaPlayerComposeViewModel
 import com.gsu.vibe.composeScreens.screens.FocusScreen
 import com.gsu.vibe.composeScreens.screens.MediaPlayerComposeScreen
 import com.gsu.vibe.composeScreens.screens.MeditationScreen
@@ -28,6 +30,7 @@ import com.gsu.vibe.composeScreens.screens.SleepScreen
 
 
 class MainComposeActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -58,10 +61,7 @@ class MainComposeActivity : AppCompatActivity() {
                 composable(Screens.Meditation.route) { MeditationScreen(navController) }
                 composable(Screens.Nature.route) { NatureScreen(navController) }
                 composable(Screens.Mixer.route) { MeditationScreen(navController) }
-                composable("mediaPlayerComposeScreen") {
-                    Log.d("MYLogs33", "sleep")
-                    MediaPlayerComposeScreen(navController)
-                }
+                composable("mediaPlayerComposeScreen") { MediaPlayerComposeScreen(navController) }
             }
         }
     }
