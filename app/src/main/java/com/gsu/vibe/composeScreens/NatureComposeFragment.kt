@@ -86,7 +86,7 @@ class NatureComposeFragment : Fragment() {
             }
             items(list) { item1 ->
                 when (item1.type) {
-                    ItemType.Single -> SingleImageItem(item1.songs,  onClick = {})
+                    ItemType.Single -> {}
                     ItemType.Triple -> {
                         TripleImageItem(
                             item1.songs,

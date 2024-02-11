@@ -1,4 +1,4 @@
-package com.gsu.vibe.composeScreens.player
+package com.gsu.vibe.composeScreens.screens
 
 import android.util.Log
 import androidx.compose.foundation.background
@@ -23,6 +23,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import com.gsu.vibe.composeScreens.Screens
 import com.gsu.vibe.composeScreens.composeComponents.DoubleImageItem
 import com.gsu.vibe.composeScreens.composeComponents.InitHeaderBlock
 import com.gsu.vibe.composeScreens.composeComponents.QuadroImageItem
@@ -32,11 +34,11 @@ import com.gsu.vibe.data.models.ItemType
 import com.gsu.vibe.data.models.SongsBlock
 import com.gsu.vibe.presentation.MainViewModel
 
-@Preview
 @Composable
-fun NatureScreen(mainViewModel: MainViewModel = viewModel()) {
+fun SleepScreen(navController: NavController) {
 
-    val sounds = mainViewModel.getListForNatureForCompose()
+    val mainViewModel: MainViewModel = viewModel()
+    val sounds = mainViewModel.getListForSleepForCompose()
 
     var size by remember { mutableStateOf(Size.Zero) } // Инициализация размера с нулевым значением
     val gradient = Brush.linearGradient(
@@ -56,9 +58,40 @@ fun NatureScreen(mainViewModel: MainViewModel = viewModel()) {
     ) {
         MosaicColumn(
             list = sounds,
-            onClick = {
-                //    onClick()
-            }
+            navController = navController
         )
     }
+}
+
+var leftSideSingleImage = false
+
+
+@Composable
+fun MosaicColumn(list: List<SongsBlock>, navController: NavController) {
+    LazyColumn {
+        item { InitHeaderBlock() }
+        items(list) { item1 ->
+            when (item1.type) {
+                ItemType.Single -> SingleImageItem(songs =  item1.songs, navController = navController)
+                ItemType.Triple -> {
+                    TripleImageItem(
+                        item1.songs,
+                        leftSideSingleImage = leftSideSingleImage
+                    )
+                    leftSideSingleImage = !leftSideSingleImage
+                }
+                ItemType.Double -> DoubleImageItem(item1.songs)
+                ItemType.Quadruple -> QuadroImageItem(item1.songs)
+            }
+        }
+
+        item { Spacer(modifier = Modifier.padding(bottom = 120.dp)) }
+    }
+}
+
+fun onImageClick(songName: String){
+    Log.d("MyLogs33", "songName = $songName")
+
+//        val action = SleepComposeFragmentDirections.actionSleepComposeFragmentToMediaPlayerComposeFragment()
+//        view?.findNavController()?.navigate(action)
 }

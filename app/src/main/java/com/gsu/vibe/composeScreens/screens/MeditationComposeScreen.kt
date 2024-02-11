@@ -1,4 +1,4 @@
-package com.gsu.vibe.composeScreens.player
+package com.gsu.vibe.composeScreens.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -15,17 +15,20 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.onGloballyPositioned
+
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.gsu.vibe.presentation.MainViewModel
 
-@Preview
-@Composable
-fun FocusScreen(mainViewModel: MainViewModel = viewModel()) {
 
-    val sounds = mainViewModel.getListForFocusForCompose()
+@Composable
+fun MeditationScreen(navController: NavController) {
+
+    val mainViewModel: MainViewModel = viewModel()
+    val sounds = mainViewModel.getListForMeditaionForCompose()
 
     var size by remember { mutableStateOf(Size.Zero) } // Инициализация размера с нулевым значением
     val gradient = Brush.linearGradient(
@@ -45,10 +48,7 @@ fun FocusScreen(mainViewModel: MainViewModel = viewModel()) {
     ) {
         MosaicColumn(
             list = sounds,
-            onClick = {
-                //    onClick()
-            }
+            navController = navController
         )
     }
 }
-

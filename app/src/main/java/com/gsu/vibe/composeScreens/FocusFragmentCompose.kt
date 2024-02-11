@@ -28,6 +28,7 @@ import androidx.compose.ui.platform.ViewCompositionStrategy
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
+import androidx.navigation.NavController
 import com.gsu.vibe.composeScreens.composeComponents.DoubleImageItem
 import com.gsu.vibe.composeScreens.composeComponents.InitHeaderBlock
 import com.gsu.vibe.composeScreens.composeComponents.QuadroImageItem
@@ -71,21 +72,22 @@ class FocusFragmentCompose : Fragment() {
                 .fillMaxSize()
                 .padding(top = 10.dp, start = 10.dp, end = 10.dp)
         ) {
-            MosaicColumn(
-                FakeData().focus
-            )
+//            MosaicColumn(
+//                FakeData().focus,
+//                navController = navController
+//            )
         }
     }
 
     @Composable
-    fun MosaicColumn(list: List<SongsBlock>) {
+    fun MosaicColumn(list: List<SongsBlock>, navController: NavController) {
         LazyColumn {
             item {
                 InitHeaderBlock()
             }
             items(list) { item1 ->
                 when (item1.type) {
-                    ItemType.Single -> SingleImageItem(item1.songs, onClick = {})
+                    ItemType.Single -> SingleImageItem(item1.songs, navController = navController)
                     ItemType.Triple -> {
                         TripleImageItem(
                             item1.songs,

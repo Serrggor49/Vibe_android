@@ -1,5 +1,6 @@
 package com.gsu.vibe.composeScreens.composeComponents
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -20,16 +21,37 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.gsu.vibe.composeScreens.player.MediaPlayerComposeViewModel
 import com.gsu.vibe.data.models.SoundModel
 import com.gsu.vibe.paddingForCards
 import com.gsu.vibe.paddingForTextCards
 import com.gsu.vibe.radiusForCards
 
 @Composable
-fun SingleImageItem(songs: List<SoundModel>, onClick:(name: String) -> Unit) {
+fun SingleImageItem(
+    songs: List<SoundModel>,
+    navController: NavController,
+    viewModel: MediaPlayerComposeViewModel = androidx.lifecycle.viewmodel.compose.viewModel(),
+) {
 
     Button(
-        onClick = { onClick(songs[0].name) },
+        onClick = {
+           // onClick(songs[0].name)
+            viewModel.setCurrentSound(name = songs[0].name)
+            navController.navigate("mediaPlayerComposeScreen") {
+                // Очищаем стек навигации, чтобы избежать накопления экранов
+                navController.graph.startDestinationRoute?.let { route ->
+                    popUpTo(route) {
+                        saveState = true
+                    }
+                }
+                launchSingleTop = true // Избегаем повторной загрузки экрана, если он уже загружен
+                restoreState = true // Восстановление состояния при переходе назад к экрану
+            }
+
+            Log.d("MyLogs33", "songName = ${songs[0].name}")
+        },
         contentPadding = PaddingValues(0.dp),
         modifier = Modifier
             .clip(RoundedCornerShape(radiusForCards))

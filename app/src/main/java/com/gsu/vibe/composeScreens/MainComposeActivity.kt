@@ -1,6 +1,7 @@
 package com.gsu.vibe.composeScreens
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.padding
@@ -19,10 +20,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.gsu.vibe.composeScreens.player.FocusScreen
-import com.gsu.vibe.composeScreens.player.MeditationScreen
-import com.gsu.vibe.composeScreens.player.NatureScreen
-import com.gsu.vibe.composeScreens.player.SleepScreen
+import com.gsu.vibe.composeScreens.screens.FocusScreen
+import com.gsu.vibe.composeScreens.screens.MediaPlayerComposeScreen
+import com.gsu.vibe.composeScreens.screens.MeditationScreen
+import com.gsu.vibe.composeScreens.screens.NatureScreen
+import com.gsu.vibe.composeScreens.screens.SleepScreen
 
 
 class MainComposeActivity : AppCompatActivity() {
@@ -51,11 +53,15 @@ class MainComposeActivity : AppCompatActivity() {
                 startDestination = Screens.Sleep.route,
                 Modifier.padding(innerPadding)
             ) {
-                composable(Screens.Sleep.route) { SleepScreen() }
-                composable(Screens.Focus.route) { FocusScreen() }
-                composable(Screens.Meditation.route) { MeditationScreen() }
-                composable(Screens.Nature.route) { NatureScreen() }
-                composable(Screens.Mixer.route) { MeditationScreen() }
+                composable(Screens.Sleep.route) { SleepScreen(navController) }
+                composable(Screens.Focus.route) { FocusScreen(navController) }
+                composable(Screens.Meditation.route) { MeditationScreen(navController) }
+                composable(Screens.Nature.route) { NatureScreen(navController) }
+                composable(Screens.Mixer.route) { MeditationScreen(navController) }
+                composable("mediaPlayerComposeScreen") {
+                    Log.d("MYLogs33", "sleep")
+                    MediaPlayerComposeScreen(navController)
+                }
             }
         }
     }

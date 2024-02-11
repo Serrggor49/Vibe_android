@@ -27,6 +27,10 @@ class MediaPlayerComposeViewModel : ViewModel() {
         _state.value = listAllSounds.filter { it.name == name }[0]
     }
 
+    fun getListForFocusForCompose() = repository.getListForFocusForCompose()
+
+
+
     fun randn1() {
 
         viewModelScope.launch {

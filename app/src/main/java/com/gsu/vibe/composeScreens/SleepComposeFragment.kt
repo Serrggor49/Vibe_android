@@ -103,7 +103,7 @@ class SleepComposeFragment : Fragment() {
             item { InitHeaderBlock() }
             items(list) { item1 ->
                 when (item1.type) {
-                    ItemType.Single -> SingleImageItem(songs =  item1.songs, onClick = { songName -> onImageClick(songName) })
+                    ItemType.Single -> {}
                     ItemType.Triple -> {
                         TripleImageItem(
                             item1.songs,
