@@ -76,12 +76,13 @@ fun MosaicColumn(list: List<SongsBlock>, navController: NavController) {
                 ItemType.Triple -> {
                     TripleImageItem(
                         item1.songs,
-                        leftSideSingleImage = leftSideSingleImage
+                        leftSideSingleImage = leftSideSingleImage,
+                        navController = navController
                     )
                     leftSideSingleImage = !leftSideSingleImage
                 }
-                ItemType.Double -> DoubleImageItem(item1.songs)
-                ItemType.Quadruple -> QuadroImageItem(item1.songs)
+                ItemType.Double -> DoubleImageItem(item1.songs, navController)
+                ItemType.Quadruple -> QuadroImageItem(item1.songs, navController)
             }
         }
 

@@ -39,14 +39,7 @@ fun MediaPlayerComposeScreen(navController: NavController) {
 
     val state = viewModel.state.collectAsState()
 
-
-
-    // KenBurnsEffectFullScreen(modifier = Modifier.fillMaxSize(), imageRes = R.drawable.focus_04_1b)
     KenBurnsEffectFullScreen(modifier = Modifier.fillMaxSize(), imageRes = state.value.background)
-    Log.d("MyLogs33", "back = ${state.value.background}")
-    Log.d("MyLogs33", "test = ${viewModel.testString}")
-//    Log.d("MyLogs33", "navc2 = ${navController.hashCode()}")
-    Log.d("MyLogs33", "navc2 = ${viewModel.hashCode()}")
     Box(modifier = Modifier.fillMaxSize()) {
         PlayerWindow(state.value.name)
         SetTimerComponent()

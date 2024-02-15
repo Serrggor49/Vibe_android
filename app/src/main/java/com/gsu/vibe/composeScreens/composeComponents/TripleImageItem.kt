@@ -25,19 +25,26 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import com.gsu.vibe.composeScreens.player.MediaPlayerComposeViewModel
+import com.gsu.vibe.composeScreens.screens.findActivity
 import com.gsu.vibe.data.models.SoundModel
 import com.gsu.vibe.paddingForCards
 import com.gsu.vibe.paddingForTextCards
 import com.gsu.vibe.radiusForCards
 
 @Composable
-fun TripleImageItem(songs: List<SoundModel>, leftSideSingleImage: Boolean = false) {
+fun TripleImageItem(songs: List<SoundModel>, leftSideSingleImage: Boolean = false, navController: NavController) {
 
-    val heightItem = 0.dp
+    val viewModelStoreOwner = LocalContext.current.findActivity() ?: throw IllegalStateException("Activity not found") // Находим Activity, приводим к ComponentActivity и генерируем исключение, если она null
+    val viewModel: MediaPlayerComposeViewModel = viewModel(viewModelStoreOwner) // Теперь мы можем безопасно использовать viewModelStoreOwner, так как уверены, что он не null
+
 
     Row {
         val modifierForSingleButton = Modifier
@@ -52,7 +59,18 @@ fun TripleImageItem(songs: List<SoundModel>, leftSideSingleImage: Boolean = fals
 
             Button(
                 modifier = modifierForSingleButton.height(maxWidth * 2),
-                onClick = { },
+                onClick = {
+                    viewModel.setCurrentSound(name = songs[0].name)
+                    navController.navigate("mediaPlayerComposeScreen") {
+                        navController.graph.startDestinationRoute?.let { route ->
+                            popUpTo(route) {
+                                saveState = true
+                            }
+                        }
+                        launchSingleTop = true // Избегаем повторной загрузки экрана, если он уже загружен
+                        restoreState = true // Восстановление состояния при переходе назад к экрану
+                    }
+                },
                 contentPadding = PaddingValues(0.dp)
             ) {
                 Box {
@@ -87,9 +105,20 @@ fun TripleImageItem(songs: List<SoundModel>, leftSideSingleImage: Boolean = fals
             Log.d("MyLogs112", "maxWidth = ${maxWidth}")
 
             Column {
-                for (song in songs.drop(1)) {
+                for ((index,song) in songs.withIndex().drop(1)) {
                     Button(
-                        onClick = { /*TODO*/ },
+                        onClick = {
+                            viewModel.setCurrentSound(name = songs[index].name)
+                            navController.navigate("mediaPlayerComposeScreen") {
+                                navController.graph.startDestinationRoute?.let { route ->
+                                    popUpTo(route) {
+                                        saveState = true
+                                    }
+                                }
+                                launchSingleTop = true // Избегаем повторной загрузки экрана, если он уже загружен
+                                restoreState = true // Восстановление состояния при переходе назад к экрану
+                            }
+                        },
                         contentPadding = PaddingValues(0.dp),
                         modifier = Modifier
                             .height(maxWidth)

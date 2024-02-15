@@ -34,25 +34,15 @@ import com.gsu.vibe.radiusForCards
 @Composable
 fun SingleImageItem(
     songs: List<SoundModel>,
-    navController: NavController,
+    navController: NavController
 ) {
 
-  //  val viewModel: MediaPlayerComposeViewModel = viewModel()
-
-    val context = LocalContext.current
-    // Находим Activity, приводим к ComponentActivity и генерируем исключение, если она null
-    val viewModelStoreOwner = context.findActivity() ?: throw IllegalStateException("Activity not found")
-    // Теперь мы можем безопасно использовать viewModelStoreOwner, так как уверены, что он не null
-    val viewModel: MediaPlayerComposeViewModel = viewModel(viewModelStoreOwner)
-
+    val viewModelStoreOwner = LocalContext.current.findActivity() ?: throw IllegalStateException("Activity not found") // Находим Activity, приводим к ComponentActivity и генерируем исключение, если она null
+    val viewModel: MediaPlayerComposeViewModel = viewModel(viewModelStoreOwner) // Теперь мы можем безопасно использовать viewModelStoreOwner, так как уверены, что он не null
 
     Button(
         onClick = {
             viewModel.setCurrentSound(name = songs[0].name)
-            viewModel.testString = "1"
-            Log.d("MyLogs33", "songNameSingle = ${songs[0].name}")
-//            Log.d("MyLogs33", "navc1 = ${navController.hashCode()}")
-            Log.d("MyLogs33", "navc1 = ${viewModel.hashCode()}")
             navController.navigate("mediaPlayerComposeScreen") {
                 navController.graph.startDestinationRoute?.let { route ->
                     popUpTo(route) {

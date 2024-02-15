@@ -29,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.toSize
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.NavController
 import com.gsu.vibe.composeScreens.composeComponents.DoubleImageItem
 import com.gsu.vibe.composeScreens.composeComponents.InitHeaderBlock
 import com.gsu.vibe.composeScreens.composeComponents.QuadroImageItem
@@ -79,35 +80,36 @@ class MeditationComposeFragment : Fragment() {
                 .fillMaxSize()
                 .padding(top = 10.dp, start = 10.dp, end = 10.dp)
         ) {
-            MosaicColumn(
-                sounds
-            )
+//            MosaicColumn(
+//             //   sounds
+//            )
         }
     }
 
-    @Composable
-    fun MosaicColumn(list: List<SongsBlock>) {
-        LazyColumn {
-            item {
-                InitHeaderBlock()
-            }
-            items(list) { item1 ->
-                when (item1.type) {
-                    ItemType.Single -> {}
-                    ItemType.Triple -> {
-                        TripleImageItem(
-                            item1.songs,
-                            leftSideSingleImage = leftSideSingleImage
-                        )
-                        leftSideSingleImage = !leftSideSingleImage
-                    }
-                    ItemType.Double -> DoubleImageItem(item1.songs)
-                    ItemType.Quadruple -> QuadroImageItem(item1.songs)
-                }
-            }
-
-            item { Spacer(modifier = Modifier.padding(bottom = 120.dp)) }
-        }
-    }
+//    @Composable
+//    fun MosaicColumn(list: List<SongsBlock>, navController: NavController) {
+//        LazyColumn {
+//            item {
+//                InitHeaderBlock()
+//            }
+//            items(list) { item1 ->
+//                when (item1.type) {
+//                    ItemType.Single -> {}
+//                    ItemType.Triple -> {
+//                        TripleImageItem(
+//                            item1.songs,
+//                            leftSideSingleImage = leftSideSingleImage,
+//                            navController = navController
+//                        )
+//                        leftSideSingleImage = !leftSideSingleImage
+//                    }
+//                    ItemType.Double -> DoubleImageItem(item1.songs, navController = navController)
+//                    ItemType.Quadruple -> QuadroImageItem(item1.songs)
+//                }
+//            }
+//
+//            item { Spacer(modifier = Modifier.padding(bottom = 120.dp)) }
+//        }
+//    }
 
 }

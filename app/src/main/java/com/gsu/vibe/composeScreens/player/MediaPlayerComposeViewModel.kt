@@ -16,7 +16,7 @@ class MediaPlayerComposeViewModel : ViewModel() {
     private val _state = MutableStateFlow(SoundModel())
     val state: StateFlow<SoundModel> = _state
 
-    var testString = "0"
+    //var testString = "0"
 
     init {
        // randn1()

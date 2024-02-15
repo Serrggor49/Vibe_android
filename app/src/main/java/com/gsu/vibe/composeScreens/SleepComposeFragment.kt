@@ -102,18 +102,18 @@ class SleepComposeFragment : Fragment() {
         LazyColumn {
             item { InitHeaderBlock() }
             items(list) { item1 ->
-                when (item1.type) {
-                    ItemType.Single -> {}
-                    ItemType.Triple -> {
-                        TripleImageItem(
-                            item1.songs,
-                            leftSideSingleImage = leftSideSingleImage
-                        )
-                        leftSideSingleImage = !leftSideSingleImage
-                    }
-                    ItemType.Double -> DoubleImageItem(item1.songs)
-                    ItemType.Quadruple -> QuadroImageItem(item1.songs)
-                }
+//                when (item1.type) {
+//                    ItemType.Single -> {}
+//                    ItemType.Triple -> {
+//                        TripleImageItem(
+//                            item1.songs,
+//                            leftSideSingleImage = leftSideSingleImage
+//                        )
+//                        leftSideSingleImage = !leftSideSingleImage
+//                    }
+//                    //ItemType.Double -> DoubleImageItem(item1.songs)
+//                    ItemType.Quadruple -> QuadroImageItem(item1.songs)
+//                }
             }
 
             item { Spacer(modifier = Modifier.padding(bottom = 120.dp)) }

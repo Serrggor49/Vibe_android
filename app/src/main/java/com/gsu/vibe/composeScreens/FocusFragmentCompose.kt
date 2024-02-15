@@ -48,13 +48,14 @@ class FocusFragmentCompose : Fragment() {
         return ComposeView(requireContext()).apply {
             setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnViewTreeLifecycleDestroyed)
             setContent {
-                MyScreen()
+                val navController = NavController
+                //FocusScreen(navController)
             }
         }
     }
-    @Preview
+
     @Composable
-    fun MyScreen() {
+    fun FocusScreen(navController: NavController) {
 
         var size by remember { mutableStateOf(Size.Zero) } // Инициализация размера с нулевым значением
         val gradient = Brush.linearGradient(
@@ -79,30 +80,31 @@ class FocusFragmentCompose : Fragment() {
         }
     }
 
-    @Composable
-    fun MosaicColumn(list: List<SongsBlock>, navController: NavController) {
-        LazyColumn {
-            item {
-                InitHeaderBlock()
-            }
-            items(list) { item1 ->
-                when (item1.type) {
-                    ItemType.Single -> SingleImageItem(item1.songs, navController = navController)
-                    ItemType.Triple -> {
-                        TripleImageItem(
-                            item1.songs,
-                            leftSideSingleImage = leftSideSingleImage
-                        )
-                        leftSideSingleImage = !leftSideSingleImage
-                    }
-                    ItemType.Double -> DoubleImageItem(item1.songs)
-                    ItemType.Quadruple -> QuadroImageItem(item1.songs)
-                }
-            }
-
-            item { Spacer(modifier = Modifier.padding(bottom = 120.dp)) }
-        }
-    }
+//    @Composable
+//    fun MosaicColumn(list: List<SongsBlock>, navController: NavController) {
+//        LazyColumn {
+//            item {
+//                InitHeaderBlock()
+//            }
+//            items(list) { item1 ->
+//                when (item1.type) {
+//                    ItemType.Single -> SingleImageItem(item1.songs, navController = navController)
+//                    ItemType.Triple -> {
+//                        TripleImageItem(
+//                            item1.songs,
+//                            leftSideSingleImage = leftSideSingleImage,
+//                            navController = navController
+//                        )
+//                        leftSideSingleImage = !leftSideSingleImage
+//                    }
+//                    ItemType.Double -> DoubleImageItem(item1.songs, navController = navController)
+//                    ItemType.Quadruple -> QuadroImageItem(item1.songs)
+//                }
+//            }
+//
+//            item { Spacer(modifier = Modifier.padding(bottom = 120.dp)) }
+//        }
+//    }
 
 
 }

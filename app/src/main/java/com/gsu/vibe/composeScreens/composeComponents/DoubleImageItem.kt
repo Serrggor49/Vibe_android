@@ -26,26 +26,49 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
+import com.gsu.vibe.composeScreens.player.MediaPlayerComposeViewModel
+import com.gsu.vibe.composeScreens.screens.findActivity
 import com.gsu.vibe.data.models.SoundModel
 import com.gsu.vibe.paddingForCards
 import com.gsu.vibe.paddingForTextCards
 import com.gsu.vibe.radiusForCards
 
 @Composable
-fun DoubleImageItem(images: List<SoundModel>) {
+fun DoubleImageItem(
+    songs: List<SoundModel>,
+    navController: NavController
+    ) {
+
+    val viewModelStoreOwner = LocalContext.current.findActivity() ?: throw IllegalStateException("Activity not found") // Находим Activity, приводим к ComponentActivity и генерируем исключение, если она null
+    val viewModel: MediaPlayerComposeViewModel = viewModel(viewModelStoreOwner) // Теперь мы можем безопасно использовать viewModelStoreOwner, так как уверены, что он не null
+
     Row(
         Modifier
             .height(IntrinsicSize.Max)
             .background(Color.Transparent)
     ) {
 
-        images.take(2).forEachIndexed { index, song ->
+        songs.take(2).forEachIndexed { index, song ->
             Button(
-                onClick = { /* TODO */ },
+                onClick = {
+                    viewModel.setCurrentSound(name = songs[0].name)
+                    navController.navigate("mediaPlayerComposeScreen") {
+                        navController.graph.startDestinationRoute?.let { route ->
+                            popUpTo(route) {
+                                saveState = true
+                            }
+                        }
+                        launchSingleTop = true // Избегаем повторной загрузки экрана, если он уже загружен
+                        restoreState = true // Восстановление состояния при переходе назад к экрану
+                    }
+                },
                 contentPadding = PaddingValues(0.dp),
                 modifier = Modifier
                     .weight(1f)
