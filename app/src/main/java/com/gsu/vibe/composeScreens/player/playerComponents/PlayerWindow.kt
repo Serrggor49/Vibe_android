@@ -56,11 +56,7 @@ import com.gsu.vibe.radiusForPlayer
 // полупрозрачное окно для управления плеером и отображения его стейта
 @Composable
 @Preview(backgroundColor = 0xFF00FF00, showBackground = true)
-fun PlayerWindow(testName: String = "testName") {
-
-//    val mainViewModel: MainViewModel = viewModel()
-//    mainViewModel.timeForMixerPlayerInMs = 1221
-//    mainViewModel.startTest()
+fun PlayerWindow() {
 
     val viewModelStoreOwner = LocalContext.current.findActivity()!!
     val viewModel: MediaPlayerComposeViewModel =
@@ -75,7 +71,7 @@ fun PlayerWindow(testName: String = "testName") {
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter)
-                .padding(start = 20.dp, end = 20.dp, bottom = 150.dp)
+                .padding(start = 20.dp, end = 20.dp, bottom = 40.dp)
                 .height(150.dp)
                 .clip(RoundedCornerShape(radiusForPlayer))
                 .background(Color(android.graphics.Color.parseColor("#80000000")))

@@ -48,7 +48,7 @@ class MediaPlayerComposeFragment : Fragment() {
 
         KenBurnsEffectFullScreen(modifier = Modifier.fillMaxSize(), imageRes = R.drawable.focus_04_1b)
         Box(modifier = Modifier.fillMaxSize()) {
-            PlayerWindow(state.value.name)
+            PlayerWindow()
             SetTimerComponent()
         }
     }

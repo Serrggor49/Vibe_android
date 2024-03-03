@@ -9,10 +9,14 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material.CircularProgressIndicator
+import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.viewinterop.AndroidView
@@ -36,9 +40,8 @@ fun MediaPlayerComposeScreen(navController: NavController) {
     val context = LocalContext.current
     val viewModelStoreOwner = context.findActivity()
         ?: throw IllegalStateException("Activity not found") // Находим Activity, приводим к ComponentActivity и генерируем исключение, если она null
-    val viewModel: MediaPlayerComposeViewModel = viewModel(viewModelStoreOwner) // Теперь мы можем безопасно использовать viewModelStoreOwner, так как уверены, что он не null
-    val sharedViewModel: MainViewModel = viewModel(viewModelStoreOwner)
-
+    val viewModel: MediaPlayerComposeViewModel =
+        viewModel(viewModelStoreOwner) // Теперь мы можем безопасно использовать viewModelStoreOwner, так как уверены, что он не null
     val state = viewModel.state.collectAsState()
 
     KenBurnsEffectFullScreen(modifier = Modifier.fillMaxSize(), imageRes = state.value.background)
@@ -47,14 +50,25 @@ fun MediaPlayerComposeScreen(navController: NavController) {
         Image(
             modifier = Modifier
                 .fillMaxWidth()
-                .align(Alignment.BottomCenter)
-            ,
+                .align(Alignment.BottomCenter),
             painter = painterResource(id = viewModel.state.value.foreground),
             contentDescription = "",
         )
-        PlayerWindow(state.value.name)
 
-        SetTimerComponent()
+        PlayerWindow()
+
+        if(true) {
+            CircularProgressIndicator(
+                color = Color.Blue,
+                modifier = Modifier
+                    .align(Alignment.Center)
+                    .alpha(0.4f)
+            )
+        }
+        else{
+            SetTimerComponent()
+        }
+
     }
 }
 
