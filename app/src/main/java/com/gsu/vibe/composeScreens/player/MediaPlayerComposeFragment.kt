@@ -43,7 +43,6 @@ class MediaPlayerComposeFragment : Fragment() {
     fun MyScreen(viewModel: MediaPlayerComposeViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
 
         val state = viewModel.state.collectAsState()
-
         Log.d("MyLogs554", "collectAsState")
 
 

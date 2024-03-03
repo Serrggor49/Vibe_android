@@ -21,12 +21,15 @@ import androidx.compose.material.Slider
 import androidx.compose.material.Text
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -37,18 +40,28 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.gsu.vibe.R
+import com.gsu.vibe.composeScreens.player.MediaPlayerComposeViewModel
 import com.gsu.vibe.composeScreens.player.playerComponents.SliderForPlayer
+import com.gsu.vibe.composeScreens.screens.findActivity
 import com.gsu.vibe.firaSansFamily
+import com.gsu.vibe.getFormtTime
 import com.gsu.vibe.presentation.MainViewModel
 import com.gsu.vibe.radiusForPlayer
 
+
+// полупрозрачное окно для управления плеером и отображения его стейта
 @Composable
 @Preview(backgroundColor = 0xFF00FF00, showBackground = true)
 fun PlayerWindow(testName: String = "testName") {
 
-    val mainViewModel: MainViewModel = viewModel()
-    mainViewModel.timeForMixerPlayerInMs = 1221
-    mainViewModel.startTest()
+//    val mainViewModel: MainViewModel = viewModel()
+//    mainViewModel.timeForMixerPlayerInMs = 1221
+//    mainViewModel.startTest()
+
+    val viewModelStoreOwner = LocalContext.current.findActivity()!!
+    val viewModel: MediaPlayerComposeViewModel = viewModel(viewModelStoreOwner) // Теперь мы можем безопасно использовать viewModelStoreOwner, так как уверены, что он не null
+    val state = viewModel.state.collectAsState()
+
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -64,7 +77,6 @@ fun PlayerWindow(testName: String = "testName") {
         )
         {
             Column {
-
                 Row {
                     Column(modifier = Modifier.weight(1f)) {
                         Text(
@@ -119,7 +131,6 @@ fun PlayerWindow(testName: String = "testName") {
 
                 SliderForPlayer()
 
-
                 Box(modifier = Modifier.fillMaxWidth()) {
                     Text(
                         modifier = Modifier
@@ -139,8 +150,7 @@ fun PlayerWindow(testName: String = "testName") {
                         fontFamily = firaSansFamily,
                         fontSize = 14.sp,
                         color = Color(0xFFFFFFFF),
-                        text = "15:00"
-
+                        text = getFormtTime(state.value.durationInMs)
                     )
                 }
 
@@ -150,3 +160,4 @@ fun PlayerWindow(testName: String = "testName") {
     }
 
 }
+

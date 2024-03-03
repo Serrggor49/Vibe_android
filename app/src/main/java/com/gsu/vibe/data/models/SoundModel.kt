@@ -13,5 +13,6 @@ data class SoundModel(
     var sound: Int = 0,  // для миксера
     var soundVolume: Int = 1,
     val isFavorite: Boolean = false,
-    val volume: Int = 1
+    val volume: Int = 1,
+    var durationInMs: Int = 600000, // продолжительность в мс
 )

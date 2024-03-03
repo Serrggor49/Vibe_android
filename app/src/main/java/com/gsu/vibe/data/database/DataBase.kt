@@ -1,6 +1,5 @@
 package com.gsu.vibe.data.database
 
-import android.content.res.Resources
 import com.gsu.vibe.R
 import com.gsu.vibe.data.models.ItemType
 import com.gsu.vibe.data.models.SongsBlock

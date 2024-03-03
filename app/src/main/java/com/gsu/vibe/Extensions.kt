@@ -14,7 +14,7 @@ fun Fragment.setVibro() {
     }
 }
 
-fun Fragment.getFormtTime(ms: Int): String {
+fun getFormtTime(ms: Int): String {
 
     val hour = (ms / 1000 / 60 / 60).toString()
     var minutes = (ms / 1000 / 60 % 60).toString()

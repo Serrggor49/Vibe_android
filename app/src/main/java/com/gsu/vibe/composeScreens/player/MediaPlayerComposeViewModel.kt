@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gsu.vibe.data.Repository
 import com.gsu.vibe.data.models.SoundModel
+import com.gsu.vibe.getFormtTime
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,10 +17,13 @@ class MediaPlayerComposeViewModel : ViewModel() {
     private val _state = MutableStateFlow(SoundModel())
     val state: StateFlow<SoundModel> = _state
 
-    //var testString = "0"
-
     init {
-       // randn1()
+        viewModelScope.launch {
+            while (true) {
+                delay(1000)
+                Log.d("MyLogs33", "timeInHour = ${getFormtTime(state.value.durationInMs)}")
+            }
+        }
     }
 
     val repository: Repository = Repository
@@ -30,20 +34,14 @@ class MediaPlayerComposeViewModel : ViewModel() {
         Log.d("MyLogs33", "songName in viewmodel = ${state.value.background}")
     }
 
+    fun setDurationTime(timeInHours: Int = 0, timeInMinutes: Int = 0, timeInSeconds: Int = 0) {
+        _state.value = _state.value.copy(
+            durationInMs = ((timeInHours * 60) + timeInMinutes) * 60 * 1000 + timeInSeconds * 1000
+        )
+    }
+
     fun getListForFocusForCompose() = repository.getListForFocusForCompose()
 
-    fun randn1() {
-
-        viewModelScope.launch {
-            while (true) {
-                delay(2000)
-              //  _state.value = SoundModel(name = Random.nextInt(0, 100).toString())
-                //_state.value.name = Random.nextInt(0, 100).toString()
-
-                Log.d("MyLogs554", "name = ${state.value.name}")
-            }
-        }
-    }
 }
 
 
