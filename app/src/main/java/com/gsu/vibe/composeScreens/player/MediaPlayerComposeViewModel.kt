@@ -21,7 +21,6 @@ class MediaPlayerComposeViewModel : ViewModel() {
         viewModelScope.launch {
             while (true) {
                 delay(1000)
-                Log.d("MyLogs33", "timeInHour = ${getFormtTime(state.value.durationInMs)}")
             }
         }
     }

@@ -5,13 +5,16 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonColors
@@ -31,6 +34,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -59,7 +63,8 @@ fun PlayerWindow(testName: String = "testName") {
 //    mainViewModel.startTest()
 
     val viewModelStoreOwner = LocalContext.current.findActivity()!!
-    val viewModel: MediaPlayerComposeViewModel = viewModel(viewModelStoreOwner) // Теперь мы можем безопасно использовать viewModelStoreOwner, так как уверены, что он не null
+    val viewModel: MediaPlayerComposeViewModel =
+        viewModel(viewModelStoreOwner) // Теперь мы можем безопасно использовать viewModelStoreOwner, так как уверены, что он не null
     val state = viewModel.state.collectAsState()
 
     Box(
@@ -78,17 +83,24 @@ fun PlayerWindow(testName: String = "testName") {
         {
             Column {
                 Row {
-                    Column(modifier = Modifier.weight(1f)) {
+                    Column(
+                        modifier = Modifier
+                            .weight(1f)
+                            .fillMaxWidth()
+                    ) {
                         Text(
                             modifier = Modifier
+                                .fillMaxWidth()
                                 .align(Alignment.Start)
                                 .padding(start = 14.dp, top = 11.dp),
+                            text = (stringResource(id = state.value.title)).replace("\n", " "),
                             fontWeight = FontWeight(400),
                             fontFamily = firaSansFamily,
                             fontSize = 18.sp,
                             color = Color(0xFFFFFFFF),
-                            text = testName
+                            maxLines = 1
                         )
+                        Spacer(modifier = Modifier.height(5.dp))
                         Text(
                             modifier = Modifier
                                 .align(Alignment.Start)
@@ -97,7 +109,7 @@ fun PlayerWindow(testName: String = "testName") {
                             fontFamily = firaSansFamily,
                             fontSize = 14.sp,
                             color = Color(0xFFFFFFFF),
-                            text = "Медитация"
+                            text = stringResource(id = state.value.subtitle)
                         )
                     }
                     Button(
@@ -140,7 +152,7 @@ fun PlayerWindow(testName: String = "testName") {
                         fontFamily = firaSansFamily,
                         fontSize = 14.sp,
                         color = Color(0xFFFFFFFF),
-                        text = "07:30"
+                        text = "00:00"
                     )
                     Text(
                         modifier = Modifier

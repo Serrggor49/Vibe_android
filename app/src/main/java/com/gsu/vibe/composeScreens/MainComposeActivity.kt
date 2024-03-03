@@ -11,6 +11,9 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -43,12 +46,19 @@ class MainComposeActivity : AppCompatActivity() {
     @Composable
     fun MainScreen() {
         val navController = rememberNavController() // Создает NavHostController
+        val showBottomBar = remember { mutableStateOf(true) }
+
+        // Отслеживание текущего маршрута и обновление состояния видимости
+        val navBackStackEntry by navController.currentBackStackEntryAsState()
+        navBackStackEntry?.destination?.route?.let { route ->
+            showBottomBar.value = route !in listOf("mediaPlayerComposeScreen") // Скрываем на определенных экранах
+        }
 
         Scaffold(
             bottomBar = {
-                BottomNavigationBar(
-                    navController = navController
-                )
+                if (showBottomBar.value) { // Проверяем состояние перед отображением
+                    BottomNavigationBar(navController = navController)
+                }
             }
         ) { innerPadding ->
             NavHost(
@@ -109,8 +119,10 @@ class MainComposeActivity : AppCompatActivity() {
                                     saveState = true
                                 }
                             }
-                            launchSingleTop = true // Избегаем повторной загрузки экрана, если он уже загружен
-                            restoreState = true // Восстановление состояния при переходе назад к экрану
+                            launchSingleTop =
+                                true // Избегаем повторной загрузки экрана, если он уже загружен
+                            restoreState =
+                                true // Восстановление состояния при переходе назад к экрану
                         }
                     }
                 )

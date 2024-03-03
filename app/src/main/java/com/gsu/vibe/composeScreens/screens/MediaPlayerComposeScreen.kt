@@ -22,6 +22,7 @@ import com.flaviofaria.kenburnsview.KenBurnsView
 import com.gsu.vibe.composeScreens.player.MediaPlayerComposeViewModel
 import com.gsu.vibe.composeScreens.player.playerComponents.PlayerWindow
 import com.gsu.vibe.composeScreens.player.playerComponents.SetTimerComponent
+import com.gsu.vibe.presentation.MainViewModel
 
 fun Context.findActivity(): ComponentActivity? = when (this) {
     is ComponentActivity -> this
@@ -35,14 +36,12 @@ fun MediaPlayerComposeScreen(navController: NavController) {
     val context = LocalContext.current
     val viewModelStoreOwner = context.findActivity()
         ?: throw IllegalStateException("Activity not found") // Находим Activity, приводим к ComponentActivity и генерируем исключение, если она null
-    val viewModel: MediaPlayerComposeViewModel =
-        viewModel(viewModelStoreOwner) // Теперь мы можем безопасно использовать viewModelStoreOwner, так как уверены, что он не null
+    val viewModel: MediaPlayerComposeViewModel = viewModel(viewModelStoreOwner) // Теперь мы можем безопасно использовать viewModelStoreOwner, так как уверены, что он не null
+    val sharedViewModel: MainViewModel = viewModel(viewModelStoreOwner)
 
     val state = viewModel.state.collectAsState()
 
     KenBurnsEffectFullScreen(modifier = Modifier.fillMaxSize(), imageRes = state.value.background)
-
-
 
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
