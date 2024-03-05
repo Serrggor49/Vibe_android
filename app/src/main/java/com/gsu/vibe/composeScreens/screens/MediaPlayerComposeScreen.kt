@@ -65,9 +65,7 @@ fun MediaPlayerComposeScreen(navController: NavController) {
                     .alpha(0.4f)
             )
         }
-        else{
-            SetTimerComponent()
-        }
+        else SetTimerComponent()
 
     }
 }
