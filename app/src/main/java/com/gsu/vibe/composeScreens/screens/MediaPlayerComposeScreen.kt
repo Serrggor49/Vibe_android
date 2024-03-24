@@ -73,36 +73,6 @@ fun MediaPlayerComposeScreen(navController: NavController) {
         }
         SetTimerComponent()
 
-
-//        val connection = object : ServiceConnection {
-//            override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-//                val binder = service as PlayerService.PlayerBinder
-//                musicService = binder.getServise()
-//                isBound = true
-//                musicService.play()
-//                //        }
-//
-//            }
-//
-//            override fun onServiceDisconnected(name: ComponentName?) {
-//                isBound = false
-//            }
-//
-//        }
-
-        val intent = Intent(context, PlayerService::class.java)
-        context.bindService(intent, object : ServiceConnection {
-            override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
-                val binder = service as PlayerService.PlayerBinder
-                val musicService = binder.getService()
-                Log.d("MyLogs88", "url = ${state.value.url}")
-                musicService.setTrackUri("/data/data/com.gsu.vibe/files/${state.value.name}")
-                musicService.play()
-            }
-
-            override fun onServiceDisconnected(name: ComponentName?) {}
-        }, Context.BIND_AUTO_CREATE)
-
     }
 }
 

@@ -2,12 +2,18 @@ package com.gsu.vibe.composeScreens.player
 
 import android.annotation.SuppressLint
 import android.app.Application
+import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
+import android.content.ServiceConnection
+import android.os.IBinder
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.gsu.vibe.composeServices.PlayerService
 import com.gsu.vibe.data.Repository
 import com.gsu.vibe.data.models.SoundModel
 import com.gsu.vibe.getFormtTime
@@ -44,8 +50,6 @@ class MediaPlayerComposeViewModel(application: Application) : AndroidViewModel(a
 
     fun setCurrentSound(name: String) {
         _state.value = listAllSounds.filter { it.name == name }[0]
-
-
         Log.d("MyLogs33", "songName in viewmodel = ${state.value.background}")
     }
 
@@ -55,7 +59,6 @@ class MediaPlayerComposeViewModel(application: Application) : AndroidViewModel(a
         )
         downloadTrack()
     }
-
 
     fun downloadTrack() {
         viewModelScope.launch {
@@ -88,6 +91,46 @@ class MediaPlayerComposeViewModel(application: Application) : AndroidViewModel(a
     }
 
     fun getListForFocusForCompose() = repository.getListForFocusForCompose()
+
+
+    private var serviceBound = false
+    private var musicService: PlayerService? = null
+    private lateinit var serviceConnection: ServiceConnection
+
+    fun playOrPauseTrack(context: Context){
+        viewModelScope.launch {
+            if (!serviceBound) {
+                val intent = Intent(context, PlayerService::class.java)
+                serviceConnection = object : ServiceConnection {
+                    override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+                        val binder = service as PlayerService.PlayerBinder
+                        musicService = binder.getService()
+                        serviceBound = true
+
+                        musicService?.setTrackUri(state.value.name)
+                        musicService?.play()
+                        _state.value = _state.value.copy(isPlaying = true)
+                    }
+
+                    override fun onServiceDisconnected(name: ComponentName?) {
+                        serviceBound = false
+                    }
+                }
+                context.bindService(intent, serviceConnection, Context.BIND_AUTO_CREATE)
+            } else {
+                musicService?.let {
+                    if (it.player.isPlaying) {
+                        it.pause()
+                        _state.value = _state.value.copy(isPlaying = false)
+                    } else {
+                        it.play()
+                        _state.value = _state.value.copy(isPlaying = true)
+                    }
+                }
+            }
+        }
+
+    }
 
 }
 
