@@ -56,6 +56,11 @@
         <!-- </intent-filter> -->
         <!-- </receiver> -->
         <service
+            android:name=".composeServices.PlayerService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <service
             android:name=".services.MediaPlayerService"
             android:enabled="true"
             android:exported="true"></service>

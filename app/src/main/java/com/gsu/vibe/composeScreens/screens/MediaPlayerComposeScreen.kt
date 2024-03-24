@@ -1,7 +1,12 @@
 package com.gsu.vibe.composeScreens.screens
 
+import android.content.ComponentName
 import android.content.Context
 import android.content.ContextWrapper
+import android.content.Intent
+import android.content.ServiceConnection
+import android.os.IBinder
+import android.util.Log
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ImageView
 import androidx.activity.ComponentActivity
@@ -10,7 +15,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.CircularProgressIndicator
-import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
@@ -23,10 +27,11 @@ import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.flaviofaria.kenburnsview.KenBurnsView
+import com.flaviofaria.kenburnsview.RandomTransitionGenerator
 import com.gsu.vibe.composeScreens.player.MediaPlayerComposeViewModel
 import com.gsu.vibe.composeScreens.player.playerComponents.PlayerWindow
 import com.gsu.vibe.composeScreens.player.playerComponents.SetTimerComponent
-import com.gsu.vibe.presentation.MainViewModel
+import com.gsu.vibe.composeServices.PlayerService
 
 fun Context.findActivity(): ComponentActivity? = when (this) {
     is ComponentActivity -> this
@@ -34,14 +39,15 @@ fun Context.findActivity(): ComponentActivity? = when (this) {
     else -> null
 }
 
+private lateinit var musicService: PlayerService
+private var isBound = false
+
 @Composable
 fun MediaPlayerComposeScreen(navController: NavController) {
 
     val context = LocalContext.current
-    val viewModelStoreOwner = context.findActivity()
-        ?: throw IllegalStateException("Activity not found") // Находим Activity, приводим к ComponentActivity и генерируем исключение, если она null
-    val viewModel: MediaPlayerComposeViewModel =
-        viewModel(viewModelStoreOwner) // Теперь мы можем безопасно использовать viewModelStoreOwner, так как уверены, что он не null
+    val viewModelStoreOwner = context.findActivity()!!
+    val viewModel: MediaPlayerComposeViewModel = viewModel(viewModelStoreOwner)
     val state = viewModel.state.collectAsState()
 
     KenBurnsEffectFullScreen(modifier = Modifier.fillMaxSize(), imageRes = state.value.background)
@@ -57,7 +63,7 @@ fun MediaPlayerComposeScreen(navController: NavController) {
 
         PlayerWindow()
 
-        if(true) {
+        if (!state.value.isDownloaded) {
             CircularProgressIndicator(
                 color = Color.Blue,
                 modifier = Modifier
@@ -65,13 +71,40 @@ fun MediaPlayerComposeScreen(navController: NavController) {
                     .alpha(0.4f)
             )
         }
-        else SetTimerComponent()
+        SetTimerComponent()
+
+
+//        val connection = object : ServiceConnection {
+//            override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+//                val binder = service as PlayerService.PlayerBinder
+//                musicService = binder.getServise()
+//                isBound = true
+//                musicService.play()
+//                //        }
+//
+//            }
+//
+//            override fun onServiceDisconnected(name: ComponentName?) {
+//                isBound = false
+//            }
+//
+//        }
+
+        val intent = Intent(context, PlayerService::class.java)
+        context.bindService(intent, object : ServiceConnection {
+            override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
+                val binder = service as PlayerService.PlayerBinder
+                val musicService = binder.getService()
+                Log.d("MyLogs88", "url = ${state.value.url}")
+                musicService.setTrackUri("/data/data/com.gsu.vibe/files/${state.value.name}")
+                musicService.play()
+            }
+
+            override fun onServiceDisconnected(name: ComponentName?) {}
+        }, Context.BIND_AUTO_CREATE)
 
     }
 }
-
-val ACCELERATE_DECELERATE = AccelerateDecelerateInterpolator()
-val generator = com.gsu.vibe.services.RandomTransitionGenerator(25000, ACCELERATE_DECELERATE)
 
 @Composable
 fun KenBurnsEffectFullScreen(modifier: Modifier = Modifier, imageRes: Int) {
@@ -81,7 +114,12 @@ fun KenBurnsEffectFullScreen(modifier: Modifier = Modifier, imageRes: Int) {
             KenBurnsView(context).apply {
                 scaleType = ImageView.ScaleType.CENTER_CROP
                 setImageResource(imageRes)
-                setTransitionGenerator(generator)
+                setTransitionGenerator(
+                    RandomTransitionGenerator(
+                        25000,
+                        AccelerateDecelerateInterpolator()
+                    )
+                )
             }
         },
         update = {

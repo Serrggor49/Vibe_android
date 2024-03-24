@@ -15,4 +15,5 @@ data class SoundModel(
     val isFavorite: Boolean = false,
     val volume: Int = 1,
     var durationInMs: Int = 600000, // продолжительность в мс
+    var isDownloaded: Boolean = false
 )

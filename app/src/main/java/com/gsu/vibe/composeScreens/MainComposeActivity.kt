@@ -40,6 +40,7 @@ class MainComposeActivity : AppCompatActivity() {
         setContent {
             MainScreen()
         }
+
     }
 
 
