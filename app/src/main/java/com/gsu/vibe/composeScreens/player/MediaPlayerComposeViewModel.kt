@@ -6,6 +6,7 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.content.ServiceConnection
+import android.os.CountDownTimer
 import android.os.IBinder
 import android.util.Log
 import android.widget.Toast
@@ -55,7 +56,7 @@ class MediaPlayerComposeViewModel(application: Application) : AndroidViewModel(a
 
     fun setDurationTime(timeInHours: Int = 0, timeInMinutes: Int = 0, timeInSeconds: Int = 0) {
         _state.value = _state.value.copy(
-            durationInMs = ((timeInHours * 60) + timeInMinutes) * 60 * 1000 + timeInSeconds * 1000
+            durationInMs = (((timeInHours * 60) + timeInMinutes) * 60 * 1000 + timeInSeconds * 1000).toLong()
         )
         downloadTrack()
     }
@@ -97,17 +98,20 @@ class MediaPlayerComposeViewModel(application: Application) : AndroidViewModel(a
     private var musicService: PlayerService? = null
     private lateinit var serviceConnection: ServiceConnection
 
+    fun setTime(time: Long){
+        musicService?.setCurrentTime(time)
+    }
+
     fun playOrPauseTrack(context: Context){
         viewModelScope.launch {
-            if (!serviceBound) {
+            if (!serviceBound) { // сервис не привязан или не создан
                 val intent = Intent(context, PlayerService::class.java)
                 serviceConnection = object : ServiceConnection {
                     override fun onServiceConnected(name: ComponentName?, service: IBinder?) {
                         val binder = service as PlayerService.PlayerBinder
                         musicService = binder.getService()
                         serviceBound = true
-
-                        musicService?.setTrackUri(state.value.name)
+                        musicService?.setCurrentTrack(state.value)
                         musicService?.play()
                         _state.value = _state.value.copy(isPlaying = true)
                     }
@@ -131,6 +135,7 @@ class MediaPlayerComposeViewModel(application: Application) : AndroidViewModel(a
         }
 
     }
+
 
 }
 

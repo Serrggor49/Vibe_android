@@ -39,8 +39,8 @@ fun Context.findActivity(): ComponentActivity? = when (this) {
     else -> null
 }
 
-private lateinit var musicService: PlayerService
-private var isBound = false
+//private lateinit var musicService: PlayerService
+//private var isBound = false
 
 @Composable
 fun MediaPlayerComposeScreen(navController: NavController) {

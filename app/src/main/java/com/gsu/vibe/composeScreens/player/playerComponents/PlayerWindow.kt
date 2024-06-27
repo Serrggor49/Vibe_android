@@ -59,8 +59,7 @@ import com.gsu.vibe.radiusForPlayer
 fun PlayerWindow() {
 
     val viewModelStoreOwner = LocalContext.current.findActivity()!!
-    val viewModel: MediaPlayerComposeViewModel =
-        viewModel(viewModelStoreOwner) // Теперь мы можем безопасно использовать viewModelStoreOwner, так как уверены, что он не null
+    val viewModel: MediaPlayerComposeViewModel = viewModel(viewModelStoreOwner) // Теперь мы можем безопасно использовать viewModelStoreOwner, так как уверены, что он не null
     val state = viewModel.state.collectAsState()
     val context = LocalContext.current
     Box(
@@ -129,7 +128,6 @@ fun PlayerWindow() {
                         )
 
                     ) {
-
                         val icon = if(state.value.isPlaying) painterResource(id = R.drawable.ic_baseline_pause_circle_filled_24) else painterResource(id = R.drawable.ic_play_buuton_3)
                         Image(
                             modifier = Modifier.fillMaxSize(),
@@ -162,7 +160,7 @@ fun PlayerWindow() {
                         fontFamily = firaSansFamily,
                         fontSize = 14.sp,
                         color = Color(0xFFFFFFFF),
-                        text = getFormtTime(state.value.durationInMs)
+                        text = getFormtTime(state.value.durationInMs.toInt())
                     )
                 }
 
