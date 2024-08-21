@@ -3,7 +3,6 @@ package com.gsu.vibe.composeScreens.player.playerComponents
 import android.util.Log
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Slider
-import androidx.compose.material.SliderColors
 import androidx.compose.material.SliderDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -25,13 +24,14 @@ fun SliderForPlayer() {
     val viewModelStoreOwner = LocalContext.current.findActivity()!!
     val viewModel: MediaPlayerComposeViewModel = viewModel(viewModelStoreOwner)
     var sliderValue by remember { mutableStateOf(0f) }
-
+    val state = viewModel.state.collectAsState()
 
     Slider(
         modifier = Modifier.padding(start = 4.dp, end = 4.dp),
-        value = sliderValue,
+        //value = sliderValue,
         onValueChange = { newValue ->
             sliderValue = newValue
+
         },
         colors = SliderDefaults.colors(
             thumbColor = Color.White,
@@ -40,9 +40,13 @@ fun SliderForPlayer() {
         ),
         valueRange = 0f..viewModel.state.collectAsState().value.durationInMs.toFloat(), // Диапазон значений для Slider
 
+        value = state.value.currentTrackTime.toFloat(),
+
         onValueChangeFinished = { // Вызывается, когда пользователь заканчивает перемещение слайдера
             Log.d("MyLogs88", "slider value = ${sliderValue}")
             viewModel.setTime(sliderValue.toLong())
+//            _state.value = _state.value.copy(isPlaying = false)
+
         },
 
         )

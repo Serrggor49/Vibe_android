@@ -9,8 +9,11 @@ import android.os.IBinder
 import android.util.Log
 import androidx.core.net.toUri
 import com.gsu.vibe.data.models.SoundModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 
 
 // сервис для compose плеера
@@ -19,9 +22,10 @@ class PlayerService : Service() {
     lateinit var player: MediaPlayer
     private val mediaPath = "/data/data/com.gsu.vibe/files/"
     private var track: SoundModel? = null
+    var track2 = MutableStateFlow(SoundModel())
     private val binder = PlayerBinder()
 
-    val currentTimeStateFlow: MutableStateFlow<Long> = MutableStateFlow(0) // время которое стоит на slideBar
+    //val currentTimeStateFlow: MutableStateFlow<Long> = MutableStateFlow(0) // время которое стоит на slideBar
     var trackTime = 1000 // фактическое время трека
     var duration = 10000L // время выставленное пользователем
     var timer: CountDownTimer? = null
@@ -33,24 +37,21 @@ class PlayerService : Service() {
         fun getService() = this@PlayerService
     }
 
+    fun setCurrentTrack2(currentTrack: MutableStateFlow<SoundModel>) {
+        track2 = currentTrack
+    }
+
     fun setCurrentTrack(currentTrack: SoundModel) {
         track = currentTrack
         player = MediaPlayer.create(this, ("$mediaPath${track?.name}").toUri())
         player.isLooping = true
         trackTime = player.duration
         duration = currentTrack.durationInMs
-        setCurrentTime(currentTimeStateFlow.value)
+        setCurrentTime(track2.value.currentTrackTime.toLong())
         Log.d("MyLogs88", "setCurrentTrack()")
         Log.d("MyLogs88", "current = ${currentTrack.name}")
     }
 
-    // передаем время с которого должен играть трек
-    fun setTime(timeFromSeekBar: Long){
-        val duration = track!!.durationInMs
-        val seekTime = ((duration - timeFromSeekBar) % (player.duration))
-        currentTimeStateFlow.value = timeFromSeekBar
-        //mediaPlayerArray.forEach { it?.seekTo(seekTime) }
-    }
 
     fun play() {
 
@@ -64,7 +65,7 @@ class PlayerService : Service() {
 
         Log.d("MyLogs88", "play()")
         player.start()
-        setCurrentTime(currentTimeStateFlow.value)
+        setCurrentTime(track2.value.currentTrackTime.toLong())
     }
 
     fun pause() {
@@ -81,7 +82,8 @@ class PlayerService : Service() {
         timer?.cancel()
         timer = null
 
-        val seekTime = ( (duration - (duration - time)) % (player.duration)).toInt()
+        var currentTimeInTimer = time
+        val seekTime = ((duration - (duration - time)) % (player.duration)).toInt()
 
         //((duration - timeToEnd) % (mediaPlayerArray[0]!!.duration))
         Log.d("MyLogs88", "seekTime = ${seekTime}")
@@ -91,9 +93,17 @@ class PlayerService : Service() {
         //currentTimeStateFlow.value = time  //
         //if (timer == null) {
         timer = object : CountDownTimer(duration - time, 1000) {
+
             override fun onTick(millisUntilFinished: Long) {
-                currentTimeStateFlow.value = currentTimeStateFlow.value + 1000
-                Log.d("MyLogs88", "onTick() millisUntilFinished = ${millisUntilFinished}, duration = $duration, currentTimeStateFlow = ${currentTimeStateFlow.value}")
+                //currentTimeStateFlow.value = currentTimeStateFlow.value + 1000
+
+                currentTimeInTimer += 1000
+                CoroutineScope(Dispatchers.Main).launch {
+                    //track2.value = track2.value.copy(currentTrackTime = currentTimeStateFlow.value.toInt())
+                    track2.value = track2.value.copy(currentTrackTime = currentTimeInTimer.toInt())
+                    Log.d("MyLogs87", "track2.value = ${track2.value.currentTrackTime}")
+                }
+
             }
 
             override fun onFinish() {
@@ -104,15 +114,11 @@ class PlayerService : Service() {
         }.start()
 
         Log.d("MyLogs88", "setCurrentTime() time = ${time}")
-
-        //}
     }
 
 
 }
 
-// время которое будет играть песня
-// время трека
-// значение с сикбара
+
 
 

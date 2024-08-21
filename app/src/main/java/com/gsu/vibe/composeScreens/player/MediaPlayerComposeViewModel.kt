@@ -100,6 +100,8 @@ class MediaPlayerComposeViewModel(application: Application) : AndroidViewModel(a
 
     fun setTime(time: Long){
         musicService?.setCurrentTime(time)
+       // _state.value = _state.value.copy(currentTrackTime = time.toInt())
+
     }
 
     fun playOrPauseTrack(context: Context){
@@ -112,6 +114,7 @@ class MediaPlayerComposeViewModel(application: Application) : AndroidViewModel(a
                         musicService = binder.getService()
                         serviceBound = true
                         musicService?.setCurrentTrack(state.value)
+                        musicService?.setCurrentTrack2(_state)
                         musicService?.play()
                         _state.value = _state.value.copy(isPlaying = true)
                     }
