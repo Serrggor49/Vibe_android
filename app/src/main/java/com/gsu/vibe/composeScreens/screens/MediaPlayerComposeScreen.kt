@@ -31,7 +31,6 @@ import com.flaviofaria.kenburnsview.RandomTransitionGenerator
 import com.gsu.vibe.composeScreens.player.MediaPlayerComposeViewModel
 import com.gsu.vibe.composeScreens.player.playerComponents.PlayerWindow
 import com.gsu.vibe.composeScreens.player.playerComponents.SetTimerComponent
-import com.gsu.vibe.composeServices.PlayerService
 
 fun Context.findActivity(): ComponentActivity? = when (this) {
     is ComponentActivity -> this
