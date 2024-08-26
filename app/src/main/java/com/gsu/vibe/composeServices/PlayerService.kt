@@ -48,11 +48,17 @@ class PlayerService : Service() {
 
         if (intent?.action == V_CHANGE_PLAYER_STATE) {
             if (player.isPlaying) {
-                player.pause()
-                track.value.isPlaying = false
+                //player.pause()
+                //track.value.isPlaying = false
+                track.value = track.value.copy(isPlaying = false)
+
+                pause()
             } else {
-                player.start()
-                track.value.isPlaying = true
+                //player.start()
+                //track.value.isPlaying = true
+                track.value = track.value.copy(isPlaying = true)
+
+                play()
             }
             updateNotificationPlayer()
         }
@@ -107,10 +113,16 @@ class PlayerService : Service() {
             }
 
             override fun onFinish() {
-                player.release()
-                timer?.cancel()
-                timer = null
-                restartTrack()
+//                player.release()
+//                timer?.cancel()
+//                timer = null
+                //player.pause()
+                //track.value.isPlaying = false
+                pause()
+                track.value.currentTrackTime.toLong()
+                track.value = track.value.copy(isPlaying = false, currentTrackTime = 0)
+
+                //restartTrack()
                 //onDestroy()
             }
         }.start()
