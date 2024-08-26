@@ -48,14 +48,10 @@ class PlayerService : Service() {
 
         if (intent?.action == V_CHANGE_PLAYER_STATE) {
             if (player.isPlaying) {
-                //player.pause()
-                //track.value.isPlaying = false
                 track.value = track.value.copy(isPlaying = false)
 
                 pause()
             } else {
-                //player.start()
-                //track.value.isPlaying = true
                 track.value = track.value.copy(isPlaying = true)
 
                 play()
@@ -119,7 +115,7 @@ class PlayerService : Service() {
                 //player.pause()
                 //track.value.isPlaying = false
                 pause()
-                track.value.currentTrackTime.toLong()
+//                track.value.currentTrackTime.toLong()
                 track.value = track.value.copy(isPlaying = false, currentTrackTime = 0)
 
                 //restartTrack()
