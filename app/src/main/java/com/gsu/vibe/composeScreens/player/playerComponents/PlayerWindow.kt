@@ -26,6 +26,7 @@ import androidx.compose.material.SliderDefaults
 import androidx.compose.material.Text
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -188,34 +189,35 @@ fun SliderForPlayer() {
 
     val viewModelStoreOwner = LocalContext.current.findActivity()!!
     val viewModel: MediaPlayerComposeViewModel = viewModel(viewModelStoreOwner)
-    var sliderValue by remember { mutableStateOf(0f) }
     val state = viewModel.state.collectAsState()
+
+    var sliderValue by remember { mutableStateOf(state.value.currentTrackTime.toFloat()) }
+
+    // Обновляем sliderValue только когда не происходит взаимодействие с пользователем
+    LaunchedEffect(state.value.currentTrackTime) {
+        if (!viewModel.isUserInteracting) {
+            sliderValue = state.value.currentTrackTime.toFloat()
+        }
+    }
 
     Slider(
         modifier = Modifier.padding(start = 4.dp, end = 4.dp),
-        //value = sliderValue,
+        value = sliderValue,
         onValueChange = { newValue ->
             sliderValue = newValue
-
+            viewModel.isUserInteracting = true
         },
-
         colors = SliderDefaults.colors(
             thumbColor = Color.White,
             activeTrackColor = Color.White,
             inactiveTrackColor = Color.Gray
         ),
-        valueRange = 0f..viewModel.state.collectAsState().value.durationInMs.toFloat(), // Диапазон значений для Slider
-
-        value = state.value.currentTrackTime.toFloat(),
-
-        onValueChangeFinished = { // Вызывается, когда пользователь заканчивает перемещение слайдера
-            Log.d("MyLogs88", "slider value = ${sliderValue}")
+        valueRange = 0f..state.value.durationInMs.toFloat(),
+        onValueChangeFinished = {
             viewModel.setTimeFromSlider(sliderValue.toLong())
-
+            viewModel.isUserInteracting = false
         },
-
-
-        )
+    )
 }
 
 

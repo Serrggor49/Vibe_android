@@ -24,7 +24,6 @@ import com.gsu.vibe.data.models.TrackForServiceModel
 import com.gsu.vibe.databinding.FragmentMediaPlayerServiceBinding
 import com.gsu.vibe.presentation.MainViewModel
 import com.gsu.vibe.services.DownloadAudioFromUrlNew
-import com.gsu.vibe.services.MediaPlayerService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -111,21 +110,21 @@ class MediaPlayerServiceFragment : Fragment() {
 
     fun initPlayButton(){
 
-        val uri = Uri.parse("$mediaPath${mainViewModel.currentSound.name}").toString()
-        binding.playButton.setOnClickListener {
-            val playIntent = Intent(requireActivity(), MediaPlayerService::class.java).apply {
-                action = V_CHANGE_PLAYER_STATE
-                 putExtra(trackForServiceModelKey, TrackForServiceModel(
-                    soundImage = mainViewModel.currentSound.preview,
-                    soundName = mainViewModel.currentSound.title,
-                    soundPaths = arrayOf(uri),
-                    soundVolume = arrayOf(1f),
-                    soundType = mainViewModel.currentSound.subtitle,
-                    timer = trackTime - currentTime,
-                    duration = trackTime))
-            }
-            requireContext().startService(playIntent)
-        }
+//        val uri = Uri.parse("$mediaPath${mainViewModel.currentSound.name}").toString()
+//        binding.playButton.setOnClickListener {
+//            val playIntent = Intent(requireActivity(), MediaPlayerService::class.java).apply {
+//                action = V_CHANGE_PLAYER_STATE
+//                 putExtra(trackForServiceModelKey, TrackForServiceModel(
+//                    soundImage = mainViewModel.currentSound.preview,
+//                    soundName = mainViewModel.currentSound.title,
+//                    soundPaths = arrayOf(uri),
+//                    soundVolume = arrayOf(1f),
+//                    soundType = mainViewModel.currentSound.subtitle,
+//                    timer = trackTime - currentTime,
+//                    duration = trackTime))
+//            }
+//            requireContext().startService(playIntent)
+//        }
     }
 
     private val receiver = object : BroadcastReceiver() {
@@ -189,19 +188,19 @@ class MediaPlayerServiceFragment : Fragment() {
 //                }
 
 
-                val uri = Uri.parse("$mediaPath${mainViewModel.currentSound.name}").toString()
-                    val playIntent = Intent(requireActivity(), MediaPlayerService::class.java).apply {
-                        action = V_ACTION_CHANGE_TIME
-                        putExtra(trackForServiceModelKey, TrackForServiceModel(
-                            soundImage = mainViewModel.currentSound.preview,
-                            soundName = mainViewModel.currentSound.title,
-                            soundPaths = arrayOf(uri),
-                            soundVolume = arrayOf(1f),
-                            soundType = mainViewModel.currentSound.subtitle,
-                            timer = trackTime - currentTime,
-                            duration = trackTime))
-                    }
-                    requireContext().startService(playIntent)
+//                val uri = Uri.parse("$mediaPath${mainViewModel.currentSound.name}").toString()
+//                    val playIntent = Intent(requireActivity(), MediaPlayerService::class.java).apply {
+//                        action = V_ACTION_CHANGE_TIME
+//                        putExtra(trackForServiceModelKey, TrackForServiceModel(
+//                            soundImage = mainViewModel.currentSound.preview,
+//                            soundName = mainViewModel.currentSound.title,
+//                            soundPaths = arrayOf(uri),
+//                            soundVolume = arrayOf(1f),
+//                            soundType = mainViewModel.currentSound.subtitle,
+//                            timer = trackTime - currentTime,
+//                            duration = trackTime))
+//                    }
+//                    requireContext().startService(playIntent)
 
 
             }
@@ -307,10 +306,10 @@ class MediaPlayerServiceFragment : Fragment() {
     fun onBackOverride(){
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                val closeServiceIntent = Intent(requireContext(), MediaPlayerService::class.java).apply {
-                    action = V_ACTION_CLOSE
-                }
-                requireContext().startService(closeServiceIntent)
+//                val closeServiceIntent = Intent(requireContext(), MediaPlayerService::class.java).apply {
+//                    action = V_ACTION_CLOSE
+//                }
+              //  requireContext().startService(closeServiceIntent)
                 NotificationManagerCompat.from(requireContext()).cancelAll() // спрятать все уведомления
                 findNavController().popBackStack(R.id.sleepFragment, false)
             }

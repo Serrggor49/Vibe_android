@@ -10,6 +10,7 @@ import android.util.Log
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.ImageView
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -71,7 +72,12 @@ fun MediaPlayerComposeScreen(navController: NavController) {
             )
         }
         SetTimerComponent()
+    }
 
+
+    BackHandler {
+        viewModel.repository.stopPlayerService()
+        navController.popBackStack()
     }
 }
 
@@ -96,4 +102,5 @@ fun KenBurnsEffectFullScreen(modifier: Modifier = Modifier, imageRes: Int) {
             it.setImageResource(imageRes)
         }
     )
+
 }

@@ -26,8 +26,7 @@ import androidx.navigation.findNavController
 import com.gsu.vibe.R
 import com.gsu.vibe.data.Repository
 import com.gsu.vibe.databinding.FragmentSleepBinding
-import com.gsu.vibe.services.YourButton1Receiver
-import com.gsu.vibe.services.YourButton2Receiver
+
 import com.gsu.vibe.setVibro
 
 
@@ -79,19 +78,19 @@ class SleepFragment : Fragment() {
 
 
 // Интенты для обработки нажатия кнопок
-        val button1Intent = Intent(requireContext(), YourButton1Receiver::class.java)
-        val button1PendingIntent = PendingIntent.getBroadcast(requireContext(), 0, button1Intent,
-            PendingIntent.FLAG_IMMUTABLE)
-
-        val button2Intent = Intent(requireContext(), YourButton2Receiver::class.java)
-        val button2PendingIntent = PendingIntent.getBroadcast(requireContext(), 0, button2Intent,
-            PendingIntent.FLAG_IMMUTABLE)
+//        val button1Intent = Intent(requireContext(), YourButton1Receiver::class.java)
+//        val button1PendingIntent = PendingIntent.getBroadcast(requireContext(), 0, button1Intent,
+//            PendingIntent.FLAG_IMMUTABLE)
+//
+//        val button2Intent = Intent(requireContext(), YourButton2Receiver::class.java)
+//        val button2PendingIntent = PendingIntent.getBroadcast(requireContext(), 0, button2Intent,
+//            PendingIntent.FLAG_IMMUTABLE)
 
 // Инфляция и настройка разметки
         val contentView = RemoteViews(activity?.packageName, R.layout.notification_player)
-        contentView.setOnClickPendingIntent(R.id.button1, button1PendingIntent)
-        contentView.setOnClickPendingIntent(R.id.button2, button2PendingIntent)
-        contentView.setOnClickPendingIntent(R.id.imageView75, button2PendingIntent)
+//        contentView.setOnClickPendingIntent(R.id.button1, button1PendingIntent)
+//        contentView.setOnClickPendingIntent(R.id.button2, button2PendingIntent)
+//        contentView.setOnClickPendingIntent(R.id.imageView75, button2PendingIntent)
 
         //val remoteViews = RemoteViews(packageName, R.layout.your_custom_notification_layout)
         contentView.setImageViewResource(R.id.imageView75, R.drawable.binua_betta)

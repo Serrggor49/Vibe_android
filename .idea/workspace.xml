@@ -113,11 +113,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09e7f78b-8ef6-4998-ab62-72d2ee931319" name="Changes" comment="- избранное теперь в правом верхнем углу. Нижняя крайняя права кнопка отвечает за открытие миксера">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeServices/NotificationManager.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/MediaPlayerServiceFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/MediaPlayerServiceFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/MixerPlayerServiceFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/MixerPlayerServiceFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/player/MediaPlayerComposeViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/player/MediaPlayerComposeViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/player/playerComponents/PlayerWindow.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/player/playerComponents/PlayerWindow.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/player/playerComponents/SliderForPlayer.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/player/playerComponents/SliderForPlayer.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/screens/MediaPlayerComposeScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/screens/MediaPlayerComposeScreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeServices/PlayerService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeServices/PlayerService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/data/Repository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/data/Repository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/data/models/SoundModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/data/models/SoundModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/SleepFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/presentation/SleepFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/services/MediaPlayerService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/services/MediaPlayerService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/services/NotificationActionServices.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/services/NotificationActionServices.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +135,7 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[RZ8M82FS3BN]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[DeviceId(pluginId=PhysicalDevice, isTemplate=false, identifier=serial=RZ8M82FS3BN)]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -154,11 +162,11 @@
         <option value="navigationResourceFile" />
         <option value="Kotlin Interface" />
         <option value="Kotlin File" />
-        <option value="Kotlin Object" />
         <option value="Class" />
         <option value="valueResourceFile" />
         <option value="resourceFile" />
         <option value="Kotlin Class" />
+        <option value="Kotlin Object" />
       </list>
     </option>
   </component>
@@ -215,51 +223,57 @@
     <option name="autoscrollFromSource" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;BundleExportedModule&quot;: &quot;Vibe.app&quot;,
-    &quot;ExportBundle.BundlePathForVibe.app&quot;: &quot;/Users/gsu49/Desktop/PRJ/vibe/Vibe_sounds/app/release&quot;,
-    &quot;PROJECT_TRUSTED_KEY&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ScreenRecorder.SavePath&quot;: &quot;/Users/gsu49/Desktop&quot;,
-    &quot;ScreenshotViewer.SavePath&quot;: &quot;/Users/gsu49/Desktop/скрины sdui&quot;,
-    &quot;android-custom-view/Users/gsu49/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.9.0/8ad443d2a33a5bbdf4210e3964cf79cc5021f12a/material-1.9.0-sources.jar!/com/google/android/material/bottomnavigation/BottomNavigationView.java_SELECTED&quot;: &quot;BottomNavigationView&quot;,
-    &quot;android-custom-view/Users/gsu49/Desktop/PRJ/vibe/Vibe__/app/src/main/java/com/gsu/vibe/presentation/SmokeView.kt_SELECTED&quot;: &quot;SmokeView&quot;,
-    &quot;android-custom-view/Users/gsu49/Desktop/PRJ/vibe/Vibe_sounds/app/src/main/java/com/gsu/vibe/presentation/onboards/NewOnboardFourthFragment.kt_SELECTED&quot;: &quot;ShapeView&quot;,
-    &quot;android-custom-view/Users/gsu49/Library/Android/sdk/sources/android-34/android/widget/ImageButton.java_SELECTED&quot;: &quot;ImageButton&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;com.google.services.firebase.aqiPopupShown&quot;: &quot;true&quot;,
-    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/composeView&quot;,
-    &quot;last_directory_selection&quot;: &quot;/Users/gsu49/Desktop/PRJ/vibe/Vibe__/app/src/main/res/drawable&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/gsu49/Desktop/PRJ/vibe/Vibe_sounds&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Dependencies&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;device.mirroring&quot;,
-    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Android App.app.executor": "Run",
+    "BundleExportedModule": "Vibe.app",
+    "ExportBundle.BundlePathForVibe.app": "/Users/gsu49/Desktop/PRJ/vibe/Vibe_sounds/app/release",
+    "PROJECT_TRUSTED_KEY": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ScreenRecorder.SavePath": "/Users/gsu49/Desktop",
+    "ScreenshotViewer.SavePath": "/Users/gsu49/Desktop/скрины sdui",
+    "android-custom-view/Users/gsu49/.gradle/caches/modules-2/files-2.1/com.google.android.material/material/1.9.0/8ad443d2a33a5bbdf4210e3964cf79cc5021f12a/material-1.9.0-sources.jar!/com/google/android/material/bottomnavigation/BottomNavigationView.java_SELECTED": "BottomNavigationView",
+    "android-custom-view/Users/gsu49/Desktop/PRJ/vibe/Vibe__/app/src/main/java/com/gsu/vibe/presentation/SmokeView.kt_SELECTED": "SmokeView",
+    "android-custom-view/Users/gsu49/Desktop/PRJ/vibe/Vibe_sounds/app/src/main/java/com/gsu/vibe/presentation/onboards/NewOnboardFourthFragment.kt_SELECTED": "ShapeView",
+    "android-custom-view/Users/gsu49/Library/Android/sdk/sources/android-34/android/widget/ImageButton.java_SELECTED": "ImageButton",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "com.google.services.firebase.aqiPopupShown": "true",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "feature/composeView",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/gsu49/Desktop/PRJ/vibe/Vibe__/app/src/main/res/drawable",
+    "last_opened_file_path": "/Users/gsu49/Desktop/PRJ/vibe/Vibe_sounds/app/src/main/java/com/gsu/vibe/composeServices",
+    "project.structure.last.edited": "Dependencies",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "device.mirroring",
+    "show.migrate.to.gradle.popup": "false"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;ExportApk.BuildVariants&quot;: [
-      &quot;release&quot;
+  "keyToStringList": {
+    "ExportApk.BuildVariants": [
+      "release"
     ],
-    &quot;android-custom-view/Users/gsu49/Desktop/PRJ/vibe/Vibe_sounds/app/src/main/java/com/gsu/vibe/presentation/onboards/NewOnboardFourthFragment.kt_ShapeView_DIMENSIONS&quot;: [
-      &quot;1080&quot;,
-      &quot;1920&quot;
+    "android-custom-view/Users/gsu49/Desktop/PRJ/vibe/Vibe_sounds/app/src/main/java/com/gsu/vibe/presentation/onboards/NewOnboardFourthFragment.kt_ShapeView_DIMENSIONS": [
+      "1080",
+      "1920"
+    ],
+    "kotlin-gradle-user-dirs": [
+      "/Users/gsu49/.gradle"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeServices" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/player" />
       <recent name="$PROJECT_DIR$/app/src/main/res/drawable" />
       <recent name="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/composeComponents" />
       <recent name="$PROJECT_DIR$/app/src/main/res/menu" />
-      <recent name="$PROJECT_DIR$/app/src/main/res/values" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/java/com/gsu/vibe/composeScreens/screens" />
@@ -301,7 +315,6 @@
       <option name="MODE" value="default_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
       <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
@@ -368,7 +381,6 @@
       <option name="MODE" value="specific_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
@@ -436,7 +448,6 @@
       <option name="MODE" value="specific_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
@@ -504,7 +515,6 @@
       <option name="MODE" value="specific_activity" />
       <option name="CLEAR_LOGCAT" value="false" />
       <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
       <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
       <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />

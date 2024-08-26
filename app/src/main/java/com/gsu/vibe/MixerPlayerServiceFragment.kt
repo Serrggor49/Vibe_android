@@ -21,7 +21,6 @@ import androidx.navigation.fragment.findNavController
 import com.gsu.vibe.data.models.TrackForServiceModel
 import com.gsu.vibe.databinding.FragmentMixerPlayerBinding
 import com.gsu.vibe.presentation.MainViewModel
-import com.gsu.vibe.services.MediaPlayerService
 
 class MixerPlayerServiceFragment : Fragment() {
 
@@ -87,12 +86,12 @@ class MixerPlayerServiceFragment : Fragment() {
                         duration = time.toInt(),
                     )
 
-                    val playIntent =
-                        Intent(requireActivity(), MediaPlayerService::class.java).apply {
-                            action = V_CHANGE_PLAYER_STATE
-                            putExtra(trackForServiceModelKey, mixerSound)
-                        }
-                    requireActivity().startService(playIntent)
+//                    val playIntent =
+//                        Intent(requireActivity(), MediaPlayerService::class.java).apply {
+//                            action = V_CHANGE_PLAYER_STATE
+//                            putExtra(trackForServiceModelKey, mixerSound)
+//                        }
+                  //  requireActivity().startService(playIntent)
                     true
                 }
 
@@ -118,13 +117,13 @@ class MixerPlayerServiceFragment : Fragment() {
                     if (::timer.isInitialized) {
                         timer.cancel()
                     }
-                    val closeServiceIntent =
-                        Intent(requireContext(), MediaPlayerService::class.java).apply {
-                            action = V_ACTION_CLOSE
-                        }
+//                    val closeServiceIntent =
+//                        Intent(requireContext(), MediaPlayerService::class.java).apply {
+//                            action = V_ACTION_CLOSE
+//                        }
                     context?.unregisterReceiver(receiver)
 
-                    requireContext().startService(closeServiceIntent)
+                  //  requireContext().startService(closeServiceIntent)
                     NotificationManagerCompat.from(requireContext()).cancelAll() // спрятать все уведомления
 
                     mainViewModel.visibilityBottomBarLivaData.postValue(true)
@@ -214,11 +213,11 @@ class MixerPlayerServiceFragment : Fragment() {
                     if (::timer.isInitialized) {
                         timer.cancel()
                     }
-                    val closeServiceIntent =
-                        Intent(requireContext(), MediaPlayerService::class.java).apply {
-                            action = V_ACTION_CLOSE
-                        }
-                    requireContext().startService(closeServiceIntent)
+//                    val closeServiceIntent =
+//                        Intent(requireContext(), MediaPlayerService::class.java).apply {
+//                            action = V_ACTION_CLOSE
+//                        }
+            //        requireContext().startService(closeServiceIntent)
                     NotificationManagerCompat.from(requireContext()).cancelAll() // спрятать все уведомления
                     context?.unregisterReceiver(receiver)
 
