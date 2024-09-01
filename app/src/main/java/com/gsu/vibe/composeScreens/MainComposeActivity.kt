@@ -1,7 +1,6 @@
 package com.gsu.vibe.composeScreens
 
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.padding
@@ -11,11 +10,14 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -30,17 +32,15 @@ import com.gsu.vibe.composeScreens.screens.MediaPlayerComposeScreen
 import com.gsu.vibe.composeScreens.screens.MeditationScreen
 import com.gsu.vibe.composeScreens.screens.NatureScreen
 import com.gsu.vibe.composeScreens.screens.SleepScreen
-
+import com.gsu.vibe.composeScreens.screens.findActivity
 
 class MainComposeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContent {
             MainScreen()
         }
-
     }
 
 
@@ -48,6 +48,27 @@ class MainComposeActivity : AppCompatActivity() {
     fun MainScreen() {
         val navController = rememberNavController() // Создает NavHostController
         val showBottomBar = remember { mutableStateOf(true) }
+
+
+        val viewModelStoreOwner = LocalContext.current.findActivity() ?: throw IllegalStateException("Activity not found")
+        val viewModel: MediaPlayerComposeViewModel = viewModel(viewModelStoreOwner)
+
+        val state = viewModel.state.collectAsState()
+
+        LaunchedEffect(state.value.name != " ") {
+            if (state.value.name != " ") {
+                navController.navigate("mediaPlayerComposeScreen") {
+                    navController.graph.startDestinationRoute?.let { route ->
+                        popUpTo(route) {
+                            saveState = true
+                        }
+                    }
+                    launchSingleTop = true // Избегаем повторной загрузки экрана, если он уже загружен
+                    restoreState = true // Восстановление состояния при переходе назад к экрану
+                }
+            }
+        }
+
 
         // Отслеживание текущего маршрута и обновление состояния видимости
         val navBackStackEntry by navController.currentBackStackEntryAsState()
@@ -98,7 +119,7 @@ class MainComposeActivity : AppCompatActivity() {
                         Icon(
                             painter = painterResource(id = screen.icon),
                             contentDescription = null,
-                            tint = if (isSelected) Color(0xFF5568F5) else Color.Gray // Пример цветов
+                            tint = if (isSelected) Color(0xFF5568F5) else Color.Gray
                         )
                     },
 
@@ -120,10 +141,8 @@ class MainComposeActivity : AppCompatActivity() {
                                     saveState = true
                                 }
                             }
-                            launchSingleTop =
-                                true // Избегаем повторной загрузки экрана, если он уже загружен
-                            restoreState =
-                                true // Восстановление состояния при переходе назад к экрану
+                            launchSingleTop = true // Избегаем повторной загрузки экрана
+                            restoreState = true // Восстановление состояния при переходе назад
                         }
                     }
                 )

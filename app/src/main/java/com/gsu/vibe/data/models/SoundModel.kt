@@ -14,7 +14,7 @@ data class SoundModel(
     var soundVolume: Int = 1,
     val isFavorite: Boolean = false,
 //    var volume: Int = 1,
-    var durationInMs: Long = 600000, // продолжительность в мс
+    var durationInMs: Long = 0, // продолжительность в мс
     var currentTrackTime: Int = 0, // текущее время трека
     var isDownloaded: Boolean = false,
     var isPlaying: Boolean = false,

@@ -109,24 +109,15 @@ class PlayerService : Service() {
             }
 
             override fun onFinish() {
-//                player.release()
-//                timer?.cancel()
-//                timer = null
-                //player.pause()
-                //track.value.isPlaying = false
                 pause()
-//                track.value.currentTrackTime.toLong()
                 track.value = track.value.copy(isPlaying = false, currentTrackTime = 0)
-
-                //restartTrack()
-                //onDestroy()
             }
         }.start()
 
         Log.d("MyLogs88", "setCurrentTime() time = ${time}")
     }
 
-    fun updateNotificationPlayer() {
+    private fun updateNotificationPlayer() {
         startForeground(
             notificationId,
             playerNotificationManager.newNotification(
@@ -142,13 +133,12 @@ class PlayerService : Service() {
 
 
     override fun onDestroy() {
-        Log.d("MyLogs89", "onDestroy()")
         player.release()
         timer?.cancel()
         timer = null
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            stopForeground(Service.STOP_FOREGROUND_REMOVE) // Удаляет уведомление и останавливает передний план
+            stopForeground(STOP_FOREGROUND_REMOVE) // Удаляет уведомление и останавливает передний план
         } else {
             stopForeground(true) // Старый метод для обратной совместимости
         }
@@ -156,19 +146,6 @@ class PlayerService : Service() {
         super.onDestroy()
     }
 
-    // после завершение трека завершается сервис, трек становится в нулевое состояние
-    fun restartTrack() {
-
-        track.value = track.value.copy(
-            isPlaying = false, currentTrackTime = 0
-        )
-
-//        track.value.apply {
-//            isPlaying = false
-//            currentTrackTime = 1
-//
-//        }
-    }
 }
 
 

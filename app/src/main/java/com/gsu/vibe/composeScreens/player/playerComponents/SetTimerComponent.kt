@@ -1,5 +1,6 @@
 package com.gsu.vibe.composeScreens.player.playerComponents
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -13,6 +14,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -59,6 +62,20 @@ fun SetTimerComponent() {
     var timeInSeconds = 0
 
     var showDialog by remember { mutableStateOf(true) }
+
+    val state = viewModel.state.collectAsState()
+    //Log.d("MyLogs00", "currentTrackTime1 = ${state.value.currentTrackTime}")
+    Log.d("MyLogs00", "currentTrackTime1 = ${state.value.currentTrackTime}")
+    Log.d("MyLogs00", "durationInMs1 = ${state.value.durationInMs}")
+    LaunchedEffect(state.value.currentTrackTime != 0 && state.value.durationInMs.toInt() != 0) {
+
+        if (state.value.currentTrackTime != 0 && state.value.durationInMs.toInt() != 0){
+            showDialog = false
+        }
+        Log.d("MyLogs00", "LaunchedEffect")
+        Log.d("MyLogs00", "if = ${(state.value.currentTrackTime != 0 && state.value.durationInMs.toInt() != 0)}")
+//        Log.d("MyLogs00", "durationInMs = ${state.value.durationInMs}")
+    }
 
     if (showDialog) {
         Dialog(onDismissRequest = { showDialog = false }) {
@@ -114,7 +131,7 @@ fun SetTimerComponent() {
                             },
                         ) { index ->
                             //viewModel.timeInHour = state.currentIndex
-                            timeInHours = state.currentIndex
+                            timeInHours = this.state.currentIndex
                             Text(
                                 text = index.toString(),
                                 fontFamily = firaSansFamily,
@@ -146,7 +163,7 @@ fun SetTimerComponent() {
                             },
                         ) { index ->
                             //viewModel.timeInMinutes = state.currentIndex
-                            timeInMinutes = state.currentIndex
+                            timeInMinutes = this.state.currentIndex
                             Text(
                                 text = index.toString(),
                                 fontFamily = firaSansFamily,
@@ -178,7 +195,7 @@ fun SetTimerComponent() {
                             },
                         ) { index ->
                             //viewModel.timeInSec = state.currentIndex
-                            timeInSeconds = state.currentIndex
+                            timeInSeconds = this.state.currentIndex
                             Text(
                                 text = index.toString(),
                                 fontFamily = firaSansFamily,

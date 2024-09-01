@@ -28,7 +28,6 @@ object Repository {
 
     lateinit var context: Context
 
-    //private val _state = MutableStateFlow(SoundModel())
     val state: MutableStateFlow<SoundModel> = MutableStateFlow(SoundModel())
     lateinit var intentForStartPlayerService: Intent
 
@@ -96,7 +95,8 @@ object Repository {
             context.unbindService(serviceConnection) // Разрываем соединение с сервисом
             serviceBound = false
         }
-            context.stopService(intentForStartPlayerService)
+
+        if (::intentForStartPlayerService.isInitialized) context.stopService(intentForStartPlayerService)
         //}
     }
 

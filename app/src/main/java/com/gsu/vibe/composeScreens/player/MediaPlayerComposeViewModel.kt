@@ -18,7 +18,6 @@ class MediaPlayerComposeViewModel(application: Application) : AndroidViewModel(a
 
     var isUserInteracting by mutableStateOf(false)
 
-
     val repository: Repository = Repository
     val state: StateFlow<SoundModel> = repository.state
     init {
