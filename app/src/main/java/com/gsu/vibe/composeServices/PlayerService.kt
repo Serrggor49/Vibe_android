@@ -24,20 +24,20 @@ const val mediaPath = "/data/data/com.gsu.vibe/files/"
 
 class PlayerService : Service() {
 
-    private val notificationId = 101
-
-    lateinit var player: MediaPlayer
-    var track = MutableStateFlow(SoundModel())
+    private val playerNotificationManager = PlayerNotificationManager()
     private val binder = PlayerBinder()
+    private val notificationId = 101
+    private var trackTime = 1000 // продолжительность трека (индивидуальное для каждого файла)
+    var duration = 10000L // время выставленное пользователем
+    lateinit var player: MediaPlayer
+
+    var track = MutableStateFlow(SoundModel())
     var currentVolume = 1.0f
 
-    var trackTime = 1000 // фактическое время трека
-    var duration = 10000L // время выставленное пользователем
     var timer: CountDownTimer? = null
 
     override fun onBind(intent: Intent): IBinder = binder
 
-    val playerNotificationManager = PlayerNotificationManager()
 
     inner class PlayerBinder : Binder() {
         fun getService() = this@PlayerService
@@ -86,11 +86,10 @@ class PlayerService : Service() {
 
     }
 
-
     fun setCurrentTime(time: Long) {
+
         timer?.cancel()
         timer = null
-
         var currentTimeInTimer = time
         val seekTime = ((duration - (duration - time)) % (player.duration)).toInt()
         player.seekTo(seekTime)
@@ -101,6 +100,10 @@ class PlayerService : Service() {
                 if (millisUntilFinished < 15000) {
                     currentVolume -= 0.065f
                     if (currentVolume < 0) currentVolume = 0f
+                    player.setVolume(currentVolume, currentVolume)
+                }
+                else{
+                    currentVolume = 1f
                     player.setVolume(currentVolume, currentVolume)
                 }
                 CoroutineScope(Dispatchers.Main).launch {

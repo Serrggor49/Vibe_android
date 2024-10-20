@@ -1,6 +1,5 @@
 package com.gsu.vibe.composeScreens.player.playerComponents
 
-import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -40,16 +39,16 @@ import com.sd.lib.compose.wheel_picker.FVerticalWheelPicker
 import com.sd.lib.compose.wheel_picker.FWheelPickerFocusVertical
 import com.sd.lib.compose.wheel_picker.rememberFWheelPickerState
 
-val colorDivider = Color(0x26FFFFFF)
-val wheelPickerWidth = 72.dp  // for each component
-val backColor = listOf(
+private val colorDivider = Color(0x26FFFFFF)
+private val wheelPickerWidth = 72.dp  // for each component
+private val backColor = listOf(
     Color(0xFF2A3572),
     Color(0xFF0B1130),
     Color(0xFF0B1130),
     Color(0xFF0B1130),
     Color(0xFF2A3572)
 )
-val headerText = "Выбрать\n продолжительность"
+private val headerText = "Выбрать\n продолжительность"
 
 @Composable
 @Preview
@@ -61,25 +60,13 @@ fun SetTimerComponent() {
     var timeInMinutes = 10
     var timeInSeconds = 0
 
-    var showDialog by remember { mutableStateOf(true) }
-
     val state = viewModel.state.collectAsState()
-    //Log.d("MyLogs00", "currentTrackTime1 = ${state.value.currentTrackTime}")
-    Log.d("MyLogs00", "currentTrackTime1 = ${state.value.currentTrackTime}")
-    Log.d("MyLogs00", "durationInMs1 = ${state.value.durationInMs}")
-    LaunchedEffect(state.value.currentTrackTime != 0 && state.value.durationInMs.toInt() != 0) {
-
-        if (state.value.currentTrackTime != 0 && state.value.durationInMs.toInt() != 0){
-            showDialog = false
-        }
-        Log.d("MyLogs00", "LaunchedEffect")
-        Log.d("MyLogs00", "if = ${(state.value.currentTrackTime != 0 && state.value.durationInMs.toInt() != 0)}")
-//        Log.d("MyLogs00", "durationInMs = ${state.value.durationInMs}")
+    var showDialog by remember {
+        mutableStateOf(state.value.currentTrackTime == 0 && state.value.durationInMs.toInt() == 0) // нужно для скрытия таймера если плеер уже работает
     }
 
     if (showDialog) {
         Dialog(onDismissRequest = { showDialog = false }) {
-
             Box(
                 modifier = Modifier
                     .clip(RoundedCornerShape(16.dp))
@@ -130,7 +117,6 @@ fun SetTimerComponent() {
                                 )
                             },
                         ) { index ->
-                            //viewModel.timeInHour = state.currentIndex
                             timeInHours = this.state.currentIndex
                             Text(
                                 text = index.toString(),
@@ -162,7 +148,6 @@ fun SetTimerComponent() {
 
                             },
                         ) { index ->
-                            //viewModel.timeInMinutes = state.currentIndex
                             timeInMinutes = this.state.currentIndex
                             Text(
                                 text = index.toString(),
@@ -194,7 +179,6 @@ fun SetTimerComponent() {
 
                             },
                         ) { index ->
-                            //viewModel.timeInSec = state.currentIndex
                             timeInSeconds = this.state.currentIndex
                             Text(
                                 text = index.toString(),
@@ -224,7 +208,11 @@ fun SetTimerComponent() {
                             )
                             .clickable(onClick = {
                                 showDialog = false
-                                viewModel.setDurationTime(timeInHours = timeInHours, timeInMinutes = timeInMinutes, timeInSeconds = timeInSeconds)
+                                viewModel.setDurationTime(
+                                    timeInHours = timeInHours,
+                                    timeInMinutes = timeInMinutes,
+                                    timeInSeconds = timeInSeconds
+                                )
                             })
                     ) {
                         Text(
@@ -254,7 +242,6 @@ fun SetTimerComponent() {
                             fontSize = 20.sp
                         )
                     }
-
                     Spacer(modifier = Modifier.height(30.dp))
                 }
 
@@ -262,7 +249,5 @@ fun SetTimerComponent() {
         }
     }
 }
-
-// https://androidexample365.com/compose-wheel-picker-with-kotlin/ // либа для wheelPick
 
 

@@ -175,14 +175,10 @@ fun PlayerWindow() {
                         text = getFormtTime(state.value.durationInMs.toInt()),
                     )
                 }
-
             }
-
         }
     }
-
 }
-
 
 @Composable
 fun SliderForPlayer() {
